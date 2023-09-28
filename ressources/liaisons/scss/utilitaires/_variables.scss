@@ -1,0 +1,32 @@
+/**
+* @author Prenom Nom courriel
+* @todo Importer la fonte Futura
+* @todo Personnaliser les variables selon les spécifications du guide visuel
+*       Certaines variables devront être définies par une fonction de coloration
+* @todo Compléter selon l'énoncé de l'exercice
+* @todo Utiliser le sélecteur & pour les sélecteurs des différentes couleurs
+*/
+
+/** Polices de caractères **/
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap');
+
+
+$fontePrimaire : Raleway, sans-serif;
+$fonteSecondaire : Poppins, sans-serif;
+
+/** Palette de couleurs **/
+// Utiliser http://chir.ag/projects/name-that-color pour obtenir des noms uniques et mémorisables
+// Permettez-vous d'utiliser un nom de variable plus explicite si la suggestion de name-that-color est trop étrange
+
+/* Couleurs de base */
+$blanc: #fff;
+$vertPale: #AFBC21;
+$vertFonce: #8C952D;
+$orange: #D5A00E;
+$orangeBrun: #B2891A;
+$brun: #5D4A15;
+
+
+/** Points de rupture **/
+$desktop : 601px;

@@ -1,0 +1,17 @@
+{
+  "name": "lapasteque",
+  "version": "1.0.0",
+  "description": "CréaCode - Projet RPNI3 - La Pastèque",
+  "main": "index.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Marianne Anctil, Giselle Hessen, Anaïs Mannée-Batschy",
+  "license": "ISC",
+  "devDependencies": {
+    "normalize.scss": "^0.1.0"
+  },
+  "scripts": {
+    "sass": "sass --watch ressources/liaisons/scss:public/liaisons/css"
+  }
+}

@@ -1,0 +1,26 @@
+/**
+* @author Prenom Nom courriel
+* @todo Compléter selon l'énoncé de l'exercice
+*/
+
+.hyperlien {
+  color: black;
+  text-decoration: underline;
+  &:visited {
+    color: black;
+    text-decoration: underline;
+  }
+  &:hover {
+    color: $brun;
+    text-decoration: underline;
+  }
+  &:focus{
+    border: $brun solid 4px;
+    text-decoration: none;
+  }
+  &:active {
+    font-weight: bolder;
+    border: none;
+    text-decoration: underline;
+  }
+}

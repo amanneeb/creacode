@@ -1,0 +1,76 @@
+/**
+* @author Prenom Nom courriel
+* @todo Préciser l’interlignage sur le body pour l’écran large
+* @todo Utiliser le mixin fontSize pour définir les tailles de polices
+* @todo Utiliser une variable pour la media query de la règle body
+*/
+
+/**** Typographie responsive ****/
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 16px; /* 16px pour toutes les largeurs d'écran */
+  font-size: 1.6rem;
+  line-height: 1.375; /* facteur multiplicateur de la taille de la police 1.375x16=22 */
+  @media (min-width: 601px) {
+  }
+}
+
+h1,
+.titreNiveau1{color: red}
+h2,
+.titreNiveau2,
+h3,
+.titreNiveau3 {
+  font-family: $fontePrimaire;
+  font-weight: 500;
+}
+
+h1,
+.titreNiveau1 {
+  @include fontSize(28px);
+  margin: 0;
+  &--desktop {
+    font-size: 4.8rem;
+    padding-bottom: 15px;
+    position: relative;
+    &:after {
+      content: "";
+      display: inline-block;
+      width: 150px;
+      height: 8px;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+    }
+  }
+}
+
+h2,
+.titreNiveau2{
+  font-size: 2rem;
+  text-transform: uppercase;
+  &--desktop {
+    font-size: 2.8rem;
+  }
+}
+
+h3,
+.titreNiveau3 {
+  font-size: 1.8rem;
+  &--desktop {
+    font-size: 2.2rem;
+  }
+}
+
+.texte {
+  font-family: $fonteSecondaire;
+  font-size: 1.6rem;
+  line-height: 1.375;
+  &--desktop {
+    line-height: 1.5;
+  }
+}
