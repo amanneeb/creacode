@@ -1,0 +1,18 @@
+#Fichiers cachés crées par Mac OS
+.DS_Store
+Icon?
+~*
+
+#Dossier caché crée par PHPStorm
+.idea/
+#Dossier caché de fichiers temporaires crées pas sass
+.sass-cache/
+
+#Dossiers de dépendances
+#C'est lourd! Vraiment important de ne pas archiver sur aucun serveur
+#On archive uniquement le fichier de config bower.json ou package.json
+node_modules/
+#bower_components/
+
+#Dossier de compilation des css
+public/liaisons/css/
