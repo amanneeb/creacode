@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Librairie en ligne</title>
+</head>
+
+<body>
+<header class="entete">
+    <!-- Barre de recherche -->
+    <input class="entete__recherche" type="text" placeholder="Rechercher des livres">
+</header>
+
+<section class="liste-livres">
+    <h2 class="liste-livres__titre">Trier par :</h2>
+    <!-- Liste déroulante pour trier -->
+    <select class="liste-livres__tri">
+        <option value="nouveautes" class="liste-livres__tri-option">Nouveautés</option>
+        <option value="coupdecoeur" class="liste-livres__tri-option">Coup de cœur</option>
+        <option value="prixcroissant" class="liste-livres__tri-option">Prix croissant</option>
+        <option value="prixdecroissant" class="liste-livres__tri-option">Prix décroissant</option>
+    </select>
+
+    <h2 class="liste-livres__titre">Filtrer par genre :</h2>
+    <!-- Liste de filtrage par genre -->
+    <select class="liste-livres__tri">
+        <option value="bandesdessinees" class="liste-livres__tri-option">Bandes dessinées</option>
+        <option value="bdjeunesse" class="liste-livres__tri-option">BD jeunesse</option>
+        <option value="livresillustrés" class="liste-livres__tri-option">Livres illustrés</option>
+        <option value="albumsjeunesse" class="liste-livres__tri-option">Albums jeunesse</option>
+        <option value="documentaires" class="liste-livres__tri-option">Documentaires</option>
+        <option value="divers" class="liste-livres__tri-option">Divers</option>
+    </select>
+</section>
+
+<section class="liste-livres">
+    <!-- Liste de livres -->
+    <ul class="liste-livres__items">
+        <li class="livre">
+            <img src="livre1.jpg" alt="Livre 1" class="livre__image">
+            <h3 class="livre__titre">Nom du Livre 1</h3>
+            <p class="livre__auteur">Auteur du Livre 1</p>
+            <p class="livre__prix">Prix : $19.99</p>
+        </li>
+        <li class="livre">
+            <img src="livre2.jpg" alt="Livre 2" class="livre__image">
+            <h3 class="livre__titre">Nom du Livre 2</h3>
+            <p class="livre__auteur">Auteur du Livre 2</p>
+            <p class="livre__prix">Prix : $24.99</p>
+        </li>
+        <!-- Ajoutez les autres livres de la même manière -->
+    </ul>
+</section>
+
+<footer class="pied-page">
+    <!-- Pagination -->
+    <ul class="pagination pied-page__pagination">
+        <li class="pagination__item"><a href="#" class="pagination__lien">Page précédente</a></li>
+        <li class="pagination__item"><a href="#" class="pagination__lien">1</a></li>
+        <li class="pagination__item"><a href="#" class="pagination__lien">2</a></li>
+        <li class="pagination__item"><a href="#" class="pagination__lien">3</a></li>
+        <li class="pagination__item"><a href="#" class="pagination__lien">Page suivante</a></li>
+    </ul>
+</footer>
+</body>
+
+</html>
