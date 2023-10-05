@@ -1,0 +1,23 @@
+<!DOCTTYPE html>
+<html lang="en">
+<head>
+ <meta charset="utf-8">
+</head>
+<body>
+<header >
+ <?php echo $this->runChild('fragments.entete'); ?>
+</header>
+
+<main>
+ <?php echo $this->yieldContent('contenu'); ?>
+</main>
+
+<footer>
+ <?php echo $this->runChild('fragments.pieddepage'); ?>
+</footer>
+</body>
+</html>
+
+
+
+

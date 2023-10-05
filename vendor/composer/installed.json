@@ -2,33 +2,34 @@
     "packages": [
         {
             "name": "eftec/bladeone",
-            "version": "4.1",
-            "version_normalized": "4.1.0.0",
+            "version": "4.9",
+            "version_normalized": "4.9.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EFTEC/BladeOne.git",
-                "reference": "d3e1efa1c6f776aa87fe47164d77e7ea67fc196f"
+                "reference": "019036c226086fbe7591360d260067c5d82400ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EFTEC/BladeOne/zipball/d3e1efa1c6f776aa87fe47164d77e7ea67fc196f",
-                "reference": "d3e1efa1c6f776aa87fe47164d77e7ea67fc196f",
+                "url": "https://api.github.com/repos/EFTEC/BladeOne/zipball/019036c226086fbe7591360d260067c5d82400ca",
+                "reference": "019036c226086fbe7591360d260067c5d82400ca",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "php": ">=7.1.3"
+                "php": ">=7.2.5"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "^3.1",
-                "phpunit/phpunit": "^5.7",
-                "squizlabs/php_codesniffer": "^3.6.0"
+                "phpunit/phpunit": "^8.5.23"
             },
             "suggest": {
                 "eftec/bladeonehtml": "Extension to create forms",
                 "ext-mbstring": "This extension is used if it's active"
             },
-            "time": "2021-09-29T15:23:25+00:00",
+            "time": "2023-05-01T12:48:42+00:00",
+            "bin": [
+                "lib/bladeonecli"
+            ],
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -57,7 +58,7 @@
             ],
             "support": {
                 "issues": "https://github.com/EFTEC/BladeOne/issues",
-                "source": "https://github.com/EFTEC/BladeOne/tree/4.1"
+                "source": "https://github.com/EFTEC/BladeOne/tree/4.9"
             },
             "install-path": "../eftec/bladeone"
         }

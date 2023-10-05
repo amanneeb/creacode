@@ -4,12 +4,16 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit9025f296d2a605d0b683e42e0f9b6438
+class ComposerStaticInit70a28502a6b901c0757c1ededbc35fbb
 {
     public static $prefixLengthsPsr4 = array (
         'e' => 
         array (
             'eftec\\bladeone\\' => 15,
+        ),
+        'A' => 
+        array (
+            'App\\' => 4,
         ),
     );
 
@@ -17,6 +21,10 @@ class ComposerStaticInit9025f296d2a605d0b683e42e0f9b6438
         'eftec\\bladeone\\' => 
         array (
             0 => __DIR__ . '/..' . '/eftec/bladeone/lib',
+        ),
+        'App\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/App',
         ),
     );
 
@@ -27,9 +35,9 @@ class ComposerStaticInit9025f296d2a605d0b683e42e0f9b6438
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit9025f296d2a605d0b683e42e0f9b6438::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit9025f296d2a605d0b683e42e0f9b6438::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit9025f296d2a605d0b683e42e0f9b6438::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit70a28502a6b901c0757c1ededbc35fbb::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit70a28502a6b901c0757c1ededbc35fbb::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit70a28502a6b901c0757c1ededbc35fbb::$classMap;
 
         }, null, ClassLoader::class);
     }
