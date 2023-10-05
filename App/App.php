@@ -2,6 +2,9 @@
 declare(strict_types=1);
 
 namespace App;
+
+use App\Controleurs\ControleurSite;
+use \PDO\PDOStatement;
 use PDO;
 use eftec\bladeone\BladeOne;
 
@@ -38,8 +41,8 @@ class App
 
     public static function getBlade():BladeOne{
         if(App::$refBlade === null){
-            $cheminDossierVues = '../../ressources/vues';
-            $cheminDossierCache = '../../ressources/cache';
+            $cheminDossierVues = '../ressources/vues';
+            $cheminDossierCache = '../ressources/cache';
             App::$refBlade = new BladeOne($cheminDossierVues,$cheminDossierCache,BladeOne::MODE_AUTO);
         }
         return App::$refBlade;
