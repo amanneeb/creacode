@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace App;
 
+use App\Controleurs\ControleurLivres;
 use App\Controleurs\ControleurSite;
 use \PDO\PDOStatement;
 use PDO;
@@ -22,7 +23,7 @@ class App
 
     public static function getPDO(): PDO
     {
-        if(App::$refPdo === null) {
+        if (App::$refPdo === null) {
             $serveur = 'localhost';
             $utilisateur = 'root';
             $motDePasse = 'root';
@@ -39,11 +40,12 @@ class App
     }
 
 
-    public static function getBlade():BladeOne{
-        if(App::$refBlade === null){
+    public static function getBlade(): BladeOne
+    {
+        if (App::$refBlade === null) {
             $cheminDossierVues = '../ressources/vues';
             $cheminDossierCache = '../ressources/cache';
-            App::$refBlade = new BladeOne($cheminDossierVues,$cheminDossierCache,BladeOne::MODE_AUTO);
+            App::$refBlade = new BladeOne($cheminDossierVues, $cheminDossierCache, BladeOne::MODE_AUTO);
         }
         return App::$refBlade;
 
@@ -73,14 +75,19 @@ class App
                 case 'accueil':
                     $objControleur->accueil();
                     break;
-                case 'apropos':
-                    $objControleur->apropos();
-                    break;
                 default:
                     echo 'Erreur 404 - Page introuvable.';
             }
 
+        } else if ($nomControleur === 'livre') {
+            $objControleur = new ControleurLivres();
+            switch ($nomAction) {
+                case 'index':
+                    $objControleur->index();
+                    break;
+                default:
+                    echo 'Erreur 404 - Page introuvable.';
+            }
+        }
     }
-
-
-}}
+}
