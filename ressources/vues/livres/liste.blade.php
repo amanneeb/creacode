@@ -15,14 +15,14 @@
 
         <h2 class="liste-livres__titre">Filtrer par genre :</h2>
         <!-- Liste de filtrage par genre -->
-        <select class="liste-livres__tri">
-            <option value="bandesdessinees" class="liste-livres__tri-option">Bandes dessinées</option>
-            <option value="bdjeunesse" class="liste-livres__tri-option">BD jeunesse</option>
-            <option value="livresillustrés" class="liste-livres__tri-option">Livres illustrés</option>
-            <option value="albumsjeunesse" class="liste-livres__tri-option">Albums jeunesse</option>
-            <option value="documentaires" class="liste-livres__tri-option">Documentaires</option>
-            <option value="divers" class="liste-livres__tri-option">Divers</option>
-        </select>
+        <ul class="liste-livres__tri">
+            <li class="liste-livres__tri-option" ><a href="index.php?controleur=livre&action=index&idCategorie=1">Bandes dessinées</a></li>
+            <li class="liste-livres__tri-option" ><a href="index.php?controleur=livre&action=index&idCategorie=2">BD jeunesse</a></li>
+            <li class="liste-livres__tri-option" ><a href="index.php?controleur=livre&action=index&idCategorie=3">Livres illustrés</a></li>
+            <li class="liste-livres__tri-option" ><a href="index.php?controleur=livre&action=index&idCategorie=4">Albums jeunesse</a></li>
+            <li class="liste-livres__tri-option" ><a href="index.php?controleur=livre&action=index&idCategorie=5">Documentaires</a></li>
+            <li class="liste-livres__tri-option" ><a href="index.php?controleur=livre&action=index&idCategorie=6">Divers</a></li>
+        </ul>
     </section>
 
     <h1>Page Liste des livres</h1>
@@ -45,3 +45,4 @@
     <p>Nombre total de livres : {{ $nbTotalLivres }}</p>
     @include('fragments.pagination')
 @endsection
+

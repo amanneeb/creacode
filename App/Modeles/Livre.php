@@ -151,16 +151,21 @@ class Livre
         return $nbTotalLivres->nbTotal;
     }
 
-    public static function paginer(int $unNoDePage, int $unNbrParPage): array{
+    public static function paginer(int $unNoDePage, int $unNbrParPage, int $categorieRecherchee): array{
 
         $index = 10 * ($unNoDePage);
 
         // Définir la chaine SQL
+        if ($categorieRecherchee==0){
         $chaineSQL = 'SELECT * FROM livres LIMIT :index,' . $unNbrParPage;
+        }else{
+            $chaineSQL = 'SELECT * FROM livres WHERE categorie_id=:idCategorie LIMIT :index,' . $unNbrParPage;
+        }
         // Préparer la requête (optimisation)
         $requetePreparee = App::getPDO()->prepare($chaineSQL);
         // BindParam
         $requetePreparee->bindParam(':index', $index, PDO::PARAM_INT);
+        $requetePreparee->bindParam(':idCategorie', $categorieRecherchee, PDO::PARAM_INT);
         // Exécuter la requête
         $requetePreparee->execute();
         // Récupérer le résultat sous forme de tableau
@@ -181,5 +186,16 @@ class Livre
         // Récupérer le résultat
         return $requetePreparee->fetch();
     }
-
+//    public static function filtrerParCategorie(int $unIdCategorie): array{
+//        // Définir la chaine SQL
+//        $chaineSQL = 'SELECT * FROM livres WHERE $categorie_id=:idCategorie';
+//        // Préparer la requête (optimisation)
+//        $requetePreparee = App::getPDO()->prepare($chaineSQL);
+//        // BindParam
+//        $requetePreparee->bindParam(':idCategorie', $unIdCategorie, PDO::PARAM_INT);
+//        // Exécuter la requête
+//        $requetePreparee->execute();
+//        // Récupérer le résultat
+//        return $requetePreparee->fetchAll(PDO::FETCH_CLASS, 'App\Modeles\Livre');
+//    }
 }
