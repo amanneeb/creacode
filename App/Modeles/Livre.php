@@ -151,12 +151,12 @@ class Livre
         return $nbTotalLivres->nbTotal;
     }
 
-    public static function paginer(int $unNoDePage, int $unNbrParPage, int $categorieRecherchee): array{
+    public static function paginer(int $unNoDePage, int $unNbrParPage, int $idCategorieRecherchee): array{
 
         $index = 10 * ($unNoDePage);
 
         // Définir la chaine SQL
-        if ($categorieRecherchee==0){
+        if ($idCategorieRecherchee==0){
         $chaineSQL = 'SELECT * FROM livres LIMIT :index,' . $unNbrParPage;
         }else{
             $chaineSQL = 'SELECT * FROM livres WHERE categorie_id=:idCategorie LIMIT :index,' . $unNbrParPage;
@@ -165,7 +165,7 @@ class Livre
         $requetePreparee = App::getPDO()->prepare($chaineSQL);
         // BindParam
         $requetePreparee->bindParam(':index', $index, PDO::PARAM_INT);
-        $requetePreparee->bindParam(':idCategorie', $categorieRecherchee, PDO::PARAM_INT);
+        $requetePreparee->bindParam(':idCategorie', $idCategorieRecherchee, PDO::PARAM_INT);
         // Exécuter la requête
         $requetePreparee->execute();
         // Récupérer le résultat sous forme de tableau
@@ -178,7 +178,7 @@ class Livre
         // Préparer la requête (optimisation)
         $requetePreparee = App::getPDO()->prepare($chaineSQL);
         // BindParam
-        $requetePreparee->bindParam(':idLivre', $unIdParticipant, PDO::PARAM_INT);
+        $requetePreparee->bindParam(':idLivre', $unIdLivre, PDO::PARAM_INT);
         // Définir le mode de récupération
         $requetePreparee->setFetchMode(PDO::FETCH_CLASS, 'App\Modeles\Livre');
         // Exécuter la requête
@@ -186,16 +186,4 @@ class Livre
         // Récupérer le résultat
         return $requetePreparee->fetch();
     }
-//    public static function filtrerParCategorie(int $unIdCategorie): array{
-//        // Définir la chaine SQL
-//        $chaineSQL = 'SELECT * FROM livres WHERE $categorie_id=:idCategorie';
-//        // Préparer la requête (optimisation)
-//        $requetePreparee = App::getPDO()->prepare($chaineSQL);
-//        // BindParam
-//        $requetePreparee->bindParam(':idCategorie', $unIdCategorie, PDO::PARAM_INT);
-//        // Exécuter la requête
-//        $requetePreparee->execute();
-//        // Récupérer le résultat
-//        return $requetePreparee->fetchAll(PDO::FETCH_CLASS, 'App\Modeles\Livre');
-//    }
 }
