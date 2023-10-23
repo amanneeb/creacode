@@ -33,7 +33,11 @@
                 <a href="index.php?controleur=livre&action=fiche&idLivre={{ $livre->getId() }}">
                     <h3 class="livre__titre">{{ $livre->getTitre() }}</h3>
                 </a>
-                <p class="livre__auteur">Nom auteur</p>
+                <ul>
+                    @foreach($livre->getAuteurAssocie() as $auteur)
+                        <li>{{ $auteur->getPrenomNom() }}</li>
+                    @endforeach
+                </ul>
                 <p class="livre__prix">{{ $livre->getPrix_can() }}</p>
             </li>
         @endforeach
