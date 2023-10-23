@@ -1,17 +1,19 @@
 @extends('gabarit')
 @section('contenu')
-    @include('entete')
-        <h1>{{$titre}}</h1>
+
+        <h1 class="titreLivre">{{$livres->getTitre()}}</h1>
 
     <section class="infoPrincipal">
         <img class="infoPrincipal__img" src="./liaisons/images/operatique_couv.jpg" alt="couverture Operatique" width="400px">
         <div class="LivrePanier">
             <p class="LivrePanier__theme"></p>
-            <h2 class="LivrePanier__titre"></h2>
+            <!--<h2 class="LivrePanier__titre"></h2>-->
             <h3 class="LivrePanier__auteur"></h3>
-            <p class="LivrePanier__audio">Audio:<span class="LivrePanier__audioSpan"></span></p>
-            <p class="LivrePanier__epub">E-pub: <span class="LivrePanier__epubSpan"></span></p>
-            <p class="LivrePanier__pdf">PDF: <span class="LivrePanier__pdfSpan"></span></p>
+            <p class="LivrePanier__audio">ISBN: <span class="LivrePanier__isbnSpan">{{$livres->getIsbn_papier()}}</span></p>
+            <p class="LivrePanier__audio">Audio:<span class="LivrePanier__audioSpan">{{$livres->getUrl_audio()}}</span></p>
+            <p class="LivrePanier__epub">E-pub: <span class="LivrePanier__epubSpan">{{$livres->getIsbn_epub()}}</span></p>
+            <p class="LivrePanier__pdf">PDF: <span class="LivrePanier__pdfSpan">{{$livres->getIsbn_pdf()}}</span></p>
+            <p class="LivrePanier__prix">{{$livres->getPrix_can()}}</p>
         </div>
         <div class="AjoutPanier">
             <input class="AjoutPanier__moins" type="button" name="nbLivres" id="plus" value="-">
@@ -43,6 +45,4 @@
             </li>
         </ul>
     </section>
-
-    @include('pieddepage')
 @endsection

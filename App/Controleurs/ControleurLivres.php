@@ -40,4 +40,17 @@ class ControleurLivres
 
         echo App::getBlade()->run("livres.liste", $tDonnees);
     }
+
+    public function fiche(){
+        $idLivre = (int) $_GET["idLivre"];
+        var_dump($idLivre);
+
+        $livres = Livre::trouverParId($idLivre);
+        var_dump($livres);
+
+        $tDonnees = array('livres' => $livres);
+
+        echo App::getBlade()->run("livres.fiche", $tDonnees);
+
+    }
 }
