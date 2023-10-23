@@ -10,7 +10,7 @@ use App\App;
 
 class Auteur
 {
-    private $id = 0;
+    private int  $id = 0;
     private string $nom = '';
     private string $prenom = '';
     private string $notice = '';
@@ -50,23 +50,23 @@ class Auteur
     {
         return $this->site_web;
     }
+    public function getLivresAuteursAssocies():array{
+        return LivreAuteur::trouverParAuteur($this->id);
+    }
 
-    public static function trouverParLivre(int $unIdLivre):Auteur{
+    public static function trouverParId(int $unIdAuteur): Auteur{
         // Définir la chaine SQL
-        $chaineSQL = 'SELECT auteurs.nom, auteurs.prenom FROM auteurs
-         INNER JOIN livres_auteurs 
-         ON livres_auteurs.auteur_id = auteurs.id WHERE livres_auteurs.livre_id=:idLivre';
+        $chaineSQL = 'SELECT * FROM auteurs WHERE id=:idAuteur';
         // Préparer la requête (optimisation)
         $requetePreparee = App::getPDO()->prepare($chaineSQL);
         // BindParam
-        $requetePreparee->bindParam(':idLivre', $unIdLivre,PDO::PARAM_INT );
+        $requetePreparee->bindParam(':idAuteur', $unIdAuteur, PDO::PARAM_INT);
         // Définir le mode de récupération
         $requetePreparee->setFetchMode(PDO::FETCH_CLASS, 'App\Modeles\Auteur');
         // Exécuter la requête
         $requetePreparee->execute();
         // Récupérer le résultat
-        $auteur = $requetePreparee->fetch();
-        return $auteur;
+        return $requetePreparee->fetch();
     }
 
 }

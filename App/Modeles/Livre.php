@@ -132,15 +132,12 @@ class Livre
     {
         return $this->type_couverture_id;
     }
-    public function getAuteurAssocie():Auteur{
-        return Auteur::trouverParLivre($this->id);
+    public function getLivresAuteursAssocies():array{
+        return LivreAuteur::trouverParLivre($this->id);
     }
-//    public function getVilleAssociee($pdo):Ville{
-//        return Ville::trouverParId($this->ville_id, $pdo);
-//    }
 
-    public static function compterNbLivres(): int
-    {
+
+    public static function compterNbLivres(): int{
         // Définir la chaine SQL
         $chaineSQL = 'SELECT COUNT(*) as nbTotal FROM livres';
         // Préparer la requête (optimisation)
@@ -168,6 +165,21 @@ class Livre
         $requetePreparee->execute();
         // Récupérer le résultat sous forme de tableau
         return $requetePreparee->fetchAll(PDO::FETCH_CLASS, 'App\Modeles\Livre');
+    }
+
+    public static function trouverParId(int $unIdLivre): Livre{
+        // Définir la chaine SQL
+        $chaineSQL = 'SELECT * FROM livres WHERE id=:idLivre';
+        // Préparer la requête (optimisation)
+        $requetePreparee = App::getPDO()->prepare($chaineSQL);
+        // BindParam
+        $requetePreparee->bindParam(':idLivre', $unIdParticipant, PDO::PARAM_INT);
+        // Définir le mode de récupération
+        $requetePreparee->setFetchMode(PDO::FETCH_CLASS, 'App\Modeles\Livre');
+        // Exécuter la requête
+        $requetePreparee->execute();
+        // Récupérer le résultat
+        return $requetePreparee->fetch();
     }
 
 }

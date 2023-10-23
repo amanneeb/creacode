@@ -28,14 +28,14 @@
     <h1>Page Liste des livres</h1>
     <ul class="liste-livres__items">
         @foreach ($livres as $livre)
-            <img src="livre{{ $livre->getId() }}.jpg" alt="{{ $livre->getTitre() }}" class="livre__image">
             <li class="livre">
                 <a href="index.php?controleur=livre&action=fiche&idLivre={{ $livre->getId() }}">
+                    <img src="livre{{ $livre->getId() }}.jpg" alt="{{ $livre->getTitre() }}" class="livre__image">
                     <h3 class="livre__titre">{{ $livre->getTitre() }}</h3>
                 </a>
                 <ul>
-                    @foreach($livre->getAuteurAssocie() as $auteur)
-                        <li>{{ $auteur->getPrenomNom() }}</li>
+                    @foreach($livre->getLivresAuteursAssocies() as $livreAuteur)
+                        <li>{{ $livreAuteur->getAuteurAssocie()->getPrenomNom() }}</li>
                     @endforeach
                 </ul>
                 <p class="livre__prix">{{ $livre->getPrix_can() }}</p>
