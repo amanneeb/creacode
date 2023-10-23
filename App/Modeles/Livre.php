@@ -11,9 +11,9 @@ use App\App;
 class Livre
 {
     private $id = 0 ;
-    private int $isbn_papier = 0;
-    private int $isbn_pdf = 0;
-    private int $isbn_epub = 0;
+    private string $isbn_papier = '';
+    private string $isbn_pdf = '';
+    private string $isbn_epub = '';
     private string $url_audio = '';
     private string $titre = '';
     private string $le_livre = '';
@@ -40,15 +40,15 @@ class Livre
         return $this->id;
     }
 
-    public function getIsbn_papier():int{
+    public function getIsbn_papier():string{
         return $this->isbn_papier;
     }
 
-    public function getIsbn_pdf():int{
+    public function getIsbn_pdf():string{
         return $this->isbn_pdf;
     }
 
-    public function getIsbn_epub():int{
+    public function getIsbn_epub():string{
         return $this->isbn_epub;
     }
     public function getUrl_audio():string{
@@ -139,6 +139,18 @@ class Livre
       $livresQuiApparaissent = $requetePreparee->fetchAll(PDO::FETCH_CLASS, 'App\Modeles\Livre');
 //      var_dump($livresQuiApparaissent);
    return $livresQuiApparaissent;
+    }
+
+    public static function trouverParId(int $idLivre):Livre{
+        $chaineSQL = "SELECT * FROM livres WHERE id=:idLivre";
+
+        $requetePreparee = App::getPDO()->prepare($chaineSQL);
+        $requetePreparee->bindParam(":idLivre", $idLivre, PDO::PARAM_INT);
+        $requetePreparee->setFetchMode(PDO::FETCH_CLASS, "App\Modeles\Livre");
+        $requetePreparee->execute();
+        $livres = $requetePreparee->fetch();
+        var_dump($livres);
+        return $livres;
     }
 
 }

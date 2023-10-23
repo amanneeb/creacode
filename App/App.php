@@ -85,6 +85,9 @@ class App
                 case 'index':
                     $objControleur->index();
                     break;
+                case 'fiche':
+                    $objControleur->fiche();
+                    break;
                 default:
                     echo 'Erreur 404 - Page introuvable.';
             }
