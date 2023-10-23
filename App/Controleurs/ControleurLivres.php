@@ -18,13 +18,19 @@ class ControleurLivres
         }else{
             $pageCourante= 0;
         }
+
+        if (isset($_GET['idCategorie'])) {
+            $categorieRecherchee = $_GET['idCategorie'];
+        }else{
+            $categorieRecherchee= 0;
+        }
         $nbTotalLivres= Livre::compterNbLivres();
 
         $nbParPages= ceil($nbTotalLivres/10);
 
         $tDonnees = array(
             "pdo" => App::getPDO(),
-            "livres" => Livre::paginer($pageCourante, $nbParPages),
+            "livres" => Livre::paginer($pageCourante, $nbParPages, $categorieRecherchee),
             "nbTotalLivres" => $nbTotalLivres,
             "numeroPage" => $pageCourante,
             "nombreTotalPages" => 10,
