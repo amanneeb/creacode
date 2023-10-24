@@ -10,14 +10,15 @@
             <!--<h2 class="LivrePanier__titre"></h2>-->
             <h3 class="LivrePanier__auteur">
                 @foreach($livres->getLivresAuteursAssocies() as $auteurs)
-                    {{$auteurs->getAuteurAssocie()->getPrenom()." ". $auteurs->getAuteurAssocie()->getNom()}}
+                    <a class="LivrePanier__auteurLien" href="">{{$auteurs->getAuteurAssocie()->getPrenom()." ". $auteurs->getAuteurAssocie()->getNom()}}</a>
                 @endforeach
             </h3>
             <p class="LivrePanier__audio">ISBN: <span class="LivrePanier__isbnSpan">{{$livres->getIsbn_papier()}}</span></p>
             <p class="LivrePanier__audio">Audio:<span class="LivrePanier__audioSpan">{{$livres->getUrl_audio()}}</span></p>
             <p class="LivrePanier__epub">E-pub: <span class="LivrePanier__epubSpan">{{$livres->getIsbn_epub()}}</span></p>
             <p class="LivrePanier__pdf">PDF: <span class="LivrePanier__pdfSpan">{{$livres->getIsbn_pdf()}}</span></p>
-            <p class="LivrePanier__prix">{{$livres->getPrix_can()}}</p>
+            <p class="LivrePanier__prixCan"><span class="LivrePanier__SpanPrixCan">{{$livres->getPrix_can()}}</span>$</p>
+            <p class="LivrePanier__prixFr"><span class="LivrePanier__SpanPrixFr">{{$livres->getPrix_euro()}}</span>€</p>
         </div>
         <div class="AjoutPanier">
             <input class="AjoutPanier__moins" type="button" name="nbLivres" id="plus" value="-">
@@ -49,14 +50,16 @@
             <section class="autreInfo__texte resume">
                 <p>{{$livres->getLe_livre()}}</p>
             </section>
-            <section class="autreInfo__texte details" hidden>
+            <section class="autreInfo__texte details" >
                 <p>Format: <span class="autreInfo__span autreInfo__span--format">{{$livres->getFormat()}}</span></p>
                 <p>Nombre de pages: <span class="autreInfo__span autreInfo__span--pages">{{$livres->getPagination()}}</span></p>
                 <p>Thème: <span class="autreInfo__span autreInfo__span--theme">{{$livres->getCategorie_id()}}</span></p>
                 <p>Date de publication (Québec): <span class="autreInfo__span autreInfo__span--publicationQc">{{$livres->getDate_parution_quebec()}}</span></p>
                 <p>Date de publication (France): <span class="autreInfo__span autreInfo__span--publicationFr">{{$livres->getDate_parution_france()}}</span></p>
+                <p>Type d'impression: <span class="autreInfo__span autreInfo__span--impression">{{$livres->getImpressionAssociee()->getNom()}}</span></p>
+                <p>Type de couverture: <span class="autreInfo__span autreInfo__span--couverture">{{$livres->getCouvertureAssociee()->getNom()}}</span></p>
             </section>
-            <section class="autreInfo__texte commentaires" hidden>
+            <section class="autreInfo__texte commentaires" >
                 {{$livres->getArguments_commerciaux()}}
             </section>
         </section>
@@ -65,12 +68,14 @@
     <section class="autresLivres">
         <h4 class="autresLivres__titre">Livres similaires</h4>
         <ul class="livresSimilaires">
+            @for($cpt = 0; $cpt < 3; $cpt++)
             <li class="livresSimilaires__item">
                 <figure class="livre">
                     <img class="livre__couverture" src="./liaisons/images/operatique_couv.jpg" alt="couverture Operatique" width="250px">
-                    <figcaption class="livre__titre">Opératique</figcaption>
+                    <figcaption class="livre__titre">{{$categories[$cpt]->titre}}</figcaption>
                 </figure>
             </li>
+            @endfor
         </ul>
     </section>
 @endsection

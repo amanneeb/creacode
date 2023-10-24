@@ -3,6 +3,7 @@
 namespace App\Controleurs;
 
 use App\Modeles\Livre;
+use App\Modeles\Categories;
 use App\App;
 
 class ControleurLivres
@@ -43,15 +44,13 @@ class ControleurLivres
 
     public function fiche(){
         $idLivre = (int) $_GET["idLivre"];
+        $idCategorie = (int) $_GET['idCategorie'];
 
         $livres = Livre::trouverParId($idLivre);
-        $categories = 0;
-        //$auteurs = Livre::trouverParId($idLivre)->getLivresAuteursAssocies();
+        $categories = Categories::trouverParId($idCategorie)->getLivresAssocies();
 
-
-        $tDonnees = array('livres' => $livres/*, 'auteurs' => $auteurs*/);
+        $tDonnees = array('livres' => $livres, 'categories' => $categories);
 
         echo App::getBlade()->run("livres.fiche", $tDonnees);
-
     }
 }
