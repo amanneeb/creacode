@@ -59,7 +59,8 @@ class LivreAuteur
     public static function trouverParLivre(int $unIdLivre): array
     {
         // Définir la chaine SQL
-        $chaineSQL = 'SELECT auteur_id FROM livres_auteurs WHERE livre_id=' . $unIdLivre;
+        //$chaineSQL = 'SELECT auteur_id FROM livres_auteurs WHERE livre_id=' . $unIdLivre;
+        $chaineSQL = 'SELECT * FROM livres_auteurs WHERE livre_id=' . $unIdLivre;
         // Préparer la requête (optimisation)
         $requetePreparee = App::getPDO()->prepare($chaineSQL);
         // Exécuter la requête

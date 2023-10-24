@@ -7,6 +7,7 @@ namespace App\Modeles;
 use \PDO;
 use \PDO\PDOStatement;
 use App\App;
+use App\Modeles\Categories;
 
 //Classe modèle
 class Livre
@@ -57,10 +58,13 @@ class Livre
 
     public function getIsbn_epub(): string
     {
-
         return $this->isbn_epub;
     }
 
+    public function getUrl_audio(): string
+    {
+        return $this->url_audio;
+    }
 
     public function getTitre(): string
     {
@@ -140,6 +144,10 @@ class Livre
         return LivreAuteur::trouverParLivre($this->id);
     }
 
+    public function getCategorieAssociee():Categories{
+        return Categories::trouverParId($this->categorie_id);
+    }
+
 
     public static function compterNbLivres(): int{
         // Définir la chaine SQL
@@ -184,11 +192,9 @@ class Livre
         $requetePreparee->setFetchMode(PDO::FETCH_CLASS, "App\Modeles\Livre");
         $requetePreparee->execute();
         $livres = $requetePreparee->fetch();
-        var_dump($livres);
         return $livres;
     }
 
 
-    }
 
 }
