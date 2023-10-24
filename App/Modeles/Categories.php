@@ -23,14 +23,18 @@ class Categories
         return $this->nom;
     }
 
+    public function getLivresAssocies():array{
+        return Livre::trouverParCategorie($this->id);
+    }
+
     public static function trouverParId($idCategorie):Categories{
         $chaineSQL = "SELECT * FROM categories WHERE id = :idCategorie";
         $requetePreparee = App::getPDO()->prepare($chaineSQL);
         $requetePreparee->bindParam(':idCategorie', $idCategorie, PDO::PARAM_INT);
         $requetePreparee->setFetchMode(PDO::FETCH_CLASS, 'App\Modeles\Categories');
         $requetePreparee->execute();
-        $cateogies = $requetePreparee->fetch();
-        return $cateogies;
+        $categories = $requetePreparee->fetch();
+        return $categories;
     }
 
 }

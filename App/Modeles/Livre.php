@@ -7,7 +7,6 @@ namespace App\Modeles;
 use \PDO;
 use \PDO\PDOStatement;
 use App\App;
-use App\Modeles\Categories;
 
 //Classe modèle
 class Livre
@@ -111,7 +110,7 @@ class Livre
         return $this->prix_can;
     }
 
-    public function getPrix_euro(): int
+    public function getPrix_euro(): float
     {
         return $this->prix_euro;
     }
@@ -140,12 +139,21 @@ class Livre
     {
         return $this->type_couverture_id;
     }
+
     public function getLivresAuteursAssocies():array{
         return LivreAuteur::trouverParLivre($this->id);
     }
 
     public function getCategorieAssociee():Categories{
         return Categories::trouverParId($this->categorie_id);
+    }
+
+    public function getImpressionAssociee():Impression{
+        return Impression::trouverParId($this->type_impression_id);
+    }
+
+    public function getCouvertureAssociee():Couverture{
+        return Couverture::trouverParId($this->type_couverture_id);
     }
 
 
@@ -193,6 +201,20 @@ class Livre
         $requetePreparee->execute();
         $livres = $requetePreparee->fetch();
         return $livres;
+    }
+
+    public static function trouverParCategorie($idCategorie):array{
+        $chaineSQL = "SELECT titre FROM livres WHERE categorie_id =:idCategorie";
+
+        $intId = (int) $idCategorie;
+        //Bind
+        $requetePreparee=App::getPDO()->prepare($chaineSQL);
+        $requetePreparee->bindParam(":idCategorie", $intId, PDO::PARAM_INT);
+        $requetePreparee->setFetchMode(PDO::FETCH_CLASS, "App\Modeles\Categories");
+        $requetePreparee->execute();
+        $categorie=$requetePreparee->fetchAll();
+
+        return $categorie;
     }
 
 
