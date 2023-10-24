@@ -43,12 +43,13 @@ class ControleurLivres
 
     public function fiche(){
         $idLivre = (int) $_GET["idLivre"];
-        var_dump($idLivre);
 
         $livres = Livre::trouverParId($idLivre);
-        var_dump($livres);
+        $categories = 0;
+        //$auteurs = Livre::trouverParId($idLivre)->getLivresAuteursAssocies();
 
-        $tDonnees = array('livres' => $livres);
+
+        $tDonnees = array('livres' => $livres/*, 'auteurs' => $auteurs*/);
 
         echo App::getBlade()->run("livres.fiche", $tDonnees);
 
