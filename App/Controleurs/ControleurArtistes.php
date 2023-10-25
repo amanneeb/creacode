@@ -20,7 +20,7 @@ class ControleurArtistes
     public function fiche(){
         $idArtiste = (int) $_GET["idArtiste"];
         $idSuivant = $idArtiste +1;
-            $idPrecedent=$idArtiste -1;
+        $idPrecedent=$idArtiste -1;
         $artistes = Auteur::trouverParId($idArtiste);
         $livresAuteurs = LivreAuteur::trouverParAuteur($idArtiste);
 

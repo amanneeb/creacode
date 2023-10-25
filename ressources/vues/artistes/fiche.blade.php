@@ -3,13 +3,27 @@
 
     <h1 class="">{{$artistes->getPrenom()}} {{$artistes->getNom()}}</h1>
 
+
+
+
     @if($artistes->getPrenom())
-        <img class="" src="./liaisons/images/{{$artistes->getPrenom()}}{{$artistes->getNom()}}.jpg" alt="photo {{$artistes->getPrenom()}} {{$artistes->getNom()}}" width="200px">
+        @if(file_exists("./liaisons/images/{$artistes->getPrenom()}{$artistes->getNom()}.jpg"))
+            <img class="" src="./liaisons/images/{{$artistes->getPrenom()}}{{$artistes->getNom()}}.jpg" alt="portrait de {{$artistes->getPrenom()}} {{$artistes->getNom()}}" width="200px">
+        @else
+            <img class="" src="./liaisons/images/placeholder.svg" alt="portrait de {{$artistes->getPrenom()}} {{$artistes->getNom()}}" width="200px">
+        @endif
     @else
-        <img class="" src="./liaisons/images/{{$artistes->getNom()}}.jpg" alt="photo {{$artistes->getNom()}}" width="200px">
+        @if(file_exists("./liaisons/images/{$artistes->getNom()}.jpg"))
+            <img class="" src="./liaisons/images/{{$artistes->getNom()}}.jpg" alt="portrait de {{$artistes->getNom()}}" width="200px">
+        @else
+            <img class="" src="./liaisons/images/placeholder.svg" alt="portrait de {{$artistes->getPrenom()}} {{$artistes->getNom()}}" width="200px">
+        @endif
     @endif
 
-    <a href="{{$artistes->getSite_web()}}">Site de l'auteur</a>
+
+    @if($artistes->getSite_web() !== '')
+        <a href="{{$artistes->getSite_web()}}">Site de l'auteur</a>
+    @endif
 
     <p>{{$artistes->getNotice()}}</p>
 
