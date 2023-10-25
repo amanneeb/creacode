@@ -3,12 +3,10 @@
 @section('contenu')
 
     <section class="liste-livres">
-        <input class="entete__recherche" type="text" placeholder="Rechercher des livres">
         <h2 class="liste-livres__titre">Trier par :</h2>
         <!-- Liste déroulante pour trier -->
-        <select class="liste-livres__tri">
+        <select name="tri" id="triSelect" class="liste-livres__tri">
             <option value="nouveautes" class="liste-livres__tri-option">Nouveautés</option>
-            <option value="coupdecoeur" class="liste-livres__tri-option">Coup de cœur</option>
             <option value="prixcroissant" class="liste-livres__tri-option">Prix croissant</option>
             <option value="prixdecroissant" class="liste-livres__tri-option">Prix décroissant</option>
         </select>
