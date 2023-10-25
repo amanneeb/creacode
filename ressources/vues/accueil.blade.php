@@ -71,6 +71,15 @@
             <a href="*" class="consulter">Consulter ></a>
                 @endforeach
         </section>
+
+{{--        @foreach($nouveautes as $nouveaute)--}}
+{{--            <p>{{$nouveaute->getTitre()}}</p>--}}
+
+{{--            @endforeach--}}
+
+        @foreach($aParaitres as $aParaitre)
+            <p>{{$aParaitre->getTitre()}}</p>
+            @endforeach
     </main>
 @endsection
 
