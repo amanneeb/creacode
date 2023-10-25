@@ -11,11 +11,13 @@ use App\App;
 //Classe modèle
 class Livre
 {
+
     private $id = 0;
     private string $isbn_papier = '';
     private string $isbn_pdf = '';
     private string $isbn_epub = '';
-    private $url_audio = null;
+    private string $url_audio = '';
+
     private string $titre = '';
     private string $le_livre = '';
     private string $arguments_commerciaux = '';
@@ -42,6 +44,7 @@ class Livre
         return $this->id;
     }
 
+
     public function getIsbn_papier(): string
     {
         return $this->isbn_papier;
@@ -57,6 +60,10 @@ class Livre
         return $this->isbn_epub;
     }
 
+    public function getUrl_audio(): string
+    {
+        return $this->url_audio;
+    }
 
     public function getTitre(): string
     {
@@ -103,7 +110,7 @@ class Livre
         return $this->prix_can;
     }
 
-    public function getPrix_euro(): int
+    public function getPrix_euro(): float
     {
         return $this->prix_euro;
     }
@@ -132,14 +139,32 @@ class Livre
     {
         return $this->type_couverture_id;
     }
+
     public function getLivresAuteursAssocies():array{
         return LivreAuteur::trouverParLivre($this->id);
     }
 
+    public function getCategorieAssociee():Categories{
+        return Categories::trouverParId($this->categorie_id);
+    }
 
-    public static function compterNbLivres(): int{
+    public function getImpressionAssociee():Impression{
+        return Impression::trouverParId($this->type_impression_id);
+    }
+
+    public function getCouvertureAssociee():Couverture{
+        return Couverture::trouverParId($this->type_couverture_id);
+    }
+
+
+    public static function compterNbLivres(int $categorieRecherchee): int
+    {
         // Définir la chaine SQL
-        $chaineSQL = 'SELECT COUNT(*) as nbTotal FROM livres';
+        if ($categorieRecherchee == 0) {
+            $chaineSQL = 'SELECT COUNT(*) as nbTotal FROM livres';
+        } else {
+            $chaineSQL = 'SELECT COUNT(*) as nbTotal FROM livres WHERE categorie_id=' . $categorieRecherchee;
+        }
         // Préparer la requête (optimisation)
         $requetePreparee = App::getPDO()->prepare($chaineSQL);
         // Définir le mode de récupération
@@ -151,39 +176,103 @@ class Livre
         return $nbTotalLivres->nbTotal;
     }
 
-    public static function paginer(int $unNoDePage, int $unNbrParPage, int $idCategorieRecherchee): array{
 
+
+    public static function paginer(int $unNoDePage, int $unNbrParPage): array
+    {
         $index = 10 * ($unNoDePage);
-
         // Définir la chaine SQL
-        if ($idCategorieRecherchee==0){
         $chaineSQL = 'SELECT * FROM livres LIMIT :index,' . $unNbrParPage;
-        }else{
-            $chaineSQL = 'SELECT * FROM livres WHERE categorie_id=:idCategorie LIMIT :index,' . $unNbrParPage;
-        }
         // Préparer la requête (optimisation)
         $requetePreparee = App::getPDO()->prepare($chaineSQL);
         // BindParam
         $requetePreparee->bindParam(':index', $index, PDO::PARAM_INT);
-        $requetePreparee->bindParam(':idCategorie', $idCategorieRecherchee, PDO::PARAM_INT);
         // Exécuter la requête
         $requetePreparee->execute();
         // Récupérer le résultat sous forme de tableau
         return $requetePreparee->fetchAll(PDO::FETCH_CLASS, 'App\Modeles\Livre');
+
     }
 
-    public static function trouverParId(int $unIdLivre): Livre{
-        // Définir la chaine SQL
-        $chaineSQL = 'SELECT * FROM livres WHERE id=:idLivre';
+    public static function paginerParCategorie(int $unNoDePage, int $unNbrParPage, int $categorieRecherchee): array
+    {
+        $index = $unNbrParPage * $unNoDePage;
+        $chaineSQL = 'SELECT * FROM livres WHERE categorie_id = :idCategorie LIMIT :index, :limit';
+
         // Préparer la requête (optimisation)
         $requetePreparee = App::getPDO()->prepare($chaineSQL);
         // BindParam
-        $requetePreparee->bindParam(':idLivre', $unIdLivre, PDO::PARAM_INT);
-        // Définir le mode de récupération
-        $requetePreparee->setFetchMode(PDO::FETCH_CLASS, 'App\Modeles\Livre');
+        $requetePreparee->bindParam(':idCategorie', $categorieRecherchee, PDO::PARAM_INT);
+        $requetePreparee->bindParam(':index', $index, PDO::PARAM_INT);
+        $requetePreparee->bindParam(':limit', $unNbrParPage, PDO::PARAM_INT);
         // Exécuter la requête
         $requetePreparee->execute();
-        // Récupérer le résultat
-        return $requetePreparee->fetch();
+        // Récupérer le résultat sous forme de tableau
+        return $requetePreparee->fetchAll(PDO::FETCH_CLASS, 'App\Modeles\Livre');
+
     }
+
+    public static function trouverParId(int $idLivre): Livre
+    {
+        $chaineSQL = "SELECT * FROM livres WHERE id=:idLivre";
+
+        $requetePreparee = App::getPDO()->prepare($chaineSQL);
+        $requetePreparee->bindParam(":idLivre", $idLivre, PDO::PARAM_INT);
+        $requetePreparee->setFetchMode(PDO::FETCH_CLASS, "App\Modeles\Livre");
+        $requetePreparee->execute();
+        $livres = $requetePreparee->fetch();
+        return $livres;
+    }
+
+    public static function trouverParCategorie($idCategorie):array{
+        $chaineSQL = "SELECT titre FROM livres WHERE categorie_id =:idCategorie";
+        $intId = (int) $idCategorie;
+        //Bind
+        $requetePreparee=App::getPDO()->prepare($chaineSQL);
+        $requetePreparee->bindParam(":idCategorie", $intId, PDO::PARAM_INT);
+        $requetePreparee->setFetchMode(PDO::FETCH_CLASS, "App\Modeles\Categories");
+        $requetePreparee->execute();
+        $categorie=$requetePreparee->fetchAll();
+
+        return $categorie;
+    }
+
+    public static function paginerAutre(int $unNoDePage, int $unNbParPage): array{
+
+        $indexDepart = null;
+
+        switch($unNoDePage){
+            case 0:
+                $indexDepart = 0;
+                break;
+            case 1:
+                $indexDepart = 5;
+                break;
+            case 2:
+                $indexDepart = 10;
+                break;
+            case 3:
+                $indexDepart = 15;
+                break;
+            case 4:
+                $indexDepart = 20;
+                break;
+            case 5:
+                $indexDepart = 25;
+                break;
+        }
+
+        $chaineSql= "SELECT * FROM  livres
+        LIMIT ".$indexDepart.", ".$unNbParPage;
+
+        $requetePreparee=App::getPDO()->prepare($chaineSql);
+        $requetePreparee->setFetchMode(PDO::FETCH_ASSOC);
+        $requetePreparee->execute();
+        $participantsAAfficher=$requetePreparee->fetchAll();
+
+        return $participantsAAfficher;
+    }
+
 }
+
+

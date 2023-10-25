@@ -3,6 +3,7 @@
     "App\\":"App/" }
   },
   "require": {
+    "ext-pdo": "*",
     "eftec/bladeone": "^4.9"
   }
 }

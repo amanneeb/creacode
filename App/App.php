@@ -4,8 +4,9 @@ declare(strict_types=1);
 namespace App;
 
 use App\Controleurs\ControleurLivres;
-use App\Controleurs\ControleurSite;
-use \PDO\PDOStatement;
+use App\Controleurs\ControleurAccueil;
+use App\Controleurs\ControleurArtistes;
+use PDO\PDOStatement;
 use PDO;
 use eftec\bladeone\BladeOne;
 
@@ -70,7 +71,7 @@ class App
 
         // Instantier le bon controleur et executer la bonne action
         if ($nomControleur === 'site') {
-            $objControleur = new ControleurSite();
+            $objControleur = new ControleurAccueil();
             switch ($nomAction) {
                 case 'accueil':
                     $objControleur->accueil();
@@ -84,6 +85,21 @@ class App
             switch ($nomAction) {
                 case 'index':
                     $objControleur->index();
+                    break;
+                case 'fiche':
+                    $objControleur->fiche();
+                    break;
+                default:
+                    echo 'Erreur 404 - Page introuvable.';
+            }
+        } else if ($nomControleur === 'artiste') {
+            $objControleur = new ControleurArtistes();
+            switch ($nomAction) {
+                case 'index':
+                    $objControleur->index();
+                    break;
+                case 'fiche':
+                    $objControleur->fiche();
                     break;
                 default:
                     echo 'Erreur 404 - Page introuvable.';
