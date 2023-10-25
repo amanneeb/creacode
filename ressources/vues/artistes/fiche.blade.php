@@ -3,6 +3,12 @@
 
     <h1 class="">{{$artistes->getPrenom()}} {{$artistes->getNom()}}</h1>
 
+    @if($artistes->getPrenom())
+        <img class="" src="./liaisons/images/{{$artistes->getPrenom()}}{{$artistes->getNom()}}.jpg" alt="photo {{$artistes->getPrenom()}} {{$artistes->getNom()}}" width="200px">
+    @else
+        <img class="" src="./liaisons/images/{{$artistes->getNom()}}.jpg" alt="photo {{$artistes->getNom()}}" width="200px">
+    @endif
+
     <a href="{{$artistes->getSite_web()}}">Site de l'auteur</a>
 
     <p>{{$artistes->getNotice()}}</p>
