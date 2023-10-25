@@ -9,7 +9,7 @@ use PDO\PDOStatement;
 use PDO;
 use eftec\bladeone\BladeOne;
 
-class App
+class   App
 {
     private static ?PDO $refPdo = null;
     private static ?BladeOne $refBlade = null;
