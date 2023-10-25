@@ -217,6 +217,42 @@ class Livre
         return $categorie;
     }
 
+    public static function paginerAutre(int $unNoDePage, int $unNbParPage): array{
+
+        $indexDepart = null;
+
+        switch($unNoDePage){
+            case 0:
+                $indexDepart = 0;
+                break;
+            case 1:
+                $indexDepart = 5;
+                break;
+            case 2:
+                $indexDepart = 10;
+                break;
+            case 3:
+                $indexDepart = 15;
+                break;
+            case 4:
+                $indexDepart = 20;
+                break;
+            case 5:
+                $indexDepart = 25;
+                break;
+        }
+
+        $chaineSql= "SELECT * FROM  livres
+        LIMIT ".$indexDepart.", ".$unNbParPage;
+
+        $requetePreparee=App::getPDO()->prepare($chaineSql);
+        $requetePreparee->setFetchMode(PDO::FETCH_ASSOC);
+        $requetePreparee->execute();
+        $participantsAAfficher=$requetePreparee->fetchAll();
+
+        return $participantsAAfficher;
+    }
+
 
 
 }
