@@ -176,6 +176,8 @@ class Livre
         return $nbTotalLivres->nbTotal;
     }
 
+
+
     public static function paginer(int $unNoDePage, int $unNbrParPage): array
     {
         $index = 10 * ($unNoDePage);
@@ -272,4 +274,5 @@ class Livre
     }
 
 }
+
 
