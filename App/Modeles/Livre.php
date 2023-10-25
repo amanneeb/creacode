@@ -273,6 +273,53 @@ class Livre
         return $participantsAAfficher;
     }
 
+
+    //ACCUEIL//
+
+    public static function trouverNouveautes(): array
+    {
+        $subJours=strtotime('-4 years');
+        $dateMoins14 = date('Y-m-d', $subJours);
+        $dateNow = date('Y-m-d');
+
+
+        // Définir la chaine SQL
+        $chaineSQL = 'SELECT * FROM livres WHERE livres.date_parution_quebec >= :date14 AND livres.date_parution_quebec <= :dateNow ';
+        // Préparer la requête (optimisation)
+        $requetePreparee = App::getPDO()->prepare($chaineSQL);
+        $requetePreparee->bindParam(":date14", $dateMoins14, PDO::PARAM_STR);
+        $requetePreparee->bindParam(":dateNow", $dateNow, PDO::PARAM_STR);
+        // Définir le mode de récupération
+        $requetePreparee->setFetchMode(PDO::FETCH_CLASS, 'App\Modeles\Evenements');
+        // Exécuter la requête
+        $requetePreparee->execute();
+        // Récupérer le résultat
+        $nouveautes = $requetePreparee->fetchAll();
+        return $nouveautes;
+    }
+
+    public static function trouverAParaitre(): array
+    {
+        $subJours=strtotime('+2 years');
+        $datePlus28 = date('Y-m-d', $subJours);
+        $dateNow = date('Y-m-d');
+
+
+        // Définir la chaine SQL
+        $chaineSQL = 'SELECT * FROM livres WHERE livres.date_parution_quebec <= :date28 AND livres.date_parution_quebec > :dateNow ';
+        // Préparer la requête (optimisation)
+        $requetePreparee = App::getPDO()->prepare($chaineSQL);
+        $requetePreparee->bindParam(":date28", $datePlus28, PDO::PARAM_STR);
+        $requetePreparee->bindParam(":dateNow", $dateNow, PDO::PARAM_STR);
+        // Définir le mode de récupération
+        $requetePreparee->setFetchMode(PDO::FETCH_CLASS, 'App\Modeles\Evenements');
+        // Exécuter la requête
+        $requetePreparee->execute();
+        // Récupérer le résultat
+        $aParaitre = $requetePreparee->fetchAll();
+        return $aParaitre;
+    }
+
 }
 
 
