@@ -4,7 +4,7 @@ namespace App\Controleurs;
 use App\Modeles\Actualites;
 
 use App\App;
-use App\Modeles\Lancements;
+use App\Modeles\Evenements;
 
 class ControleurAccueil
 {
@@ -16,9 +16,10 @@ class ControleurAccueil
     public function accueil(): void
     {
         $actualites = Actualites::trouverTout();
-        $lancements = Lancements::trouverTout();
+        $lancements = Evenements::trouverLancements();
+        $evenements = Evenements::trouverEvenements();
 
-        $tDonnees = array('actualites'=>$actualites, 'lancements'=>$lancements);
+        $tDonnees = array('actualites'=>$actualites, 'lancements'=>$lancements, 'evenements'=>$evenements);
         echo App::getBlade()->run("accueil",$tDonnees); // /ressource/vues/accueil.blade.php doit exister...
     }
 
