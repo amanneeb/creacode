@@ -310,7 +310,7 @@ class Livre
         $requetePreparee->bindParam(":date14", $dateMoins14, PDO::PARAM_STR);
         $requetePreparee->bindParam(":dateNow", $dateNow, PDO::PARAM_STR);
         // Définir le mode de récupération
-        $requetePreparee->setFetchMode(PDO::FETCH_CLASS, 'App\Modeles\Evenements');
+        $requetePreparee->setFetchMode(PDO::FETCH_CLASS, 'App\Modeles\Livre');
         // Exécuter la requête
         $requetePreparee->execute();
         // Récupérer le résultat
@@ -332,7 +332,7 @@ class Livre
         $requetePreparee->bindParam(":date28", $datePlus28, PDO::PARAM_STR);
         $requetePreparee->bindParam(":dateNow", $dateNow, PDO::PARAM_STR);
         // Définir le mode de récupération
-        $requetePreparee->setFetchMode(PDO::FETCH_CLASS, 'App\Modeles\Evenements');
+        $requetePreparee->setFetchMode(PDO::FETCH_CLASS, 'App\Modeles\Livre');
         // Exécuter la requête
         $requetePreparee->execute();
         // Récupérer le résultat
