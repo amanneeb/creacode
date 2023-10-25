@@ -1,20 +1,23 @@
 <?php
 declare(strict_types=1);
+
 namespace App\Modeles;
 
 //Cas d'importation
-use \PDO\PDOStatement;
 use \PDO;
+use \PDO\PDOStatement;
 use App\App;
 
 //Classe modèle
 class Livre
 {
+
     private $id = 0 ;
-    private int $isbn_papier = 0;
-    private int $isbn_pdf = 0;
-    private int $isbn_epub = 0;
+    private string $isbn_papier = '';
+    private string $isbn_pdf = '';
+    private string $isbn_epub = '';
     private string $url_audio = '';
+
     private string $titre = '';
     private string $le_livre = '';
     private string $arguments_commerciaux = '';
@@ -36,81 +39,125 @@ class Livre
 
     }
 
-    public function getId():int{
+    public function getId(): int
+    {
         return $this->id;
     }
 
-    public function getIsbn_papier():int{
+
+    public function getIsbn_papier(): string
+    {
         return $this->isbn_papier;
     }
 
-    public function getIsbn_pdf():int{
+    public function getIsbn_pdf(): string
+    {
         return $this->isbn_pdf;
     }
 
-    public function getIsbn_epub():int{
+    public function getIsbn_epub(): string
+    {
         return $this->isbn_epub;
     }
-    public function getUrl_audio():string{
+
+    public function getUrl_audio(): string
+    {
         return $this->url_audio;
     }
 
-    public function getTitre():string{
+    public function getTitre(): string
+    {
         return $this->titre;
     }
 
-    public function getLe_livre():string{
+    public function getLe_livre(): string
+    {
         return $this->le_livre;
     }
 
-    public function getArguments_commerciaux():string{
+    public function getArguments_commerciaux(): string
+    {
         return $this->arguments_commerciaux;
     }
 
-    public function getStatut():int{
+    public function getStatut(): int
+    {
         return $this->statut;
     }
-    public function getPagination():int{
+
+    public function getPagination(): int
+    {
         return $this->pagination;
     }
-    public function getAge_min():int{
+
+    public function getAge_min(): int
+    {
         return $this->age_min;
     }
-    public function getFormat():string{
+
+    public function getFormat(): string
+    {
         return $this->format;
     }
-    public function getTirage():float{
+
+    public function getTirage(): float
+    {
         return $this->tirage;
     }
-    public function getPrix_can():float{
+
+    public function getPrix_can(): float
+    {
         return $this->prix_can;
     }
-    public function getPrix_euro():int{
+
+    public function getPrix_euro(): float
+    {
         return $this->prix_euro;
     }
-    public function getDate_parution_quebec():string{
+
+    public function getDate_parution_quebec(): string
+    {
         return $this->date_parution_quebec;
     }
-    public function getDate_parution_france():string{
+
+    public function getDate_parution_france(): string
+    {
         return $this->date_parution_france;
     }
-    public function getCategorie_id():int{
+
+    public function getCategorie_id(): int
+    {
         return $this->categorie_id;
     }
-    public function getType_impression_id():int{
+
+    public function getType_impression_id(): int
+    {
         return $this->type_impression_id;
     }
-    public function getType_couverture_id():int{
+
+    public function getType_couverture_id(): int
+    {
         return $this->type_couverture_id;
     }
-//    public function getActiviteAssociee($pdo):Activites{
-//        return Activites::trouverParId($this->activite_id, $pdo);
-//    }
-//    public function getVilleAssociee($pdo):Ville{
-//        return Ville::trouverParId($this->ville_id, $pdo);
-//    }
 
-    public static function compterNbLivres():int{
+    public function getLivresAuteursAssocies():array{
+        return LivreAuteur::trouverParLivre($this->id);
+    }
+
+    public function getCategorieAssociee():Categories{
+        return Categories::trouverParId($this->categorie_id);
+    }
+
+    public function getImpressionAssociee():Impression{
+        return Impression::trouverParId($this->type_impression_id);
+    }
+
+    public function getCouvertureAssociee():Couverture{
+        return Couverture::trouverParId($this->type_couverture_id);
+    }
+
+
+    public static function compterNbLivres(): int{
         // Définir la chaine SQL
         $chaineSQL = 'SELECT COUNT(*) as nbTotal FROM livres';
         // Préparer la requête (optimisation)
@@ -123,22 +170,89 @@ class Livre
         $nbTotalLivres = $requetePreparee->fetch();
         return $nbTotalLivres->nbTotal;
     }
-    public static function paginer(int $unNoDePage, int $unNbrParPage):array{
 
-        $index=5*($unNoDePage);
+    public static function paginer(int $unNoDePage, int $unNbrParPage, int $categorieRecherchee): array{
+
+        $index = 10 * ($unNoDePage);
 
         // Définir la chaine SQL
-        $chaineSQL = 'SELECT titre, prix_can FROM livres LIMIT :index,'. $unNbrParPage;
+        if ($categorieRecherchee==0){
+        $chaineSQL = 'SELECT * FROM livres LIMIT :index,' . $unNbrParPage;
+        }else{
+            $chaineSQL = 'SELECT * FROM livres WHERE categorie_id=:idCategorie LIMIT :index,' . $unNbrParPage;
+        }
         // Préparer la requête (optimisation)
         $requetePreparee = App::getPDO()->prepare($chaineSQL);
         // BindParam
         $requetePreparee->bindParam(':index', $index, PDO::PARAM_INT);
+        $requetePreparee->bindParam(':idCategorie', $categorieRecherchee, PDO::PARAM_INT);
         // Exécuter la requête
         $requetePreparee->execute();
         // Récupérer le résultat sous forme de tableau
-      $livresQuiApparaissent = $requetePreparee->fetchAll(PDO::FETCH_CLASS, 'App\Modeles\Livre');
-//      var_dump($livresQuiApparaissent);
-   return $livresQuiApparaissent;
+        return $requetePreparee->fetchAll(PDO::FETCH_CLASS, 'App\Modeles\Livre');
     }
+
+    public static function trouverParId(int $idLivre):Livre{
+        $chaineSQL = "SELECT * FROM livres WHERE id=:idLivre";
+
+        $requetePreparee = App::getPDO()->prepare($chaineSQL);
+        $requetePreparee->bindParam(":idLivre", $idLivre, PDO::PARAM_INT);
+        $requetePreparee->setFetchMode(PDO::FETCH_CLASS, "App\Modeles\Livre");
+        $requetePreparee->execute();
+        $livres = $requetePreparee->fetch();
+        return $livres;
+    }
+
+    public static function trouverParCategorie($idCategorie):array{
+        $chaineSQL = "SELECT titre FROM livres WHERE categorie_id =:idCategorie";
+
+        $intId = (int) $idCategorie;
+        //Bind
+        $requetePreparee=App::getPDO()->prepare($chaineSQL);
+        $requetePreparee->bindParam(":idCategorie", $intId, PDO::PARAM_INT);
+        $requetePreparee->setFetchMode(PDO::FETCH_CLASS, "App\Modeles\Categories");
+        $requetePreparee->execute();
+        $categorie=$requetePreparee->fetchAll();
+
+        return $categorie;
+    }
+
+    public static function paginerAutre(int $unNoDePage, int $unNbParPage): array{
+
+        $indexDepart = null;
+
+        switch($unNoDePage){
+            case 0:
+                $indexDepart = 0;
+                break;
+            case 1:
+                $indexDepart = 5;
+                break;
+            case 2:
+                $indexDepart = 10;
+                break;
+            case 3:
+                $indexDepart = 15;
+                break;
+            case 4:
+                $indexDepart = 20;
+                break;
+            case 5:
+                $indexDepart = 25;
+                break;
+        }
+
+        $chaineSql= "SELECT * FROM  livres
+        LIMIT ".$indexDepart.", ".$unNbParPage;
+
+        $requetePreparee=App::getPDO()->prepare($chaineSql);
+        $requetePreparee->setFetchMode(PDO::FETCH_ASSOC);
+        $requetePreparee->execute();
+        $participantsAAfficher=$requetePreparee->fetchAll();
+
+        return $participantsAAfficher;
+    }
+
+
 
 }
