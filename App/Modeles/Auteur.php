@@ -7,6 +7,7 @@ namespace App\Modeles;
 use \PDO\PDOStatement;
 use \PDO;
 use App\App;
+use App\Modeles\LivreAuteur;
 
 class Auteur
 {
@@ -52,6 +53,17 @@ class Auteur
     }
     public function getLivresAuteursAssocies():array{
         return LivreAuteur::trouverParAuteur($this->id);
+    }
+
+    public static function compter():int{
+        $chaineSql= "SELECT COUNT(*) AS total FROM  auteurs";
+        $requetePreparee=App::getPDO()->prepare($chaineSql);
+        $requetePreparee->setFetchMode(PDO::FETCH_OBJ);
+        $requetePreparee->execute();
+        $nbLivres=$requetePreparee->fetch();
+
+        return $nbLivres->total;
+
     }
 
     public static function trouverParId(int $unIdAuteur): Auteur{

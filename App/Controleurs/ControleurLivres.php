@@ -3,7 +3,9 @@
 namespace App\Controleurs;
 
 use App\Modeles\Livre;
+use App\Modeles\Categories;
 use App\App;
+use App\Modeles\Participant;
 
 class ControleurLivres
 {
@@ -55,14 +57,28 @@ class ControleurLivres
 
     public function fiche(){
         $idLivre = (int) $_GET["idLivre"];
-        var_dump($idLivre);
-
+        $idCategorie = (int) $_GET['idCategorie'];
         $livres = Livre::trouverParId($idLivre);
-        var_dump($livres);
+        $categories = Categories::trouverParId($idCategorie)->getLivresAssocies();
 
-        $tDonnees = array('livres' => $livres);
+        //PAGINATION
+        $totalLivres = Livre::compterNbLivres();
+        $nbPage = $totalLivres/5;
+        $nombreTotalPages = ceil($nbPage);
+
+        $urlPagination="index.php?controleur=livre&action=fiche&idLivre=".$_GET["idLivre"]."&idCategorie=".$_GET['idCategorie'];
+
+        if(isset($_GET["page"]) === false){
+            $numeroPage = 0;
+        }else{
+            $numeroPage = (int) $_GET["page"];
+        }
+
+        $livresPagination = Livre::paginerAutre($numeroPage, 5);
+        //fin PAGINATION
+
+        $tDonnees = array('lesLivres' => $livres, 'categories' => $categories, "livresPagination"=>$livresPagination, "nombreTotalPages"=>$nombreTotalPages, "numeroPage"=>$numeroPage, "urlPagination"=>$urlPagination);
 
         echo App::getBlade()->run("livres.fiche", $tDonnees);
-
     }
 }
