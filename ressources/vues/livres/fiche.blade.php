@@ -1,24 +1,24 @@
 @extends('gabarit')
 @section('contenu')
 
-        <h1 class="titreLivre">{{$livres->getTitre()}}</h1>
+        <h1 class="titreLivre">{{$lesLivres->getTitre()}}</h1>
 
     <section class="infoPrincipal">
         <img class="infoPrincipal__img" src="./liaisons/images/operatique_couv.jpg" alt="couverture Operatique" width="400px">
         <div class="LivrePanier">
-            <p class="LivrePanier__theme">{{$livres->getCategorieAssociee()->getNom()}}</p>
+            <p class="LivrePanier__theme">{{$lesLivres->getCategorieAssociee()->getNom()}}</p>
             <!--<h2 class="LivrePanier__titre"></h2>-->
             <h3 class="LivrePanier__auteur">
-                @foreach($livres->getLivresAuteursAssocies() as $auteurs)
+                @foreach($lesLivres->getLivresAuteursAssocies() as $auteurs)
                     <a class="LivrePanier__auteurLien" href="">{{$auteurs->getAuteurAssocie()->getPrenom()." ". $auteurs->getAuteurAssocie()->getNom()}}</a>
                 @endforeach
             </h3>
-            <p class="LivrePanier__audio">ISBN: <span class="LivrePanier__isbnSpan">{{$livres->getIsbn_papier()}}</span></p>
-            <p class="LivrePanier__audio">Audio:<span class="LivrePanier__audioSpan">{{$livres->getUrl_audio()}}</span></p>
-            <p class="LivrePanier__epub">E-pub: <span class="LivrePanier__epubSpan">{{$livres->getIsbn_epub()}}</span></p>
-            <p class="LivrePanier__pdf">PDF: <span class="LivrePanier__pdfSpan">{{$livres->getIsbn_pdf()}}</span></p>
-            <p class="LivrePanier__prixCan"><span class="LivrePanier__SpanPrixCan">{{$livres->getPrix_can()}}</span>$</p>
-            <p class="LivrePanier__prixFr"><span class="LivrePanier__SpanPrixFr">{{$livres->getPrix_euro()}}</span>€</p>
+            <p class="LivrePanier__audio">ISBN: <span class="LivrePanier__isbnSpan">{{$lesLivres->getIsbn_papier()}}</span></p>
+            <p class="LivrePanier__audio">Audio:<span class="LivrePanier__audioSpan">{{$lesLivres->getUrl_audio()}}</span></p>
+            <p class="LivrePanier__epub">E-pub: <span class="LivrePanier__epubSpan">{{$lesLivres->getIsbn_epub()}}</span></p>
+            <p class="LivrePanier__pdf">PDF: <span class="LivrePanier__pdfSpan">{{$lesLivres->getIsbn_pdf()}}</span></p>
+            <p class="LivrePanier__prixCan"><span class="LivrePanier__SpanPrixCan">{{$lesLivres->getPrix_can()}}</span>$</p>
+            <p class="LivrePanier__prixFr"><span class="LivrePanier__SpanPrixFr">{{$lesLivres->getPrix_euro()}}</span>€</p>
         </div>
         <div class="AjoutPanier">
             <input class="AjoutPanier__moins" type="button" name="nbLivres" id="plus" value="-">
@@ -48,34 +48,46 @@
         </ul>
         <section class="autreInfo">
             <section class="autreInfo__texte resume">
-                <p>{{$livres->getLe_livre()}}</p>
+                <p>{{$lesLivres->getLe_livre()}}</p>
             </section>
             <section class="autreInfo__texte details" >
-                <p>Format: <span class="autreInfo__span autreInfo__span--format">{{$livres->getFormat()}}</span></p>
-                <p>Nombre de pages: <span class="autreInfo__span autreInfo__span--pages">{{$livres->getPagination()}}</span></p>
-                <p>Thème: <span class="autreInfo__span autreInfo__span--theme">{{$livres->getCategorie_id()}}</span></p>
-                <p>Date de publication (Québec): <span class="autreInfo__span autreInfo__span--publicationQc">{{$livres->getDate_parution_quebec()}}</span></p>
-                <p>Date de publication (France): <span class="autreInfo__span autreInfo__span--publicationFr">{{$livres->getDate_parution_france()}}</span></p>
-                <p>Type d'impression: <span class="autreInfo__span autreInfo__span--impression">{{$livres->getImpressionAssociee()->getNom()}}</span></p>
-                <p>Type de couverture: <span class="autreInfo__span autreInfo__span--couverture">{{$livres->getCouvertureAssociee()->getNom()}}</span></p>
+                <p>Format: <span class="autreInfo__span autreInfo__span--format">{{$lesLivres->getFormat()}}</span></p>
+                <p>Nombre de pages: <span class="autreInfo__span autreInfo__span--pages">{{$lesLivres->getPagination()}}</span></p>
+                <p>Thème: <span class="autreInfo__span autreInfo__span--theme">{{$lesLivres->getCategorie_id()}}</span></p>
+                <p>Date de publication (Québec): <span class="autreInfo__span autreInfo__span--publicationQc">{{$lesLivres->getDate_parution_quebec()}}</span></p>
+                <p>Date de publication (France): <span class="autreInfo__span autreInfo__span--publicationFr">{{$lesLivres->getDate_parution_france()}}</span></p>
+                <p>Type d'impression: <span class="autreInfo__span autreInfo__span--impression">{{$lesLivres->getImpressionAssociee()->getNom()}}</span></p>
+                <p>Type de couverture: <span class="autreInfo__span autreInfo__span--couverture">{{$lesLivres->getCouvertureAssociee()->getNom()}}</span></p>
             </section>
             <section class="autreInfo__texte commentaires" >
-                {{$livres->getArguments_commerciaux()}}
+                {{$lesLivres->getArguments_commerciaux()}}
             </section>
         </section>
     </section>
 
     <section class="autresLivres">
         <h4 class="autresLivres__titre">Livres similaires</h4>
-        <ul class="livresSimilaires">
-            @for($cpt = 0; $cpt < 3; $cpt++)
+    <!--    <ul class="livresSimilaires">
+
             <li class="livresSimilaires__item">
                 <figure class="livre">
                     <img class="livre__couverture" src="./liaisons/images/operatique_couv.jpg" alt="couverture Operatique" width="250px">
                     <figcaption class="livre__titre">{{$categories[$cpt]->titre}}</figcaption>
                 </figure>
             </li>
-            @endfor
-        </ul>
+        </ul> -->
     </section>
+        <ul class="livresSimilaires">
+            @foreach($livresPagination as $livresPag)
+                <li class="livresSimilaires__item">
+                    <a href='index.php?controleur=livre&action=fiche&idLivre={{$livresPag["id"]}}&idCategorie={{$livresPag["categorie_id"]}}'>
+                        <figure>
+                            <img class="livre__couverture" src="./liaisons/images/operatique_couv.jpg" alt="couverture Operatique" width="100px">
+                            <figcaption class="livre__titre">{{$livresPag["titre"]}}</figcaption>
+                        </figure>
+                    </a>
+                </li>
+            @endforeach
+        </ul>
+        @include('fragments.paginationFiche')
 @endsection
