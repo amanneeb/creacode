@@ -1,6 +1,6 @@
 @extends('gabarit')
 @section('contenu')
-
+    @include('fragments.filariane')
         <h1 class="titreLivre">{{$lesLivres->getTitre()}}</h1>
 
     <section class="infoPrincipal">
