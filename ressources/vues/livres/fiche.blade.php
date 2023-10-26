@@ -21,14 +21,14 @@
             <p class="LivrePanier__prixFr"><span class="LivrePanier__SpanPrixFr">{{$lesLivres->getPrix_euro()}}</span>€</p>
         </div>
         <div class="AjoutPanier">
-            <input class="AjoutPanier__moins" type="button" name="nbLivres" id="plus" value="-">
+            <input class="AjoutPanier__moins btnPrimaire" type="button" name="nbLivres" id="plus" value="-">
             <span class="AjoutPanier__livre">1</span>
-            <input class="plus" type="button" name="nbLivres" id="moins" value="+">
-            <input class="AjoutPanier__btnPanier" type="button" name="ajoutPanier" id="ajoutPanier" value="Ajouter au panier">
-            <input class="AjoutPanier__btnSouhait" type="button" name="ajoutSouhait" id="ajoutSouhait" value="Ajouter à ma liste">
+            <input class="AjoutPanier__plus btnPrimaire" type="button" name="nbLivres" id="moins" value="+">
+            <input class="AjoutPanier__btnPanier btnPrimaire" type="button" name="ajoutPanier" id="ajoutPanier" value="Ajouter au panier">
+            <input class="AjoutPanier__btnSouhait btnSecondaire" type="button" name="ajoutSouhait" id="ajoutSouhait" value="Ajouter à ma liste">
         </div>
-        <a class="infoPrincipal__lienPrecedent" href="">Livre précédent</a>
-        <a class="infoPrincipal__lienSuivant" href="">Livre suivant</a>
+        <a class="infoPrincipal__lienPrecedent hyperlien" href="">Livre précédent</a>
+        <a class="infoPrincipal__lienSuivant hyperlien" href="">Livre suivant</a>
     </section>
     <section class="infoSupplementaires">
         <ul class="infoSupplementaires__liste">
