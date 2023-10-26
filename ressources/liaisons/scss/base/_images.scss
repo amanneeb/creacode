@@ -1,0 +1,14 @@
+.image{
+  /*position: relative;*/
+  border: $vert solid 2px;
+  & img{
+    display: inline-block;
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    &:hover{
+      position: unset;
+    }
+  }
+
+}

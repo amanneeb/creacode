@@ -4,19 +4,17 @@
 */
 
 .hyperlien {
-  color: black;
-  text-decoration: underline;
+  color: $orange;
   &:visited {
-    color: black;
-    text-decoration: underline;
+    color: $orange;
   }
   &:hover {
-    color: $brun;
+    color: $rouge;
     text-decoration: underline;
   }
   &:focus{
-    border: $brun solid 4px;
-    text-decoration: none;
+    border: #303075 solid 4px;
+    text-decoration: underline;
   }
   &:active {
     font-weight: bolder;
