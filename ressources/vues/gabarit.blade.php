@@ -5,10 +5,10 @@
     <title>La Pastèque</title>
     @if(isset($_GET['controleur'])&& isset($_GET['action']))
         @if($_GET['controleur']==='livre' && $_GET['action']==='index' )
-            <script defer type="text/javascript" src="liaisons/js/tri.js"></script>
+            <script defer src="liaisons/js/tri.js"></script>
         @endif
     @endif
-    <script defer type="text/javascript" src="liaisons/js/menu.js"></script>
+    <script defer src="liaisons/js/menu.js"></script>
     <link rel="stylesheet" href="./liaisons/css/styles.css">
 </head>
 <body>

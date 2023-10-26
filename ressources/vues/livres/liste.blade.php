@@ -3,7 +3,7 @@
 @section('contenu')
 
     <section class="liste-livres">
-        <h2 class="liste-livres__titre">Trier par :</h2>
+        <label class="liste-livres__titre">Trier par :</label>
         <!-- Liste déroulante pour trier -->
         <select name="tri" id="triSelect" class="liste-livres__tri">
             <option value="nouveautes" class="liste-livres__tri-option">Nouveautés</option>
@@ -11,7 +11,7 @@
             <option value="prixdecroissant" class="liste-livres__tri-option">Prix décroissant</option>
         </select>
 
-        <h2 class="liste-livres__titre">Filtrer par genre :</h2>
+        <label class="liste-livres__titre">Filtrer par genre :</label>
         <!-- Liste de filtrage par genre -->
         <ul class="liste-livres__tri">
             <li class="liste-livres__tri-option" ><a href="{{ $urlTri }}&idCategorie=1">Bandes dessinées</a></li>
@@ -23,7 +23,7 @@
         </ul>
     </section>
 
-    <h1>Page Liste des livres</h1>
+    <h2>livres</h2>
     <ul class="liste-livres__items">
         @foreach ($livres as $livre)
             <li class="livre">
