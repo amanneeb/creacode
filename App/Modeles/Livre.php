@@ -180,25 +180,26 @@ class Livre
     }
 
 
-    public static function paginer(int $unNoDePage, int $unNbrParPage, $tri = 'nouveautes'): array
+    public static function paginer(int $unNoDePage, int $unNbrParPage, $tri): array
     {
         $index = 10 * ($unNoDePage);
 
         // Définir la chaine SQL
         $chaineSQL = 'SELECT * FROM livres';
         switch ($tri) {
-            case 'prix_croissant':
+            case 'prixcroissant':
                 $chaineSQL .= ' ORDER BY prix_can ASC';
                 break;
-            case 'prix_decroissant':
+            case 'prixdecroissant':
                 $chaineSQL .= ' ORDER BY prix_can DESC';
                 break;
-            default: // par défaut, nouveautés
+            default:
                 $chaineSQL .= ' ORDER BY date_parution_quebec DESC';
                 break;
         }
 
         $chaineSQL .= ' LIMIT :index, :limit';
+
 
         // Préparer la requête (optimisation)
         $requetePreparee = App::getPDO()->prepare($chaineSQL);
@@ -212,10 +213,23 @@ class Livre
 
     }
 
-    public static function paginerParCategorie(int $unNoDePage, int $unNbrParPage, int $categorieRecherchee): array
+    public static function paginerParCategorie(int $unNoDePage, int $unNbrParPage, int $categorieRecherchee, $tri): array
     {
         $index = $unNbrParPage * $unNoDePage;
-        $chaineSQL = 'SELECT * FROM livres WHERE categorie_id = :idCategorie LIMIT :index, :limit';
+        $chaineSQL = 'SELECT * FROM livres WHERE categorie_id = :idCategorie';
+        switch ($tri) {
+            case 'prixcroissant':
+                $chaineSQL .= ' ORDER BY prix_can ASC';
+                break;
+            case 'prixdecroissant':
+                $chaineSQL .= ' ORDER BY prix_can DESC';
+                break;
+            default:
+                $chaineSQL .= ' ORDER BY date_parution_quebec DESC';
+                break;
+        }
+
+        $chaineSQL .= ' LIMIT :index, :limit';
 
         // Préparer la requête (optimisation)
         $requetePreparee = App::getPDO()->prepare($chaineSQL);
