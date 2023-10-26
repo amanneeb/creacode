@@ -22,7 +22,7 @@
 
 
     @if($artistes->getSite_web() !== '')
-        <a href="{{$artistes->getSite_web()}}">Site de l'auteur</a>
+        <a class="hyperlien" href="{{$artistes->getSite_web()}}">Site de l'auteur</a>
     @endif
 
     <p>{{$artistes->getNotice()}}</p>
@@ -41,13 +41,13 @@
     </ul>
 
     @if($idPrecedent>1)
-    <a href="index.php?controleur=artiste&action=fiche&idArtiste={{$idPrecedent}}">artiste precedent</a>
+    <a class="hyperlien" href="index.php?controleur=artiste&action=fiche&idArtiste={{$idPrecedent}}">artiste precedent</a>
     @else
-        <a href="">artiste precedent</a>
+        <a class="hyperlien" href="">artiste precedent</a>
     @endif
     @if($idSuivant<$artistes->compter())
-        <a href="index.php?controleur=artiste&action=fiche&idArtiste={{$idSuivant}}">artiste suivant</a>
+        <a class="hyperlien" href="index.php?controleur=artiste&action=fiche&idArtiste={{$idSuivant}}">artiste suivant</a>
     @else
-        <a href="">artiste suivant</a>
+        <a class="hyperlien" href="">artiste suivant</a>
     @endif
 @endsection
