@@ -26,15 +26,22 @@ class ControleurLivres
         }else{
             $categorieRecherchee= 0;
         }
+        if (isset($_GET['tri'])) {
+            $triRecherche = $_GET['tri'];
+            $urlTri="index.php?controleur=livre&action=index&tri=" . $_GET['tri'];
+        }else{
+            $triRecherche= 'nouveautes';
+            $urlTri="index.php?controleur=livre&action=index";
+        }
 
         $nbTotalLivres = Livre::compterNbLivres($categorieRecherchee);
         $nbParPages = 9;
         $nbTotalPages = ceil($nbTotalLivres / $nbParPages);
 
        if ($categorieRecherchee==0){
-           $livres= Livre::paginer($pageCourante, $nbParPages);
+           $livres= Livre::paginer($pageCourante, $nbParPages, $triRecherche);
        } else{
-           $livres= Livre::paginerParCategorie($pageCourante, $nbParPages, $categorieRecherchee);
+           $livres= Livre::paginerParCategorie($pageCourante, $nbParPages, $categorieRecherchee, $triRecherche);
        }
         if ($categorieRecherchee==0){
             $urlPagination= "index.php?controleur=livre&action=index";
@@ -48,7 +55,8 @@ class ControleurLivres
             "nbTotalLivres" => $nbTotalLivres,
             "numeroPage" => $pageCourante,
             "nombreTotalPages" => $nbTotalPages,
-            "urlPagination" => $urlPagination
+            "urlPagination" => $urlPagination,
+            "urlTri" => $urlTri
         );
 
 

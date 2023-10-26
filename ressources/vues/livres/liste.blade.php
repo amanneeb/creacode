@@ -14,12 +14,12 @@
         <h2 class="liste-livres__titre">Filtrer par genre :</h2>
         <!-- Liste de filtrage par genre -->
         <ul class="liste-livres__tri">
-            <li class="liste-livres__tri-option" ><a href="index.php?controleur=livre&action=index&idCategorie=1">Bandes dessinées</a></li>
-            <li class="liste-livres__tri-option" ><a href="index.php?controleur=livre&action=index&idCategorie=2">BD jeunesse</a></li>
-            <li class="liste-livres__tri-option" ><a href="index.php?controleur=livre&action=index&idCategorie=3">Livres illustrés</a></li>
-            <li class="liste-livres__tri-option" ><a href="index.php?controleur=livre&action=index&idCategorie=4">Albums jeunesse</a></li>
-            <li class="liste-livres__tri-option" ><a href="index.php?controleur=livre&action=index&idCategorie=5">Documentaires</a></li>
-            <li class="liste-livres__tri-option" ><a href="index.php?controleur=livre&action=index&idCategorie=6">Divers</a></li>
+            <li class="liste-livres__tri-option" ><a href="{{ $urlTri }}&idCategorie=1">Bandes dessinées</a></li>
+            <li class="liste-livres__tri-option" ><a href="{{ $urlTri }}&idCategorie=2">BD jeunesse</a></li>
+            <li class="liste-livres__tri-option" ><a href="{{ $urlTri }}&idCategorie=3">Livres illustrés</a></li>
+            <li class="liste-livres__tri-option" ><a href="{{ $urlTri }}&idCategorie=4">Albums jeunesse</a></li>
+            <li class="liste-livres__tri-option" ><a href="{{ $urlTri }}&idCategorie=5">Documentaires</a></li>
+            <li class="liste-livres__tri-option" ><a href="{{ $urlTri }}&idCategorie=6">Divers</a></li>
         </ul>
     </section>
 
