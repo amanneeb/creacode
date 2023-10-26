@@ -1,4 +1,17 @@
-.infoSupplementaires__liste{
-  list-style-type: none;
+.infoSupplementaires{
+  &__liste{
+    list-style-type: none;
+  }
+  &__input{
+    background: #fff;
+    color: $orange;
+    font-weight: bold;
+    &:checked{
+      background: $orange;
+      color: #fff;
+    }
+  }
+
+
 
 }
