@@ -3,67 +3,37 @@
 * @todo Compléter selon l'énoncé de l'exercice
 */
 
-.btnEtapeSuivante {
-  margin-top: 1em;
-  background-color: $orangeBrun;
-  border: 3px solid $orangeBrun;
+.btnPrimaire {
+  background: $orange;
+  color: #fff;
+  font-weight: bold;
   border-radius: 5px;
-  color: $blanc;
-  padding: 1em 1em;
-  text-decoration: none;
-  &:after {
-    content: "»";
-    margin-left: 0.4em;
-  }
-  &:hover {
-    box-shadow: 3px 3px rgba(0, 0, 0, .2);
+  &:hover,
+  &:active{
+    background: $rouge;
   }
   &:focus {
-    background-color: $orangeBrun;
-    border: 3px solid $brun;
-  }
-  &:active {
-    background-color: $brun;
-    box-shadow: none;
-    animation: pulse;
-    animation-duration: .5s;
+    background: $rouge;
+    outline: $orange solid 2px;
+    outline-offset: 2px;
   }
 }
 
-.btnEtapePrecedente {
-  margin-top: 1em;
-  background-color: $blanc;
-  border: $orangeBrun 3px solid;
+.btnSecondaire {
+  background: #fff;
+  color: $orange;
+  font-weight: bold;
   border-radius: 5px;
-  color: $orangeBrun;
-  padding: 1em 1em;
-  text-decoration: none;
-  &:before {
-    content: "«";
-    margin-left: 0.4em;
-  }
-  &:hover {
-    box-shadow: 3px 3px rgba(0, 0, 0, .2);
+  border: $orange solid 3px;
+  &:hover,
+  &:active {
+    outline: $rouge solid 5px;
+    color: $rouge;
   }
   &:focus {
-    background-color: $blanc;
-    border: 3px solid $brun;
-    color: $brun;
-  }
-  &:active {
-    background-color: $orangeBrun;
-    color: $blanc;
-    border: none;
-    box-shadow: none;
-  }
-  &--inverse {
-    background-color: white;
-    //border: 2px solid $vertLime;
-    &--hover {
-      //border-color: transparentize($vertLime, 0.25);
-    }
-    &--active {
-      //border-color: transparentize($vertLime, 0.5);
-    }
+    outline: $orange solid 5px;
+    outline-offset: 3px;
+    border: $rouge solid 5px;
+    color: $rouge;
   }
 }

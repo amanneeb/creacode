@@ -12,20 +12,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap');
 
 
-$fontePrimaire : Raleway, sans-serif;
-$fonteSecondaire : Poppins, sans-serif;
+$fontePrimaire : Poppins, sans-serif;
+$fonteSecondaire : WonderSeason, serif;
 
 /** Palette de couleurs **/
 // Utiliser http://chir.ag/projects/name-that-color pour obtenir des noms uniques et mémorisables
 // Permettez-vous d'utiliser un nom de variable plus explicite si la suggestion de name-that-color est trop étrange
 
 /* Couleurs de base */
-$blanc: #fff;
-$vertPale: #AFBC21;
-$vertFonce: #8C952D;
-$orange: #D5A00E;
-$orangeBrun: #B2891A;
-$brun: #5D4A15;
+$blanc: #f8f1d7;
+$vert: #1f6f78;
+$orange: #c64532;
+$rouge: #681c0f;
 
 
 /** Points de rupture **/
