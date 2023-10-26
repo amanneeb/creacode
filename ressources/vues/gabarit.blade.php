@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="./liaisons/css/styles.css">
+    <script defer type="text/javascript" src="liaisons/js/tri.js"></script>
 </head>
 <body>
 <header >
