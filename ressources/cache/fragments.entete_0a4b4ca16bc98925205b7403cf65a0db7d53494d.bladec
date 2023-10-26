@@ -1,4 +1,6 @@
+
 <img class="menu__logo" src="./liaisons/images/logo.svg" alt="" width="200px">
+<h1>La pastèque</h1>
 <label for="recherche"></label>
 <input name="recherche" id="recherche" type="search" class="recherche" content="Rechercher un livre...">
 <button class="menu_btn compte">Mon compte</button>
