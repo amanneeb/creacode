@@ -9,6 +9,7 @@
             @endif
         @endif
     <script defer type="text/javascript" src="liaisons/js/menu.js"></script>
+    <link rel="stylesheet" href="./liaisons/css/styles.css">
 </head>
 <body>
 <header >

@@ -7,7 +7,9 @@
   background: $orange;
   color: #fff;
   font-weight: bold;
+  border: none;
   border-radius: 5px;
+  padding: 10px 5px;
   &:hover,
   &:active{
     background: $rouge;
@@ -25,6 +27,7 @@
   font-weight: bold;
   border-radius: 5px;
   border: $orange solid 3px;
+  padding: 10px 5px;
   &:hover,
   &:active {
     outline: $rouge solid 5px;
@@ -36,4 +39,9 @@
     border: $rouge solid 5px;
     color: $rouge;
   }
+}
+
+.AjoutPanier__moins,
+.AjoutPanier__plus{
+  padding: 10px 12px;
 }
