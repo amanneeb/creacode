@@ -50,6 +50,10 @@
   text-decoration: underline;
 }
 
+.infoSupplementaires__liste {
+  list-style-type: none;
+}
+
 /**
 * @author Prenom Nom courriel
 * @todo Préciser l’interlignage sur le body pour l’écran large
