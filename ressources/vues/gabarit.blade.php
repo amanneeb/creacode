@@ -1,18 +1,18 @@
-<!DOCTTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="fr">
 <head>
     <meta charset="utf-8">
     <title>La Pastèque</title>
     @if(isset($_GET['controleur'])&& isset($_GET['action']))
         @if($_GET['controleur']==='livre' && $_GET['action']==='index' )
             <script defer type="text/javascript" src="liaisons/js/tri.js"></script>
-            @endif
         @endif
+    @endif
     <script defer type="text/javascript" src="liaisons/js/menu.js"></script>
     <link rel="stylesheet" href="./liaisons/css/styles.css">
 </head>
 <body>
-<header >
+<header>
     @include('fragments.entete')
 </header>
 
