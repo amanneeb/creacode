@@ -26,17 +26,29 @@ class ControleurLivres
         }else{
             $categorieRecherchee= 0;
         }
-        $nbTotalLivres= Livre::compterNbLivres();
 
-        $nbParPages= ceil($nbTotalLivres/10);
+        $nbTotalLivres = Livre::compterNbLivres($categorieRecherchee);
+        $nbParPages = 9;
+        $nbTotalPages = ceil($nbTotalLivres / $nbParPages);
+
+       if ($categorieRecherchee==0){
+           $livres= Livre::paginer($pageCourante, $nbParPages);
+       } else{
+           $livres= Livre::paginerParCategorie($pageCourante, $nbParPages, $categorieRecherchee);
+       }
+        if ($categorieRecherchee==0){
+            $urlPagination= "index.php?controleur=livre&action=index";
+        } else{
+            $urlPagination= "index.php?controleur=livre&action=index&idCategorie=" . $categorieRecherchee;
+        }
 
         $tDonnees = array(
             "pdo" => App::getPDO(),
-            "livres" => Livre::paginer($pageCourante, $nbParPages, $categorieRecherchee),
+            "livres" => $livres,
             "nbTotalLivres" => $nbTotalLivres,
             "numeroPage" => $pageCourante,
-            "nombreTotalPages" => 10,
-            "urlPagination" => "index.php?controleur=livre&action=index"
+            "nombreTotalPages" => $nbTotalPages,
+            "urlPagination" => $urlPagination
         );
 
 

@@ -12,12 +12,11 @@ use App\App;
 class Livre
 {
 
-    private $id = 0 ;
+    private $id = 0;
     private string $isbn_papier = '';
     private string $isbn_pdf = '';
     private string $isbn_epub = '';
     private string $url_audio = '';
-
     private string $titre = '';
     private string $le_livre = '';
     private string $arguments_commerciaux = '';
@@ -140,26 +139,35 @@ class Livre
         return $this->type_couverture_id;
     }
 
-    public function getLivresAuteursAssocies():array{
+    public function getLivresAuteursAssocies(): array
+    {
         return LivreAuteur::trouverParLivre($this->id);
     }
 
-    public function getCategorieAssociee():Categories{
+    public function getCategorieAssociee(): Categories
+    {
         return Categories::trouverParId($this->categorie_id);
     }
 
-    public function getImpressionAssociee():Impression{
+    public function getImpressionAssociee(): Impression
+    {
         return Impression::trouverParId($this->type_impression_id);
     }
 
-    public function getCouvertureAssociee():Couverture{
+    public function getCouvertureAssociee(): Couverture
+    {
         return Couverture::trouverParId($this->type_couverture_id);
     }
 
 
-    public static function compterNbLivres(): int{
+    public static function compterNbLivres(int $categorieRecherchee): int
+    {
         // Définir la chaine SQL
-        $chaineSQL = 'SELECT COUNT(*) as nbTotal FROM livres';
+        if ($categorieRecherchee == 0) {
+            $chaineSQL = 'SELECT COUNT(*) as nbTotal FROM livres';
+        } else {
+            $chaineSQL = 'SELECT COUNT(*) as nbTotal FROM livres WHERE categorie_id=' . $categorieRecherchee;
+        }
         // Préparer la requête (optimisation)
         $requetePreparee = App::getPDO()->prepare($chaineSQL);
         // Définir le mode de récupération
@@ -171,28 +179,59 @@ class Livre
         return $nbTotalLivres->nbTotal;
     }
 
-    public static function paginer(int $unNoDePage, int $unNbrParPage, int $categorieRecherchee): array{
 
+    public static function paginer(int $unNoDePage, int $unNbrParPage, $tri = 'nouveautes'): array
+    {
         $index = 10 * ($unNoDePage);
 
         // Définir la chaine SQL
-        if ($categorieRecherchee==0){
-        $chaineSQL = 'SELECT * FROM livres LIMIT :index,' . $unNbrParPage;
-        }else{
-            $chaineSQL = 'SELECT * FROM livres WHERE categorie_id=:idCategorie LIMIT :index,' . $unNbrParPage;
+        $chaineSQL = 'SELECT * FROM livres';
+        switch ($tri) {
+            case 'prix_croissant':
+                $chaineSQL .= ' ORDER BY prix_can ASC';
+                break;
+            case 'prix_decroissant':
+                $chaineSQL .= ' ORDER BY prix_can DESC';
+                break;
+            default: // par défaut, nouveautés
+                $chaineSQL .= ' ORDER BY date_parution_quebec DESC';
+                break;
         }
+
+        $chaineSQL .= ' LIMIT :index, :limit';
+
         // Préparer la requête (optimisation)
         $requetePreparee = App::getPDO()->prepare($chaineSQL);
         // BindParam
         $requetePreparee->bindParam(':index', $index, PDO::PARAM_INT);
-        $requetePreparee->bindParam(':idCategorie', $categorieRecherchee, PDO::PARAM_INT);
+        $requetePreparee->bindParam(':limit', $unNbrParPage, PDO::PARAM_INT);
         // Exécuter la requête
         $requetePreparee->execute();
         // Récupérer le résultat sous forme de tableau
         return $requetePreparee->fetchAll(PDO::FETCH_CLASS, 'App\Modeles\Livre');
+
     }
 
-    public static function trouverParId(int $idLivre):Livre{
+    public static function paginerParCategorie(int $unNoDePage, int $unNbrParPage, int $categorieRecherchee): array
+    {
+        $index = $unNbrParPage * $unNoDePage;
+        $chaineSQL = 'SELECT * FROM livres WHERE categorie_id = :idCategorie LIMIT :index, :limit';
+
+        // Préparer la requête (optimisation)
+        $requetePreparee = App::getPDO()->prepare($chaineSQL);
+        // BindParam
+        $requetePreparee->bindParam(':idCategorie', $categorieRecherchee, PDO::PARAM_INT);
+        $requetePreparee->bindParam(':index', $index, PDO::PARAM_INT);
+        $requetePreparee->bindParam(':limit', $unNbrParPage, PDO::PARAM_INT);
+        // Exécuter la requête
+        $requetePreparee->execute();
+        // Récupérer le résultat sous forme de tableau
+        return $requetePreparee->fetchAll(PDO::FETCH_CLASS, 'App\Modeles\Livre');
+
+    }
+
+    public static function trouverParId(int $idLivre): Livre
+    {
         $chaineSQL = "SELECT * FROM livres WHERE id=:idLivre";
 
         $requetePreparee = App::getPDO()->prepare($chaineSQL);
@@ -203,25 +242,26 @@ class Livre
         return $livres;
     }
 
-    public static function trouverParCategorie($idCategorie):array{
+    public static function trouverParCategorie($idCategorie): array
+    {
         $chaineSQL = "SELECT titre FROM livres WHERE categorie_id =:idCategorie";
-
-        $intId = (int) $idCategorie;
+        $intId = (int)$idCategorie;
         //Bind
-        $requetePreparee=App::getPDO()->prepare($chaineSQL);
+        $requetePreparee = App::getPDO()->prepare($chaineSQL);
         $requetePreparee->bindParam(":idCategorie", $intId, PDO::PARAM_INT);
         $requetePreparee->setFetchMode(PDO::FETCH_CLASS, "App\Modeles\Categories");
         $requetePreparee->execute();
-        $categorie=$requetePreparee->fetchAll();
+        $categorie = $requetePreparee->fetchAll();
 
         return $categorie;
     }
 
-    public static function paginerAutre(int $unNoDePage, int $unNbParPage): array{
+    public static function paginerAutre(int $unNoDePage, int $unNbParPage): array
+    {
 
         $indexDepart = null;
 
-        switch($unNoDePage){
+        switch ($unNoDePage) {
             case 0:
                 $indexDepart = 0;
                 break;
@@ -242,17 +282,64 @@ class Livre
                 break;
         }
 
-        $chaineSql= "SELECT * FROM  livres
-        LIMIT ".$indexDepart.", ".$unNbParPage;
+        $chaineSql = "SELECT * FROM  livres
+        LIMIT " . $indexDepart . ", " . $unNbParPage;
 
-        $requetePreparee=App::getPDO()->prepare($chaineSql);
+        $requetePreparee = App::getPDO()->prepare($chaineSql);
         $requetePreparee->setFetchMode(PDO::FETCH_ASSOC);
         $requetePreparee->execute();
-        $participantsAAfficher=$requetePreparee->fetchAll();
+        $participantsAAfficher = $requetePreparee->fetchAll();
 
         return $participantsAAfficher;
     }
 
 
+    //ACCUEIL//
+
+    public static function trouverNouveautes(): array
+    {
+        $subJours=strtotime('-4 years');
+        $dateMoins14 = date('Y-m-d', $subJours);
+        $dateNow = date('Y-m-d');
+
+
+        // Définir la chaine SQL
+        $chaineSQL = 'SELECT * FROM livres WHERE livres.date_parution_quebec >= :date14 AND livres.date_parution_quebec <= :dateNow ';
+        // Préparer la requête (optimisation)
+        $requetePreparee = App::getPDO()->prepare($chaineSQL);
+        $requetePreparee->bindParam(":date14", $dateMoins14, PDO::PARAM_STR);
+        $requetePreparee->bindParam(":dateNow", $dateNow, PDO::PARAM_STR);
+        // Définir le mode de récupération
+        $requetePreparee->setFetchMode(PDO::FETCH_CLASS, 'App\Modeles\Livre');
+        // Exécuter la requête
+        $requetePreparee->execute();
+        // Récupérer le résultat
+        $nouveautes = $requetePreparee->fetchAll();
+        return $nouveautes;
+    }
+
+    public static function trouverAParaitre(): array
+    {
+        $subJours=strtotime('+2 years');
+        $datePlus28 = date('Y-m-d', $subJours);
+        $dateNow = date('Y-m-d');
+
+
+        // Définir la chaine SQL
+        $chaineSQL = 'SELECT * FROM livres WHERE livres.date_parution_quebec <= :date28 AND livres.date_parution_quebec > :dateNow ';
+        // Préparer la requête (optimisation)
+        $requetePreparee = App::getPDO()->prepare($chaineSQL);
+        $requetePreparee->bindParam(":date28", $datePlus28, PDO::PARAM_STR);
+        $requetePreparee->bindParam(":dateNow", $dateNow, PDO::PARAM_STR);
+        // Définir le mode de récupération
+        $requetePreparee->setFetchMode(PDO::FETCH_CLASS, 'App\Modeles\Livre');
+        // Exécuter la requête
+        $requetePreparee->execute();
+        // Récupérer le résultat
+        $aParaitre = $requetePreparee->fetchAll();
+        return $aParaitre;
+    }
 
 }
+
+
