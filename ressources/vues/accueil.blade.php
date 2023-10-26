@@ -29,9 +29,8 @@
                 @foreach($nouveaute->getLivresAuteursAssocies() as $livreAuteur)
                 <h3 class="h3">{{$livreAuteur->getAuteurAssocie()->getPrenomNom()}}</h3>
                 @endforeach
-                @foreach($nouveaute->getCategorieAssociee() as $categorie)
-                <p class="texte">{{$categorie->getNom()}}</p>
-                @endforeach
+
+                    <p class="texte">{{$nouveaute->getCategorieAssociee()->getNom()}}</p>
                 <p class="texte">{{$nouveaute->getPrix_can()}}</p>
             </div>
                 @endforeach
@@ -45,11 +44,13 @@
             @foreach($aParaitres as $aParaitre)
             <span class="contour"></span>
             <span class="idAP" hidden></span>
-            <img class="imgLivre" src="*" alt="*">
+                <img class="imgLivre" src="liaisons/images/logo.svg" alt="*">
             <div class="contenuTexte">
                 <h2 class="h2">{{$aParaitre->getTitre()}}</h2>
-                <h3 class="h3">Julia Sarda</h3>
-                <p class="texte">{{$aParaitre->getCategorie()}}</p>
+                @foreach($aParaitre->getLivresAuteursAssocies() as $livreAuteur)
+                    <h3 class="h3">{{$livreAuteur->getAuteurAssocie()->getPrenomNom()}}</h3>
+                @endforeach
+                <p class="texte">{{$aParaitre->getCategorieAssociee()->getNom()}}</p>
                 <p class="texte">{{$aParaitre->getPrix_can()}}</p>
             </div>
                 @endforeach
