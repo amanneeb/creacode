@@ -26,6 +26,34 @@
   position: unset;
 }
 
+.livresSimilaires {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  padding-left: 0;
+}
+.livresSimilaires__lien {
+  color: black;
+  text-decoration: none;
+}
+.livresSimilaires__lien:hover .livre__titre {
+  text-decoration: underline;
+}
+
+.livre {
+  margin: 0.5em 0.5em;
+}
+.livre__titre {
+  font-weight: bold;
+}
+
+.infoSupplementaires__liste {
+  list-style-type: none;
+}
+
 /**
 * @author Prenom Nom courriel
 * @todo Compléter selon l'énoncé de l'exercice
