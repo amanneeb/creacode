@@ -67,21 +67,12 @@
 
     <section class="autresLivres">
         <h4 class="autresLivres__titre">Livres similaires</h4>
-    <!--    <ul class="livresSimilaires">
-
-            <li class="livresSimilaires__item">
-                <figure class="livre">
-                    <img class="livre__couverture" src="./liaisons/images/operatique_couv.jpg" alt="couverture Operatique" width="250px">
-                    <figcaption class="livre__titre">{{$categories[$cpt]->titre}}</figcaption>
-                </figure>
-            </li>
-        </ul> -->
     </section>
         <ul class="livresSimilaires">
             @foreach($livresPagination as $livresPag)
                 <li class="livresSimilaires__item">
-                    <a href='index.php?controleur=livre&action=fiche&idLivre={{$livresPag["id"]}}&idCategorie={{$livresPag["categorie_id"]}}'>
-                        <figure>
+                    <a class="livresSimilaires__lien" href='index.php?controleur=livre&action=fiche&idLivre={{$livresPag["id"]}}&idCategorie={{$livresPag["categorie_id"]}}'>
+                        <figure class="livre">
                             <img class="livre__couverture" src="./liaisons/images/operatique_couv.jpg" alt="couverture Operatique" width="100px">
                             <figcaption class="livre__titre">{{$livresPag["titre"]}}</figcaption>
                         </figure>
