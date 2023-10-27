@@ -1,3 +1,4 @@
+//Rendre invisible les boutons radio
 .onglets{
   border: 0;
   clip: rect(0 0 0 0);
@@ -8,34 +9,56 @@
   position: absolute;
   width: 0;
 }
+
+//Espacer les sections
 .infoPrincipal{
   margin-bottom: 3em;
 }
-.infoSupplementairesPLus{
+.infoSupplementaires{
   margin-top: 2em;
 }
-.infoSupplementaires{
+
+//Styler les onglets (Résumé-détails-commentaires)
+.typeInfos{
   height: fit-content;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  align-items: flex-start;
+  @media (min-width: 450px) {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
   &__liste{
     list-style-type: none;
   }
   &__input {
-    &:nth-child(1)+label{
-      border-top-left-radius: 10px;
-    }
-    &:nth-child(5)+label{
-      border-top-right-radius: 10px;
-    }
     &+label{
-      display: inline-block;
+      display: block;
       background: #fff;
       color: $orange;
       font-weight: bold;
       padding: 1em 2em;
       border: $orange solid 2px;
+      border-bottom: none;
+      align-self: stretch;
+      @media (min-width: 450px) {
+        align-self: auto;
+      }
     }
-
+    &:nth-child(1)+label{
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      @media (min-width: 450px) {
+        border-top-right-radius: 0px;
+      }
+    }
+    &:nth-child(5)+label{
+      @media (min-width: 450px) {
+        border-top-right-radius: 10px;
+      }
+    }
     &:checked+label{
       background: $orange;
       color: #fff;
@@ -43,7 +66,13 @@
   }
 }
 
-.autreInfo{
+//Styler la section où les informations apparaissent
+.visioInfo{
   margin-top: 0;
   border: $orange solid 2px;
+  padding-left: .8em;
+  padding-right: .4em;
+  @media (min-width: 900px) {
+    max-width: 900px;
+  }
 }

@@ -32,29 +32,29 @@
             <a class="defilement__lienSuivant hyperlien" href="">Livre suivant</a>
         </div>
     </section>
-    <section class="infoSupplementairesPLus">
-        <section class="infoSupplementaires">
-            <input class="infoSupplementaires__input onglets" type="radio" name="informations"  id="resume">
-            <label class="infoSupplementaires__label" for="resume">Résumé</label>
-            <input class="infoSupplementaires__input onglets" type="radio" name="informations" id="details">
-            <label class="infoSupplementaires__label" for="details">Détails</label>
-            <input class="infoSupplementaires__input onglets" type="radio" name="informations" id="commentaires">
-            <label class="infoSupplementaires__label" for="commentaires">Commentaires</label>
+    <section class="infoSupplementaires">
+        <section class="typeInfos">
+            <input class="typeInfos__input onglets" type="radio" name="informations"  id="resume">
+            <label class="typeInfos__label" for="resume">Résumé</label>
+            <input class="typeInfos__input onglets" type="radio" name="informations" id="details">
+            <label class="typeInfos__label" for="details">Détails</label>
+            <input class="typeInfos__input onglets" type="radio" name="informations" id="commentaires">
+            <label class="typeInfos__label" for="commentaires">Commentaires</label>
         </section>
-        <section class="autreInfo">
-            <div class="autreInfo__texte resume">
+        <section class="visioInfo">
+            <div class="visioInfo__texte resume">
                 <p>{{$lesLivres->getLe_livre()}}</p>
             </div>
-            <div class="autreInfo__texte details" hidden>
-                <p>Format: <span class="autreInfo__span autreInfo__span--format">{{$lesLivres->getFormat()}}</span></p>
-                <p>Nombre de pages: <span class="autreInfo__span autreInfo__span--pages">{{$lesLivres->getPagination()}}</span></p>
-                <p>Thème: <span class="autreInfo__span autreInfo__span--theme">{{$lesLivres->getCategorie_id()}}</span></p>
-                <p>Date de publication (Québec): <span class="autreInfo__span autreInfo__span--publicationQc">{{$lesLivres->getDate_parution_quebec()}}</span></p>
-                <p>Date de publication (France): <span class="autreInfo__span autreInfo__span--publicationFr">{{$lesLivres->getDate_parution_france()}}</span></p>
-                <p>Type d'impression: <span class="autreInfo__span autreInfo__span--impression">{{$lesLivres->getImpressionAssociee()->getNom()}}</span></p>
-                <p>Type de couverture: <span class="autreInfo__span autreInfo__span--couverture">{{$lesLivres->getCouvertureAssociee()->getNom()}}</span></p>
+            <div class="visioInfo__texte details" hidden>
+                <p>Format: <span class="visioInfo__span visioInfo__span--format">{{$lesLivres->getFormat()}}</span></p>
+                <p>Nombre de pages: <span class="visioInfo__span visioInfo__span--pages">{{$lesLivres->getPagination()}}</span></p>
+                <p>Thème: <span class="visioInfo__span visioInfo__span--theme">{{$lesLivres->getCategorie_id()}}</span></p>
+                <p>Date de publication (Québec): <span class="visioInfo__span visioInfo__span--publicationQc">{{$lesLivres->getDate_parution_quebec()}}</span></p>
+                <p>Date de publication (France): <span class="visioInfo__span visioInfo__span--publicationFr">{{$lesLivres->getDate_parution_france()}}</span></p>
+                <p>Type d'impression: <span class="visioInfo__span visioInfo__span--impression">{{$lesLivres->getImpressionAssociee()->getNom()}}</span></p>
+                <p>Type de couverture: <span class="visioInfo__span visioInfo__span--couverture">{{$lesLivres->getCouvertureAssociee()->getNom()}}</span></p>
             </div>
-            <p class="autreInfo__texte commentaires" hidden>
+            <p class="visioInfo__texte commentaires" hidden>
                 {{$lesLivres->getArguments_commerciaux()}}
             </p>
         </section>
