@@ -3,12 +3,13 @@ declare(strict_types=1);
 
 namespace App\Controleurs;
 
+
 //Cas d'importation
 use App\Modeles\Auteur;
 use \PDO;
 use App\App;
 use App\Modeles\LivreAuteur;
-
+use App\Modeles\FilAriane;
 
 class ControleurArtistes
 {

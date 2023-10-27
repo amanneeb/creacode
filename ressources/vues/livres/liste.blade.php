@@ -1,7 +1,7 @@
 @extends('gabarit')
 
 @section('contenu')
-
+    @include('fragments.filariane')
     <section class="liste-livres">
         <label class="liste-livres__titre">Trier par :</label>
         <!-- Liste déroulante pour trier -->

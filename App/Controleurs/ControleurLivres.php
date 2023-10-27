@@ -6,6 +6,7 @@ use App\Modeles\Livre;
 use App\Modeles\Categories;
 use App\App;
 use App\Modeles\Participant;
+use App\Modeles\FilAriane;
 
 class ControleurLivres
 {
@@ -14,6 +15,8 @@ class ControleurLivres
     }
 
     public function index(){
+
+        $filAriane=FilAriane::majFilArianne();
 
         if (isset($_GET['page'])) {
             $pageCourante = $_GET['page'];
@@ -56,7 +59,8 @@ class ControleurLivres
             "numeroPage" => $pageCourante,
             "nombreTotalPages" => $nbTotalPages,
             "urlPagination" => $urlPagination,
-            "urlTri" => $urlTri
+            "urlTri" => $urlTri,
+            "filAriane" => $filAriane
         );
 
 
@@ -64,6 +68,7 @@ class ControleurLivres
     }
 
     public function fiche(){
+        $filAriane=FilAriane::majFilArianne();
         $idLivre = (int) $_GET["idLivre"];
         //$idCategorie = (int) $_GET['idCategorie'];
         $livres = Livre::trouverParId($idLivre);
@@ -71,7 +76,7 @@ class ControleurLivres
         $categories = Livre::trouverParId($idLivre)->getCategorieAssociee()->getLivresAssocies();
 
         //PAGINATION
-        $totalLivres = Livre::compterNbLivres();
+        $totalLivres = Livre::compterNbLivres(0);
         $nbPage = $totalLivres/5;
         $nombreTotalPages = ceil($nbPage);
 
@@ -87,8 +92,10 @@ class ControleurLivres
         $livresPagination = Livre::paginerAutre($numeroPage, 5);
         //fin PAGINATION
 
-        $tDonnees = array('lesLivres' => $livres, 'categories' => $categories, "livresPagination"=>$livresPagination, "nombreTotalPages"=>$nombreTotalPages, "numeroPage"=>$numeroPage, "urlPagination"=>$urlPagination);
+        $tDonnees = array('lesLivres' => $livres, 'categories' => $categories, "livresPagination"=>$livresPagination, "nombreTotalPages"=>$nombreTotalPages, "numeroPage"=>$numeroPage, "urlPagination"=>$urlPagination, "filAriane" => $filAriane);
 
         echo App::getBlade()->run("livres.fiche", $tDonnees);
     }
+
+
 }
