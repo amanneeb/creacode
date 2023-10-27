@@ -6,6 +6,8 @@
  <?php if(isset($_GET['controleur'])&& isset($_GET['action'])): ?>
  <?php if($_GET['controleur']==='livre' && $_GET['action']==='index' ): ?>
  <script defer src="liaisons/js/tri.js"></script>
+ <?php elseif($_GET['controleur']==='livre' && $_GET['action']==='fiche' ): ?>
+ <script defer src="liaisons/js/onglets.js"></script>
  <?php endif; ?>
  <?php endif; ?>
  <script defer src="liaisons/js/menu.js"></script>

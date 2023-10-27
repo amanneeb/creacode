@@ -1,0 +1,55 @@
+<?php $_shouldextend[1]=1; ?>
+<?php $this->startSection('contenu'); ?>
+
+ <h1 class=""><?php echo \htmlentities($artistes->getPrenom()??'', ENT_QUOTES, 'UTF-8', false); ?> <?php echo \htmlentities($artistes->getNom()??'', ENT_QUOTES, 'UTF-8', false); ?></h1>
+
+
+
+
+ <?php if($artistes->getPrenom()): ?>
+ <?php if(file_exists("./liaisons/images/{$artistes->getPrenom()}{$artistes->getNom()}.jpg")): ?>
+ <img class="" src="./liaisons/images/<?php echo \htmlentities($artistes->getPrenom()??'', ENT_QUOTES, 'UTF-8', false); ?><?php echo \htmlentities($artistes->getNom()??'', ENT_QUOTES, 'UTF-8', false); ?>.jpg" alt="portrait de <?php echo \htmlentities($artistes->getPrenom()??'', ENT_QUOTES, 'UTF-8', false); ?> <?php echo \htmlentities($artistes->getNom()??'', ENT_QUOTES, 'UTF-8', false); ?>" width="200px">
+ <?php else: ?>
+ <img class="" src="./liaisons/images/placeholder.svg" alt="portrait de <?php echo \htmlentities($artistes->getPrenom()??'', ENT_QUOTES, 'UTF-8', false); ?> <?php echo \htmlentities($artistes->getNom()??'', ENT_QUOTES, 'UTF-8', false); ?>" width="200px">
+ <?php endif; ?>
+ <?php else: ?>
+ <?php if(file_exists("./liaisons/images/{$artistes->getNom()}.jpg")): ?>
+ <img class="" src="./liaisons/images/<?php echo \htmlentities($artistes->getNom()??'', ENT_QUOTES, 'UTF-8', false); ?>.jpg" alt="portrait de <?php echo \htmlentities($artistes->getNom()??'', ENT_QUOTES, 'UTF-8', false); ?>" width="200px">
+ <?php else: ?>
+ <img class="" src="./liaisons/images/placeholder.svg" alt="portrait de <?php echo \htmlentities($artistes->getPrenom()??'', ENT_QUOTES, 'UTF-8', false); ?> <?php echo \htmlentities($artistes->getNom()??'', ENT_QUOTES, 'UTF-8', false); ?>" width="200px">
+ <?php endif; ?>
+ <?php endif; ?>
+
+
+ <?php if($artistes->getSite_web() !== ''): ?>
+ <a class="hyperlien" href="<?php echo \htmlentities($artistes->getSite_web()??'', ENT_QUOTES, 'UTF-8', false); ?>">Site de l'auteur</a>
+ <?php endif; ?>
+
+ <p><?php echo \htmlentities($artistes->getNotice()??'', ENT_QUOTES, 'UTF-8', false); ?></p>
+
+ <ul>
+ <?php $__currentLoopData = $livresAuteurs; $this->addLoop($__currentLoopData);$this->getFirstLoop();
+ foreach($__currentLoopData as $livre): $loop = $this->incrementLoopIndices();  ?>
+ <li class="livresSimilaires__item">
+ <a href='index.php?controleur=livre&action=fiche&idLivre=<?php echo \htmlentities($livre->getLivreAssocie()->getId()??'', ENT_QUOTES, 'UTF-8', false); ?>&idCategorie=<?php echo \htmlentities($livre->getLivreAssocie()->getCategorie_id()??'', ENT_QUOTES, 'UTF-8', false); ?>'>
+ <figure>
+ <img class="livre__couverture" src="./liaisons/images/operatique_couv.jpg" alt="couverture Operatique" width="100px">
+ <figcaption class="livre__titre"><?php echo \htmlentities($livre->getLivreAssocie()->getTitre()??'', ENT_QUOTES, 'UTF-8', false); ?></figcaption>
+ </figure>
+ </a>
+ </li>
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+ </ul>
+
+ <?php if($idPrecedent>1): ?>
+ <a class="hyperlien" href="index.php?controleur=artiste&action=fiche&idArtiste=<?php echo \htmlentities($idPrecedent??'', ENT_QUOTES, 'UTF-8', false); ?>">artiste precedent</a>
+ <?php else: ?>
+ <a class="hyperlien" href="">artiste precedent</a>
+ <?php endif; ?>
+ <?php if($idSuivant<$artistes->compter()): ?>
+ <a class="hyperlien" href="index.php?controleur=artiste&action=fiche&idArtiste=<?php echo \htmlentities($idSuivant??'', ENT_QUOTES, 'UTF-8', false); ?>">artiste suivant</a>
+ <?php else: ?>
+ <a class="hyperlien" href="">artiste suivant</a>
+ <?php endif; ?>
+<?php $this->stopSection(); ?>
+<?php if (isset($_shouldextend[1])) { echo $this->runChild('gabarit'); } ?>

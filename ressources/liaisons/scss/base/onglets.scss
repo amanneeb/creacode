@@ -1,17 +1,49 @@
+.onglets{
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 0;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 0;
+}
+.infoPrincipal{
+  margin-bottom: 3em;
+}
+.infoSupplementairesPLus{
+  margin-top: 2em;
+}
 .infoSupplementaires{
+  height: fit-content;
+  display: block;
   &__liste{
     list-style-type: none;
   }
-  &__input{
-    background: #fff;
-    color: $orange;
-    font-weight: bold;
-    &:checked{
+  &__input {
+    &:nth-child(1)+label{
+      border-top-left-radius: 10px;
+    }
+    &:nth-child(5)+label{
+      border-top-right-radius: 10px;
+    }
+    &+label{
+      display: inline-block;
+      background: #fff;
+      color: $orange;
+      font-weight: bold;
+      padding: 1em 2em;
+      border: $orange solid 2px;
+    }
+
+    &:checked+label{
       background: $orange;
       color: #fff;
     }
   }
+}
 
-
-
+.autreInfo{
+  margin-top: 0;
+  border: $orange solid 2px;
 }

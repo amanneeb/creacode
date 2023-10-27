@@ -27,30 +27,25 @@
             <input class="AjoutPanier__btnPanier btnPrimaire" type="button" name="ajoutPanier" id="ajoutPanier" value="Ajouter au panier">
             <input class="AjoutPanier__btnSouhait btnSecondaire" type="button" name="ajoutSouhait" id="ajoutSouhait" value="Ajouter à ma liste">
         </div>
-        <a class="infoPrincipal__lienPrecedent hyperlien" href="">Livre précédent</a>
-        <a class="infoPrincipal__lienSuivant hyperlien" href="">Livre suivant</a>
+        <div class="defilement">
+            <a class="defilement__lienPrecedent hyperlien" href="">Livre précédent</a>
+            <a class="defilement__lienSuivant hyperlien" href="">Livre suivant</a>
+        </div>
     </section>
-    <section class="infoSupplementaires">
-        <ul class="infoSupplementaires__liste">
-            <li class="infoSupplementaires__item">
-                <input class="infoSupplementaires__input" type="radio" name="informations"  id="resume" checked>
-                <label class="infoSupplementaires__label" for="resume">Résumé</label>
-                <br>
-            </li>
-            <li class="infoSupplementaires__item">
-                <input class="infoSupplementaires__input" type="radio" name="informations" id="details">
-                <label class="infoSupplementaires__label" for="details">Détails</label>
-            </li>
-            <li class="infoSupplementaires__item">
-                <input class="infoSupplementaires__input" type="radio" name="informations" id="commentaires">
-                <label class="infoSupplementaires__label" for="commentaires">Commentaires</label>
-            </li>
-        </ul>
+    <section class="infoSupplementairesPLus">
+        <section class="infoSupplementaires">
+            <input class="infoSupplementaires__input onglets" type="radio" name="informations"  id="resume">
+            <label class="infoSupplementaires__label" for="resume">Résumé</label>
+            <input class="infoSupplementaires__input onglets" type="radio" name="informations" id="details">
+            <label class="infoSupplementaires__label" for="details">Détails</label>
+            <input class="infoSupplementaires__input onglets" type="radio" name="informations" id="commentaires">
+            <label class="infoSupplementaires__label" for="commentaires">Commentaires</label>
+        </section>
         <section class="autreInfo">
-            <section class="autreInfo__texte resume">
+            <div class="autreInfo__texte resume">
                 <p>{{$lesLivres->getLe_livre()}}</p>
-            </section>
-            <section class="autreInfo__texte details" >
+            </div>
+            <div class="autreInfo__texte details" hidden>
                 <p>Format: <span class="autreInfo__span autreInfo__span--format">{{$lesLivres->getFormat()}}</span></p>
                 <p>Nombre de pages: <span class="autreInfo__span autreInfo__span--pages">{{$lesLivres->getPagination()}}</span></p>
                 <p>Thème: <span class="autreInfo__span autreInfo__span--theme">{{$lesLivres->getCategorie_id()}}</span></p>
@@ -58,24 +53,15 @@
                 <p>Date de publication (France): <span class="autreInfo__span autreInfo__span--publicationFr">{{$lesLivres->getDate_parution_france()}}</span></p>
                 <p>Type d'impression: <span class="autreInfo__span autreInfo__span--impression">{{$lesLivres->getImpressionAssociee()->getNom()}}</span></p>
                 <p>Type de couverture: <span class="autreInfo__span autreInfo__span--couverture">{{$lesLivres->getCouvertureAssociee()->getNom()}}</span></p>
-            </section>
-            <section class="autreInfo__texte commentaires" >
+            </div>
+            <p class="autreInfo__texte commentaires" hidden>
                 {{$lesLivres->getArguments_commerciaux()}}
-            </section>
+            </p>
         </section>
     </section>
 
     <section class="autresLivres">
         <h4 class="autresLivres__titre">Livres similaires</h4>
-    <!--    <ul class="livresSimilaires">
-
-            <li class="livresSimilaires__item">
-                <figure class="livre">
-                    <img class="livre__couverture" src="./liaisons/images/operatique_couv.jpg" alt="couverture Operatique" width="250px">
-                    <figcaption class="livre__titre">{{$categories[$cpt]->titre}}</figcaption>
-                </figure>
-            </li>
-        </ul> -->
     </section>
         <ul class="livresSimilaires">
             @foreach($livresPagination as $livresPag)

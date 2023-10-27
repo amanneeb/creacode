@@ -6,6 +6,8 @@
     @if(isset($_GET['controleur'])&& isset($_GET['action']))
         @if($_GET['controleur']==='livre' && $_GET['action']==='index' )
             <script defer src="liaisons/js/tri.js"></script>
+        @elseif($_GET['controleur']==='livre' && $_GET['action']==='fiche' )
+            <script defer src="liaisons/js/onglets.js"></script>
         @endif
     @endif
     <script defer src="liaisons/js/menu.js"></script>
