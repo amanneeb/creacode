@@ -30,7 +30,7 @@ class FilAriane
      *      <a href="$lien["lien"]">$lien["titre"]</a>
      *  else
      *      $lien["titre"]}
- *      endif
+     *      endif
      *  <span> | </span>
      * endforeach
      *
@@ -38,24 +38,35 @@ class FilAriane
      * Retourne une tableau associatif de liens et titre de liens.
      * @return array
      */
-    public static function majFilArianne(): array{
+    public static function majFilArianne(): array
+    {
         //Tableau de retour des liens du fil d'Ariane
-        $fil=array();
+        $fil = array();
 
         //Si le contrôleur est défini, on a déjà naviguer quelque part
-        if(isset($_GET["controleur"])){
+        if (isset($_GET["controleur"])) {
 
             //Si le contrôleur n'est pas celui du site, nous sommes au deuxième niveau
-            if($_GET["controleur"] !== 'site') {
+            if ($_GET["controleur"] !== 'site') {
 
-                switch(true){
+                switch (true) {
 
                     //Si l'action est d'afficher une liste de livres
-                    case  $_GET["action"] === 'index' :
+                    case  $_GET["controleur"] === 'livre' && $_GET["action"] === 'index' :
 
                         //On crée un lien de retour vers l'accueil
-                        $lien0=array("titre"=>"Accueil","lien"=>"index.php?controleur=site&action=accueil");
-                        $lien1=array("titre"=>"Livres");
+                        $lien0 = array("titre" => "Accueil", "lien" => "index.php?controleur=site&action=accueil");
+                        $lien1 = array("titre" => "Livres");
+
+                        //Prépare le tableau de liens de retour
+                        $fil[0] = $lien0;
+                        $fil[1] = $lien1;
+                        break;
+                    case  $_GET["controleur"] === 'artiste' && $_GET["action"] === 'index' :
+
+                        //On crée un lien de retour vers l'accueil
+                        $lien0 = array("titre" => "Accueil", "lien" => "index.php?controleur=site&action=accueil");
+                        $lien1 = array("titre" => "Auteurs");
 
                         //Prépare le tableau de liens de retour
                         $fil[0] = $lien0;
@@ -63,24 +74,39 @@ class FilAriane
                         break;
 
                     //Si l'action est d'afficher une fiche de livre
-                    case  $_GET["action"] === 'fiche' :
+                    case   $_GET["controleur"] === 'livre' && $_GET["action"] === 'fiche' :
 
                         //Lien de retour vers l'accueil
-                        $lien0=array("titre"=>"Accueil","lien"=>"index.php?controleur=site&action=accueil");
-                        $lien1=array("titre"=>"Livres","lien"=>"index.php?controleur=livre&action=index");
+                        $lien0 = array("titre" => "Accueil", "lien" => "index.php?controleur=site&action=accueil");
+                        $lien1 = array("titre" => "Livres", "lien" => "index.php?controleur=livre&action=index");
 
                         //Prépare le tableau de liens de retour
                         $fil[0] = $lien0;
                         $fil[1] = $lien1;
 
-                        //Si un livre particuler est sélectionné par isbn
                         //Afficher la fin du fil, sans lien
-                        //Pourrait aussi être fait par ID
-                        if(isset($_GET["idLivre"])) {
-                            $idLivre=$_GET["idLivre"];
+                        if (isset($_GET["idLivre"])) {
+                            $idLivre = $_GET["idLivre"];
 
                             $livre = Livre::trouverParId((int)$idLivre);
-                            $fil[2]=array("titre"=>$livre->getTitre());
+                            $fil[2] = array("titre" => $livre->getTitre());
+                        }
+                        break;
+                    case   $_GET["controleur"] === 'artiste' && $_GET["action"] === 'fiche' :
+
+                        //Lien de retour vers l'accueil
+                        $lien0 = array("titre" => "Accueil", "lien" => "index.php?controleur=site&action=accueil");
+                        $lien1 = array("titre" => "Auteurs", "lien" => "index.php?controleur=artiste&action=index");
+
+                        //Prépare le tableau de liens de retour
+                        $fil[0] = $lien0;
+                        $fil[1] = $lien1;
+
+                        //Afficher la fin du fil, sans lien
+                        if (isset($_GET["idAuteur"])) {
+                            $idAuteur = $_GET["idAuteur"];
+                            $livre = Auteur::trouverParId((int)$idAuteur);
+                            $fil[2] = array("titre" => $livre->getPrenomNom());
                         }
                         break;
                 }

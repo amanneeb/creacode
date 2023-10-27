@@ -10,7 +10,9 @@
  <script defer src="liaisons/js/onglets.js"></script>
  <?php endif; ?>
  <?php endif; ?>
+
  <script defer src="liaisons/js/menu.js"></script>
+
  <link rel="stylesheet" href="./liaisons/css/styles.css">
 </head>
 <body>
