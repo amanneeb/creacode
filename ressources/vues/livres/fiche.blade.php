@@ -4,33 +4,44 @@
         <h1 class="titreLivre">{{$lesLivres->getTitre()}}</h1>
 
     <section class="infoPrincipal">
-        <img class="infoPrincipal__img" src="./liaisons/images/operatique_couv.jpg" alt="couverture Operatique" width="400px">
-        <div class="LivrePanier">
-            <p class="LivrePanier__theme">{{$lesLivres->getCategorieAssociee()->getNom()}}</p>
-            <!--<h2 class="LivrePanier__titre"></h2>-->
-            <h3 class="LivrePanier__auteur">
-                @foreach($lesLivres->getLivresAuteursAssocies() as $auteurs)
-                    <a class="LivrePanier__auteurLien" href="">{{$auteurs->getAuteurAssocie()->getPrenom()." ". $auteurs->getAuteurAssocie()->getNom()}}</a>
-                @endforeach
-            </h3>
-            <p class="LivrePanier__audio">ISBN: <span class="LivrePanier__isbnSpan">{{$lesLivres->getIsbn_papier()}}</span></p>
-            <p class="LivrePanier__audio">Audio:<span class="LivrePanier__audioSpan">{{$lesLivres->getUrl_audio()}}</span></p>
-            <p class="LivrePanier__epub">E-pub: <span class="LivrePanier__epubSpan">{{$lesLivres->getIsbn_epub()}}</span></p>
-            <p class="LivrePanier__pdf">PDF: <span class="LivrePanier__pdfSpan">{{$lesLivres->getIsbn_pdf()}}</span></p>
-            <p class="LivrePanier__prixCan"><span class="LivrePanier__SpanPrixCan">{{$lesLivres->getPrix_can()}}</span>$</p>
-            <p class="LivrePanier__prixFr"><span class="LivrePanier__SpanPrixFr">{{$lesLivres->getPrix_euro()}}</span>€</p>
+        <div class="ctnImg">
+            <img class="ctnImg__img" src="./liaisons/images/operatique_couv.jpg" alt="couverture Operatique" width="400px">
         </div>
-        <div class="AjoutPanier">
-            <input class="AjoutPanier__moins btnPrimaire" type="button" name="nbLivres" id="plus" value="-">
-            <span class="AjoutPanier__livre">1</span>
-            <input class="AjoutPanier__plus btnPrimaire" type="button" name="nbLivres" id="moins" value="+">
-            <input class="AjoutPanier__btnPanier btnPrimaire" type="button" name="ajoutPanier" id="ajoutPanier" value="Ajouter au panier">
-            <input class="AjoutPanier__btnSouhait btnSecondaire" type="button" name="ajoutSouhait" id="ajoutSouhait" value="Ajouter à ma liste">
+
+        <div class="ctnInfoPanier">
+            <div class="livrePanier">
+                <p class="livrePanier__theme">{{$lesLivres->getCategorieAssociee()->getNom()}}</p>
+                <!--<h2 class="livrePanier__titre"></h2>-->
+                <h3 class="livrePanier__auteur">
+                    @foreach($lesLivres->getLivresAuteursAssocies() as $auteurs)
+                        <a class="livrePanier__auteurLien" href="">{{$auteurs->getAuteurAssocie()->getPrenom()." ". $auteurs->getAuteurAssocie()->getNom()}}</a>
+                    @endforeach
+                </h3>
+                <p class="livrePanier__audio">ISBN: <span class="livrePanier__isbnSpan">{{$lesLivres->getIsbn_papier()}}</span></p>
+                @if($lesLivres->getUrl_audio())
+                <p class="livrePanier__audio">Audio:<span class="livrePanier__audioSpan">{{$lesLivres->getUrl_audio()}}</span></p>
+                @endif
+                @if($lesLivres->getIsbn_epub())
+                <p class="livrePanier__epub">E-pub: <span class="livrePanier__epubSpan">{{$lesLivres->getIsbn_epub()}}</span></p>
+                @endif
+                @if($lesLivres->getIsbn_pdf())
+                <p class="livrePanier__pdf">PDF: <span class="livrePanier__pdfSpan">{{$lesLivres->getIsbn_pdf()}}</span></p>
+                @endif
+                <p class="livrePanier__prixCan"><span class="livrePanier__SpanPrixCan">{{$lesLivres->getPrix_can()}}</span>$</p>
+                <p class="livrePanier__prixFr"><span class="livrePanier__SpanPrixFr">{{$lesLivres->getPrix_euro()}}</span>€</p>
+            </div>
+            <div class="ajoutPanier">
+                <input class="ajoutPanier__moins btnPrimaire" type="button" name="nbLivres" id="moins" value="-">
+                <span class="ajoutPanier__nbLivre">1</span>
+                <input class="ajoutPanier__plus btnPrimaire" type="button" name="nbLivres" id="plus" value="+">
+                <input class="ajoutPanier__btnPanier btnPrimaire" type="button" name="ajoutPanier" id="ajoutPanier" value="Ajouter au panier">
+                <input class="ajoutPanier__btnSouhait btnSecondaire" type="button" name="ajoutSouhait" id="ajoutSouhait" value="Ajouter à ma liste">
+            </div>
         </div>
-        <div class="defilement">
-            <a class="defilement__lienPrecedent hyperlien" href="">Livre précédent</a>
-            <a class="defilement__lienSuivant hyperlien" href="">Livre suivant</a>
-        </div>
+    </section>
+    <section class="defilement">
+        <a class="defilement__lienPrecedent hyperlien" href="">Livre précédent</a>
+        <a class="defilement__lienSuivant hyperlien" href="">Livre suivant</a>
     </section>
     <section class="infoSupplementaires">
         <section class="typeInfos">
@@ -68,7 +79,10 @@
                 <li class="livresSimilaires__item">
                     <a class="livresSimilaires__lien" href='index.php?controleur=livre&action=fiche&idLivre={{$livresPag["id"]}}&idCategorie={{$livresPag["categorie_id"]}}'>
                         <figure class="livre">
-                            <img class="livre__couverture" src="./liaisons/images/operatique_couv.jpg" alt="couverture Operatique" width="100px">
+                            <div class="ctnImg">
+                                <img class="ctnImg__img" src="./liaisons/images/operatique_couv.jpg" alt="couverture Operatique">
+                            </div>
+                            <!--<img class="livre__couverture" src="./liaisons/images/operatique_couv.jpg" alt="couverture Operatique" width="100px"-->
                             <figcaption class="livre__titre">{{$livresPag["titre"]}}</figcaption>
                         </figure>
                     </a>

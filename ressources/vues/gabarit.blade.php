@@ -8,6 +8,7 @@
             <script defer src="liaisons/js/tri.js"></script>
         @elseif($_GET['controleur']==='livre' && $_GET['action']==='fiche' )
             <script defer src="liaisons/js/onglets.js"></script>
+            <script defer src="liaisons/js/ajoutPanier.js"></script>
         @endif
     @endif
     <script defer src="liaisons/js/menu.js"></script>

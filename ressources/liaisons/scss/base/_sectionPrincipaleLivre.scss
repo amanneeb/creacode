@@ -1,0 +1,93 @@
+.infoPrincipal{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  @media (min-width: 500px) {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    max-height: 800px;
+    margin-bottom: 2px;
+  }
+  /*.ctnImg{
+    display: block;
+    max-height: 100%;
+    height: fit-content;
+    position: relative;
+    border: $vert 2px solid;
+    border-radius: 5px;
+
+    &__img{
+      position: relative;
+      top: -.5em;
+      left: .5em;
+      display: block;
+      border-radius: 5px;
+      &:hover{
+        position: unset;
+        animation: ease-in;
+        animation-duration: 1s;
+        animation-direction: normal;
+      }
+    }
+  }*/
+
+  .infoPrincipal .ctnImg{
+    max-height: 100%;
+    height: fit-content;
+  }
+
+  .ctnInfoPanier{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+
+    @media (min-width: 500px) {
+      margin-left: 2em;
+      align-self: stretch;
+    }
+    .livrePanier{
+      @media (min-width: 500px) {
+      }
+      &__auteurLien{
+        color: black;
+        text-decoration: none;
+        &:hover{
+          text-decoration: underline;
+          color: $orange;
+        }
+      }
+      &__prixCan{
+        font-size: 1.3em;
+        font-weight: bold;
+      }
+      &__theme{
+        background: $orange;
+        color: $blanc;
+        text-transform: uppercase;
+        font-weight: bold;
+        padding: 1em 1em;
+        @media (min-width: 500px) {
+          margin-top: 0;
+        }
+      }
+    }
+    .ajoutPanier{
+      &__nbLivre{
+        display: inline-block;
+        width: 55px;
+        text-align: center;
+      }
+    }
+  }
+}
+
+
+
+.defilement{
+  margin-bottom: 3em;
+}
