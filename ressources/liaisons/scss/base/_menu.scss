@@ -36,7 +36,7 @@
   }
 
   #menuToggle a:hover {
-    color: tomato;
+    color: $orange;
   }
 
 
@@ -67,12 +67,12 @@
 
     position: relative;
 
-    background: #d21111;
+    background: $rouge;
     border-radius: 3px;
 
     z-index: 1;
 
-    transform-origin: 4px 0px;
+    transform-origin: 4px 0;
 
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
     background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
@@ -94,7 +94,7 @@
   #menuToggle input:checked ~ span {
     opacity: 1;
     transform: rotate(45deg) translate(-2px, -1px);
-    background: #232323;
+    background: $orange;
   }
 
   /*
@@ -139,6 +139,7 @@
     font-size: 22px;
   }
 
+
   /*
    * And let's slide it in from the left
    */
@@ -146,3 +147,6 @@
     transform: none;
   }
 }
+
+
+
