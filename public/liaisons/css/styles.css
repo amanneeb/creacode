@@ -132,6 +132,16 @@
   }
 }
 
+.menu__logo {
+  display: flex;
+  margin: auto;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+}
+
 /**
 * @author Prenom Nom courriel
 * @todo Compléter selon l'énoncé de l'exercice
@@ -411,7 +421,7 @@ h3 {
   transition: color 0.3s ease;
 }
 .navMobile #menuToggle a:hover {
-  color: tomato;
+  color: #c64532;
 }
 .navMobile #menuToggle input {
   display: block;
@@ -431,7 +441,7 @@ h3 {
   height: 4px;
   margin-bottom: 5px;
   position: relative;
-  background: #3654c3;
+  background: #681c0f;
   border-radius: 3px;
   z-index: 1;
   transform-origin: 4px 0;
@@ -446,7 +456,7 @@ h3 {
 .navMobile #menuToggle input:checked ~ span {
   opacity: 1;
   transform: rotate(45deg) translate(-2px, -1px);
-  background: #232323;
+  background: #c64532;
 }
 .navMobile #menuToggle input:checked ~ span:nth-last-child(3) {
   opacity: 0;
@@ -477,9 +487,9 @@ h3 {
   transform: none;
 }
 
-.menu__logo {
-  display: flex;
-  margin: auto;
+footer {
+  background-color: #681c0f;
+  color: #f8f1d7;
 }
 
 /*# sourceMappingURL=styles.css.map */

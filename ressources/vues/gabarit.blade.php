@@ -11,7 +11,7 @@
         @endif
     @endif
     <script defer src="liaisons/js/menu.js"></script>
-    <link rel="stylesheet" href="./liaisons/css/styles.css">
+    <link rel="stylesheet" href="liaisons/css/styles.css">
 </head>
 <body>
 <header>
