@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
  <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <title>La Pastèque</title>
  <?php if(isset($_GET['controleur'])&& isset($_GET['action'])): ?>
  <?php if($_GET['controleur']==='livre' && $_GET['action']==='index' ): ?>

@@ -1,93 +1,124 @@
-.infoPrincipal{
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  @media (min-width: 500px) {
+/*.infoPrincipal{
+
+  @media (min-width: 700px) {
+    display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
     max-height: 800px;
     margin-bottom: 2px;
   }
-  /*.ctnImg{
-    display: block;
-    max-height: 100%;
-    height: fit-content;
-    position: relative;
-    border: $vert 2px solid;
-    border-radius: 5px;
 
-    &__img{
-      position: relative;
-      top: -.5em;
-      left: .5em;
+  & .images{
+    & div{
+
+    }
+  }
+
+  & .ctnImg{
+    display: inline-block;
+    @media (min-width: 700px) {
       display: block;
-      border-radius: 5px;
-      &:hover{
-        position: unset;
-        animation: ease-in;
-        animation-duration: 1s;
-        animation-direction: normal;
-      }
+      max-height: 100%;
+      height: fit-content;
     }
   }*/
 
-  .infoPrincipal .ctnImg{
-    max-height: 100%;
-    height: fit-content;
+.ctnPage{
+  @media (min-width: 800px) {
+    margin: 0 auto;
   }
-
-  .ctnInfoPanier{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-
-    @media (min-width: 500px) {
-      margin-left: 2em;
-      align-self: stretch;
+  .infoPrincipal{
+    @media (min-width: 700px) {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: flex-start;
     }
-    .livrePanier{
-      @media (min-width: 500px) {
-      }
-      &__auteurLien{
-        color: black;
-        text-decoration: none;
-        &:hover{
-          text-decoration: underline;
-          color: $orange;
-        }
-      }
-      &__prixCan{
-        font-size: 1.3em;
-        font-weight: bold;
-      }
-      &__theme{
-        background: $orange;
-        color: $blanc;
-        text-transform: uppercase;
-        font-weight: bold;
-        padding: 1em 1em;
-        @media (min-width: 500px) {
-          margin-top: 0;
-        }
-      }
-    }
-    .ajoutPanier{
-      &__nbLivre{
+
+    .images{
+      display: block;
+      width: 100%;
+      @media (min-width: 700px) {
         display: inline-block;
-        width: 55px;
-        text-align: center;
+        width: 50%;
+      }
+      .ctnImg{
+        @media (min-width: 700px) {
+          width: 100%;
+        }
+        &__img{
+          @media (min-width: 700px) {
+            width: 100%;
+          }
+        }
+      }
+      .defilement{
+        margin-bottom: 3em;
+      }
+    }
+    .ctnInfoPanier{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      width: 100%;
+      @media (min-width: 700px) {
+        display: inline-flex;
+        margin-left: 2em;
+        align-self: stretch;
+        width: 50%;
+        margin-bottom: 0;
+      }
+      .livrePanier{
+        @media (min-width: 700px) {
+        }
+        &__auteurLien{
+          color: black;
+          text-decoration: none;
+          &:hover{
+            text-decoration: underline;
+            color: $orange;
+          }
+        }
+        &__prixCan{
+          font-size: 1.3em;
+          font-weight: bold;
+        }
+        &__theme{
+          background: $orange;
+          color: $blanc;
+          text-transform: uppercase;
+          font-weight: bold;
+          padding: 1em 1em;
+          @media (min-width: 700px) {
+            margin-top: 0;
+          }
+        }
+      }
+      .ajoutPanier{
+        &__nbLivre{
+          display: inline-block;
+          height: 44px;
+          width: 44px;
+          text-align: center;
+          border: black 1.5px solid;
+          border-radius: 5px;
+          line-height: 2.7em;
+        }
+        &__moins,
+        &__plus,
+        &__btnPanier,
+        &__btnSouhait{
+          margin: .5em 0;
+        }
       }
     }
   }
+
 }
 
 
 
-.defilement{
-  margin-bottom: 3em;
-}
+

@@ -91,8 +91,8 @@ h3 {
 }
 
 .ctnImg {
-  display: block;
   height: fit-content;
+  width: fit-content;
   position: relative;
   border: #1f6f78 2px solid;
   border-radius: 5px;
@@ -249,93 +249,119 @@ h3 {
   text-decoration: underline;
 }
 
-.infoPrincipal {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  /*.ctnImg{
-    display: block;
-    max-height: 100%;
-    height: fit-content;
-    position: relative;
-    border: $vert 2px solid;
-    border-radius: 5px;
+/*.infoPrincipal{
 
-    &__img{
-      position: relative;
-      top: -.5em;
-      left: .5em;
-      display: block;
-      border-radius: 5px;
-      &:hover{
-        position: unset;
-        animation: ease-in;
-        animation-duration: 1s;
-        animation-direction: normal;
-      }
-    }
-  }*/
-}
-@media (min-width: 500px) {
-  .infoPrincipal {
+  @media (min-width: 700px) {
+    display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
     max-height: 800px;
     margin-bottom: 2px;
   }
+
+  & .images{
+    & div{
+
+    }
+  }
+
+  & .ctnImg{
+    display: inline-block;
+    @media (min-width: 700px) {
+      display: block;
+      max-height: 100%;
+      height: fit-content;
+    }
+  }*/
+@media (min-width: 800px) {
+  .ctnPage {
+    margin: 0 auto;
+  }
 }
-.infoPrincipal .infoPrincipal .ctnImg {
-  max-height: 100%;
-  height: fit-content;
+@media (min-width: 700px) {
+  .ctnPage .infoPrincipal {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
 }
-.infoPrincipal .ctnInfoPanier {
+.ctnPage .infoPrincipal .images {
+  display: block;
+  width: 100%;
+}
+@media (min-width: 700px) {
+  .ctnPage .infoPrincipal .images {
+    display: inline-block;
+    width: 50%;
+  }
+}
+@media (min-width: 700px) {
+  .ctnPage .infoPrincipal .images .ctnImg {
+    width: 100%;
+  }
+}
+@media (min-width: 700px) {
+  .ctnPage .infoPrincipal .images .ctnImg__img {
+    width: 100%;
+  }
+}
+.ctnPage .infoPrincipal .images .defilement {
+  margin-bottom: 3em;
+}
+.ctnPage .infoPrincipal .ctnInfoPanier {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
+  width: 100%;
 }
-@media (min-width: 500px) {
-  .infoPrincipal .ctnInfoPanier {
+@media (min-width: 700px) {
+  .ctnPage .infoPrincipal .ctnInfoPanier {
+    display: inline-flex;
     margin-left: 2em;
     align-self: stretch;
+    width: 50%;
+    margin-bottom: 0;
   }
 }
-.infoPrincipal .ctnInfoPanier .livrePanier__auteurLien {
+.ctnPage .infoPrincipal .ctnInfoPanier .livrePanier__auteurLien {
   color: black;
   text-decoration: none;
 }
-.infoPrincipal .ctnInfoPanier .livrePanier__auteurLien:hover {
+.ctnPage .infoPrincipal .ctnInfoPanier .livrePanier__auteurLien:hover {
   text-decoration: underline;
   color: #c64532;
 }
-.infoPrincipal .ctnInfoPanier .livrePanier__prixCan {
+.ctnPage .infoPrincipal .ctnInfoPanier .livrePanier__prixCan {
   font-size: 1.3em;
   font-weight: bold;
 }
-.infoPrincipal .ctnInfoPanier .livrePanier__theme {
+.ctnPage .infoPrincipal .ctnInfoPanier .livrePanier__theme {
   background: #c64532;
   color: #f8f1d7;
   text-transform: uppercase;
   font-weight: bold;
   padding: 1em 1em;
 }
-@media (min-width: 500px) {
-  .infoPrincipal .ctnInfoPanier .livrePanier__theme {
+@media (min-width: 700px) {
+  .ctnPage .infoPrincipal .ctnInfoPanier .livrePanier__theme {
     margin-top: 0;
   }
 }
-.infoPrincipal .ctnInfoPanier .ajoutPanier__nbLivre {
+.ctnPage .infoPrincipal .ctnInfoPanier .ajoutPanier__nbLivre {
   display: inline-block;
-  width: 55px;
+  height: 44px;
+  width: 44px;
   text-align: center;
+  border: black 1.5px solid;
+  border-radius: 5px;
+  line-height: 2.7em;
 }
-
-.defilement {
-  margin-bottom: 3em;
+.ctnPage .infoPrincipal .ctnInfoPanier .ajoutPanier__moins, .ctnPage .infoPrincipal .ctnInfoPanier .ajoutPanier__plus, .ctnPage .infoPrincipal .ctnInfoPanier .ajoutPanier__btnPanier, .ctnPage .infoPrincipal .ctnInfoPanier .ajoutPanier__btnSouhait {
+  margin: 0.5em 0;
 }
 
 /**
