@@ -1,7 +1,7 @@
 
 const nav = document.getElementById('navigation');
 const checkbox = document.getElementById('checkboxMenu');
-const spans = document.querySelectorAll('span');
+const spans = document.querySelectorAll('.span_menuHamburger');
 const width = window.matchMedia('(max-width:800px)');
 hideHamburger(width);
 width.addEventListener('change', hideHamburger);

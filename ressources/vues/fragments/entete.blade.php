@@ -1,6 +1,6 @@
 
 <img class="menu__logo" src="./liaisons/images/logo.svg" alt="" width="200px">
-<h1>La pastèque</h1>
+{{--<h1>La pastèque</h1>--}}
 <label for="recherche"></label>
 <input name="recherche" id="recherche" type="search" class="recherche" content="Rechercher un livre...">
 <button class="menu_btn compte">Mon compte</button>
@@ -9,9 +9,9 @@
     <div id="menuToggle">
         <input type="checkbox" id="checkboxMenu" />
 
-        <span></span>
-        <span></span>
-        <span></span>
+        <span class="span_menuHamburger"></span>
+        <span class="span_menuHamburger"></span>
+        <span class="span_menuHamburger"></span>
 <ul id="menu" class="menu_list">
     <li><a href="index.php?controleur=site&action=accueil">Accueil</a></li>
     <li><a href="index.php?controleur=livre&action=index">Livres</a></li>

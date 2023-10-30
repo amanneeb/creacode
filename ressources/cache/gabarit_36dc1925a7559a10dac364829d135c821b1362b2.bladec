@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+ <meta charset="utf-8">
+ <title>La Pastèque</title>
+ <?php if(isset($_GET['controleur'])&& isset($_GET['action'])): ?>
+ <?php if($_GET['controleur']==='livre' && $_GET['action']==='index' ): ?>
+ <script defer src="liaisons/js/tri.js"></script>
+ <?php elseif($_GET['controleur']==='livre' && $_GET['action']==='fiche' ): ?>
+ <script defer src="liaisons/js/onglets.js"></script>
+ <?php endif; ?>
+ <?php endif; ?>
+ <script defer src="liaisons/js/menu.js"></script>
+ <link rel="stylesheet" href="./liaisons/css/styles.css">
+</head>
+<body>
+<header>
+ <?php echo $this->runChild('fragments.entete'); ?>
+</header>
+
+<main>
+ <?php echo $this->yieldContent('contenu'); ?>
+</main>
+
+<footer>
+ <?php echo $this->runChild('fragments.pieddepage'); ?>
+</footer>
+</body>
+</html>
+
+
+
+
