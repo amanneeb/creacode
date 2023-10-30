@@ -14,12 +14,12 @@
         <label class="liste-livres__titre">Filtrer par genre :</label>
         <!-- Liste de filtrage par genre -->
         <ul class="liste-livres__tri">
-            <li class="liste-livres__tri-option" ><a href="{{ $urlTri }}&idCategorie=1">Bandes dessinées</a></li>
-            <li class="liste-livres__tri-option" ><a href="{{ $urlTri }}&idCategorie=2">BD jeunesse</a></li>
-            <li class="liste-livres__tri-option" ><a href="{{ $urlTri }}&idCategorie=3">Livres illustrés</a></li>
-            <li class="liste-livres__tri-option" ><a href="{{ $urlTri }}&idCategorie=4">Albums jeunesse</a></li>
-            <li class="liste-livres__tri-option" ><a href="{{ $urlTri }}&idCategorie=5">Documentaires</a></li>
-            <li class="liste-livres__tri-option" ><a href="{{ $urlTri }}&idCategorie=6">Divers</a></li>
+            <li class="liste-livres__tri-option"><a class="" href="{{ $urlTri }}&idCategorie=1">Bandes dessinées</a></li>
+            <li class="liste-livres__tri-option"><a class="" href="{{ $urlTri }}&idCategorie=2">BD jeunesse</a></li>
+            <li class="liste-livres__tri-option"><a class="" href="{{ $urlTri }}&idCategorie=3">Livres illustrés</a></li>
+            <li class="liste-livres__tri-option"><a class="" href="{{ $urlTri }}&idCategorie=4">Albums jeunesse</a></li>
+            <li class="liste-livres__tri-option"><a class="" href="{{ $urlTri }}&idCategorie=5">Documentaires</a></li>
+            <li class="liste-livres__tri-option"><a class="" href="{{ $urlTri }}&idCategorie=6">Divers</a></li>
         </ul>
     </section>
 
@@ -28,12 +28,17 @@
         @foreach ($livres as $livre)
             <li class="livre">
                 <a href="index.php?controleur=livre&action=fiche&idLivre={{ $livre->getId() }}">
-                    <img src="livre{{ $livre->getId() }}.jpg" alt="{{ $livre->getTitre() }}" class="livre__image">
+                    <img
+                            {{--                            src="livre{{ $livre->getId() }}.jpg"--}}
+                            src="./liaisons/images/operatique_couv.jpg" width="150px" height="200px"
+                            alt="{{ $livre->getTitre() }}" class="livre__image">
                     <h3 class="livre__titre">{{ $livre->getTitre() }}</h3>
                 </a>
                 <ul>
                     @foreach($livre->getLivresAuteursAssocies() as $livreAuteur)
-                        <li>{{ $livreAuteur->getAuteurAssocie()->getPrenomNom() }}</li>
+                        <a href="index.php?controleur=artistes&action=fiche&idArtiste={{ $livreAuteur->getAuteurAssocie()->getId() }}">
+                            <li>{{ $livreAuteur->getAuteurAssocie()->getPrenomNom() }}</li>
+                        </a>
                     @endforeach
                 </ul>
                 <p class="livre__prix">{{ $livre->getPrix_can() }}</p>
