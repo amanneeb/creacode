@@ -1,8 +1,6 @@
 
 // Lier les fiches de styles individuelles
-@import "styles_anais";
-@import "styles_marianne";
-@import "styles_giselle";
+
 
 @import "utilitaires/variables";
 @import "base/images";
@@ -14,4 +12,8 @@
 @import "base/typo";
 @import "base/bouton";
 @import "base/menu";
+
+@import "modules/tri";
+
 @import "base/footer";
+

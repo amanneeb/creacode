@@ -131,6 +131,8 @@
     max-width: 900px;
   }
 }
+<<<<<<< HEAD
+=======
 
 .menu__logo {
   display: flex;
@@ -141,6 +143,7 @@
   display: flex;
   flex-direction: row;
 }
+>>>>>>> main
 
 /**
 * @author Prenom Nom courriel
@@ -487,9 +490,36 @@ h3 {
   transform: none;
 }
 
+<<<<<<< HEAD
+.liste-livres__tri {
+  list-style: none;
+}
+.liste-livres__tri .liste-livres__tri-option {
+  display: inline;
+  margin: 5px;
+  padding: 10px 20px;
+  background-color: white;
+  color: #c64532;
+  border: 2px solid #c64532;
+  border-radius: 5px;
+  width: auto;
+}
+.liste-livres__tri .liste-livres__tri-option:hover {
+  border: 3px solid #681c0f;
+  color: #681c0f;
+}
+.liste-livres__tri .liste-livres__tri-option:active, .liste-livres__tri .liste-livres__tri-option.active {
+  background-color: #c64532;
+  color: white;
+}
+.liste-livres__tri .liste-livres__tri-option:focus {
+  border: 3px double #681c0f;
+  color: #681c0f;
+=======
 footer {
   background-color: #681c0f;
   color: #f8f1d7;
+>>>>>>> main
 }
 
 /*# sourceMappingURL=styles.css.map */
