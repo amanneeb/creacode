@@ -36,7 +36,7 @@
                 </a>
                 <ul>
                     @foreach($livre->getLivresAuteursAssocies() as $livreAuteur)
-                        <a href="index.php?controleur=artistes&action=fiche&idArtiste={{ $livreAuteur->getAuteurAssocie()->getId() }}">
+                        <a href="index.php?controleur=artiste&action=fiche&idArtiste={{ $livreAuteur->getAuteurAssocie()->getId() }}">
                             <li>{{ $livreAuteur->getAuteurAssocie()->getPrenomNom() }}</li>
                         </a>
                     @endforeach
