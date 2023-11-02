@@ -1,8 +1,9 @@
 
 // Lier les fiches de styles individuelles
 
-
+//utilitaires
 @import "utilitaires/variables";
+//base
 @import "base/images";
 @import "base/livres_similaires";
 @import "base/onglets";
@@ -12,8 +13,10 @@
 @import "base/typo";
 @import "base/bouton";
 @import "base/menu";
-
+//modules
 @import "modules/tri";
-
+@import "modules/boutonswitch";
+//layout
 @import "layout/footer";
-
+@import "layout/grillelistes";
+@import "layout/marges";

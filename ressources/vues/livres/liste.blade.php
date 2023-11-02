@@ -1,6 +1,7 @@
 @extends('gabarit')
 
 @section('contenu')
+    <div class="conteneur">
     @include('fragments.filariane')
     <section class="liste-livres">
         <label class="liste-livres__titre">Trier par :</label>
@@ -24,12 +25,17 @@
     </section>
 
     <h2>livres</h2>
-    <ul class="liste-livres__items">
+        <div class="conteneur__boutons">
+            <div class="boutons-switch">
+                <button id="bouton-liste" class="btn actif">Grille</button>
+                <button id="bouton-grille" class="btn">Liste</button>
+            </div>
+        </div>
+        <ul class="liste-livres__items liste__items">
         @foreach ($livres as $livre)
-            <li class="livre">
+            <li class="livre item">
                 <a href="index.php?controleur=livre&action=fiche&idLivre={{ $livre->getId() }}">
                     <img
-                            {{--                            src="livre{{ $livre->getId() }}.jpg"--}}
                             src="./liaisons/images/operatique_couv.jpg" width="150px" height="200px"
                             alt="{{ $livre->getTitre() }}" class="livre__image">
                     <h3 class="livre__titre">{{ $livre->getTitre() }}</h3>
@@ -41,11 +47,12 @@
                         </a>
                     @endforeach
                 </ul>
-                <p class="livre__prix">{{ $livre->getPrix_can() }}</p>
+                <p class="livre__prix">{{ $livre->getPrix_can() }}$</p>
             </li>
         @endforeach
     </ul>
     <p>Nombre total de livres : {{ $nbTotalLivres }}</p>
     @include('fragments.pagination')
+    </div>
 @endsection
 

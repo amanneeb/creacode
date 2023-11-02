@@ -1,9 +1,10 @@
 @extends('gabarit')
 
 @section('contenu')
+    <div class="conteneur">
     @include('fragments.filariane')
     <h2>Auteurs</h2>
-    <ul class="liste-auteurs__items">
+    <ul class="liste-auteurs__items liste__items">
         @foreach ($auteurs as $auteur)
             <li class="auteur">
                 <a href="index.php?controleur=artiste&action=fiche&idArtiste={{ $auteur->getId() }}">
@@ -15,5 +16,6 @@
     </ul>
     <p>Nombre total d'auteurs: {{ $nbTotalAuteurs }}</p>
     @include('fragments.pagination')
+    </div>
 @endsection
 
