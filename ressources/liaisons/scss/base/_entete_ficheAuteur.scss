@@ -1,0 +1,25 @@
+.ctnAuteur{
+  position: relative;
+  display: block;
+  max-width: 100%;
+  @media (min-width: 500px) {
+    margin-left: 15vw;
+  }
+  &__nomAuteur{
+    margin-left: 0;
+    @media (min-width: 500px) {
+      margin-left: 3px;
+      //display: block;
+    }
+  }
+  .ctnImgLien{
+    position: relative;
+    bottom: 10vw;
+    left: 25vw;
+    margin-left: .5em;
+  }
+  @media (min-width: 500px) {
+    display: block;
+    left: 0;
+  }
+}

@@ -1,7 +1,9 @@
 @extends('gabarit')
 @section('contenu')
     @include('fragments.filariane')
+    <div class="ctnTitre">
         <h1 class="titreLivre">{{$lesLivres->getTitre()}}</h1>
+    </div>
 
     <div class="ctnPage">
         <section class="infoPrincipal">
@@ -20,7 +22,7 @@
                     <!--<h2 class="livrePanier__titre"></h2>-->
                     <h3 class="livrePanier__auteur">
                         @foreach($lesLivres->getLivresAuteursAssocies() as $auteurs)
-                            <a class="livrePanier__auteurLien" href="">{{$auteurs->getAuteurAssocie()->getPrenom()." ". $auteurs->getAuteurAssocie()->getNom()}}</a>
+                            <a class="livrePanier__auteurLien" href="index.php?controleur=artiste&action=fiche&idArtiste={{$auteurs->getAuteurAssocie()->getId()}}">{{$auteurs->getAuteurAssocie()->getPrenom()." ". $auteurs->getAuteurAssocie()->getNom()}}</a>
                         @endforeach
                     </h3>
                     <p class="livrePanier__audio">ISBN: <span class="livrePanier__isbnSpan">{{$lesLivres->getIsbn_papier()}}</span></p>
@@ -79,7 +81,7 @@
         <ul class="livresSimilaires">
             @foreach($livresPagination as $livresPag)
                 <li class="livresSimilaires__item">
-                    <a class="livresSimilaires__lien" href='index.php?controleur=livre&action=fiche&idLivre={{$livresPag["id"]}}&idCategorie={{$livresPag["categorie_id"]}}'>
+                    <a class="livresSimilaires__lien" href='index.php?controleur=livre&action=fiche&idLivre={{$livresPag["id"]}}'>
                         <figure class="livre">
                             <div class="ctnImg">
                                 <img class="ctnImg__img" src="./liaisons/images/operatique_couv.jpg" alt="couverture Operatique">

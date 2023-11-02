@@ -39,7 +39,7 @@ h2,
 .titreNiveau2,
 h3,
 .titreNiveau3 {
-  font-family: WonderSeason, serif;
+  font-family: "WonderSeason", serif;
   font-weight: 500;
 }
 
@@ -47,8 +47,7 @@ h1 {
   /*@include fontSize(28px);*/
   color: #681c0f;
   font-size: 40px;
-  font-family: WonderSeason, serif;
-  border-bottom: #1f6f78 3px solid;
+  font-family: "WonderSeason", serif;
 }
 @media (min-width: 600px) {
   h1 {
@@ -215,6 +214,7 @@ h3 {
 
 .visioInfo {
   margin-top: 0;
+  background: white;
   border: #c64532 solid 2px;
   padding-left: 0.8em;
   padding-right: 0.4em;
@@ -276,6 +276,7 @@ h3 {
   }*/
 @media (min-width: 800px) {
   .ctnPage {
+    max-width: 1000px;
     margin: 0 auto;
   }
 }
@@ -359,6 +360,7 @@ h3 {
   border: black 1.5px solid;
   border-radius: 5px;
   line-height: 2.7em;
+  background: white;
 }
 .ctnPage .infoPrincipal .ctnInfoPanier .ajoutPanier__moins, .ctnPage .infoPrincipal .ctnInfoPanier .ajoutPanier__plus, .ctnPage .infoPrincipal .ctnInfoPanier .ajoutPanier__btnPanier, .ctnPage .infoPrincipal .ctnInfoPanier .ajoutPanier__btnSouhait {
   margin: 0.5em 0;
@@ -529,6 +531,59 @@ h3 {
 }
 .navMobile #menuToggle input:checked ~ ul {
   transform: none;
+}
+
+.titreLivre,
+.ctnAuteur__nomAuteur {
+  padding: 0.6em 0.6em 0.6em 0.3em;
+  font-size: 3em;
+  background-color: #F2E0D4;
+  margin-left: 3em;
+  text-align: right;
+}
+
+.ctnAuteur {
+  position: relative;
+  display: block;
+  max-width: 100%;
+}
+@media (min-width: 500px) {
+  .ctnAuteur {
+    margin-left: 15vw;
+  }
+}
+.ctnAuteur__nomAuteur {
+  margin-left: 0;
+}
+@media (min-width: 500px) {
+  .ctnAuteur__nomAuteur {
+    margin-left: 3px;
+  }
+}
+.ctnAuteur .ctnImgLien {
+  position: relative;
+  bottom: 10vw;
+  left: 25vw;
+  margin-left: 0.5em;
+}
+@media (min-width: 500px) {
+  .ctnAuteur {
+    display: block;
+    left: 0;
+  }
+}
+
+main {
+  background: #F9F1EC;
+}
+main .ctnBio {
+  background: white;
+  border: #c64532 solid 2px;
+  border-radius: 5px;
+  max-width: 800px;
+  padding-left: 0.8em;
+  padding-right: 0.4em;
+  padding-top: 0.4em;
 }
 
 /*# sourceMappingURL=styles.css.map */

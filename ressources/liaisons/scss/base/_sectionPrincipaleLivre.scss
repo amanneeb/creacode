@@ -26,6 +26,7 @@
 
 .ctnPage{
   @media (min-width: 800px) {
+    max-width: 1000px;
     margin: 0 auto;
   }
   .infoPrincipal{
@@ -106,6 +107,7 @@
           border: black 1.5px solid;
           border-radius: 5px;
           line-height: 2.7em;
+          background: white;
         }
         &__moins,
         &__plus,
