@@ -89,7 +89,7 @@ class ControleurLivres
             $numeroPage = (int) $_GET["page"];
         }
 
-        $livresPagination = Livre::paginerAutre($numeroPage, 5);
+        $livresPagination = Livre::paginerAutre($numeroPage, 3);
         //fin PAGINATION
 
         $tDonnees = array('lesLivres' => $livres, 'categories' => $categories, "livresPagination"=>$livresPagination, "nombreTotalPages"=>$nombreTotalPages, "numeroPage"=>$numeroPage, "urlPagination"=>$urlPagination, "filAriane" => $filAriane);
