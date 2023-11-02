@@ -131,19 +131,51 @@
     max-width: 900px;
   }
 }
-<<<<<<< HEAD
-=======
 
 .menu__logo {
   display: flex;
   margin: auto;
+  width: 400px;
 }
 
 .buttons {
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
 }
->>>>>>> main
+.buttons button {
+  border-color: #c64532;
+  border-radius: 5px;
+}
+.buttons .compte {
+  background-color: white;
+  padding: 10px;
+  margin-left: 10px;
+}
+.buttons .panier {
+  background-color: #c64532;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+.barRecherche {
+  width: 300px;
+  display: flex;
+  margin: 20px auto 0 auto;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.barRecherche label {
+  align-self: flex-start;
+}
+.barRecherche input {
+  width: 300px;
+  height: 36px;
+  border-color: #c64532;
+  border-radius: 5px;
+  border-width: 3px;
+}
 
 /**
 * @author Prenom Nom courriel
@@ -386,6 +418,11 @@ h3 {
   display: none;
 }
 
+.opacityMenu {
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
 .navMobile {
   /*
    * Just a quick hamburger
@@ -409,18 +446,16 @@ h3 {
    */
 }
 .navMobile #menuToggle {
-  float: right;
   display: block;
   position: relative;
   top: -30px;
-  left: -20px;
   z-index: 1;
   -webkit-user-select: none;
   user-select: none;
 }
 .navMobile #menuToggle a {
   text-decoration: none;
-  color: #232323;
+  color: #681c0f;
   transition: color 0.3s ease;
 }
 .navMobile #menuToggle a:hover {
@@ -469,17 +504,17 @@ h3 {
   transform: rotate(-45deg) translate(0, -1px);
 }
 .navMobile #menu {
-  position: absolute;
+  position: fixed;
   width: 240px;
-  margin: -100px 0 0 -280px;
+  margin: -50px 0 0 -15px;
   padding: 50px;
-  padding-top: 125px;
-  background: #ededed;
+  padding-top: 70px;
+  background: white;
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
   /* to stop flickering of text in safari */
   transform-origin: 0% 0%;
-  transform: translate(100%, 0);
+  transform: translate(-100%, 0);
   transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
 }
 .navMobile #menu li {
@@ -490,7 +525,6 @@ h3 {
   transform: none;
 }
 
-<<<<<<< HEAD
 .liste-livres__tri {
   list-style: none;
 }
@@ -515,11 +549,11 @@ h3 {
 .liste-livres__tri .liste-livres__tri-option:focus {
   border: 3px double #681c0f;
   color: #681c0f;
-=======
+}
+
 footer {
   background-color: #681c0f;
   color: #f8f1d7;
->>>>>>> main
 }
 
 /*# sourceMappingURL=styles.css.map */
