@@ -3,14 +3,13 @@
 
 @import "utilitaires/variables";
 @import "base/typo";
-@import "base/images";
-@import "base/livres_similaires";
-@import "base/onglets";
+@import "modules/images";
+@import "modules/livres_similaires";
+@import "layout/onglets";
 @import "base/hyperlien";
-@import "base/sectionPrincipaleLivre";
+@import "layout/sectionPrincipaleLivre";
 
 @import "base/bouton";
 @import "base/menu";
-@import "base/entete_fiche";
-@import "base/entete_ficheAuteur";
-@import "base/mainFicheArtiste";
+@import "modules/entete_fiche";
+@import "layout/mainFicheArtiste";

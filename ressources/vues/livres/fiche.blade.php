@@ -19,7 +19,6 @@
             <div class="ctnInfoPanier">
                 <div class="livrePanier">
                     <p class="livrePanier__theme">{{$lesLivres->getCategorieAssociee()->getNom()}}</p>
-                    <!--<h2 class="livrePanier__titre"></h2>-->
                     <h3 class="livrePanier__auteur">
                         @foreach($lesLivres->getLivresAuteursAssocies() as $auteurs)
                             <a class="livrePanier__auteurLien" href="index.php?controleur=artiste&action=fiche&idArtiste={{$auteurs->getAuteurAssocie()->getId()}}">{{$auteurs->getAuteurAssocie()->getPrenom()." ". $auteurs->getAuteurAssocie()->getNom()}}</a>
@@ -86,7 +85,6 @@
                             <div class="ctnImg">
                                 <img class="ctnImg__img" src="./liaisons/images/operatique_couv.jpg" alt="couverture Operatique">
                             </div>
-                            <!--<img class="livre__couverture" src="./liaisons/images/operatique_couv.jpg" alt="couverture Operatique" width="100px"-->
                             <figcaption class="livre__titre">{{$livresPag["titre"]}}</figcaption>
                         </figure>
                     </a>
