@@ -10,10 +10,11 @@
 /** Polices de caractères **/
 
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;1,400;1,700&display=swap');
 
 
-$fontePrimaire : Poppins, sans-serif;
-$fonteSecondaire : WonderSeason, serif;
+$fontePrimaire : "Poppins", sans-serif;
+$fonteSecondaire : "WonderSeason", serif;
 
 /** Palette de couleurs **/
 // Utiliser http://chir.ag/projects/name-that-color pour obtenir des noms uniques et mémorisables
@@ -24,7 +25,7 @@ $blanc: #f8f1d7;
 $vert: #1f6f78;
 $orange: #c64532;
 $rouge: #681c0f;
-
+$bgTitre: #F2E0D4;
 
 /** Points de rupture **/
 $desktop : 601px;

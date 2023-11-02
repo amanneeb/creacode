@@ -1,0 +1,22 @@
+//Effet de déplacement sur l'image
+.ctnImg{
+  height: fit-content;
+  width: fit-content;
+  position: relative;
+  border: $vert 2px solid;
+  border-radius: 5px;
+
+  &__img{
+    position: relative;
+    top: -.5em;
+    left: .5em;
+    display: block;
+    border-radius: 5px;
+    &:hover{
+      position: unset;
+      animation: ease-in;
+      animation-duration: 1s;
+      animation-direction: normal;
+    }
+  }
+}

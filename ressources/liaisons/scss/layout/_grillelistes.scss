@@ -1,0 +1,24 @@
+.liste__items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns:  1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 1em 1em;
+  @media (min-width: 500px){
+    gap: 13px 80px;
+  }
+  @media (min-width: 800px){
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 13px 100px;
+  }
+}
+
+.livre{
+  ul{
+    list-style: none;
+    padding-left: 0;
+  }
+}

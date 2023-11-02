@@ -1,0 +1,34 @@
+.liste-livres__tri{
+list-style: none;
+  //display: inline;
+  .liste-livres__tri-option{
+    display: inline;
+    margin: 5px;
+    padding: 10px 20px;
+    background-color: white;
+    color: $orange;
+    border:2px solid $orange;
+    border-radius: 5px;
+    width: auto;
+    &:hover{
+      border:3px solid $rouge;
+      color: $rouge;
+    }
+    &:active,
+    &.active{
+      background-color: $orange;
+      color: white;
+    }
+    &:focus{
+      border:3px double $rouge;
+      color: $rouge;
+    }
+}
+}
+
+
+
+///* Au survol, changer la couleur de fond pour indiquer l'interactivité */
+//li:hover {
+//  background-color: #2980b9;
+//}
