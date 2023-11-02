@@ -1,0 +1,47 @@
+// HEADER //
+
+
+.menu__logo{
+  display:flex;
+  margin:auto;
+  width: 400px;
+}
+
+.buttons{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  button{
+    border-color: $orange;
+    border-radius: 5px;
+  }
+  .compte {
+    background-color: white;
+    padding:10px;
+    margin-left: 10px;
+  }
+  .panier{
+    background-color: $orange;
+    padding:10px;
+    margin-right: 10px;
+  }
+}
+
+.barRecherche{
+  width: 300px;
+display: flex;
+  margin: 20px auto 0 auto;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  label{
+    align-self: flex-start;
+  }
+  input{
+    width: 300px;
+    height: 36px;
+    border-color: $orange;
+    border-radius: 5px;
+    border-width: 3px;
+  }
+}
