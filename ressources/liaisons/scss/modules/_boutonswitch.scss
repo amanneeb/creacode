@@ -1,0 +1,11 @@
+.btn {
+  background-color: #ccc;
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.btn.actif {
+  background-color: $orange;
+}

@@ -131,8 +131,6 @@
     max-width: 900px;
   }
 }
-<<<<<<< HEAD
-=======
 
 .menu__logo {
   display: flex;
@@ -143,7 +141,6 @@
   display: flex;
   flex-direction: row;
 }
->>>>>>> main
 
 /**
 * @author Prenom Nom courriel
@@ -490,7 +487,6 @@ h3 {
   transform: none;
 }
 
-<<<<<<< HEAD
 .liste-livres__tri {
   list-style: none;
 }
@@ -515,11 +511,65 @@ h3 {
 .liste-livres__tri .liste-livres__tri-option:focus {
   border: 3px double #681c0f;
   color: #681c0f;
-=======
+}
+
+.btn {
+  background-color: #ccc;
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.btn.actif {
+  background-color: #c64532;
+}
+
 footer {
   background-color: #681c0f;
   color: #f8f1d7;
->>>>>>> main
+}
+
+.liste__items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 1em 1em;
+}
+@media (min-width: 500px) {
+  .liste__items {
+    gap: 13px 80px;
+  }
+}
+@media (min-width: 800px) {
+  .liste__items {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 13px 100px;
+  }
+}
+
+.livre ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Conteneur principal pour le contenu de chaque page */
+.conteneur {
+  margin: 0 5% 0 5%;
+}
+@media (min-width: 600px) {
+  .conteneur {
+    margin: 0 10% 0 10%;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */
