@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;1,400;1,700&display=swap');
+
 /**
 * @author Prenom Nom courriel
 * @todo Préciser l’interlignage sur le body pour l’écran large
@@ -34,7 +36,6 @@ h1 {
   color: $rouge;
   font-size: 40px;
   font-family: $fonteSecondaire;
-  border-bottom: $vert 3px solid;
   @media (min-width: 600px) {
     font-size: 64px;
   }

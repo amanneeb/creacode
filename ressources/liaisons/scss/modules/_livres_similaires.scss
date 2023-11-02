@@ -7,10 +7,11 @@
   flex-wrap: nowrap;
   padding-left: 0;
   &__item{
-
+    margin-right: 2.5em;
   }
 
   &__lien{
+    display: block;
     color: black;
     text-decoration: none;
     &:hover .livre__titre{
@@ -24,4 +25,9 @@
   &__titre{
     font-weight: bold;
   }
+  & .ctnImg__img{
+    height: 250px;
+    width: auto;
+  }
 }
+

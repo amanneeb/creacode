@@ -9,21 +9,105 @@
 */
 /** Polices de caractères **/
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;1,400;1,700&display=swap");
 /** Palette de couleurs **/
 /* Couleurs de base */
 /** Points de rupture **/
-.image {
-  /*position: relative;*/
-  border: #1f6f78 solid 2px;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;1,400;1,700&display=swap");
+/**
+* @author Prenom Nom courriel
+* @todo Préciser l’interlignage sur le body pour l’écran large
+* @todo Utiliser le mixin fontSize pour définir les tailles de polices
+* @todo Utiliser une variable pour la media query de la règle body
+*/
+/**** Typographie responsive ****/
+html {
+  font-size: 62.5%;
 }
-.image img {
-  display: inline-block;
-  position: absolute;
-  left: 5px;
-  top: 5px;
+
+body {
+  font-size: 16px; /* 16px pour toutes les largeurs d'écran */
+  font-size: 1.6rem;
+  line-height: 1.375; /* facteur multiplicateur de la taille de la police 1.375x16=22 */
 }
-.image img:hover {
+h1,
+.titreNiveau1 {
+  color: red;
+}
+
+h2,
+.titreNiveau2,
+h3,
+.titreNiveau3 {
+  font-family: "WonderSeason", serif;
+  font-weight: 500;
+}
+
+h1 {
+  /*@include fontSize(28px);*/
+  color: #681c0f;
+  font-size: 40px;
+  font-family: "WonderSeason", serif;
+}
+@media (min-width: 600px) {
+  h1 {
+    font-size: 64px;
+  }
+}
+
+h2 {
+  /*@include fontSize(28px);*/
+  font-weight: bold;
+  font-size: 20px;
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+}
+@media (min-width: 600px) {
+  h2 {
+    font-size: 24px;
+  }
+}
+
+h3 {
+  /*@include fontSize(28px);*/
+  font-weight: bold;
+  font-size: 18px;
+  font-family: "Poppins", sans-serif;
+}
+@media (min-width: 600px) {
+  h3 {
+    font-size: 20px;
+  }
+}
+
+.texte {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.375;
+}
+.texte--desktop {
+  line-height: 1.5;
+}
+
+.ctnImg {
+  height: fit-content;
+  width: fit-content;
+  position: relative;
+  border: #1f6f78 2px solid;
+  border-radius: 5px;
+}
+.ctnImg__img {
+  position: relative;
+  top: -0.5em;
+  left: 0.5em;
+  display: block;
+  border-radius: 5px;
+}
+.ctnImg__img:hover {
   position: unset;
+  animation: ease-in;
+  animation-duration: 1s;
+  animation-direction: normal;
 }
 
 .livresSimilaires {
@@ -35,7 +119,11 @@
   flex-wrap: nowrap;
   padding-left: 0;
 }
+.livresSimilaires__item {
+  margin-right: 2.5em;
+}
 .livresSimilaires__lien {
+  display: block;
   color: black;
   text-decoration: none;
 }
@@ -49,6 +137,10 @@
 .livre__titre {
   font-weight: bold;
 }
+
+.livre .ctnImg__img {
+  height: 250px;
+  width: auto;
 
 .onglets {
   border: 0;
@@ -273,6 +365,7 @@
 
 .visioInfo {
   margin-top: 0;
+  background: white;
   border: #c64532 solid 2px;
   padding-left: 0.8em;
   padding-right: 0.4em;
@@ -285,78 +378,118 @@
 
 /**
 * @author Prenom Nom courriel
-* @todo Préciser l’interlignage sur le body pour l’écran large
-* @todo Utiliser le mixin fontSize pour définir les tailles de polices
-* @todo Utiliser une variable pour la media query de la règle body
+* @todo Compléter selon l'énoncé de l'exercice
 */
-/**** Typographie responsive ****/
-html {
-  font-size: 62.5%;
+.hyperlien {
+  color: #c64532;
 }
-
-body {
-  font-size: 16px; /* 16px pour toutes les largeurs d'écran */
-  font-size: 1.6rem;
-  line-height: 1.375; /* facteur multiplicateur de la taille de la police 1.375x16=22 */
+.hyperlien:visited {
+  color: #c64532;
 }
-h1,
-.titreNiveau1 {
-  color: red;
-}
-
-h2,
-.titreNiveau2,
-h3,
-.titreNiveau3 {
-  font-family: WonderSeason, serif;
-  font-weight: 500;
-}
-
-h1 {
-  /*@include fontSize(28px);*/
+.hyperlien:hover {
   color: #681c0f;
-  font-size: 40px;
-  font-family: WonderSeason, serif;
-  border-bottom: #1f6f78 3px solid;
+  text-decoration: underline;
 }
-@media (min-width: 600px) {
-  h1 {
-    font-size: 64px;
-  }
+.hyperlien:focus {
+  border: #303075 solid 4px;
+  text-decoration: underline;
+}
+.hyperlien:active {
+  font-weight: bolder;
+  border: none;
+  text-decoration: underline;
 }
 
-h2 {
-  /*@include fontSize(28px);*/
+@media (min-width: 800px) {
+  .ctnPage {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+}
+@media (min-width: 700px) {
+  .ctnPage .infoPrincipal {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+}
+.ctnPage .infoPrincipal .images {
+  display: block;
+  width: 100%;
+}
+@media (min-width: 700px) {
+  .ctnPage .infoPrincipal .images {
+    display: inline-block;
+    width: 50%;
+  }
+}
+@media (min-width: 700px) {
+  .ctnPage .infoPrincipal .images .ctnImg {
+    width: 100%;
+  }
+}
+@media (min-width: 700px) {
+  .ctnPage .infoPrincipal .images .ctnImg__img {
+    width: 100%;
+  }
+}
+.ctnPage .infoPrincipal .images .defilement {
+  margin-bottom: 3em;
+}
+.ctnPage .infoPrincipal .ctnInfoPanier {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+}
+@media (min-width: 700px) {
+  .ctnPage .infoPrincipal .ctnInfoPanier {
+    display: inline-flex;
+    margin-left: 2em;
+    align-self: stretch;
+    width: 50%;
+    margin-bottom: 0;
+  }
+}
+.ctnPage .infoPrincipal .ctnInfoPanier .livrePanier__auteurLien {
+  color: black;
+  text-decoration: none;
+}
+.ctnPage .infoPrincipal .ctnInfoPanier .livrePanier__auteurLien:hover {
+  text-decoration: underline;
+  color: #c64532;
+}
+.ctnPage .infoPrincipal .ctnInfoPanier .livrePanier__prixCan {
+  font-size: 1.3em;
   font-weight: bold;
-  font-size: 20px;
-  font-family: Poppins, sans-serif;
+}
+.ctnPage .infoPrincipal .ctnInfoPanier .livrePanier__theme {
+  background: #c64532;
+  color: #f8f1d7;
   text-transform: uppercase;
-}
-@media (min-width: 600px) {
-  h2 {
-    font-size: 24px;
-  }
-}
-
-h3 {
-  /*@include fontSize(28px);*/
   font-weight: bold;
-  font-size: 18px;
-  font-family: Poppins, sans-serif;
+  padding: 1em 1em;
 }
-@media (min-width: 600px) {
-  h3 {
-    font-size: 20px;
+@media (min-width: 700px) {
+  .ctnPage .infoPrincipal .ctnInfoPanier .livrePanier__theme {
+    margin-top: 0;
   }
 }
-
-.texte {
-  font-family: Poppins, sans-serif;
-  font-size: 1.6rem;
-  line-height: 1.375;
+.ctnPage .infoPrincipal .ctnInfoPanier .ajoutPanier__nbLivre {
+  display: inline-block;
+  height: 44px;
+  width: 44px;
+  text-align: center;
+  border: black 1.5px solid;
+  border-radius: 5px;
+  line-height: 2.7em;
+  background: white;
 }
-.texte--desktop {
-  line-height: 1.5;
+.ctnPage .infoPrincipal .ctnInfoPanier .ajoutPanier__moins, .ctnPage .infoPrincipal .ctnInfoPanier .ajoutPanier__plus, .ctnPage .infoPrincipal .ctnInfoPanier .ajoutPanier__btnPanier, .ctnPage .infoPrincipal .ctnInfoPanier .ajoutPanier__btnSouhait {
+  margin: 0.5em 0;
 }
 
 /**
@@ -369,7 +502,8 @@ h3 {
   font-weight: bold;
   border: none;
   border-radius: 5px;
-  padding: 10px 5px;
+  padding: 10px 10px;
+  height: 44px;
 }
 .btnPrimaire:hover, .btnPrimaire:active {
   background: #681c0f;
@@ -386,10 +520,11 @@ h3 {
   font-weight: bold;
   border-radius: 5px;
   border: #c64532 solid 3px;
-  padding: 10px 5px;
+  padding: 10px 10px;
+  height: 44px;
 }
 .btnSecondaire:hover, .btnSecondaire:active {
-  outline: #681c0f solid 5px;
+  border: #681c0f solid 3px;
   color: #681c0f;
 }
 .btnSecondaire:focus {
@@ -399,9 +534,11 @@ h3 {
   color: #681c0f;
 }
 
-.AjoutPanier__moins,
-.AjoutPanier__plus {
+.ajoutPanier__moins,
+.ajoutPanier__plus {
   padding: 10px 12px;
+  height: 44px;
+  width: 50px;
 }
 
 /*
@@ -525,6 +662,76 @@ h3 {
   transform: none;
 }
 
+.titreLivre,
+.nomAuteur {
+  padding: 0.6em 0.6em 0.6em 0.3em;
+  font-size: 3em;
+  background-color: #F2E0D4;
+  text-align: right;
+}
+@media (min-width: 600px) {
+  .titreLivre,
+  .nomAuteur {
+    margin-left: 3em;
+  }
+}
+
+main {
+  background: #F9F1EC;
+}
+main .nomAuteur {
+  margin-left: 0em;
+}
+@media (min-width: 600px) {
+  main .nomAuteur {
+    margin-left: 3em;
+  }
+}
+main .ctnAuteur {
+  width: 100%;
+}
+@media (min-width: 800px) {
+  main .ctnAuteur {
+    width: 800px;
+    margin: 0 auto;
+  }
+}
+main .ctnAuteur .ctnImgLien {
+  position: relative;
+  top: -4em;
+}
+@media (min-width: 800px) {
+  main .ctnAuteur .ctnImgLien {
+    margin: 0;
+    display: inline-block;
+    width: 45%;
+    position: relative;
+    top: -4.5em;
+    left: 0;
+  }
+}
+main .ctnAuteur .ctnImgLien .ctnImg__img {
+  width: 300px;
+}
+main .ctnAuteur .ctnAuteurBio {
+  background: white;
+  border: #c64532 solid 2px;
+  border-radius: 5px;
+  max-width: 700px;
+  padding-left: 0.8em;
+  padding-right: 0.4em;
+  padding-top: 0.4em;
+  position: relative;
+  top: -3em;
+}
+@media (min-width: 800px) {
+  main .ctnAuteur .ctnAuteurBio {
+    display: inline-block;
+    margin-top: 2em;
+    width: 45%;
+    margin-right: 3em;
+  }
+
 .liste-livres__tri {
   list-style: none;
 }
@@ -562,8 +769,6 @@ h3 {
 .btn.actif {
   background-color: #c64532;
 }
-
-
 
 .liste__items {
   list-style: none;
@@ -609,6 +814,7 @@ body {
 footer {
   background-color: #681c0f;
   color: #f8f1d7;
+
 
 }
 
