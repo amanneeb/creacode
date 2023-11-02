@@ -7,12 +7,12 @@
  <?php if($_GET['controleur']==='livre' && $_GET['action']==='index' ): ?>
  <script defer src="liaisons/js/tri.js"></script>
  <script defer src="liaisons/js/ajout_active_livres.js"></script>
+ <script defer src="liaisons/js/controler_affichage.js"></script>
  <?php elseif($_GET['controleur']==='livre' && $_GET['action']==='fiche' ): ?>
  <script defer src="liaisons/js/onglets.js"></script>
  <?php endif; ?>
  <?php endif; ?>
  <script defer src="liaisons/js/menu.js"></script>
- <link rel="stylesheet" href="./liaisons/css/styles.css">
  <link rel="stylesheet" href="liaisons/css/styles.css">
 </head>
 <body>

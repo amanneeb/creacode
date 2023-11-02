@@ -27,10 +27,11 @@
  <h2>livres</h2>
  <div class="conteneur__boutons">
  <div class="boutons-switch">
- <button id="bouton-liste" class="btn actif">Grille</button>
- <button id="bouton-grille" class="btn">Liste</button>
+ <button id="liste-btn" class="btn actif">Grille</button>
+ <button id="grille-btn" class="btn">Liste</button>
  </div>
  </div>
+
  <ul class="liste-livres__items liste__items">
  <?php $__currentLoopData = $livres; $this->addLoop($__currentLoopData);$this->getFirstLoop();
  foreach($__currentLoopData as $livre): $loop = $this->incrementLoopIndices();  ?>

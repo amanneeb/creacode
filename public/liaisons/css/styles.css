@@ -559,11 +559,14 @@ h3 {
   cursor: pointer;
 }
 
-.btn.actif {
+.btn.active {
   background-color: #c64532;
 }
 
-
+footer {
+  background-color: #681c0f;
+  color: #f8f1d7;
+}
 
 .liste__items {
   list-style: none;
@@ -605,11 +608,6 @@ body {
   .conteneur {
     margin: 0 10% 0 10%;
   }
-
-footer {
-  background-color: #681c0f;
-  color: #f8f1d7;
-
 }
 
 /*# sourceMappingURL=styles.css.map */
