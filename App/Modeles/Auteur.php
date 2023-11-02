@@ -11,7 +11,7 @@ use App\Modeles\LivreAuteur;
 
 class Auteur
 {
-    private int  $id = 0;
+    private int $id = 0;
     private string $nom = '';
     private string $prenom = '';
     private string $notice = '';
@@ -51,22 +51,26 @@ class Auteur
     {
         return $this->site_web;
     }
-    public function getLivresAuteursAssocies():array{
+
+    public function getLivresAuteursAssocies(): array
+    {
         return LivreAuteur::trouverParAuteur($this->id);
     }
 
-    public static function compter():int{
-        $chaineSql= "SELECT COUNT(*) AS total FROM  auteurs";
-        $requetePreparee=App::getPDO()->prepare($chaineSql);
+    public static function compter(): int
+    {
+        $chaineSql = "SELECT COUNT(*) AS total FROM  auteurs";
+        $requetePreparee = App::getPDO()->prepare($chaineSql);
         $requetePreparee->setFetchMode(PDO::FETCH_OBJ);
         $requetePreparee->execute();
-        $nbLivres=$requetePreparee->fetch();
+        $nbLivres = $requetePreparee->fetch();
 
         return $nbLivres->total;
 
     }
 
-    public static function trouverParId(int $unIdAuteur): Auteur{
+    public static function trouverParId(int $unIdAuteur): Auteur
+    {
         // Définir la chaine SQL
         $chaineSQL = 'SELECT * FROM auteurs WHERE id=:idAuteur';
         // Préparer la requête (optimisation)
@@ -79,6 +83,22 @@ class Auteur
         $requetePreparee->execute();
         // Récupérer le résultat
         return $requetePreparee->fetch();
+    }
+
+    public static function paginer(int $unNoDePage, int $unNbrParPage): array
+    {
+        $index = 9 * ($unNoDePage);
+
+        // Définir la chaine SQL
+        $chaineSQL = 'SELECT * FROM auteurs ORDER BY nom ASC LIMIT :index,' . $unNbrParPage;
+        // Préparer la requête (optimisation)
+        $requetePreparee = App::getPDO()->prepare($chaineSQL);
+        // BindParam
+        $requetePreparee->bindParam(':index', $index, PDO::PARAM_INT);
+        // Exécuter la requête
+        $requetePreparee->execute();
+        // Récupérer le résultat sous forme de tableau
+        return $requetePreparee->fetchAll(PDO::FETCH_CLASS, 'App\Modeles\Auteur');
     }
 
 }

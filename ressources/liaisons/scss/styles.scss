@@ -1,15 +1,32 @@
 
 // Lier les fiches de styles individuelles
 
+//utilitaires
 @import "utilitaires/variables";
-@import "base/typo";
-@import "modules/images";
-@import "modules/livres_similaires";
-@import "layout/onglets";
-@import "base/hyperlien";
-@import "layout/sectionPrincipaleLivre";
 
+
+//base
+@import "base/images";
+@import "base/livres_similaires";
+@import "base/onglets";
+@import "base/header";
+@import "base/typo";
+@import "base/hyperlien";
 @import "base/bouton";
 @import "base/menu";
+
+//modules
+@import "modules/tri";
+@import "modules/boutonswitch";
+@import "modules/images";
+@import "modules/livres_similaires";
 @import "modules/entete_fiche";
+
+//layout
+@import "layout/onglets";
+@import "layout/sectionPrincipaleLivre";
 @import "layout/mainFicheArtiste";
+@import "layout/footer";
+@import "layout/grillelistes";
+@import "layout/marges";
+

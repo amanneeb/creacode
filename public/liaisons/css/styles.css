@@ -137,9 +137,160 @@ h3 {
 .livre__titre {
   font-weight: bold;
 }
+
 .livre .ctnImg__img {
   height: 250px;
   width: auto;
+
+.onglets {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 0;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 0;
+}
+
+.infoPrincipal {
+  margin-bottom: 3em;
+}
+
+.infoSupplementaires {
+  margin-top: 2em;
+}
+
+.typeInfos {
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  align-items: flex-start;
+}
+@media (min-width: 450px) {
+  .typeInfos {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+}
+.typeInfos__liste {
+  list-style-type: none;
+}
+.typeInfos__input + label {
+  display: block;
+  background: #fff;
+  color: #c64532;
+  font-weight: bold;
+  padding: 1em 2em;
+  border: #c64532 solid 2px;
+  border-bottom: none;
+  align-self: stretch;
+}
+@media (min-width: 450px) {
+  .typeInfos__input + label {
+    align-self: auto;
+  }
+}
+.typeInfos__input:nth-child(1) + label {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+@media (min-width: 450px) {
+  .typeInfos__input:nth-child(1) + label {
+    border-top-right-radius: 0px;
+  }
+}
+@media (min-width: 450px) {
+  .typeInfos__input:nth-child(5) + label {
+    border-top-right-radius: 10px;
+  }
+}
+.typeInfos__input:checked + label {
+  background: #c64532;
+  color: #fff;
+}
+
+.visioInfo {
+  margin-top: 0;
+  border: #c64532 solid 2px;
+  padding-left: 0.8em;
+  padding-right: 0.4em;
+}
+@media (min-width: 900px) {
+  .visioInfo {
+    max-width: 900px;
+  }
+}
+
+.menu__logo {
+  display: flex;
+  margin: auto;
+  width: 400px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+}
+.buttons button {
+  border-color: #c64532;
+  border-radius: 5px;
+}
+.buttons .compte {
+  background-color: white;
+  padding: 10px;
+  margin-left: 10px;
+}
+.buttons .panier {
+  background-color: #c64532;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+.barRecherche {
+  width: 300px;
+  display: flex;
+  margin: 20px auto 0 auto;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.barRecherche label {
+  align-self: flex-start;
+}
+.barRecherche input {
+  width: 300px;
+  height: 36px;
+  border-color: #c64532;
+  border-radius: 5px;
+  border-width: 3px;
+}
+
+/**
+* @author Prenom Nom courriel
+* @todo Compléter selon l'énoncé de l'exercice
+*/
+.hyperlien {
+  color: #c64532;
+}
+.hyperlien:visited {
+  color: #c64532;
+}
+.hyperlien:hover {
+  color: #681c0f;
+  text-decoration: underline;
+}
+.hyperlien:focus {
+  border: #303075 solid 4px;
+  text-decoration: underline;
+}
+.hyperlien:active {
+  font-weight: bolder;
+  border: none;
+  text-decoration: underline;
 }
 
 .onglets {
@@ -404,6 +555,11 @@ h3 {
   display: none;
 }
 
+.opacityMenu {
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
 .navMobile {
   /*
    * Just a quick hamburger
@@ -427,22 +583,20 @@ h3 {
    */
 }
 .navMobile #menuToggle {
-  float: right;
   display: block;
   position: relative;
   top: -30px;
-  left: -20px;
   z-index: 1;
   -webkit-user-select: none;
   user-select: none;
 }
 .navMobile #menuToggle a {
   text-decoration: none;
-  color: #232323;
+  color: #681c0f;
   transition: color 0.3s ease;
 }
 .navMobile #menuToggle a:hover {
-  color: tomato;
+  color: #c64532;
 }
 .navMobile #menuToggle input {
   display: block;
@@ -462,10 +616,10 @@ h3 {
   height: 4px;
   margin-bottom: 5px;
   position: relative;
-  background: #d21111;
+  background: #681c0f;
   border-radius: 3px;
   z-index: 1;
-  transform-origin: 4px 0px;
+  transform-origin: 4px 0;
   transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
 }
 .navMobile #menuToggle span:first-child {
@@ -477,7 +631,7 @@ h3 {
 .navMobile #menuToggle input:checked ~ span {
   opacity: 1;
   transform: rotate(45deg) translate(-2px, -1px);
-  background: #232323;
+  background: #c64532;
 }
 .navMobile #menuToggle input:checked ~ span:nth-last-child(3) {
   opacity: 0;
@@ -487,17 +641,17 @@ h3 {
   transform: rotate(-45deg) translate(0, -1px);
 }
 .navMobile #menu {
-  position: absolute;
+  position: fixed;
   width: 240px;
-  margin: -100px 0 0 -280px;
+  margin: -50px 0 0 -15px;
   padding: 50px;
-  padding-top: 125px;
-  background: #ededed;
+  padding-top: 70px;
+  background: white;
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
   /* to stop flickering of text in safari */
   transform-origin: 0% 0%;
-  transform: translate(100%, 0);
+  transform: translate(-100%, 0);
   transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
 }
 .navMobile #menu li {
@@ -577,6 +731,91 @@ main .ctnAuteur .ctnAuteurBio {
     width: 45%;
     margin-right: 3em;
   }
+
+.liste-livres__tri {
+  list-style: none;
+}
+.liste-livres__tri .liste-livres__tri-option {
+  display: inline;
+  margin: 5px;
+  padding: 10px 20px;
+  background-color: white;
+  color: #c64532;
+  border: 2px solid #c64532;
+  border-radius: 5px;
+  width: auto;
+}
+.liste-livres__tri .liste-livres__tri-option:hover {
+  border: 3px solid #681c0f;
+  color: #681c0f;
+}
+.liste-livres__tri .liste-livres__tri-option:active, .liste-livres__tri .liste-livres__tri-option.active {
+  background-color: #c64532;
+  color: white;
+}
+.liste-livres__tri .liste-livres__tri-option:focus {
+  border: 3px double #681c0f;
+  color: #681c0f;
+}
+
+.btn {
+  background-color: #ccc;
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.btn.actif {
+  background-color: #c64532;
+}
+
+.liste__items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 1em 1em;
+}
+@media (min-width: 500px) {
+  .liste__items {
+    gap: 13px 80px;
+  }
+}
+@media (min-width: 800px) {
+  .liste__items {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 13px 100px;
+  }
+}
+
+.livre ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Conteneur principal pour le contenu de chaque page */
+.conteneur {
+  margin: 0 5% 0 5%;
+}
+@media (min-width: 600px) {
+  .conteneur {
+    margin: 0 10% 0 10%;
+  }
+
+footer {
+  background-color: #681c0f;
+  color: #f8f1d7;
+
+
 }
 
 /*# sourceMappingURL=styles.css.map */

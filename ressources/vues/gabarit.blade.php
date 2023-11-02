@@ -7,13 +7,14 @@
     @if(isset($_GET['controleur'])&& isset($_GET['action']))
         @if($_GET['controleur']==='livre' && $_GET['action']==='index' )
             <script defer src="liaisons/js/tri.js"></script>
+            <script defer src="liaisons/js/ajout_active_livres.js"></script>
         @elseif($_GET['controleur']==='livre' && $_GET['action']==='fiche' )
             <script defer src="liaisons/js/onglets.js"></script>
             <script defer src="liaisons/js/ajoutPanier.js"></script>
         @endif
     @endif
     <script defer src="liaisons/js/menu.js"></script>
-    <link rel="stylesheet" href="./liaisons/css/styles.css">
+    <link rel="stylesheet" href="liaisons/css/styles.css">
 </head>
 <body>
 <header>

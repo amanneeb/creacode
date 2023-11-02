@@ -1,0 +1,62 @@
+<?php $_shouldextend[1]=1; ?>
+
+<?php $this->startSection('contenu'); ?>
+ <div class="conteneur">
+ <?php echo $this->runChild('fragments.filariane'); ?>
+ <section class="liste-livres">
+ <label class="liste-livres__titre">Trier par :</label>
+ <!-- Liste déroulante pour trier -->
+ <select name="tri" id="triSelect" class="liste-livres__tri">
+ <option value="nouveautes" class="liste-livres__tri-option">Nouveautés</option>
+ <option value="prixcroissant" class="liste-livres__tri-option">Prix croissant</option>
+ <option value="prixdecroissant" class="liste-livres__tri-option">Prix décroissant</option>
+ </select>
+
+ <label class="liste-livres__titre">Filtrer par genre :</label>
+ <!-- Liste de filtrage par genre -->
+ <ul class="liste-livres__tri">
+ <li class="liste-livres__tri-option"><a class="" href="<?php echo \htmlentities($urlTri??'', ENT_QUOTES, 'UTF-8', false); ?>&idCategorie=1">Bandes dessinées</a></li>
+ <li class="liste-livres__tri-option"><a class="" href="<?php echo \htmlentities($urlTri??'', ENT_QUOTES, 'UTF-8', false); ?>&idCategorie=2">BD jeunesse</a></li>
+ <li class="liste-livres__tri-option"><a class="" href="<?php echo \htmlentities($urlTri??'', ENT_QUOTES, 'UTF-8', false); ?>&idCategorie=3">Livres illustrés</a></li>
+ <li class="liste-livres__tri-option"><a class="" href="<?php echo \htmlentities($urlTri??'', ENT_QUOTES, 'UTF-8', false); ?>&idCategorie=4">Albums jeunesse</a></li>
+ <li class="liste-livres__tri-option"><a class="" href="<?php echo \htmlentities($urlTri??'', ENT_QUOTES, 'UTF-8', false); ?>&idCategorie=5">Documentaires</a></li>
+ <li class="liste-livres__tri-option"><a class="" href="<?php echo \htmlentities($urlTri??'', ENT_QUOTES, 'UTF-8', false); ?>&idCategorie=6">Divers</a></li>
+ </ul>
+ </section>
+
+ <h2>livres</h2>
+ <div class="conteneur__boutons">
+ <div class="boutons-switch">
+ <button id="bouton-liste" class="btn actif">Grille</button>
+ <button id="bouton-grille" class="btn">Liste</button>
+ </div>
+ </div>
+ <ul class="liste-livres__items liste__items">
+ <?php $__currentLoopData = $livres; $this->addLoop($__currentLoopData);$this->getFirstLoop();
+ foreach($__currentLoopData as $livre): $loop = $this->incrementLoopIndices();  ?>
+ <li class="livre item">
+ <a href="index.php?controleur=livre&action=fiche&idLivre=<?php echo \htmlentities($livre->getId()??'', ENT_QUOTES, 'UTF-8', false); ?>">
+ <img
+ src="./liaisons/images/operatique_couv.jpg" width="150px" height="200px"
+ alt="<?php echo \htmlentities($livre->getTitre()??'', ENT_QUOTES, 'UTF-8', false); ?>" class="livre__image">
+ <h3 class="livre__titre"><?php echo \htmlentities($livre->getTitre()??'', ENT_QUOTES, 'UTF-8', false); ?></h3>
+ </a>
+ <ul>
+ <?php $__currentLoopData = $livre->getLivresAuteursAssocies(); $this->addLoop($__currentLoopData);$this->getFirstLoop();
+ foreach($__currentLoopData as $livreAuteur): $loop = $this->incrementLoopIndices();  ?>
+ <a href="index.php?controleur=artiste&action=fiche&idArtiste=<?php echo \htmlentities($livreAuteur->getAuteurAssocie()->getId()??'', ENT_QUOTES, 'UTF-8', false); ?>">
+ <li><?php echo \htmlentities($livreAuteur->getAuteurAssocie()->getPrenomNom()??'', ENT_QUOTES, 'UTF-8', false); ?></li>
+ </a>
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+ </ul>
+ <p class="livre__prix"><?php echo \htmlentities($livre->getPrix_can()??'', ENT_QUOTES, 'UTF-8', false); ?>$</p>
+ </li>
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+ </ul>
+ <p>Nombre total de livres : <?php echo \htmlentities($nbTotalLivres??'', ENT_QUOTES, 'UTF-8', false); ?></p>
+ <?php echo $this->runChild('fragments.pagination'); ?>
+ </div>
+<?php $this->stopSection(); ?>
+
+
+<?php if (isset($_shouldextend[1])) { echo $this->runChild('gabarit'); } ?>
