@@ -9,6 +9,7 @@ use App\Modeles\Auteur;
 use \PDO;
 use App\App;
 use App\Modeles\LivreAuteur;
+use App\Modeles\Reconnaissance;
 use App\Modeles\FilAriane;
 
 class ControleurArtistes
@@ -51,7 +52,9 @@ class ControleurArtistes
         $idSuivant = $idArtiste + 1;
         $idPrecedent = $idArtiste - 1;
         $artistes = Auteur::trouverParId($idArtiste);
-        $livresAuteurs = LivreAuteur::trouverParAuteur($idArtiste);
+        $livresAuteurs = Auteur::trouverParId($idArtiste)->getLivresAuteursAssocies();
+        //$livresAuteurs = LivreAuteur::trouverParAuteur($idArtiste);
+
 
         $tDonnees = array('artistes' => $artistes, 'livresAuteurs' => $livresAuteurs, 'idArtiste' => $idArtiste, 'idSuivant' => $idSuivant, 'idPrecedent' => $idPrecedent);
 

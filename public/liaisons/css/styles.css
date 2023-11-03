@@ -1,4 +1,3 @@
-
 @charset "UTF-8";
 /**
 * @author Prenom Nom courriel
@@ -499,7 +498,7 @@ h3 {
   cursor: pointer;
 }
 
-.btn.actif {
+.btn.active {
   background-color: #c64532;
 }
 
@@ -849,13 +848,4 @@ body {
   }
 }
 
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: Can't find stylesheet to import.\a   \2577 \a 9 \2502  @import \"base/images\";\d\a   \2502          ^^^^^^^^^^^^^\a   \2575 \a   ressources\\liaisons\\scss\\styles.scss 9:9  root stylesheet";
-}
+/*# sourceMappingURL=styles.css.map */

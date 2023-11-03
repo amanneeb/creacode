@@ -159,6 +159,12 @@ class Livre
         return Couverture::trouverParId($this->type_couverture_id);
     }
 
+    public function getReconnaissance(): array
+    {
+        return Reconnaissance::trouverParLivre($this->id);
+    }
+
+
 
     public static function compterNbLivres(int $categorieRecherchee): int
     {

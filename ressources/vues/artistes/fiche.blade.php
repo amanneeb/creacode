@@ -1,6 +1,5 @@
 @extends('gabarit')
 @section('contenu')
-
     <h1 class="nomAuteur">{{$artistes->getPrenom()}} {{$artistes->getNom()}}</h1>
     <div class="ctnAuteur">
         <div class="ctnImgLien">
@@ -25,7 +24,11 @@
                 @if($artistes->getSite_web() !== '')
                     <a class="ctnBio__lien hyperlien" href="{{$artistes->getSite_web()}}">Site de l'auteur</a>
                 @endif
+
+
                 <p class="ctnBio__p">{{$artistes->getNotice()}}</p>
+
+
                 @if($idPrecedent>1)
                     <a class="hyperlien" href="index.php?controleur=artiste&action=fiche&idArtiste={{$idPrecedent}}">artiste precedent</a>
                 @else
@@ -55,7 +58,6 @@
             </li>
         @endforeach
     </ul>
-
 
 
 @endsection

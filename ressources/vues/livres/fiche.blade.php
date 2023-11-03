@@ -1,6 +1,7 @@
 @extends('gabarit')
 @section('contenu')
     @include('fragments.filariane')
+
     <div class="ctnTitre">
         <h1 class="titreLivre">{{$lesLivres->getTitre()}}</h1>
     </div>
@@ -67,6 +68,16 @@
                     <p>Date de publication (France): <span class="visioInfo__span visioInfo__span--publicationFr">{{$lesLivres->getDate_parution_france()}}</span></p>
                     <p>Type d'impression: <span class="visioInfo__span visioInfo__span--impression">{{$lesLivres->getImpressionAssociee()->getNom()}}</span></p>
                     <p>Type de couverture: <span class="visioInfo__span visioInfo__span--couverture">{{$lesLivres->getCouvertureAssociee()->getNom()}}</span></p>
+
+                    @if($reconnaissances)
+                        <p>Les reconnaissances obtenues :</p>
+                        <ul>
+                            @foreach($reconnaissances as $reconnaissance)
+                                <li>{{$reconnaissance->getLaReconnaissance()}}</li>
+                            @endforeach
+                        </ul>
+                    @endif
+
                 </div>
                 <p class="visioInfo__texte commentaires" hidden>
                     {{$lesLivres->getArguments_commerciaux()}}

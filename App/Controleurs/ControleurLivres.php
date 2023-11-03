@@ -6,6 +6,7 @@ use App\Modeles\Livre;
 use App\Modeles\Categories;
 use App\App;
 use App\Modeles\Participant;
+use App\Modeles\Reconnaissance;
 use App\Modeles\FilAriane;
 
 class ControleurLivres
@@ -70,10 +71,11 @@ class ControleurLivres
     public function fiche(){
         $filAriane=FilAriane::majFilArianne();
         $idLivre = (int) $_GET["idLivre"];
-        //$idCategorie = (int) $_GET['idCategorie'];
         $livres = Livre::trouverParId($idLivre);
-        //$categories = Categories::trouverParId($idCategorie)->getLivresAssocies();
         $categories = Livre::trouverParId($idLivre)->getCategorieAssociee()->getLivresAssocies();
+        $reconnaissance = Reconnaissance::trouverParLivre($idLivre);
+        var_dump($reconnaissance);
+
 
         //PAGINATION
         $totalLivres = Livre::compterNbLivres(0);
@@ -92,7 +94,7 @@ class ControleurLivres
         $livresPagination = Livre::paginerAutre($numeroPage, 3);
         //fin PAGINATION
 
-        $tDonnees = array('lesLivres' => $livres, 'categories' => $categories, "livresPagination"=>$livresPagination, "nombreTotalPages"=>$nombreTotalPages, "numeroPage"=>$numeroPage, "urlPagination"=>$urlPagination, "filAriane" => $filAriane);
+        $tDonnees = array('lesLivres' => $livres, 'reconnaissances' => $reconnaissance, 'categories' => $categories, "livresPagination"=>$livresPagination, "nombreTotalPages"=>$nombreTotalPages, "numeroPage"=>$numeroPage, "urlPagination"=>$urlPagination, "filAriane" => $filAriane);
 
         echo App::getBlade()->run("livres.fiche", $tDonnees);
     }
