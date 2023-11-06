@@ -1,3 +1,4 @@
+
 @charset "UTF-8";
 /**
 * @author Prenom Nom courriel
@@ -9,21 +10,30 @@
 */
 /** Polices de caractères **/
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;1,400;1,700&display=swap");
 /** Palette de couleurs **/
 /* Couleurs de base */
 /** Points de rupture **/
-.image {
-  /*position: relative;*/
-  border: #1f6f78 solid 2px;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;1,400;1,700&display=swap");
+.ctnImg {
+  height: fit-content;
+  width: fit-content;
+  position: relative;
+  border: #1f6f78 2px solid;
+  border-radius: 5px;
 }
-.image img {
-  display: inline-block;
-  position: absolute;
-  left: 5px;
-  top: 5px;
+.ctnImg__img {
+  position: relative;
+  top: -0.5em;
+  left: 0.5em;
+  display: block;
+  border-radius: 5px;
 }
-.image img:hover {
+.ctnImg__img:hover {
   position: unset;
+  animation: ease-in;
+  animation-duration: 1s;
+  animation-direction: normal;
 }
 
 .livresSimilaires {
@@ -35,7 +45,11 @@
   flex-wrap: nowrap;
   padding-left: 0;
 }
+.livresSimilaires__item {
+  margin-right: 2.5em;
+}
 .livresSimilaires__lien {
+  display: block;
   color: black;
   text-decoration: none;
 }
@@ -48,6 +62,10 @@
 }
 .livre__titre {
   font-weight: bold;
+}
+.livre .ctnImg__img {
+  height: 250px;
+  width: auto;
 }
 
 .onglets {
@@ -122,6 +140,7 @@
 
 .visioInfo {
   margin-top: 0;
+  background: white;
   border: #c64532 solid 2px;
   padding-left: 0.8em;
   padding-right: 0.4em;
@@ -179,112 +198,6 @@
 
 /**
 * @author Prenom Nom courriel
-* @todo Compléter selon l'énoncé de l'exercice
-*/
-.hyperlien {
-  color: #c64532;
-}
-.hyperlien:visited {
-  color: #c64532;
-}
-.hyperlien:hover {
-  color: #681c0f;
-  text-decoration: underline;
-}
-.hyperlien:focus {
-  border: #303075 solid 4px;
-  text-decoration: underline;
-}
-.hyperlien:active {
-  font-weight: bolder;
-  border: none;
-  text-decoration: underline;
-}
-
-.onglets {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 0;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 0;
-}
-
-.infoPrincipal {
-  margin-bottom: 3em;
-}
-
-.infoSupplementaires {
-  margin-top: 2em;
-}
-
-.typeInfos {
-  height: fit-content;
-  display: flex;
-  flex-direction: column;
-  justify-content: stretch;
-  align-items: flex-start;
-}
-@media (min-width: 450px) {
-  .typeInfos {
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-start;
-  }
-}
-.typeInfos__liste {
-  list-style-type: none;
-}
-.typeInfos__input + label {
-  display: block;
-  background: #fff;
-  color: #c64532;
-  font-weight: bold;
-  padding: 1em 2em;
-  border: #c64532 solid 2px;
-  border-bottom: none;
-  align-self: stretch;
-}
-@media (min-width: 450px) {
-  .typeInfos__input + label {
-    align-self: auto;
-  }
-}
-.typeInfos__input:nth-child(1) + label {
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
-@media (min-width: 450px) {
-  .typeInfos__input:nth-child(1) + label {
-    border-top-right-radius: 0px;
-  }
-}
-@media (min-width: 450px) {
-  .typeInfos__input:nth-child(5) + label {
-    border-top-right-radius: 10px;
-  }
-}
-.typeInfos__input:checked + label {
-  background: #c64532;
-  color: #fff;
-}
-
-.visioInfo {
-  margin-top: 0;
-  border: #c64532 solid 2px;
-  padding-left: 0.8em;
-  padding-right: 0.4em;
-}
-@media (min-width: 900px) {
-  .visioInfo {
-    max-width: 900px;
-  }
-}
-
-/**
-* @author Prenom Nom courriel
 * @todo Préciser l’interlignage sur le body pour l’écran large
 * @todo Utiliser le mixin fontSize pour définir les tailles de polices
 * @todo Utiliser une variable pour la media query de la règle body
@@ -308,7 +221,7 @@ h2,
 .titreNiveau2,
 h3,
 .titreNiveau3 {
-  font-family: WonderSeason, serif;
+  font-family: "WonderSeason", serif;
   font-weight: 500;
 }
 
@@ -316,8 +229,7 @@ h1 {
   /*@include fontSize(28px);*/
   color: #681c0f;
   font-size: 40px;
-  font-family: WonderSeason, serif;
-  border-bottom: #1f6f78 3px solid;
+  font-family: "WonderSeason", serif;
 }
 @media (min-width: 600px) {
   h1 {
@@ -329,7 +241,7 @@ h2 {
   /*@include fontSize(28px);*/
   font-weight: bold;
   font-size: 20px;
-  font-family: Poppins, sans-serif;
+  font-family: "Poppins", sans-serif;
   text-transform: uppercase;
 }
 @media (min-width: 600px) {
@@ -342,7 +254,7 @@ h3 {
   /*@include fontSize(28px);*/
   font-weight: bold;
   font-size: 18px;
-  font-family: Poppins, sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 @media (min-width: 600px) {
   h3 {
@@ -351,12 +263,36 @@ h3 {
 }
 
 .texte {
-  font-family: Poppins, sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 1.6rem;
   line-height: 1.375;
 }
 .texte--desktop {
   line-height: 1.5;
+}
+
+/**
+* @author Prenom Nom courriel
+* @todo Compléter selon l'énoncé de l'exercice
+*/
+.hyperlien {
+  color: #c64532;
+}
+.hyperlien:visited {
+  color: #c64532;
+}
+.hyperlien:hover {
+  color: #681c0f;
+  text-decoration: underline;
+}
+.hyperlien:focus {
+  border: #303075 solid 4px;
+  text-decoration: underline;
+}
+.hyperlien:active {
+  font-weight: bolder;
+  border: none;
+  text-decoration: underline;
 }
 
 /**
@@ -369,7 +305,8 @@ h3 {
   font-weight: bold;
   border: none;
   border-radius: 5px;
-  padding: 10px 5px;
+  padding: 10px 10px;
+  height: 44px;
 }
 .btnPrimaire:hover, .btnPrimaire:active {
   background: #681c0f;
@@ -386,10 +323,11 @@ h3 {
   font-weight: bold;
   border-radius: 5px;
   border: #c64532 solid 3px;
-  padding: 10px 5px;
+  padding: 10px 10px;
+  height: 44px;
 }
 .btnSecondaire:hover, .btnSecondaire:active {
-  outline: #681c0f solid 5px;
+  border: #681c0f solid 3px;
   color: #681c0f;
 }
 .btnSecondaire:focus {
@@ -399,9 +337,11 @@ h3 {
   color: #681c0f;
 }
 
-.AjoutPanier__moins,
-.AjoutPanier__plus {
+.ajoutPanier__moins,
+.ajoutPanier__plus {
   padding: 10px 12px;
+  height: 44px;
+  width: 50px;
 }
 
 /*
@@ -563,7 +503,309 @@ h3 {
   background-color: #c64532;
 }
 
+.ctnImg {
+  height: fit-content;
+  width: fit-content;
+  position: relative;
+  border: #1f6f78 2px solid;
+  border-radius: 5px;
+}
+.ctnImg__img {
+  position: relative;
+  top: -0.5em;
+  left: 0.5em;
+  display: block;
+  border-radius: 5px;
+}
+.ctnImg__img:hover {
+  position: unset;
+  animation: ease-in;
+  animation-duration: 1s;
+  animation-direction: normal;
+}
 
+.livresSimilaires {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  padding-left: 0;
+}
+.livresSimilaires__item {
+  margin-right: 2.5em;
+}
+.livresSimilaires__lien {
+  display: block;
+  color: black;
+  text-decoration: none;
+}
+.livresSimilaires__lien:hover .livre__titre {
+  text-decoration: underline;
+}
+
+.livre {
+  margin: 0.5em 0.5em;
+}
+.livre__titre {
+  font-weight: bold;
+}
+.livre .ctnImg__img {
+  height: 250px;
+  width: auto;
+}
+
+.titreLivre,
+.nomAuteur {
+  padding: 0.6em 0.6em 0.6em 0.3em;
+  font-size: 3em;
+  background-color: #F2E0D4;
+  text-align: right;
+}
+@media (min-width: 600px) {
+  .titreLivre,
+  .nomAuteur {
+    margin-left: 3em;
+  }
+}
+
+.onglets {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 0;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 0;
+}
+
+.infoPrincipal {
+  margin-bottom: 3em;
+}
+
+.infoSupplementaires {
+  margin-top: 2em;
+}
+
+.typeInfos {
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  align-items: flex-start;
+}
+@media (min-width: 450px) {
+  .typeInfos {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+}
+.typeInfos__liste {
+  list-style-type: none;
+}
+.typeInfos__input + label {
+  display: block;
+  background: #fff;
+  color: #c64532;
+  font-weight: bold;
+  padding: 1em 2em;
+  border: #c64532 solid 2px;
+  border-bottom: none;
+  align-self: stretch;
+}
+@media (min-width: 450px) {
+  .typeInfos__input + label {
+    align-self: auto;
+  }
+}
+.typeInfos__input:nth-child(1) + label {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+@media (min-width: 450px) {
+  .typeInfos__input:nth-child(1) + label {
+    border-top-right-radius: 0px;
+  }
+}
+@media (min-width: 450px) {
+  .typeInfos__input:nth-child(5) + label {
+    border-top-right-radius: 10px;
+  }
+}
+.typeInfos__input:checked + label {
+  background: #c64532;
+  color: #fff;
+}
+
+.visioInfo {
+  margin-top: 0;
+  background: white;
+  border: #c64532 solid 2px;
+  padding-left: 0.8em;
+  padding-right: 0.4em;
+}
+@media (min-width: 900px) {
+  .visioInfo {
+    max-width: 900px;
+  }
+}
+
+@media (min-width: 800px) {
+  .ctnPage {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+}
+@media (min-width: 700px) {
+  .ctnPage .infoPrincipal {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+}
+.ctnPage .infoPrincipal .images {
+  display: block;
+  width: 100%;
+}
+@media (min-width: 700px) {
+  .ctnPage .infoPrincipal .images {
+    display: inline-block;
+    width: 50%;
+  }
+}
+@media (min-width: 700px) {
+  .ctnPage .infoPrincipal .images .ctnImg {
+    width: 100%;
+  }
+}
+@media (min-width: 700px) {
+  .ctnPage .infoPrincipal .images .ctnImg__img {
+    width: 100%;
+  }
+}
+.ctnPage .infoPrincipal .images .defilement {
+  margin-bottom: 3em;
+}
+.ctnPage .infoPrincipal .ctnInfoPanier {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+}
+@media (min-width: 700px) {
+  .ctnPage .infoPrincipal .ctnInfoPanier {
+    display: inline-flex;
+    margin-left: 2em;
+    align-self: stretch;
+    width: 50%;
+    margin-bottom: 0;
+  }
+}
+.ctnPage .infoPrincipal .ctnInfoPanier .livrePanier__auteurLien {
+  color: black;
+  text-decoration: none;
+}
+.ctnPage .infoPrincipal .ctnInfoPanier .livrePanier__auteurLien:hover {
+  text-decoration: underline;
+  color: #c64532;
+}
+.ctnPage .infoPrincipal .ctnInfoPanier .livrePanier__prixCan {
+  font-size: 1.3em;
+  font-weight: bold;
+}
+.ctnPage .infoPrincipal .ctnInfoPanier .livrePanier__theme {
+  background: #c64532;
+  color: #f8f1d7;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 1em 1em;
+}
+@media (min-width: 700px) {
+  .ctnPage .infoPrincipal .ctnInfoPanier .livrePanier__theme {
+    margin-top: 0;
+  }
+}
+.ctnPage .infoPrincipal .ctnInfoPanier .ajoutPanier__nbLivre {
+  display: inline-block;
+  height: 44px;
+  width: 44px;
+  text-align: center;
+  border: black 1.5px solid;
+  border-radius: 5px;
+  line-height: 2.7em;
+  background: white;
+}
+.ctnPage .infoPrincipal .ctnInfoPanier .ajoutPanier__moins, .ctnPage .infoPrincipal .ctnInfoPanier .ajoutPanier__plus, .ctnPage .infoPrincipal .ctnInfoPanier .ajoutPanier__btnPanier, .ctnPage .infoPrincipal .ctnInfoPanier .ajoutPanier__btnSouhait {
+  margin: 0.5em 0;
+}
+
+main {
+  background: #F9F1EC;
+}
+main .nomAuteur {
+  margin-left: 0em;
+}
+@media (min-width: 600px) {
+  main .nomAuteur {
+    margin-left: 3em;
+  }
+}
+main .ctnAuteur {
+  width: 100%;
+}
+@media (min-width: 800px) {
+  main .ctnAuteur {
+    width: 800px;
+    margin: 0 auto;
+  }
+}
+main .ctnAuteur .ctnImgLien {
+  position: relative;
+  top: -4em;
+}
+@media (min-width: 800px) {
+  main .ctnAuteur .ctnImgLien {
+    margin: 0;
+    display: inline-block;
+    width: 45%;
+    position: relative;
+    top: -4.5em;
+    left: 0;
+  }
+}
+main .ctnAuteur .ctnImgLien .ctnImg__img {
+  width: 300px;
+}
+main .ctnAuteur .ctnAuteurBio {
+  background: white;
+  border: #c64532 solid 2px;
+  border-radius: 5px;
+  max-width: 700px;
+  padding-left: 0.8em;
+  padding-right: 0.4em;
+  padding-top: 0.4em;
+  position: relative;
+  top: -3em;
+}
+@media (min-width: 800px) {
+  main .ctnAuteur .ctnAuteurBio {
+    display: inline-block;
+    margin-top: 2em;
+    width: 45%;
+    margin-right: 3em;
+  }
+}
+
+footer {
+  background-color: #681c0f;
+  color: #f8f1d7;
+}
 
 .liste__items {
   list-style: none;
@@ -605,11 +847,15 @@ body {
   .conteneur {
     margin: 0 10% 0 10%;
   }
-
-footer {
-  background-color: #681c0f;
-  color: #f8f1d7;
-
 }
 
-/*# sourceMappingURL=styles.css.map */
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Can't find stylesheet to import.\a   \2577 \a 9 \2502  @import \"base/images\";\d\a   \2502          ^^^^^^^^^^^^^\a   \2575 \a   ressources\\liaisons\\scss\\styles.scss 9:9  root stylesheet";
+}

@@ -9,7 +9,8 @@
   font-weight: bold;
   border: none;
   border-radius: 5px;
-  padding: 10px 5px;
+  padding: 10px 10px;
+  height: 44px;
   &:hover,
   &:active{
     background: $rouge;
@@ -27,10 +28,11 @@
   font-weight: bold;
   border-radius: 5px;
   border: $orange solid 3px;
-  padding: 10px 5px;
+  padding: 10px 10px;
+  height: 44px;
   &:hover,
   &:active {
-    outline: $rouge solid 5px;
+    border: $rouge solid 3px;
     color: $rouge;
   }
   &:focus {
@@ -41,7 +43,9 @@
   }
 }
 
-.AjoutPanier__moins,
-.AjoutPanier__plus{
+.ajoutPanier__moins,
+.ajoutPanier__plus{
   padding: 10px 12px;
+  height: 44px;
+  width: 50px;
 }
