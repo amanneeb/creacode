@@ -15,11 +15,29 @@ html {
 
 body {
   font-size: 16px; /* 16px pour toutes les largeurs d'écran */
-  font-size: 1.6rem;
   line-height: 1.375; /* facteur multiplicateur de la taille de la police 1.375x16=22 */
   @media (min-width: 601px) {
   }
 }
+
+/* Supprimer le style par défaut des liens non visités */
+a:link {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Supprimer le style par défaut des liens visités */
+a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Supprimer le style par défaut des liens actifs */
+a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
 
 h1,
 .titreNiveau1{color: red}
@@ -63,6 +81,15 @@ h3 {
 }
 
 .texte {
+  font-family: $fontePrimaire;
+  font-size: 1.6rem;
+  line-height: 1.375;
+  &--desktop {
+    line-height: 1.5;
+  }
+}
+
+p{
   font-family: $fontePrimaire;
   font-size: 1.6rem;
   line-height: 1.375;
