@@ -12,6 +12,11 @@
                 <div class="ctnImg">
                     <img class="ctnImg__img" src="./liaisons/images/operatique_couv.jpg" alt="couverture Operatique" width="400px">
                 </div>
+                <div class="ctnVisioExtraits">
+                    @if(file_exists("./liaisons/images/operatique_couv.jpg"))
+                        <img class="" src="./liaisons/images/operatique_couv.jpg" width="100px">
+                    @endif
+                </div>
                 <div class="defilement">
                     <a class="defilement__lienPrecedent hyperlien" href="">Livre précédent</a>
                     <a class="defilement__lienSuivant hyperlien" href="">Livre suivant</a>
@@ -22,7 +27,7 @@
                     <p class="livrePanier__theme">{{$lesLivres->getCategorieAssociee()->getNom()}}</p>
                     <h3 class="livrePanier__auteur">
                         @foreach($lesLivres->getLivresAuteursAssocies() as $auteurs)
-                            <a class="livrePanier__auteurLien" href="index.php?controleur=artiste&action=fiche&idArtiste={{$auteurs->getAuteurAssocie()->getId()}}">{{$auteurs->getAuteurAssocie()->getPrenom()." ". $auteurs->getAuteurAssocie()->getNom()}}</a>
+                            <a class="livrePanier__auteurLien" href="index.php?controleur=artiste&action=fiche&idArtiste={{$auteurs->getAuteurAssocie()->getId()}}">{{$auteurs->getAuteurAssocie()->getPrenom()." ". $auteurs->getAuteurAssocie()->getNom()}}</a><br>
                         @endforeach
                     </h3>
                     <p class="livrePanier__audio">ISBN: <span class="livrePanier__isbnSpan">{{$lesLivres->getIsbn_papier()}}</span></p>
@@ -58,7 +63,7 @@
             </section>
             <section class="visioInfo">
                 <div class="visioInfo__texte resume">
-                    <p>{{$lesLivres->getLe_livre()}}</p>
+                    <p>{!! $lesLivres->getLe_livre() !!}</p>
                 </div>
                 <div class="visioInfo__texte details" hidden>
                     <p>Format: <span class="visioInfo__span visioInfo__span--format">{{$lesLivres->getFormat()}}</span></p>
@@ -73,33 +78,34 @@
                         <p>Les reconnaissances obtenues :</p>
                         <ul>
                             @foreach($reconnaissances as $reconnaissance)
-                                <li>{{$reconnaissance->getLaReconnaissance()}}</li>
+                                <li>{!! $reconnaissance->getLaReconnaissance() !!}</li>
                             @endforeach
                         </ul>
                     @endif
 
                 </div>
                 <p class="visioInfo__texte commentaires" hidden>
-                    {{$lesLivres->getArguments_commerciaux()}}
+                    {!!$lesLivres->getArguments_commerciaux() !!}
                 </p>
             </section>
         </section>
 
         <section class="autresLivres">
-            <h4 class="autresLivres__titre">Livres similaires</h4>
+            <h4 class="autresLivres__titre" id="similaires">Livres de la même catégorie</h4>
         </section>
         <ul class="livresSimilaires">
             @foreach($livresPagination as $livresPag)
                 <li class="livresSimilaires__item">
-                    <a class="livresSimilaires__lien" href='index.php?controleur=livre&action=fiche&idLivre={{$livresPag["id"]}}'>
+                    <a class="livresSimilaires__lien" href='index.php?controleur=livre&action=fiche&idLivre={{$livresPag['id']}}'>
                         <figure class="livre">
                             <div class="ctnImg">
                                 <img class="ctnImg__img" src="./liaisons/images/operatique_couv.jpg" alt="couverture Operatique">
                             </div>
-                            <figcaption class="livre__titre">{{$livresPag["titre"]}}</figcaption>
+                            <figcaption class="livre__titre">{{$livresPag['titre']}}</figcaption>
                         </figure>
                     </a>
                 </li>
+
             @endforeach
         </ul>
         @include('fragments.paginationFiche')

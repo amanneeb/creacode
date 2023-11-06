@@ -1,5 +1,6 @@
 @extends('gabarit')
 @section('contenu')
+    @include('fragments.filariane')
     <h1 class="nomAuteur">{{$artistes->getPrenom()}} {{$artistes->getNom()}}</h1>
     <div class="ctnAuteur">
         <div class="ctnImgLien">
@@ -25,9 +26,16 @@
                     <a class="ctnBio__lien hyperlien" href="{{$artistes->getSite_web()}}">Site de l'auteur</a>
                 @endif
 
+                <p class="ctnBio__p">{!! $artistes->getNotice() !!}</p>
 
-                <p class="ctnBio__p">{{$artistes->getNotice()}}</p>
-
+                    @if($reconnaissances)
+                        <p>Reconnaissances de l'auteur</p>
+                        <ul>
+                            @foreach($reconnaissances as $reconnaissance)
+                                <li>{!! $reconnaissance->getLaReconnaissance() !!}</li>
+                            @endforeach
+                        </ul>
+                    @endif
 
                 @if($idPrecedent>1)
                     <a class="hyperlien" href="index.php?controleur=artiste&action=fiche&idArtiste={{$idPrecedent}}">artiste precedent</a>
@@ -43,21 +51,21 @@
         </div>
     </div>
 
-
+    <h4 class="autresLivres__titre">Livres du même auteur</h4>
     <ul class="livresSimilaires">
-        @foreach($livresAuteurs as $livre)
+        @foreach($livresPagination as $livre)
             <li class="livresSimilaires__item">
-                <a class="livresSimilaires__lien" href='index.php?controleur=livre&action=fiche&idLivre={{$livre->getLivreAssocie()->getId()}}'>
+                <a class="livresSimilaires__lien" href='index.php?controleur=livre&action=fiche&idLivre={{$livre->getId()}}'>
                     <figure class="livre">
                         <div class="ctnImg">
                             <img class="ctnImg__img" src="./liaisons/images/operatique_couv.jpg" alt="couverture Operatique">
                         </div>
-                        <figcaption class="livre__titre">{{$livre->getLivreAssocie()->getTitre()}}</figcaption>
+                        <figcaption class="livre__titre">{{$livre->getTitre()}}</figcaption>
                     </figure>
                 </a>
             </li>
         @endforeach
     </ul>
 
-
+    @include('fragments.paginationFicheAuteur')
 @endsection

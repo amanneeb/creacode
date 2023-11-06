@@ -101,4 +101,63 @@ class Auteur
         return $requetePreparee->fetchAll(PDO::FETCH_CLASS, 'App\Modeles\Auteur');
     }
 
+    public static function compterParLivre($idArtiste): int
+    {
+        $chaineSql = "SELECT COUNT(*) AS totalLivresAuteur FROM  livres
+                        INNER JOIN livres_auteurs ON livres.id = livres_auteurs.livre_id
+                        INNER JOIN auteurs ON auteurs.id = livres_auteurs.auteur_id
+                        WHERE auteurs.id=".$idArtiste;
+        $requetePreparee = App::getPDO()->prepare($chaineSql);
+        $requetePreparee->setFetchMode(PDO::FETCH_OBJ);
+        $requetePreparee->execute();
+        $nbLivres = $requetePreparee->fetch();
+
+        var_dump($nbLivres);
+        return $nbLivres->totalLivresAuteur;
+
+    }
+
+    public static function paginerParLivre(int $unNoDePage, int $unNbParPage, int $idAuteur): array
+    {
+
+        $indexDepart = null;
+
+        switch ($unNoDePage) {
+            case 0:
+                $indexDepart = 0;
+                break;
+            case 1:
+                $indexDepart = 5;
+                break;
+            case 2:
+                $indexDepart = 10;
+                break;
+            case 3:
+                $indexDepart = 15;
+                break;
+            case 4:
+                $indexDepart = 20;
+                break;
+            case 5:
+                $indexDepart = 25;
+                break;
+        }
+
+        $chaineSql = "SELECT * FROM livres 
+                        INNER JOIN livres_auteurs ON livres.id = livres_auteurs.livre_id
+                        INNER JOIN auteurs ON auteurs.id = livres_auteurs.auteur_id
+                        WHERE auteurs.id=:idAuteur
+        LIMIT " . $indexDepart . ", " . $unNbParPage;
+
+        $requetePreparee = App::getPDO()->prepare($chaineSql);
+        $requetePreparee->bindParam(":idAuteur", $idAuteur, PDO::PARAM_INT);
+        $requetePreparee->setFetchMode(PDO::FETCH_ASSOC);
+        $requetePreparee->execute();
+        $participantsAAfficher = $requetePreparee->fetchAll();
+
+        return $participantsAAfficher;
+    }
+
+
+
 }

@@ -37,11 +37,9 @@ class ControleurLivres
             $triRecherche= 'nouveautes';
             $urlTri="index.php?controleur=livre&action=index";
         }
-
         $nbTotalLivres = Livre::compterNbLivres($categorieRecherchee);
         $nbParPages = 9;
         $nbTotalPages = ceil($nbTotalLivres / $nbParPages);
-
        if ($categorieRecherchee==0){
            $livres= Livre::paginer($pageCourante, $nbParPages, $triRecherche);
        } else{
@@ -52,7 +50,6 @@ class ControleurLivres
         } else{
             $urlPagination= "index.php?controleur=livre&action=index&idCategorie=" . $categorieRecherchee;
         }
-
         $tDonnees = array(
             "pdo" => App::getPDO(),
             "livres" => $livres,
@@ -63,40 +60,41 @@ class ControleurLivres
             "urlTri" => $urlTri,
             "filAriane" => $filAriane
         );
-
-
         echo App::getBlade()->run("livres.liste", $tDonnees);
     }
 
     public function fiche(){
         $filAriane=FilAriane::majFilArianne();
-        $idLivre = (int) $_GET["idLivre"];
+        $idLivre = (int) $_GET['idLivre'];
         $livres = Livre::trouverParId($idLivre);
         $categories = Livre::trouverParId($idLivre)->getCategorieAssociee()->getLivresAssocies();
+        $laCategorieDuLivre = Livre::trouverParId($idLivre)->getCategorieAssociee()->getId();
         $reconnaissance = Reconnaissance::trouverParLivre($idLivre);
-        var_dump($reconnaissance);
 
 
         //PAGINATION
-        $totalLivres = Livre::compterNbLivres(0);
+        $totalLivres = Livre::compterParCategorie($laCategorieDuLivre);
         $nbPage = $totalLivres/5;
         $nombreTotalPages = ceil($nbPage);
-
-        //$urlPagination="index.php?controleur=livre&action=fiche&idLivre=".$_GET["idLivre"]."&idCategorie=".$_GET['idCategorie'];
-        $urlPagination="index.php?controleur=livre&action=fiche&idLivre=".$_GET["idLivre"];
-
-        if(isset($_GET["page"]) === false){
+        $urlPagination='index.php?controleur=livre&action=fiche&idLivre='.$_GET['idLivre'];
+        if(isset($_GET['page']) === false){
             $numeroPage = 0;
         }else{
-            $numeroPage = (int) $_GET["page"];
+            $numeroPage = (int) $_GET['page'];
         }
-
-        $livresPagination = Livre::paginerAutre($numeroPage, 3);
+        $livresPagination = Livre::paginerAutre($numeroPage, 3, $laCategorieDuLivre);
         //fin PAGINATION
 
-        $tDonnees = array('lesLivres' => $livres, 'reconnaissances' => $reconnaissance, 'categories' => $categories, "livresPagination"=>$livresPagination, "nombreTotalPages"=>$nombreTotalPages, "numeroPage"=>$numeroPage, "urlPagination"=>$urlPagination, "filAriane" => $filAriane);
+        $tDonnees = array('lesLivres' => $livres,
+                            'reconnaissances' => $reconnaissance,
+                            'categories' => $laCategorieDuLivre,
+                            "livresPagination"=>$livresPagination,
+                            "nombreTotalPages"=>$nombreTotalPages,
+                            "numeroPage"=>$numeroPage,
+                            "urlPagination"=>$urlPagination,
+                            "filAriane" => $filAriane);
 
-        echo App::getBlade()->run("livres.fiche", $tDonnees);
+        echo App::getBlade()->run('livres.fiche', $tDonnees);
     }
 
 

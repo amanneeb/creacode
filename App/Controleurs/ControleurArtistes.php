@@ -6,6 +6,7 @@ namespace App\Controleurs;
 
 //Cas d'importation
 use App\Modeles\Auteur;
+use App\Modeles\Livre;
 use \PDO;
 use App\App;
 use App\Modeles\LivreAuteur;
@@ -48,17 +49,55 @@ class ControleurArtistes
 
     public function fiche()
     {
-        $idArtiste = (int)$_GET["idArtiste"];
+        $filAriane=FilAriane::majFilArianne();
+        $idArtiste = (int)$_GET['idArtiste'];
         $idSuivant = $idArtiste + 1;
         $idPrecedent = $idArtiste - 1;
         $artistes = Auteur::trouverParId($idArtiste);
         $livresAuteurs = Auteur::trouverParId($idArtiste)->getLivresAuteursAssocies();
-        //$livresAuteurs = LivreAuteur::trouverParAuteur($idArtiste);
 
 
-        $tDonnees = array('artistes' => $artistes, 'livresAuteurs' => $livresAuteurs, 'idArtiste' => $idArtiste, 'idSuivant' => $idSuivant, 'idPrecedent' => $idPrecedent);
+        //PAGINATION
+        //$totalLivres = Livre::compterParAuteur($idArtiste);
+        $totalLivres = Auteur::compterParLivre($idArtiste);
+        var_dump($totalLivres);
+        $nbPage = $totalLivres/5;
+        $nombreTotalPages = ceil($nbPage);
+        $urlPagination='index.php?controleur=artiste&action=fiche&idArtiste='.$_GET['idArtiste'];
+        if(isset($_GET['page']) === false){
+            $numeroPage = 0;
+        }else{
+            $numeroPage = (int) $_GET['page'];
+        }
+        $livresPagination = Livre::trouverParAuteur($idArtiste);
+        var_dump($livresPagination[0]->getTitre(), $livresPagination[0]->getId());
+        $livres = Auteur::paginerParLivre($numeroPage, 3, (int) $_GET['idArtiste']);
+        var_dump($livres);
+        //FIN PAGINATION
 
-        echo App::getBlade()->run("artistes.fiche", $tDonnees);
+
+
+        $arrReconnaissance = array();
+        for($cpt = 0; $cpt<count($livresAuteurs); $cpt++){
+            $idLivre = $livresAuteurs[$cpt]->getIdLivreId();
+            $reconnaissance = Reconnaissance::trouverParLivre($idLivre);
+            array_push($arrReconnaissance, $reconnaissance);
+        }
+
+        $tDonnees = array('artistes' => $artistes,
+                            'reconnaissances' => $reconnaissance,
+                            'livresAuteurs' => $livresAuteurs,
+                            'idArtiste' => $idArtiste,
+                            'idSuivant' => $idSuivant,
+                            'idPrecedent' => $idPrecedent,
+                            "livresPagination"=>$livresPagination,
+                            "nombreTotalPages"=>$nombreTotalPages,
+                            "numeroPage"=>$numeroPage,
+                            'livres' => $livres,
+                            "urlPagination"=>$urlPagination,
+                            'filAriane' => $filAriane);
+
+        echo App::getBlade()->run('artistes.fiche', $tDonnees);
 
     }
 }

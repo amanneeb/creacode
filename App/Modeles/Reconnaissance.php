@@ -31,7 +31,14 @@ class Reconnaissance
 
     public static function trouverParLivre($idLivre): array
     {
-        $chaineSQL = "SELECT la_reconnaissance FROM reconnaissances WHERE livre_id =:idLivre";
+        /*$chaineSQL = "SELECT * FROM reconnaissances
+                        INNER JOIN livres ON reconnaissances.livre_id = livres.id
+                        WHERE livre_id =:idLivre";*/
+        $chaineSQL = "SELECT la_reconnaissance FROM reconnaissances
+                        INNER JOIN livres ON livres.id = reconnaissances.livre_id
+                        INNER JOIN livres_auteurs ON livres_auteurs.livre_id = livres.id
+                        INNER JOIN auteurs ON auteurs.id = livres_auteurs.livre_id
+                        WHERE livres.id=:idLivre";
         $intId = (int)$idLivre;
         //Bind
         $requetePreparee = App::getPDO()->prepare($chaineSQL);
@@ -39,9 +46,12 @@ class Reconnaissance
         $requetePreparee->setFetchMode(PDO::FETCH_CLASS, "App\Modeles\Reconnaissance");
         $requetePreparee->execute();
         $reconnaissance = $requetePreparee->fetchAll();
+        //var_dump($reconnaissance);
 
         return $reconnaissance;
     }
+
+
 
     public function getId(): int
     {
