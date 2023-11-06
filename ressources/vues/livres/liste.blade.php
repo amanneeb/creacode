@@ -36,7 +36,7 @@
         @foreach ($livres as $livre)
             <li class="livre item">
                 <a href="index.php?controleur=livre&action=fiche&idLivre={{ $livre->getId() }}">
-                    <img
+                    <img class="item-img"
                             src="./liaisons/images/operatique_couv.jpg" width="150px" height="200px"
                             alt="{{ $livre->getTitre() }}" class="livre__image">
                     <h3 class="livre__titre">{{ $livre->getTitre() }}</h3>
