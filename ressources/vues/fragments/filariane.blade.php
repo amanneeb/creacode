@@ -3,7 +3,7 @@
         <a href="{{$lien["lien"]}}">{{$lien["titre"]}}</a>
 
     @else
-        {{$lien["titre"]}}
+        <span>{{$lien["titre"]}}</span>
 
     @endif
     <span> | </span>

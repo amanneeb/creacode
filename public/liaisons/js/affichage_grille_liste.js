@@ -7,20 +7,20 @@ document.addEventListener("DOMContentLoaded", function () {
     boutonGrille.addEventListener("click", function () {
         boutonGrille.classList.add("actif");
         boutonListe.classList.remove("actif");
-        listeItems.classList.remove("liste__items");
+        listeItems.classList.add("liste__items");
 
         imageItems.forEach(function (imageItem) {
-            imageItem.hidden = true;
+            imageItem.hidden = false;
         });
     });
 
     boutonListe.addEventListener("click", function () {
         boutonListe.classList.add("actif");
         boutonGrille.classList.remove("actif");
-        listeItems.classList.add("liste__items");
+        listeItems.classList.remove("liste__items");
 
         imageItems.forEach(function (imageItem) {
-            imageItem.hidden = false;
+            imageItem.hidden = true;
         });
     });
 });
