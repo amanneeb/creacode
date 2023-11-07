@@ -1,5 +1,6 @@
 
-
+<div class="conteneur">
+    <section class="info__footer">
 <div class="heures">
     <h2 class="h2">HEURES D'OUVERTURES</h2>
     <ul class="list">
@@ -30,7 +31,7 @@
         fred@lapasteque.com<br>
         (514)627-1585</p>
 </div>
-
+    </section>
 <section class="medias">
     <ul class="list">
         <li class="list__item">
@@ -50,3 +51,4 @@
         </li>
     </ul>
 </section>
+</div>

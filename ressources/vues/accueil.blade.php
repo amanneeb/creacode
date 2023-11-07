@@ -3,7 +3,7 @@
 @section('contenu')
 
 
-    <main class="main">
+    <main class="main conteneur">
         <section class="actualites">
             <h1 class="h1">Actualités</h1>
             <span class="underline"></span>
