@@ -3,7 +3,7 @@
 
 //utilitaires
 @import "utilitaires/variables";
-
+@import "utilitaires/mixins";
 
 //base
 @import "modules/images";
@@ -21,6 +21,7 @@
 @import "modules/images";
 @import "modules/livres_similaires";
 @import "modules/entete_fiche";
+@import "modules/select";
 
 //layout
 @import "layout/onglets";

@@ -20,24 +20,25 @@ body {
   }
 }
 
-/* Supprimer le style par défaut des liens non visités */
-a:link {
-  text-decoration: none;
-  color: inherit;
+a {
+  font-family: $fontePrimaire;
+  &:link {
+    @include styleLien(none, $rouge);
+  }
+  &:visited {
+    @include styleLien(none, $orange);
+  }
+  &:hover {
+    @include styleLien(underline, $orange);
+  }
+  &:focus {
+    @include styleLien(underline, $orange);
+    border: 1px solid $rouge;
+  }
+  &:active {
+    @include styleLien(underline, $orange);
+  }
 }
-
-/* Supprimer le style par défaut des liens visités */
-a:visited {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* Supprimer le style par défaut des liens actifs */
-a:active {
-  text-decoration: none;
-  color: inherit;
-}
-
 
 h1,
 .titreNiveau1{color: red}
@@ -50,9 +51,8 @@ h3,
 }
 
 h1 {
-  /*@include fontSize(28px);*/
+  @include fontSize(40px);
   color: $rouge;
-  font-size: 40px;
   font-family: $fonteSecondaire;
   @media (min-width: 600px) {
     font-size: 64px;
@@ -60,20 +60,20 @@ h1 {
 }
 
 h2 {
-  /*@include fontSize(28px);*/
+  @include fontSize(40px);
   font-weight: bold;
-  font-size: 20px;
-  font-family: $fontePrimaire;
+  color:$rouge;
+  font-family: $fonteSecondaire;
   text-transform: uppercase;
+  margin: 0;
   @media (min-width: 600px) {
-    font-size: 24px;
+    font-size: 64px;
   }
 }
 
 h3 {
-  /*@include fontSize(28px);*/
   font-weight: bold;
-  font-size: 18px;
+  @include fontSize(18px);
   font-family: $fontePrimaire;
   @media (min-width: 600px) {
     font-size: 20px;
@@ -82,16 +82,19 @@ h3 {
 
 .texte {
   font-family: $fontePrimaire;
-  font-size: 1.6rem;
+  @include fontSize(16px);
   line-height: 1.375;
   &--desktop {
     line-height: 1.5;
   }
 }
 
-p{
+p,
+span,
+label,
+option{
   font-family: $fontePrimaire;
-  font-size: 1.6rem;
+  @include fontSize(16px);
   line-height: 1.375;
   &--desktop {
     line-height: 1.5;

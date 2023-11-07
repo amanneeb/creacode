@@ -1,4 +1,3 @@
-
 @charset "UTF-8";
 /**
 * @author Prenom Nom courriel
@@ -11,10 +10,55 @@
 /** Polices de caractères **/
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;1,400;1,700&display=swap");
+@font-face {
+  font-family: "WonderSeason";
+  src: url(../police/wonderseason.ttf) format("truetype");
+}
 /** Palette de couleurs **/
 /* Couleurs de base */
 /** Points de rupture **/
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;1,400;1,700&display=swap");
+/**
+* @author Ève Février - efevrier@cegep-ste-foy.qc.ca
+* @author Yves Hélie - yves.helie@cegep-ste-foy.qc.ca
+*/
+/**
+ * ----------------------------
+ * TABLE DES MATIERES - MIXINS
+ * ----------------------------
+ * Utilitaires de base
+ ** Box sizing
+ ** Clearfix
+ * Accessibilité
+ * Typographie
+ */
+/********** Utilitaires de base **********/
+/** Box sizing **/
+/* Clearfix */
+/********* Accessibilité *********/
+.visuallyhidden,
+.screen-reader-only {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus,
+.screen-reader-only.focusable:active,
+.screen-reader-only.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+
+/******** Typographie *********/
 .ctnImg {
   height: fit-content;
   width: fit-content;
@@ -209,9 +253,33 @@ html {
 
 body {
   font-size: 16px; /* 16px pour toutes les largeurs d'écran */
-  font-size: 1.6rem;
   line-height: 1.375; /* facteur multiplicateur de la taille de la police 1.375x16=22 */
 }
+a {
+  font-family: "Poppins", sans-serif;
+}
+a:link {
+  color: #681c0f;
+  text-decoration: none;
+}
+a:visited {
+  color: #c64532;
+  text-decoration: none;
+}
+a:hover {
+  color: #c64532;
+  text-decoration: underline;
+}
+a:focus {
+  color: #c64532;
+  text-decoration: underline;
+  border: 1px solid #681c0f;
+}
+a:active {
+  color: #c64532;
+  text-decoration: underline;
+}
+
 h1,
 .titreNiveau1 {
   color: red;
@@ -226,9 +294,9 @@ h3,
 }
 
 h1 {
-  /*@include fontSize(28px);*/
-  color: #681c0f;
   font-size: 40px;
+  font-size: 4rem;
+  color: #681c0f;
   font-family: "WonderSeason", serif;
 }
 @media (min-width: 600px) {
@@ -238,22 +306,24 @@ h1 {
 }
 
 h2 {
-  /*@include fontSize(28px);*/
+  font-size: 40px;
+  font-size: 4rem;
   font-weight: bold;
-  font-size: 20px;
-  font-family: "Poppins", sans-serif;
+  color: #681c0f;
+  font-family: "WonderSeason", serif;
   text-transform: uppercase;
+  margin: 0;
 }
 @media (min-width: 600px) {
   h2 {
-    font-size: 24px;
+    font-size: 64px;
   }
 }
 
 h3 {
-  /*@include fontSize(28px);*/
   font-weight: bold;
   font-size: 18px;
+  font-size: 1.8rem;
   font-family: "Poppins", sans-serif;
 }
 @media (min-width: 600px) {
@@ -264,10 +334,27 @@ h3 {
 
 .texte {
   font-family: "Poppins", sans-serif;
+  font-size: 16px;
   font-size: 1.6rem;
   line-height: 1.375;
 }
 .texte--desktop {
+  line-height: 1.5;
+}
+
+p,
+span,
+label,
+option {
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-size: 1.6rem;
+  line-height: 1.375;
+}
+p--desktop,
+span--desktop,
+label--desktop,
+option--desktop {
   line-height: 1.5;
 }
 
@@ -465,11 +552,42 @@ h3 {
   transform: none;
 }
 
-.liste-livres__tri {
+.liste-livres__tri-option {
   list-style: none;
-}
-.liste-livres__tri .liste-livres__tri-option {
   display: inline;
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: white;
+  color: #c64532;
+  border: 2px solid #c64532;
+  border-radius: 5px;
+  width: auto;
+  margin-left: 0;
+}
+.liste-livres__tri-option:hover {
+  border: 3px solid #681c0f;
+  color: #681c0f;
+}
+.liste-livres__tri-option:active, .liste-livres__tri-option.active {
+  background-color: #c64532;
+  color: white;
+}
+.liste-livres__tri-option:focus {
+  border: 3px double #681c0f;
+  color: #681c0f;
+}
+
+.liste-livres__filtre {
+  margin: 10px 0 10px 0;
+  padding: 0;
+}
+
+.boutons-switch {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn {
   margin: 5px;
   padding: 10px 20px;
   background-color: white;
@@ -478,29 +596,21 @@ h3 {
   border-radius: 5px;
   width: auto;
 }
-.liste-livres__tri .liste-livres__tri-option:hover {
+.btn:hover {
   border: 3px solid #681c0f;
   color: #681c0f;
 }
-.liste-livres__tri .liste-livres__tri-option:active, .liste-livres__tri .liste-livres__tri-option.active {
+.btn:active, .btn.active {
   background-color: #c64532;
   color: white;
 }
-.liste-livres__tri .liste-livres__tri-option:focus {
+.btn:focus {
   border: 3px double #681c0f;
   color: #681c0f;
 }
-
-.btn {
-  background-color: #ccc;
-  border: none;
-  color: #fff;
-  padding: 10px 20px;
-  cursor: pointer;
-}
-
 .btn.actif {
   background-color: #c64532;
+  color: white;
 }
 
 .ctnImg {
@@ -568,6 +678,18 @@ h3 {
   .nomAuteur {
     margin-left: 3em;
   }
+}
+
+.liste-livres__tri {
+  background-color: white;
+  border: 2px solid #c64532;
+  border-radius: 5px;
+  color: #681c0f;
+  width: auto;
+  padding: 10px 20px;
+}
+.liste-livres__tri .liste-livres__tri-option {
+  font-size: 16px;
 }
 
 .onglets {
@@ -849,13 +971,4 @@ body {
   }
 }
 
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: Can't find stylesheet to import.\a   \2577 \a 9 \2502  @import \"base/images\";\d\a   \2502          ^^^^^^^^^^^^^\a   \2575 \a   ressources\\liaisons\\scss\\styles.scss 9:9  root stylesheet";
-}
+/*# sourceMappingURL=styles.css.map */
