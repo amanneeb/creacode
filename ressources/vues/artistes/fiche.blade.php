@@ -2,7 +2,7 @@
 @section('contenu')
     @include('fragments.filariane')
     <h1 class="nomAuteur">{{$artistes->getPrenom()}} {{$artistes->getNom()}}</h1>
-    <div class="ctnAuteur">
+    <div class="ctnAuteur texte">
         <div class="ctnImgLien">
             <div class="ctnImg">
                 @if($artistes->getPrenom())
@@ -43,16 +43,16 @@
                     <a class="hyperlien" href="">artiste precedent</a>
                 @endif
                 @if($idSuivant<$artistes->compter())
-                    <a class="hyperlien" href="index.php?controleur=artiste&action=fiche&idArtiste={{$idSuivant}}">artiste suivant</a>
+                    <a class="lienSuivant hyperlien" href="index.php?controleur=artiste&action=fiche&idArtiste={{$idSuivant}}">artiste suivant</a>
                 @else
-                    <a class="hyperlien" href="">artiste suivant</a>
+                    <a class="lienSuivant hyperlien" href="">artiste suivant</a>
                 @endif
             </section>
         </div>
     </div>
 
     <h4 class="autresLivres__titre">Livres du même auteur</h4>
-    <ul class="livresSimilaires">
+    <ul class="livresSimilaires texte">
         @foreach($livresPagination as $livre)
             <li class="livresSimilaires__item">
                 <a class="livresSimilaires__lien" href='index.php?controleur=livre&action=fiche&idLivre={{$livre->getId()}}'>

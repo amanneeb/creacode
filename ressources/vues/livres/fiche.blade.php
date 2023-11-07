@@ -6,16 +6,33 @@
         <h1 class="titreLivre">{{$lesLivres->getTitre()}}</h1>
     </div>
 
-    <div class="ctnPage">
+    <div class="ctnPage texte">
         <section class="infoPrincipal">
             <div class="images">
                 <div class="ctnImg">
                     <img class="ctnImg__img" src="./liaisons/images/operatique_couv.jpg" alt="couverture Operatique" width="400px">
                 </div>
                 <div class="ctnVisioExtraits">
-                    @if(file_exists("./liaisons/images/operatique_couv.jpg"))
-                        <img class="" src="./liaisons/images/operatique_couv.jpg" width="100px">
+                    @if(file_exists("./liaisons/images/operatique_001.png") || file_exists("./liaisons/images/operatique_001.jpg"))
+                        @for($cpt = 1; $cpt<=3; $cpt++)
+                            <img class="ctnVisioExtraits__img " src="./liaisons/images/operatique_00{{$cpt}}.png" alt="">
+                        @endfor
                     @endif
+                    <section class="ctnModale cache">
+                        <button class="ctnModale__btn" height="20px"><img src="./liaisons/images/fermer.svg" width="20px">Fermer</button>
+                        <img class="ctnModale__img" src="./liaisons/images/operatique_001.png" alt="" width="300px">
+                        <section class="ctnVisionneuse">
+                            <button class="ctnVisionneuse__precedent"><img src="./liaisons/images/precedent.svg"></button>
+                            <ul class="ctnVisionneuse__liste" >
+                                <li><img class="ctnVisionneuse__img" src="./liaisons/images/operatique_couv.jpg"></li>
+                                @for($cpt = 1; $cpt<=3; $cpt++)
+                                    <li class="ctnVisionneuse__item" id="{{$cpt}}"> <img class="ctnVisionneuse__img " src="./liaisons/images/operatique_00{{$cpt}}.png" alt=""> </li>
+                                @endfor
+                            </ul>
+                            <button class="ctnVisionneuse__suivant" ><img src="./liaisons/images/suivant.svg"></button>
+                        </section>
+
+                    </section>
                 </div>
                 <div class="defilement">
                     <a class="defilement__lienPrecedent hyperlien" href="">Livre précédent</a>
@@ -47,8 +64,8 @@
                     <input class="ajoutPanier__moins btnPrimaire" type="button" name="nbLivres" id="moins" value="-">
                     <span class="ajoutPanier__nbLivre">1</span>
                     <input class="ajoutPanier__plus btnPrimaire" type="button" name="nbLivres" id="plus" value="+"><br>
-                    <input class="ajoutPanier__btnPanier btnPrimaire" type="button" name="ajoutPanier" id="ajoutPanier" value="Ajouter au panier"><br>
-                    <input class="ajoutPanier__btnSouhait btnSecondaire" type="button" name="ajoutSouhait" id="ajoutSouhait" value="Ajouter à ma liste">
+                    <button class="ajoutPanier__btnPanier btnPrimaire" type="button" name="ajoutPanier" id="ajoutPanier"><!--<span><img class="ctnImg__img" src="./liaisons/images/cart.svg" alt="" width="30px"></span>-->Ajouter au panier</button><br>
+                    <button class="ajoutPanier__btnSouhait btnSecondaire" type="button" name="ajoutSouhait" id="ajoutSouhait"><!--<span><img class="ctnImg__img" src="./liaisons/images/coeur_vide.svg" alt="" width="30px"></span>-->Ajouter à ma liste</button>
                 </div>
             </div>
         </section>

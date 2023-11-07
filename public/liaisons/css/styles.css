@@ -37,15 +37,26 @@
 
 .livresSimilaires {
   list-style-type: none;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-wrap: nowrap;
-  padding-left: 0;
+}
+@media (min-width: 600px) {
+  .livresSimilaires {
+    /*display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: nowrap;*/
+    padding-left: 0;
+  }
 }
 .livresSimilaires__item {
   margin-right: 2.5em;
+  display: block;
+}
+@media (min-width: 600px) {
+  .livresSimilaires__item {
+    display: inline-block;
+    max-width: 28%;
+  }
 }
 .livresSimilaires__lien {
   display: block;
@@ -103,6 +114,13 @@
 .typeInfos__liste {
   list-style-type: none;
 }
+.typeInfos__input:checked + label:hover {
+  background: #681c0f;
+  color: #fff;
+  border-left: #681c0f solid 2px;
+  border-top: #681c0f solid 2px;
+  border-right: #681c0f solid 2px;
+}
 .typeInfos__input + label {
   display: block;
   background: #fff;
@@ -112,6 +130,16 @@
   border: #c64532 solid 2px;
   border-bottom: none;
   align-self: stretch;
+}
+.typeInfos__input + label:hover {
+  background: #681c0f;
+  color: #fff;
+  border-left: #681c0f solid 2px;
+  border-top: #681c0f solid 2px;
+  border-right: #681c0f solid 2px;
+}
+.typeInfos__input + label:active {
+  outline: #c64532 solid 2px;
 }
 @media (min-width: 450px) {
   .typeInfos__input + label {
@@ -525,15 +553,26 @@ h3 {
 
 .livresSimilaires {
   list-style-type: none;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-wrap: nowrap;
-  padding-left: 0;
+}
+@media (min-width: 600px) {
+  .livresSimilaires {
+    /*display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: nowrap;*/
+    padding-left: 0;
+  }
 }
 .livresSimilaires__item {
   margin-right: 2.5em;
+  display: block;
+}
+@media (min-width: 600px) {
+  .livresSimilaires__item {
+    display: inline-block;
+    max-width: 28%;
+  }
 }
 .livresSimilaires__lien {
   display: block;
@@ -605,6 +644,13 @@ h3 {
 .typeInfos__liste {
   list-style-type: none;
 }
+.typeInfos__input:checked + label:hover {
+  background: #681c0f;
+  color: #fff;
+  border-left: #681c0f solid 2px;
+  border-top: #681c0f solid 2px;
+  border-right: #681c0f solid 2px;
+}
 .typeInfos__input + label {
   display: block;
   background: #fff;
@@ -614,6 +660,16 @@ h3 {
   border: #c64532 solid 2px;
   border-bottom: none;
   align-self: stretch;
+}
+.typeInfos__input + label:hover {
+  background: #681c0f;
+  color: #fff;
+  border-left: #681c0f solid 2px;
+  border-top: #681c0f solid 2px;
+  border-right: #681c0f solid 2px;
+}
+.typeInfos__input + label:active {
+  outline: #c64532 solid 2px;
 }
 @media (min-width: 450px) {
   .typeInfos__input + label {
@@ -652,6 +708,13 @@ h3 {
   }
 }
 
+main {
+  position: relative;
+}
+
+.ctnPage .infoPrincipal, .ctnPage .infoSupplementaires {
+  padding: 0 10px;
+}
 @media (min-width: 800px) {
   .ctnPage {
     max-width: 1000px;
@@ -678,12 +741,12 @@ h3 {
 }
 @media (min-width: 700px) {
   .ctnPage .infoPrincipal .images .ctnImg {
-    width: 100%;
+    height: fit-content;
   }
 }
 @media (min-width: 700px) {
   .ctnPage .infoPrincipal .images .ctnImg__img {
-    width: 100%;
+    height: 60vh;
   }
 }
 .ctnPage .infoPrincipal .images .defilement {
@@ -692,7 +755,7 @@ h3 {
 .ctnPage .infoPrincipal .ctnInfoPanier {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: flex-start;
   flex-wrap: wrap;
   width: 100%;
@@ -704,6 +767,16 @@ h3 {
     align-self: stretch;
     width: 50%;
     margin-bottom: 0;
+  }
+}
+@media (min-width: 700px) {
+  .ctnPage .infoPrincipal .ctnInfoPanier .livrePanier {
+    margin-bottom: 20vw;
+  }
+}
+@media (min-width: 850px) {
+  .ctnPage .infoPrincipal .ctnInfoPanier .livrePanier {
+    margin-bottom: 10em;
   }
 }
 .ctnPage .infoPrincipal .ctnInfoPanier .livrePanier__auteurLien {
@@ -742,6 +815,83 @@ h3 {
 }
 .ctnPage .infoPrincipal .ctnInfoPanier .ajoutPanier__moins, .ctnPage .infoPrincipal .ctnInfoPanier .ajoutPanier__plus, .ctnPage .infoPrincipal .ctnInfoPanier .ajoutPanier__btnPanier, .ctnPage .infoPrincipal .ctnInfoPanier .ajoutPanier__btnSouhait {
   margin: 0.5em 0;
+}
+.ctnPage .ctnVisioExtraits {
+  margin-top: 1em;
+}
+.ctnPage .ctnVisioExtraits__img {
+  max-width: 100px;
+}
+.ctnPage .ctnVisioExtraits__img:hover {
+  filter: contrast(80%);
+}
+@media (min-width: 700px) {
+  .ctnPage .ctnVisioExtraits__img {
+    width: 150px;
+  }
+}
+.ctnPage .ctnVisioExtraits .ctnModale__img {
+  margin-top: 1em;
+}
+.ctnPage .ctnVisioExtraits .ctnModale .ctnVisionneuse {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+}
+.ctnPage .ctnVisioExtraits .ctnModale .ctnVisionneuse__liste {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 0;
+  list-style-type: none;
+}
+.ctnPage .ctnVisioExtraits .ctnModale .ctnVisionneuse__img {
+  display: block;
+  margin: 0 0.3em;
+  width: 50px;
+}
+@media (min-width: 600px) {
+  .ctnPage .ctnVisioExtraits .ctnModale .ctnVisionneuse__img {
+    width: 100px;
+  }
+}
+.ctnPage .ctnVisioExtraits .ctnModale .ctnVisionneuse__precedent, .ctnPage .ctnVisioExtraits .ctnModale .ctnVisionneuse__suivant {
+  align-self: center;
+  width: 45px;
+}
+@media (min-width: 600px) {
+  .ctnPage .ctnVisioExtraits .ctnModale .ctnVisionneuse__precedent, .ctnPage .ctnVisioExtraits .ctnModale .ctnVisionneuse__suivant {
+    width: 50px;
+  }
+}
+.ctnPage .ctnVisioExtraits .ctnModale .ctnVisionneuse .imgChoisie {
+  border: #1f6f78 solid 2px;
+}
+.ctnPage .ctnVisioExtraits .cache {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  display: inline;
+}
+.ctnPage .ctnVisioExtraits .modale {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 main {

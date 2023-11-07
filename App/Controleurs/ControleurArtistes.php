@@ -60,7 +60,7 @@ class ControleurArtistes
         //PAGINATION
         //$totalLivres = Livre::compterParAuteur($idArtiste);
         $totalLivres = Auteur::compterParLivre($idArtiste);
-        var_dump($totalLivres);
+        //var_dump($totalLivres);
         $nbPage = $totalLivres/5;
         $nombreTotalPages = ceil($nbPage);
         $urlPagination='index.php?controleur=artiste&action=fiche&idArtiste='.$_GET['idArtiste'];
@@ -70,9 +70,9 @@ class ControleurArtistes
             $numeroPage = (int) $_GET['page'];
         }
         $livresPagination = Livre::trouverParAuteur($idArtiste);
-        var_dump($livresPagination[0]->getTitre(), $livresPagination[0]->getId());
+        //var_dump($livresPagination[0]->getTitre(), $livresPagination[0]->getId());
         $livres = Auteur::paginerParLivre($numeroPage, 3, (int) $_GET['idArtiste']);
-        var_dump($livres);
+        //var_dump($livres);
         //FIN PAGINATION
 
 

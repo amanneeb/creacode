@@ -1,5 +1,12 @@
-
+main {
+  position: relative;
+}
 .ctnPage{
+  & .infoPrincipal,
+  & .infoSupplementaires{
+    padding: 0 10px;
+  }
+
   @media (min-width: 800px) {
     max-width: 1000px;
     margin: 0 auto;
@@ -21,11 +28,13 @@
       }
       .ctnImg{
         @media (min-width: 700px) {
-          width: 100%;
+          //width: 100%;
+          height: fit-content;
         }
         &__img{
           @media (min-width: 700px) {
-            width: 100%;
+            //width: 100%;
+            height: 60vh;
           }
         }
       }
@@ -36,7 +45,7 @@
     .ctnInfoPanier{
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: flex-start;
       align-items: flex-start;
       flex-wrap: wrap;
       width: 100%;
@@ -49,6 +58,10 @@
       }
       .livrePanier{
         @media (min-width: 700px) {
+          margin-bottom: 20vw;
+        }
+        @media (min-width: 850px) {
+          margin-bottom: 10em;
         }
         &__auteurLien{
           color: black;
@@ -91,6 +104,88 @@
           margin: .5em 0;
         }
       }
+    }
+  }
+
+  .ctnVisioExtraits{
+    margin-top: 1em;
+    &__img{
+      max-width: 100px;
+      &:hover{
+        filter: contrast(80%);
+      }
+      @media(min-width: 700px){
+        width: 150px;
+      }
+    }
+    & .ctnModale{
+      &__btn{
+
+      }
+      &__img{
+        margin-top: 1em;
+      }
+
+      & .ctnVisionneuse
+      {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        &__liste{
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: flex-start;
+          padding-left: 0;
+          list-style-type: none;
+        }
+
+        &__img{
+          display: block;
+          margin: 0 .3em;
+          width: 50px;
+          @media (min-width: 600px) {
+            width: 100px;
+          }
+        }
+
+        &__precedent,
+        &__suivant{
+          align-self: center;
+          width: 45px;
+          @media (min-width: 600px) {
+            width: 50px;
+          }
+        }
+        & .imgChoisie{
+          border: $vert solid 2px;
+        }
+      }
+    }
+    & .cache{
+      border: 0;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+      display: inline;
+    }
+    & .modale{
+      position: fixed;
+      top:0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 2;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
   }
 

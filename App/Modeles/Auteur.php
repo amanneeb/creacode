@@ -112,7 +112,7 @@ class Auteur
         $requetePreparee->execute();
         $nbLivres = $requetePreparee->fetch();
 
-        var_dump($nbLivres);
+        //var_dump($nbLivres);
         return $nbLivres->totalLivresAuteur;
 
     }
