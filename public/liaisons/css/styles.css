@@ -195,6 +195,20 @@
   }
 }
 
+header {
+  height: 260px;
+}
+@media (min-width: 800px) {
+  header {
+    height: 200px;
+  }
+}
+@media (min-width: 1000px) {
+  header {
+    height: 225px;
+  }
+}
+
 @media (min-width: 800px) {
   .navTop__table {
     display: flex;
@@ -229,7 +243,7 @@
 .buttons button {
   display: flex;
   flex-direction: row;
-  border-color: #c64532;
+  border: solid #c64532 2px;
   border-radius: 5px;
   align-items: center;
 }
@@ -306,9 +320,8 @@
 .barRecherche input {
   width: 300px;
   height: 36px;
-  border-color: #c64532;
+  border: solid #c64532 3px;
   border-radius: 5px;
-  border-width: 3px;
 }
 @media (min-width: 800px) {
   .barRecherche input {
@@ -632,7 +645,7 @@ h3 {
     font-weight: bold;
   }
 }
-.liste-livres__tri {
+.liste-livres__tri-option {
   list-style: none;
   display: inline;
   margin: 10px;
@@ -688,7 +701,6 @@ h3 {
   border: 3px double #681c0f;
   color: #681c0f;
 }
-
 .btn.actif {
   background-color: #c64532;
   color: white;
@@ -1010,17 +1022,19 @@ footer {
   color: #f8f1d7;
 }
 
+.h3 {
+  margin: 20px 0 10px 0;
+}
+
 .info__footer {
   padding-top: 50px;
 }
 .info__footer .heures ul {
-  padding: 10px;
+  padding: 0;
+  margin: 0 0 30px 0;
 }
 .info__footer .heures ul li {
   list-style: none;
-}
-.info__footer .contact .h2 {
-  margin: 20px 0 10px 0;
 }
 .info__footer .contact :nth-child(2) {
   margin: 0 0 25px 0;
@@ -1030,9 +1044,6 @@ footer {
 }
 .info__footer .contact :nth-child(4) {
   margin: 0 0 30px 0;
-}
-.info__footer .joindre .h2 {
-  margin: 20px 0 10px 0;
 }
 .info__footer .joindre :nth-child(2) {
   margin: 0 0 25px 0;
