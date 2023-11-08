@@ -5,11 +5,11 @@
 
     <main class="main conteneur">
         <section class="actualites">
-            <h1 class="h1">Actualités</h1>
+            <h2 class="h2">Actualités</h2>
             <span class="underline"></span>
             @foreach($actualites as $actualite)
-            <h2 class="h2">{{$actualite->getTitre()}}</h2>
-            <h3 class="h3">{{$actualite->getDate()}}</h3>
+            <h3 class="h3">{{$actualite->getTitre()}}</h3>
+            <h4 class="h4">{{$actualite->getDate()}}</h4>
             <p class="texte">{{$actualite->getActualite()}}</p>
             <a href="*" class="consulter">Consulter ></a>
             @endforeach
@@ -17,7 +17,7 @@
 
 {{--       DATE AUJOURD'HUI MOINS 14 JOURS--}}
         <section class="nouveautes">
-            <h1 class="h1">Nouveautés</h1>
+            <h2 class="h2">Nouveautés</h2>
             <span class="underline"></span>
             <a href="*" class="voirTout" >Voir tout ></a>
             @foreach($nouveautes as $nouveaute)
@@ -25,9 +25,9 @@
             <span class="idNouv" hidden></span>
             <img class="imgLivre" src="liaisons/images/logo.svg" alt="*">
             <div class="contenuTexte">
-                <h2 class="h2">{{$nouveaute->getTitre()}}</h2>
+                <h3 class="h3">{{$nouveaute->getTitre()}}</h3>
                 @foreach($nouveaute->getLivresAuteursAssocies() as $livreAuteur)
-                <h3 class="h3">{{$livreAuteur->getAuteurAssocie()->getPrenomNom()}}</h3>
+                <h4 class="h4">{{$livreAuteur->getAuteurAssocie()->getPrenomNom()}}</h4>
                 @endforeach
 
                     <p class="texte">{{$nouveaute->getCategorieAssociee()->getNom()}}</p>
@@ -38,7 +38,7 @@
 
 {{--        DATE PLUS LOIN QUE DATE AUJOURD'HUI--}}
         <section class="AParaitre">
-            <h1 class="h1">À paraitre</h1>
+            <h2 class="h2">À paraitre</h2>
             <span class="underline"></span>
             <a href="*" class="voirTout" >Voir tout ></a>
             @foreach($aParaitres as $aParaitre)
@@ -46,9 +46,9 @@
             <span class="idAP" hidden></span>
                 <img class="imgLivre" src="liaisons/images/logo.svg" alt="*">
             <div class="contenuTexte">
-                <h2 class="h2">{{$aParaitre->getTitre()}}</h2>
+                <h3 class="h3">{{$aParaitre->getTitre()}}</h3>
                 @foreach($aParaitre->getLivresAuteursAssocies() as $livreAuteur)
-                    <h3 class="h3">{{$livreAuteur->getAuteurAssocie()->getPrenomNom()}}</h3>
+                    <h4 class="h4">{{$livreAuteur->getAuteurAssocie()->getPrenomNom()}}</h4>
                 @endforeach
                 <p class="texte">{{$aParaitre->getCategorieAssociee()->getNom()}}</p>
                 <p class="texte">{{$aParaitre->getPrix_can()}}</p>
@@ -57,10 +57,10 @@
         </section>
 
         <section class="lancement">
-            <h1 class="h1">Lancements</h1>
+            <h2 class="h2">Lancements</h2>
             <span class="underline"></span>
             @foreach($lancements as $lancement)
-            <h2 class="h2">{{$lancement->getTitre()}}</h2>
+            <h3 class="h3">{{$lancement->getTitre()}}</h3>
             <p class="date">{{$lancement->getDate()}}</p>
             <p class="texte">{{$lancement->getTexte()}}</p>
                 <a href="*" class="consulter">Consulter ></a>
@@ -69,11 +69,11 @@
         </section>
 
         <section class="evenements">
-            <h1 class="h1">Événements</h1>
+            <h2 class="h2">Événements</h2>
             <span class="underline"></span>
 
             @foreach($evenements as $evenement)
-            <h2 class="h2">{{$evenement->getTitre()}}</h2>
+            <h3 class="h3">{{$evenement->getTitre()}}</h3>
             <p class="date">{{$evenement->getDate()}}</p>
             <img class="imgEv" src="liaisons/images/logo.svg" alt="*">
             <p class="texte">{{$evenement->getTexte()}}</p>
