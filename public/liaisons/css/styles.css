@@ -247,7 +247,7 @@ header {
 }
 .menu__logo {
   display: flex;
-  margin: auto;
+  margin: 40px auto 0 auto;
   width: 400px;
 }
 @media (min-width: 800px) {
@@ -290,12 +290,6 @@ header {
     color: #c64532;
     font-weight: bold;
     margin-right: 4px;
-    font-size: 1.2rem;
-  }
-}
-@media (min-width: 1000px) {
-  .buttons .compte .texteBtn {
-    font-size: 1.6rem;
   }
 }
 .buttons .panier {
@@ -312,12 +306,6 @@ header {
     color: white;
     font-weight: bold;
     margin-right: 4px;
-    font-size: 1.2rem;
-  }
-}
-@media (min-width: 1000px) {
-  .buttons .panier .texteBtn {
-    font-size: 1.6rem;
   }
 }
 
@@ -326,7 +314,7 @@ header {
   width: 300px;
   left: 50%;
   margin-left: -150px;
-  top: 180px;
+  top: 220px;
 }
 @media (min-width: 800px) {
   .barRecherche {
@@ -633,7 +621,7 @@ h3 {
   transform: rotate(-45deg) translate(0, -1px);
 }
 .navMobile #menu {
-  position: fixed;
+  position: absolute;
   width: 240px;
   margin: -50px 0 0 -30px;
   padding: 50px;
