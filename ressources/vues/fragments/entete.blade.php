@@ -1,8 +1,13 @@
-
+<div class="conteneur">
+    <div class="navTop__table">
 <img class="menu__logo" src="liaisons/images/logo.svg" alt="" width="200px">
-{{--<h1>La pastèque</h1>--}}
+<h1 hidden>La pastèque</h1>
+    <div class="barRecherche">
+        <label for="recherche">Rechercher un livre</label>
+        <input name="recherche" id="recherche" type="search" class="recherche" content="Rechercher un livre...">
+    </div>
 <div class="buttons">
-<button class="menu_btn compte"><svg width="30px" height="30px" color="orange" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" >
+<button class="menu_btn compte"><span class="texteBtn">Mon compte</span> <svg width="30px" height="30px" color="orange" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" >
 
         <path d="M0 0h48v48H0z" fill="none"/>
         <g id="Shopicon">
@@ -12,10 +17,11 @@
             />
         </g>
     </svg></button>
-<button class="menu_btn panier"><svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<button class="menu_btn panier"><span class="texteBtn">Mon panier</span><svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M6.29977 5H21L19 12H7.37671M20 16H8L6 3H3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     </svg></button>
 </div>
+    </div>
 <nav id="navigation" class="nav navMobile navTable">
     <div id="menuToggle">
         <input type="checkbox" id="checkboxMenu" />
@@ -24,7 +30,7 @@
         <span class="span_menuHamburger"></span>
         <span class="span_menuHamburger"></span>
 <ul id="menu" class="menu_list">
-    <li><a href="index.php?controleur=site&action=accueil">Accueil</a></li>
+{{--    <li><a href="index.php?controleur=site&action=accueil">Accueil</a></li>--}}
     <li><a href="index.php?controleur=livre&action=index">Livres</a></li>
     <li><a href="index.php?controleur=artiste&action=index">Artistes</a></li>
     <li><a href="">Galerie/Boutique</a></li>
@@ -33,7 +39,8 @@
     </div>
 </nav>
 
-<div class="barRecherche">
-    <label for="recherche">Rechercher un livre</label>
-    <input name="recherche" id="recherche" type="search" class="recherche" content="Rechercher un livre...">
+{{--<div class="barRecherche">--}}
+{{--    <label for="recherche">Rechercher un livre</label>--}}
+{{--    <input name="recherche" id="recherche" type="search" class="recherche" content="Rechercher un livre...">--}}
+{{--</div>--}}
 </div>

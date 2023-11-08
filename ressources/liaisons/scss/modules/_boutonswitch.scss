@@ -1,11 +1,32 @@
+.boutons-switch {
+  display: flex;
+  justify-content: flex-end;
+}
 .btn {
-  background-color: #ccc;
-  border: none;
-  color: #fff;
+  margin: 5px;
   padding: 10px 20px;
-  cursor: pointer;
+  background-color: white;
+  color: $orange;
+  border:2px solid $orange;
+  border-radius: 5px;
+  width: auto;
+  &:hover{
+    border:3px solid $rouge;
+    color: $rouge;
+  }
+  &:active,
+  &.active{
+    background-color: $orange;
+    color: white;
+  }
+  &:focus{
+    border:3px double $rouge;
+    color: $rouge;
+  }
+  &.actif{
+    background-color: $orange;
+    color: white;
+  }
 }
 
-.btn.active {
-  background-color: $orange;
-}
+

@@ -1,7 +1,8 @@
 
-
+<div class="conteneur">
+    <section class="info__footer">
 <div class="heures">
-    <h2 class="h2">HEURES D'OUVERTURES</h2>
+    <h3 class="h3">HEURES D'OUVERTURES</h3>
     <ul class="list">
         <li class="list__item">Lundi: fermé</li>
         <li class="list__item">Mardi: fermé</li>
@@ -13,14 +14,14 @@
     </ul>
 </div>
 <div class="contact">
-    <h2 class="h2">CONTACT</h2>
+    <h3 class="h3">CONTACT</h3>
     <p> La Pastèque — Éditeur</p>
     <p>Notre bureau et notre boutique se situent au 102 avenue Laurier Ouest
         Montréal, H2T 2N7</p>
     <p>Métro: Station Laurier</p>
 </div>
 <div class="joindre">
-    <h2 class="h2">NOUS JOINDRE</h2>
+    <h3 class="h3">NOUS JOINDRE</h3>
     <p>info@lapasteque.com</p>
     <p>Fondateurs et comité de rédaction:<br>
         Martin Brault<br>
@@ -30,7 +31,7 @@
         fred@lapasteque.com<br>
         (514)627-1585</p>
 </div>
-
+    </section>
 <section class="medias">
     <ul class="list">
         <li class="list__item">
@@ -50,3 +51,4 @@
         </li>
     </ul>
 </section>
+</div>
