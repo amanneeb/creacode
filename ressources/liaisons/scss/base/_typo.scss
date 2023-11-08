@@ -9,9 +9,16 @@
 
 /**** Typographie responsive ****/
 
-html {
-  font-size: 62.5%;
-}
+
+  html{
+    font-family: $fontePrimaire;
+    @include fontSize(16px);
+    line-height: 1.375;
+    &--desktop {
+      line-height: 1.5;
+    }
+  }
+
 
 body {
   font-size: 16px; /* 16px pour toutes les largeurs d'écran */
@@ -80,23 +87,6 @@ h3 {
   }
 }
 
-.texte {
-  font-family: $fontePrimaire;
-  @include fontSize(16px);
-  line-height: 1.375;
-  &--desktop {
-    line-height: 1.5;
-  }
-}
 
-p,
-span,
-label,
-option{
-  font-family: $fontePrimaire;
-  @include fontSize(16px);
-  line-height: 1.375;
-  &--desktop {
-    line-height: 1.5;
-  }
-}
+
+
