@@ -313,7 +313,7 @@ h3 {
   text-decoration: underline;
 }
 .hyperlien:focus {
-  border: #303075 solid 4px;
+  border: #303075 solid 2px;
   text-decoration: underline;
 }
 .hyperlien:active {
@@ -752,6 +752,9 @@ main {
 .ctnPage .infoPrincipal .images .defilement {
   margin-bottom: 3em;
 }
+.ctnPage .infoPrincipal .images .defilement__lienPrecedent {
+  margin-right: 10px;
+}
 .ctnPage .infoPrincipal .ctnInfoPanier {
   display: flex;
   flex-direction: column;
@@ -824,6 +827,9 @@ main {
 }
 .ctnPage .ctnVisioExtraits__img:hover {
   filter: contrast(80%);
+  animation: pulse;
+  animation-duration: 2s;
+  border: #1f6f78 solid 1px;
 }
 @media (min-width: 700px) {
   .ctnPage .ctnVisioExtraits__img {
@@ -950,7 +956,9 @@ main .ctnAuteur .ctnAuteurBio {
     margin-right: 3em;
   }
 }
-
+main .ctnAuteur .ctnAuteurBio .ctnBio__precedent {
+  margin-right: 10px;
+}
 footer {
   background-color: #681c0f;
   color: #f8f1d7;

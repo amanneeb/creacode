@@ -40,6 +40,9 @@ main {
       }
       .defilement{
         margin-bottom: 3em;
+        &__lienPrecedent{
+          margin-right: 10px;
+        }
       }
     }
     .ctnInfoPanier{
@@ -113,6 +116,9 @@ main {
       max-width: 100px;
       &:hover{
         filter: contrast(80%);
+        animation: pulse;
+        animation-duration: 2s;
+        border: $vert solid 1px;
       }
       @media(min-width: 700px){
         width: 150px;
@@ -140,11 +146,17 @@ main {
           padding-left: 0;
           list-style-type: none;
         }
+        &__item{
+          & .ctnVisionneuse__img:hover{
+
+          }
+        }
 
         &__img{
           display: block;
           margin: 0 .3em;
           width: 50px;
+
           @media (min-width: 600px) {
             width: 100px;
           }

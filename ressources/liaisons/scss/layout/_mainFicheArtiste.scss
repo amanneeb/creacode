@@ -56,6 +56,15 @@ main{
         width: 45%;
         margin-right: 3em;
       }
+
+      .ctnBio{
+        &__precedent{
+          margin-right: 10px;
+        }
+        &__suivant{
+
+        }
+      }
     }
 
   }

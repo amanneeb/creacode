@@ -17,6 +17,8 @@
     @endif
     <script defer src="liaisons/js/menu.js"></script>
     <link rel="stylesheet" href="liaisons/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
 </head>
 <body>
 <header>

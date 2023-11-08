@@ -19,12 +19,12 @@
                         @endfor
                     @endif
                     <section class="ctnModale cache">
-                        <button class="ctnModale__btn" height="20px"><img src="./liaisons/images/fermer.svg" width="20px">Fermer</button>
+                        <button class="ctnModale__btn" height="20px"><img src="./liaisons/images/fermer.svg" width="20px"></button>
                         <img class="ctnModale__img" src="./liaisons/images/operatique_001.png" alt="" width="300px">
                         <section class="ctnVisionneuse">
                             <button class="ctnVisionneuse__precedent"><img src="./liaisons/images/precedent.svg"></button>
                             <ul class="ctnVisionneuse__liste" >
-                                <li><img class="ctnVisionneuse__img" src="./liaisons/images/operatique_couv.jpg"></li>
+                                <li class="ctnVisionneuse__item"><img class="ctnVisionneuse__img" src="./liaisons/images/operatique_couv.jpg"></li>
                                 @for($cpt = 1; $cpt<=3; $cpt++)
                                     <li class="ctnVisionneuse__item" id="{{$cpt}}"> <img class="ctnVisionneuse__img " src="./liaisons/images/operatique_00{{$cpt}}.png" alt=""> </li>
                                 @endfor
@@ -35,8 +35,8 @@
                     </section>
                 </div>
                 <div class="defilement">
-                    <a class="defilement__lienPrecedent hyperlien" href="">Livre précédent</a>
-                    <a class="defilement__lienSuivant hyperlien" href="">Livre suivant</a>
+                    <a class="defilement__lienPrecedent hyperlien" href="">&#9664; Livre précédent</a>
+                    <a class="defilement__lienSuivant hyperlien" href="">Livre suivant &#9654;</a>
                 </div>
             </div>
             <div class="ctnInfoPanier">

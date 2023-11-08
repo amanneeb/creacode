@@ -38,14 +38,14 @@
                     @endif
 
                 @if($idPrecedent>1)
-                    <a class="hyperlien" href="index.php?controleur=artiste&action=fiche&idArtiste={{$idPrecedent}}">artiste precedent</a>
+                    <a class="ctnBio__precedent hyperlien" href="index.php?controleur=artiste&action=fiche&idArtiste={{$idPrecedent}}">&#9664; artiste precedent</a>
                 @else
-                    <a class="hyperlien" href="">artiste precedent</a>
+                    <a class="ctnBio__precedent hyperlien" href="">artiste precedent</a>
                 @endif
                 @if($idSuivant<$artistes->compter())
-                    <a class="lienSuivant hyperlien" href="index.php?controleur=artiste&action=fiche&idArtiste={{$idSuivant}}">artiste suivant</a>
+                    <a class="ctnBio__suivant lienSuivant hyperlien" href="index.php?controleur=artiste&action=fiche&idArtiste={{$idSuivant}}">artiste suivant &#9654;</a>
                 @else
-                    <a class="lienSuivant hyperlien" href="">artiste suivant</a>
+                    <a class="ctnBio__suivant lienSuivant hyperlien" href="">artiste suivant</a>
                 @endif
             </section>
         </div>
