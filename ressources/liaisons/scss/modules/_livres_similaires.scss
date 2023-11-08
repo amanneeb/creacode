@@ -1,13 +1,28 @@
 .livresSimilaires{
   list-style-type: none;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-wrap: nowrap;
-  padding-left: 0;
+  //display: block;
+  @media (min-width: 600px) {
+    //display: inline;
+    /*display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: nowrap;*/
+    padding-left: 0;
+  }
+
+
   &__item{
     margin-right: 2.5em;
+    display: block;
+    @media (min-width: 600px) {
+      display: inline-block;
+      max-width: 28%;
+      & .livre{
+        //display: inline;
+
+      }
+    }
   }
 
   &__lien{
