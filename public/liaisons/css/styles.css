@@ -721,12 +721,13 @@ main {
     margin: 0 auto;
   }
 }
-@media (min-width: 700px) {
+@media (min-width: 800px) {
   .ctnPage .infoPrincipal {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
+    border-bottom: #681c0f solid 1px;
   }
 }
 .ctnPage .infoPrincipal .images {
@@ -744,8 +745,12 @@ main {
     height: fit-content;
   }
 }
+.ctnPage .infoPrincipal .images .ctnImg__img {
+  max-width: 100%;
+}
 @media (min-width: 700px) {
   .ctnPage .infoPrincipal .images .ctnImg__img {
+    max-width: unset;
     height: 60vh;
   }
 }
@@ -903,29 +908,29 @@ main {
 main {
   background: #F9F1EC;
 }
-main .nomAuteur {
+main .ctnPage .nomAuteur {
   margin-left: 0em;
 }
 @media (min-width: 600px) {
-  main .nomAuteur {
+  main .ctnPage .nomAuteur {
     margin-left: 3em;
   }
 }
-main .ctnAuteur {
+main .ctnPage .ctnAuteur {
   width: 100%;
 }
 @media (min-width: 800px) {
-  main .ctnAuteur {
+  main .ctnPage .ctnAuteur {
     width: 800px;
     margin: 0 auto;
   }
 }
-main .ctnAuteur .ctnImgLien {
+main .ctnPage .ctnAuteur .ctnImgLien {
   position: relative;
   top: -4em;
 }
 @media (min-width: 800px) {
-  main .ctnAuteur .ctnImgLien {
+  main .ctnPage .ctnAuteur .ctnImgLien {
     margin: 0;
     display: inline-block;
     width: 45%;
@@ -934,10 +939,10 @@ main .ctnAuteur .ctnImgLien {
     left: 0;
   }
 }
-main .ctnAuteur .ctnImgLien .ctnImg__img {
+main .ctnPage .ctnAuteur .ctnImgLien .ctnImg__img {
   width: 300px;
 }
-main .ctnAuteur .ctnAuteurBio {
+main .ctnPage .ctnAuteur .ctnAuteurBio {
   background: white;
   border: #c64532 solid 2px;
   border-radius: 5px;
@@ -949,16 +954,23 @@ main .ctnAuteur .ctnAuteurBio {
   top: -3em;
 }
 @media (min-width: 800px) {
-  main .ctnAuteur .ctnAuteurBio {
+  main .ctnPage .ctnAuteur .ctnAuteurBio {
     display: inline-block;
     margin-top: 2em;
     width: 45%;
     margin-right: 3em;
   }
 }
-main .ctnAuteur .ctnAuteurBio .ctnBio__precedent {
+main .ctnPage .ctnAuteur .ctnAuteurBio .ctnBio__precedent {
   margin-right: 10px;
 }
+main .ctnPage .autresLivres__titre {
+  margin-left: auto;
+}
+main .ctnPage .livresSimilaires {
+  margin: auto auto;
+}
+
 footer {
   background-color: #681c0f;
   color: #f8f1d7;

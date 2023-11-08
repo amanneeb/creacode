@@ -12,11 +12,12 @@ main {
     margin: 0 auto;
   }
   .infoPrincipal{
-    @media (min-width: 700px) {
+    @media (min-width: 800px) {
       display: flex;
       flex-direction: row;
       justify-content: flex-start;
       align-items: flex-start;
+      border-bottom: $rouge solid 1px;
     }
 
     .images{
@@ -32,8 +33,10 @@ main {
           height: fit-content;
         }
         &__img{
+          max-width: 100%;
           @media (min-width: 700px) {
             //width: 100%;
+            max-width: unset;
             height: 60vh;
           }
         }
