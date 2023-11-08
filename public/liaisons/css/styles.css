@@ -632,7 +632,11 @@ h3 {
     font-weight: bold;
   }
 }
-.liste-livres__tri {
+body {
+  background-color: #F9F1EC;
+}
+
+.liste-livres__tri-option {
   list-style: none;
   display: inline;
   margin: 10px;
@@ -688,7 +692,6 @@ h3 {
   border: 3px double #681c0f;
   color: #681c0f;
 }
-
 .btn.actif {
   background-color: #c64532;
   color: white;
