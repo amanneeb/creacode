@@ -70,6 +70,11 @@
 
 /******** Typographie *********/
 
+@mixin styleLien($textDecoration, $color){
+    color: $color;
+    text-decoration: $textDecoration;
+}
+
 // Fonction pour convertir une valeur de font-size en pixels à son équivalent rem
 @function calculateRem($size) {
     $remSize: $size / 10px;

@@ -1,47 +1,131 @@
 // HEADER //
 
+header{
+  height: 260px;
+  @media (min-width: 800px) {
+   height: 200px;
+  }
+  @media (min-width: 1000px) {
+    height: 225px;
+  }
+}
+
+@media (min-width: 800px) {
+  .navTop__table{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
 
 .menu__logo{
   display:flex;
   margin:auto;
   width: 400px;
+  @media (min-width: 800px) {
+    margin: 50px 0;
+    width: 200px;
+  }
+  @media (min-width: 1000px) {
+    margin: 50px 0;
+    width: 300px;
+  }
 }
 
 .buttons{
   display: flex;
-  flex-direction: row-reverse;
-  justify-content: flex-start;
+  flex-direction: row;
+  justify-content: flex-end;
   button{
-    border-color: $orange;
+    display: flex;
+    flex-direction: row;
+    border: solid $orange 2px;
     border-radius: 5px;
-  }
+   align-items: center;
+    }
   .compte {
     background-color: white;
     padding:10px;
-    margin-left: 10px;
+    margin-right: 10px;
+    margin-left: 8px;
+    .texteBtn{
+      display:none;
+      @media (min-width: 800px) {
+        display:flex;
+        color: $orange;
+        font-weight: bold;
+        margin-right:4px;
+        font-size: 1.2rem;
+      }
+      @media (min-width: 1000px) {
+        font-size: 1.6rem;
+      }
+    }
   }
   .panier{
     background-color: $orange;
     padding:10px;
-    margin-right: 10px;
+    margin-left: 10px;
+    .texteBtn{
+      display:none;
+      @media (min-width: 800px) {
+        display:flex;
+        color:white;
+        font-weight: bold;
+        margin-right:4px;
+        font-size: 1.2rem;
+      }
+      @media (min-width: 1000px) {
+        font-size: 1.6rem;
+      }
+    }
   }
 }
 
 .barRecherche{
+  position:absolute;
   width: 300px;
-display: flex;
-  margin: 20px auto 0 auto;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+  left:50%;
+  margin-left: -150px;
+  top:180px;
+  @media (min-width: 800px) {
+    position: static;
+   left:0;
+    margin: 0;
+    top: auto;
+    width: 200px;
+  }
+  @media (min-width: 1000px) {
+    width: 300px;
+  }
+
   label{
     align-self: flex-start;
   }
   input{
     width: 300px;
     height: 36px;
-    border-color: $orange;
+    border:solid $orange 3px;
     border-radius: 5px;
-    border-width: 3px;
+    //border-width: 3px;
+    @media (min-width: 800px) {
+      width: 200px;
+    }
+    @media (min-width: 1000px) {
+      width: 300px;
+    }
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
