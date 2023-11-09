@@ -70,6 +70,8 @@ class ControleurArtistes
             $numeroPage = (int) $_GET['page'];
         }
         $livresPagination = Livre::trouverParAuteur($idArtiste);
+        var_dump($livresPagination[0]->getId());
+
         //var_dump($livresPagination[0]->getTitre(), $livresPagination[0]->getId());
         $livres = Auteur::paginerParLivre($numeroPage, 3, (int) $_GET['idArtiste']);
         //var_dump($livres);

@@ -336,7 +336,7 @@ class Livre
 
     public static function trouverParAuteur($idAuteur): array
     {
-        $chaineSQL = "SELECT titre, livres.id FROM livres 
+        $chaineSQL = "SELECT * FROM livres 
                         INNER JOIN livres_auteurs ON livres.id = livres_auteurs.livre_id
                         INNER JOIN auteurs ON auteurs.id = livres_auteurs.auteur_id
                         WHERE auteurs.id=:idAuteur";
