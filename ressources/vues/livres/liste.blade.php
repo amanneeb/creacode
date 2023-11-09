@@ -40,9 +40,33 @@
             @foreach ($livres as $livre)
                 <li class="livre item">
                     <a href="index.php?controleur=livre&action=fiche&idLivre={{ $livre->getId() }}">
-                        <img class="item-img"
-                             src="./liaisons/images/operatique_couv.jpg" width="150px" height="200px"
-                             alt="{{ $livre->getTitre() }}" class="livre__image">
+{{--                        <div class="ctnImg">--}}
+{{--                        <img class="item-img ctnImg__img"--}}
+{{--                             src="./liaisons/images/operatique_couv.jpg" width="150px" height="200px"--}}
+{{--                             alt="{{ $livre->getTitre() }}" class="livre__image">--}}
+{{--                        </div>--}}
+                        <div class="ctnImg">
+                            @php
+                                $isbn = $livre->getIsbn_papier();
+                                $cheminImage = null;
+                                $id_categorie = $livre->getCategorie_id();
+
+                                if (file_exists("./liaisons/images/livres/{$id_categorie}/{$isbn}_w135.jpg")) {
+                                    $cheminImage = "./liaisons/images/livres/{$id_categorie}/{$isbn}";
+                                }
+                            @endphp
+
+                            @if ($cheminImage)
+                                <picture>
+                                    <source media="(max-width: 600px)" srcset="{{ $cheminImage }}_w135.jpg 1x, {{ $cheminImage }}_w270.jpg 2x">
+                                    <source media="(min-width: 601px)" srcset="{{ $cheminImage }}_w245.jpg 1x, {{ $cheminImage }}_w490.jpg 2x">
+                                    <img class="ctnImg__img item-img " src="{{ $cheminImage }}_w245.jpg" alt="{{ $livre->getTitre() }}">
+                                </picture>
+                            @else
+                                <img class="ctnImg__img" src="./liaisons/images/placeholder.svg" alt="livre {{ $livre->getTitre() }}" width="245px" height="auto">
+                            @endif
+                        </div>
+
                         <h3 class="livre__titre">{{ $livre->getTitre() }}</h3>
                     </a>
                     <ul>
