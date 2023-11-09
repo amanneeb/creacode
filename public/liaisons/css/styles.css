@@ -433,6 +433,7 @@ h2 {
 @media (min-width: 600px) {
   h2 {
     font-size: 64px;
+    font-size: 6.4rem;
   }
 }
 
@@ -627,6 +628,7 @@ h3 {
   padding: 50px;
   padding-top: 70px;
   background: white;
+  border-radius: 5px;
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
   /* to stop flickering of text in safari */
@@ -661,10 +663,10 @@ h3 {
     font-weight: bold;
   }
 }
-
 body {
   background-color: #F9F1EC;
 }
+
 .liste-livres__tri-option {
   list-style: none;
   display: inline;
@@ -721,7 +723,6 @@ body {
   border: 3px double #681c0f;
   color: #681c0f;
 }
-
 .btn.actif {
   background-color: #c64532;
   color: white;

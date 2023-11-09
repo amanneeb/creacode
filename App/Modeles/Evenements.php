@@ -19,7 +19,7 @@ class Evenements
     public static function trouverLancements(): array
     {
         // Définir la chaine SQL
-        $chaineSQL = 'SELECT * FROM evenements WHERE evenements.id IN (7, 8, 9)';
+        $chaineSQL = 'SELECT * FROM evenements WHERE evenements.id IN (7, 8, 9) ORDER BY date DESC';
         // Préparer la requête (optimisation)
         $requetePreparee = App::getPDO()->prepare($chaineSQL);
         // Définir le mode de récupération
@@ -34,7 +34,7 @@ class Evenements
 
     public static function trouverEvenements():array{
         // Définir la chaine SQL
-        $chaineSQL = 'SELECT * FROM evenements WHERE evenements.id IN (1, 2, 3, 4, 5, 6)';
+        $chaineSQL = 'SELECT * FROM evenements WHERE evenements.id IN (1, 2, 3, 4, 5, 6) ORDER BY date DESC LIMIT 3 ';
         // Préparer la requête (optimisation)
         $requetePreparee = App::getPDO()->prepare($chaineSQL);
         // Définir le mode de récupération

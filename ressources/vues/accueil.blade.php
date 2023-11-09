@@ -5,7 +5,7 @@
 
     <main class="main conteneur">
         <section class="actualites">
-            <h2 class="h2">Actualités</h2>
+            <h2 class="h2Accueil">Actualités</h2>
             <span class="underline"></span>
             @foreach($actualites as $actualite)
             <h3 class="h3">{{$actualite->getTitre()}}</h3>
@@ -23,7 +23,7 @@
             @foreach($nouveautes as $nouveaute)
             <span class="contour"></span>
             <span class="idNouv" hidden></span>
-            <img class="imgLivre" src="liaisons/images/logo.svg" alt="*">
+            <img class="imgLivre" src="liaisons/images/livres/1/978897770105_w135.jpg" alt="*">
             <div class="contenuTexte">
                 <h3 class="h3">{{$nouveaute->getTitre()}}</h3>
                 @foreach($nouveaute->getLivresAuteursAssocies() as $livreAuteur)
@@ -44,7 +44,7 @@
             @foreach($aParaitres as $aParaitre)
             <span class="contour"></span>
             <span class="idAP" hidden></span>
-                <img class="imgLivre" src="liaisons/images/logo.svg" alt="*">
+                <img class="imgLivre" src="liaisons/images/livres/1/978897770105_w135.jpg" alt="*">
             <div class="contenuTexte">
                 <h3 class="h3">{{$aParaitre->getTitre()}}</h3>
                 @foreach($aParaitre->getLivresAuteursAssocies() as $livreAuteur)
@@ -75,7 +75,7 @@
             @foreach($evenements as $evenement)
             <h3 class="h3">{{$evenement->getTitre()}}</h3>
             <p class="date">{{$evenement->getDate()}}</p>
-            <img class="imgEv" src="liaisons/images/logo.svg" alt="*">
+            <img class="imgEv" src="liaisons/images/livres/1/978897770105_w135.jpg" alt="*">
             <p class="texte">{{$evenement->getTexte()}}</p>
             <a href="*" class="consulter">Consulter ></a>
                 @endforeach
