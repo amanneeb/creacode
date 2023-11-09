@@ -10,23 +10,26 @@
         <section class="infoPrincipal">
             <div class="images">
                 <div class="ctnImg">
-                    <img class="ctnImg__img" src="./liaisons/images/operatique_couv.jpg" alt="couverture Operatique" width="400px">
+                    <!--<img class="ctnImg__img" src="./liaisons/images/operatique_couv.jpg" alt="couverture Operatique" width="400px">-->
+                    <img class="ctnImg__img" src="./liaisons/images/livres/{{$lesLivres->getCategorie_id()}}/{{$lesLivres->getIsbn_papier()}}_w980.jpg" alt="couverture {{$lesLivres->getTitre()}}" width="400px">
                 </div>
                 <div class="ctnVisioExtraits">
-                    @if(file_exists("./liaisons/images/operatique_001.png") || file_exists("./liaisons/images/operatique_001.jpg"))
+                    @if(file_exists("./liaisons/images/livres/extraits/{$lesLivres->getIsbn_papier()}_001_w135.png") || file_exists("./liaisons/images//livres/extraits/{$lesLivres->getIsbn_papier()}_001_w135.jpg"))
                         @for($cpt = 1; $cpt<=3; $cpt++)
-                            <img class="ctnVisioExtraits__img " src="./liaisons/images/operatique_00{{$cpt}}.png" alt="">
+                            <img class="ctnVisioExtraits__img " src="./liaisons/images/livres/extraits/{{$lesLivres->getIsbn_papier()}}_00{{$cpt}}_w980.png" alt="couverture {{$lesLivres->getTitre()}}">
                         @endfor
                     @endif
                     <section class="ctnModale cache">
                         <button class="ctnModale__btn" height="20px"><img src="./liaisons/images/fermer.svg" width="20px"></button>
-                        <img class="ctnModale__img" src="./liaisons/images/operatique_001.png" alt="" width="300px">
+                        <img class="ctnModale__img" src="./liaisons/images/livres/{{$lesLivres->getCategorie_id()}}/{{$lesLivres->getIsbn_papier()}}_w980.jpg" alt="couverture {{$lesLivres->getTitre()}}" width="300px">
                         <section class="ctnVisionneuse">
                             <button class="ctnVisionneuse__precedent"><img src="./liaisons/images/precedent.svg"></button>
                             <ul class="ctnVisionneuse__liste" >
-                                <li class="ctnVisionneuse__item"><img class="ctnVisionneuse__img" src="./liaisons/images/operatique_couv.jpg"></li>
+                                <li class="ctnVisionneuse__item"><img class="ctnVisionneuse__img" src="./liaisons/images/livres/{{$lesLivres->getCategorie_id()}}/{{$lesLivres->getIsbn_papier()}}_w980.jpg"></li>
                                 @for($cpt = 1; $cpt<=3; $cpt++)
-                                    <li class="ctnVisionneuse__item" id="{{$cpt}}"> <img class="ctnVisionneuse__img " src="./liaisons/images/operatique_00{{$cpt}}.png" alt=""> </li>
+                                    <li class="ctnVisionneuse__item" id="{{$cpt}}">
+                                        <img class="ctnVisionneuse__img " src="./liaisons/images/extraits/{{$lesLivres->getIsbn_papier()}}_00{{$cpt}}_w980.png" alt="couverture {{$lesLivres->getTitre()}}">
+                                    </li>
                                 @endfor
                             </ul>
                             <button class="ctnVisionneuse__suivant" ><img src="./liaisons/images/suivant.svg"></button>
@@ -35,8 +38,8 @@
                     </section>
                 </div>
                 <div class="defilement">
-                    <a class="defilement__lienPrecedent hyperlien" href="">&#9664; Livre précédent</a>
-                    <a class="defilement__lienSuivant hyperlien" href="">Livre suivant &#9654;</a>
+                    <a class="defilement__lienPrecedent hyperlien" href="index.php?controleur=livre&action=fiche&idLivre={{$lesLivres->getId() - 1}}">&#9664; Livre précédent</a>
+                    <a class="defilement__lienSuivant hyperlien" href="index.php?controleur=livre&action=fiche&idLivre={{$lesLivres->getId() + 1}}">Livre suivant &#9654;</a>
                 </div>
             </div>
             <div class="ctnInfoPanier">
@@ -116,7 +119,11 @@
                     <a class="livresSimilaires__lien" href='index.php?controleur=livre&action=fiche&idLivre={{$livresPag['id']}}'>
                         <figure class="livre">
                             <div class="ctnImg">
-                                <img class="ctnImg__img" src="./liaisons/images/operatique_couv.jpg" alt="couverture Operatique">
+                                <picture>
+                                    <source media="(min-width:300px)" srcset="./liaisons/images/livres/{{$livresPag["categorie_id"]}}/{{$livresPag["isbn_papier"]}}_w328.jpg">
+                                    <source media="(min-width:800px)" srcset="./liaisons/images/livres/{{$livresPag["categorie_id"]}}/{{$livresPag["isbn_papier"]}}_w490.jpg">
+                                    <img class="ctnImg__img" src="./liaisons/images/livres/{{$livresPag["categorie_id"]}}/{{$livresPag["isbn_papier"]}}_w980.jpg" alt="couverture Operatique">
+                                </picture>
                             </div>
                             <figcaption class="livre__titre">{{$livresPag['titre']}}</figcaption>
                         </figure>
