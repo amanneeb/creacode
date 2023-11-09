@@ -1,63 +1,82 @@
 main{
   background: #F9F1EC;
 
-  //Ajuster les styles du titre de la page
-  .nomAuteur{
-    margin-left: 0em;
-    @media (min-width: 600px) {
-      margin-left: 3em;
-    }
-  }
-
-  //Conteneur de l'image et de la biographie
-  .ctnAuteur {
-    width: 100%;
-    @media (min-width: 800px) {
-      width: 800px;
-      margin: 0 auto;
+  .ctnPage{
+    //Ajuster les styles du titre de la page
+    .nomAuteur{
+      margin-left: 0em;
+      @media (min-width: 600px) {
+        margin-left: 3em;
+      }
     }
 
-    //Image de l'auteur
-    .ctnImgLien{
-      position: relative;
-      top: -4em;
+    //Conteneur de l'image et de la biographie
+    .ctnAuteur {
+      width: 100%;
       @media (min-width: 800px) {
-        margin: 0;
-        display: inline-block;
-        width: 45%;
+        width: 800px;
+        margin: 0 auto;
+      }
+
+      //Image de l'auteur
+      .ctnImgLien{
         position: relative;
-        top: -4.5em;
-        left: 0;
+        top: -4em;
+        @media (min-width: 800px) {
+          margin: 0;
+          display: inline-block;
+          width: 45%;
+          position: relative;
+          top: -4.5em;
+          left: 0;
+        }
+        .ctnImg {
+          @media(min-width: 800px){
+          }
+          &__img{
+            width: 300px;
+          }
+        }
       }
-      .ctnImg {
+
+      //Biographie de l'auteur
+      .ctnAuteurBio{
+        background: white;
+        border: $orange solid 2px;
+        border-radius: 5px;
+        max-width: 700px;
+        padding-left: .8em;
+        padding-right: .4em;
+        padding-top: .4em;
+        position: relative;
+        top: -3em;
+
         @media(min-width: 800px){
+          display: inline-block;
+          margin-top: 2em;
+          width: 45%;
+          margin-right: 3em;
         }
-        &__img{
-          width: 300px;
+
+        .ctnBio{
+          &__precedent{
+            margin-right: 10px;
+          }
+          &__suivant{
+
+          }
         }
       }
+
     }
 
-    //Biographie de l'auteur
-    .ctnAuteurBio{
-      background: white;
-      border: $orange solid 2px;
-      border-radius: 5px;
-      max-width: 700px;
-      padding-left: .8em;
-      padding-right: .4em;
-      padding-top: .4em;
-      position: relative;
-      top: -3em;
-
-      @media(min-width: 800px){
-        display: inline-block;
-        margin-top: 2em;
-        width: 45%;
-        margin-right: 3em;
-      }
+    .autresLivres__titre{
+      margin-left: auto;
     }
-
+    .livresSimilaires{
+      margin: auto auto;
+    }
   }
+
 
 }

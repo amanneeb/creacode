@@ -159,6 +159,12 @@ class Livre
         return Couverture::trouverParId($this->type_couverture_id);
     }
 
+    public function getReconnaissance(): array
+    {
+        return Reconnaissance::trouverParLivre($this->id);
+    }
+
+
 
     public static function compterNbLivres(int $categorieRecherchee): int
     {
@@ -178,6 +184,8 @@ class Livre
         $nbTotalLivres = $requetePreparee->fetch();
         return $nbTotalLivres->nbTotal;
     }
+
+
 
 
     public static function paginer(int $unNoDePage, int $unNbrParPage, $tri): array
@@ -270,7 +278,23 @@ class Livre
         return $categorie;
     }
 
-    public static function paginerAutre(int $unNoDePage, int $unNbParPage): array
+
+    public static function compterParCategorie($idCategorie): int
+    {
+        $chaineSql = "SELECT COUNT(*) AS totalCategorie FROM  livres
+                        WHERE categorie_id=:idCategorie";
+        $requetePreparee = App::getPDO()->prepare($chaineSql);
+        $requetePreparee->bindParam(':idCategorie', $idCategorie, PDO::PARAM_INT);
+        $requetePreparee->setFetchMode(PDO::FETCH_OBJ);
+        $requetePreparee->execute();
+        $nbLivres = $requetePreparee->fetch();
+
+        //var_dump($nbLivres);
+        return $nbLivres->totalCategorie;
+
+    }
+
+    public static function paginerAutre(int $unNoDePage, int $unNbParPage, int $idCategorie): array
     {
 
         $indexDepart = null;
@@ -297,9 +321,11 @@ class Livre
         }
 
         $chaineSql = "SELECT * FROM  livres
+        WHERE categorie_id = :idCategorie
         LIMIT " . $indexDepart . ", " . $unNbParPage;
 
         $requetePreparee = App::getPDO()->prepare($chaineSql);
+        $requetePreparee->bindParam(':idCategorie', $idCategorie, PDO::PARAM_INT);
         $requetePreparee->setFetchMode(PDO::FETCH_ASSOC);
         $requetePreparee->execute();
         $participantsAAfficher = $requetePreparee->fetchAll();
@@ -307,6 +333,23 @@ class Livre
         return $participantsAAfficher;
     }
 
+
+    public static function trouverParAuteur($idAuteur): array
+    {
+        $chaineSQL = "SELECT * FROM livres 
+                        INNER JOIN livres_auteurs ON livres.id = livres_auteurs.livre_id
+                        INNER JOIN auteurs ON auteurs.id = livres_auteurs.auteur_id
+                        WHERE auteurs.id=:idAuteur";
+        $intId = (int)$idAuteur;
+        //Bind
+        $requetePreparee = App::getPDO()->prepare($chaineSQL);
+        $requetePreparee->bindParam(":idAuteur", $intId, PDO::PARAM_INT);
+        $requetePreparee->setFetchMode(PDO::FETCH_CLASS, "App\Modeles\Livre");
+        $requetePreparee->execute();
+        $livres = $requetePreparee->fetchAll();
+
+        return $livres;
+    }
 
     //ACCUEIL//
 

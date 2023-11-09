@@ -34,6 +34,13 @@
     list-style-type: none;
   }
   &__input {
+    &:checked+label:hover{
+      background: $rouge;
+      color: #fff;
+      border-left: $rouge solid 2px;
+      border-top: $rouge solid 2px;
+      border-right: $rouge solid 2px;
+    }
     &+label{
       display: block;
       background: #fff;
@@ -43,6 +50,16 @@
       border: $orange solid 2px;
       border-bottom: none;
       align-self: stretch;
+      &:hover{
+        background: $rouge;
+        color: #fff;
+        border-left: $rouge solid 2px;
+        border-top: $rouge solid 2px;
+        border-right: $rouge solid 2px;
+      }
+      &:active{
+        outline: $orange solid 2px;
+      }
       @media (min-width: 450px) {
         align-self: auto;
       }

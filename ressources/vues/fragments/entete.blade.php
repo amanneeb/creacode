@@ -1,7 +1,9 @@
 <div class="conteneur">
     <div class="navTop__table">
+        <a href="index.php">
 <img class="menu__logo" src="liaisons/images/logo.svg" alt="" width="200px">
-{{--<h1>La pastèque</h1>--}}
+        </a>
+<h1 hidden>La pastèque</h1>
     <div class="barRecherche">
         <label for="recherche">Rechercher un livre</label>
         <input name="recherche" id="recherche" type="search" class="recherche" content="Rechercher un livre...">

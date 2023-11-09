@@ -14,10 +14,13 @@
         @elseif($_GET['controleur']==='livre' && $_GET['action']==='fiche' )
             <script defer src="liaisons/js/onglets.js"></script>
             <script defer src="liaisons/js/ajoutPanier.js"></script>
+            <script defer src="liaisons/js/modaleLivre.js"></script>
         @endif
     @endif
     <script defer src="liaisons/js/menu.js"></script>
     <link rel="stylesheet" href="liaisons/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
 </head>
 <body>
 <header>
