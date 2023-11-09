@@ -1,0 +1,55 @@
+.actualites,
+.lancement,
+.evenements{
+  h2{
+    height: 75px;
+  }
+  .underline{
+    display: block;
+    height: 5px;
+    background-color: $vert;
+    margin-bottom: 30px;
+  }
+  .bloc {
+margin-bottom: 50px;
+    h3,
+    .date{
+      margin: 5px 0;
+    }
+    .consulter{
+      float: right;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      @media (min-width: 800px) {
+        flex-direction: row;
+      }
+      p{
+        margin: 0 0 0 20px;
+      }
+    }
+  }
+}
+
+.actualites{
+  h2{
+    margin-top: 60px;
+  }
+  .underline{
+    width: 370px;
+  }
+}
+
+.lancement{
+  .underline{
+    width: 390px;
+  }
+}
+
+.evenements{
+  .underline{
+    width: 400px;
+  }
+}
