@@ -361,7 +361,7 @@ class Livre
 
 
         // Définir la chaine SQL
-        $chaineSQL = 'SELECT * FROM livres WHERE livres.date_parution_quebec >= :date14 AND livres.date_parution_quebec <= :dateNow ';
+        $chaineSQL = 'SELECT * FROM livres WHERE livres.date_parution_quebec >= :date14 AND livres.date_parution_quebec <= :dateNow ORDER BY livres.date_parution_quebec DESC  LIMIT 3 ';
         // Préparer la requête (optimisation)
         $requetePreparee = App::getPDO()->prepare($chaineSQL);
         $requetePreparee->bindParam(":date14", $dateMoins14, PDO::PARAM_STR);
@@ -383,7 +383,7 @@ class Livre
 
 
         // Définir la chaine SQL
-        $chaineSQL = 'SELECT * FROM livres WHERE livres.date_parution_quebec <= :date28 AND livres.date_parution_quebec > :dateNow ';
+        $chaineSQL = 'SELECT * FROM livres WHERE livres.date_parution_quebec <= :date28 AND livres.date_parution_quebec > :dateNow ORDER BY livres.date_parution_quebec DESC  LIMIT 3 ';
         // Préparer la requête (optimisation)
         $requetePreparee = App::getPDO()->prepare($chaineSQL);
         $requetePreparee->bindParam(":date28", $datePlus28, PDO::PARAM_STR);
