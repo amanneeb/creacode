@@ -661,6 +661,10 @@ h3 {
     font-weight: bold;
   }
 }
+
+body {
+  background-color: #F9F1EC;
+}
 .liste-livres__tri-option {
   list-style: none;
   display: inline;
@@ -718,9 +722,6 @@ h3 {
   color: #681c0f;
 }
 
-
-
-.btn.active,
 .btn.actif {
   background-color: #c64532;
   color: white;

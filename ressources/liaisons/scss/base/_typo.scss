@@ -74,7 +74,7 @@ h2 {
   text-transform: uppercase;
   margin: 0;
   @media (min-width: 600px) {
-    font-size: 64px;
+    @include fontSize(64px);
   }
 }
 
