@@ -10,6 +10,7 @@
  */
 function afficherModale(e) {
     console.log(document.querySelector(".ctnModale").classList.length)
+    //console.log(strIsbn)
     let valDeuxiemeClasse = document.querySelector(".ctnModale").classList[1];
     if (valDeuxiemeClasse === "cache") {
         document.querySelector(".ctnModale").classList.add("modale");
@@ -42,9 +43,36 @@ function afficherImagesSelectionnee() {
  */
 function avancerImage() {
     strLienImgPrincipale = document.querySelector(".ctnModale__img").src;
+    noExtrait = parseInt(strLienImgPrincipale.substr(-10, 1));
+    debutsource = strLienImgPrincipale.substr(0, strLienImgPrincipale.length-10);
+    finSource = strLienImgPrincipale.substr(strLienImgPrincipale.length-9)
+    document.querySelector(".ctnModale__img").src = debutsource+(noExtrait+1)+finSource;
+
+
+    /*console.log("debut source: "+ debutsource)
+    console.log("extrait: "+noExtrait)
+    console.log("fin source: "+ finSource)*/
+
+    if(/*intNoExtrait*/ noExtrait < 3){
+        //strLienImgPrincipale = document.querySelector(".ctnModale__img").src;
+        noExtrait = parseInt(strLienImgPrincipale.substr(-10, 1));
+        debutsource = strLienImgPrincipale.substr(0, strLienImgPrincipale.length-10);
+        //finSource = strLienImgPrincipale.substr(strLienImgPrincipale.length-9)
+        document.querySelector(".ctnModale__img").src = debutsource+(noExtrait+1)+finSource;
+        afficherBordure(strLienImgPrincipale)
+    }else{
+        if(/*intNoExtrait*/ noExtrait===3){
+            console.log(strLienImgPrincipale)
+
+        }
+
+    }
+
+    /*strLienImgPrincipale = document.querySelector(".ctnModale__img").src;
     intNoExtrait = parseInt(strLienImgPrincipale.substr(-5, 1));
     if(intNoExtrait < 3){
-        document.querySelector(".ctnModale__img").src = "./liaisons/images/operatique_00"+(intNoExtrait+1)+".png";
+        //document.querySelector(".ctnModale__img").src = "./liaisons/images/operatique_00"+(intNoExtrait+1)+".png";
+        document.querySelector(".ctnModale__img").src = "./liaisons/images/livres/operatique_00"+(intNoExtrait+1)+".png";
         strLienImgPrincipale = document.querySelector(".ctnModale__img").src;
         afficherBordure(strLienImgPrincipale)
     }else{
@@ -58,7 +86,7 @@ function avancerImage() {
             afficherBordure(strLienImgPrincipale)
         }
 
-    }
+    }*/
 }
 
 /**

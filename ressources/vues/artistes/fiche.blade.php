@@ -48,14 +48,14 @@
                         @endif
 
                     @if($idPrecedent>1)
-                        <a class="ctnBio__precedent hyperlien" href="index.php?controleur=artiste&action=fiche&idArtiste={{$idPrecedent}}">&#9664; artiste précédent</a>
+                        <a class="ctnBio__precedent hyperlien" href="index.php?controleur=artiste&action=fiche&idArtiste={{$idPrecedent}}">&#9664; auteur précédent</a>
                     @else
-                        <a class="ctnBio__precedent hyperlien" href="index.php?controleur=artiste&action=fiche&idArtiste={{$idPrecedent}}">&#9664; artiste précédent</a>
+                        <a class="ctnBio__precedent hyperlien" href="index.php?controleur=artiste&action=fiche&idArtiste={{$idPrecedent}}">&#9664; auteur précédent</a>
                     @endif
                     @if($idSuivant<$artistes->compter())
-                        <a class="ctnBio__suivant lienSuivant hyperlien" href="index.php?controleur=artiste&action=fiche&idArtiste={{$idSuivant}}">artiste suivant &#9654;</a>
+                        <a class="ctnBio__suivant lienSuivant hyperlien" href="index.php?controleur=artiste&action=fiche&idArtiste={{$idSuivant}}">auteur suivant &#9654;</a>
                     @else
-                        <a class="ctnBio__suivant lienSuivant hyperlien" href="index.php?controleur=artiste&action=fiche&idArtiste={{$idSuivant}}">artiste suivant &#9654;</a>
+                        <a class="ctnBio__suivant lienSuivant hyperlien" href="index.php?controleur=artiste&action=fiche&idArtiste={{$idSuivant}}">auteur suivant &#9654;</a>
                     @endif
                 </section>
             </div>
@@ -65,16 +65,16 @@
         <ul class="livresSimilaires texte">
             @foreach($livresPagination as $livre)
                 <li class="livresSimilaires__item">
-                    <a class="livresSimilaires__lien" href="index.php?controleur=livre&action=fiche&idLivre={{$livre->getId()}}">
+                    <a class="livresSimilaires__lien" href="index.php?controleur=livre&action=fiche&idLivre={{$livre->getIdLivreId()}}">
                         <figure class="livre">
                             <div class="ctnImg">
                                 <picture>
-                                    <source media="(min-width:300px)" srcset="./liaisons/images/livres/{{$livre->getCategorie_id()}}/{{$livre->getIsbn_papier()}}_w328.jpg">
-                                    <source media="(min-width:800px)" srcset="./liaisons/images/livres/{{$livre->getCategorie_id()}}/{{$livre->getIsbn_papier()}}_w490.jpg">
-                                    <img class="ctnImg__img" src="./liaisons/images/livres/{{$livre->getCategorie_id()}}/{{$livre->getIsbn_papier()}}_w490.jpg" alt="couverture {{$livre->getTitre()}}">
+                                    <source media="(min-width:300px)" srcset="./liaisons/images/livres/{{$livre->getLivreAssocie()->getCategorie_id()}}/{{$livre->getLivreAssocie()->getIsbn_papier()}}_w328.jpg">
+                                    <source media="(min-width:800px)" srcset="./liaisons/images/livres/{{$livre->getLivreAssocie()->getCategorie_id()}}/{{$livre->getLivreAssocie()->getIsbn_papier()}}_w490.jpg">
+                                    <img class="ctnImg__img" src="./liaisons/images/livres/{{$livre->getLivreAssocie()->getCategorie_id()}}/{{$livre->getLivreAssocie()->getIsbn_papier()}}_w490.jpg" alt="couverture {{$livre->getLivreAssocie()->getTitre()}}">
                                 </picture>
                             </div>
-                            <figcaption class="livre__titre">{{$livre->getTitre()}}</figcaption>
+                            <figcaption class="livre__titre">{{$livre->getLivreAssocie()->getTitre()}}</figcaption>
                         </figure>
                     </a>
                 </li>
