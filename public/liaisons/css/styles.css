@@ -359,18 +359,13 @@ header {
 /**** Typographie responsive ****/
 html {
   font-family: "Poppins", sans-serif;
-  font-size: 16px;
-  font-size: 1.6rem;
+  font-size: 1rem;
   line-height: 1.375;
 }
 html--desktop {
   line-height: 1.5;
 }
 
-body {
-  font-size: 16px; /* 16px pour toutes les largeurs d'écran */
-  line-height: 1.375; /* facteur multiplicateur de la taille de la police 1.375x16=22 */
-}
 a {
   font-family: "Poppins", sans-serif;
 }
@@ -410,7 +405,6 @@ h3,
 }
 
 h1 {
-  font-size: 40px;
   font-size: 4rem;
   color: #681c0f;
   font-family: "WonderSeason", serif;
@@ -422,8 +416,7 @@ h1 {
 }
 
 h2 {
-  font-size: 40px;
-  font-size: 4rem;
+  font-size: 3.75rem;
   font-weight: bold;
   color: #681c0f;
   font-family: "WonderSeason", serif;
@@ -432,19 +425,22 @@ h2 {
 }
 @media (min-width: 600px) {
   h2 {
-    font-size: 64px;
+    font-size: 7.5rem;
   }
+}
+
+.h2Accueil {
+  font-size: 4rem;
 }
 
 h3 {
   font-weight: bold;
-  font-size: 18px;
-  font-size: 1.8rem;
+  font-size: 1.125rem;
   font-family: "Poppins", sans-serif;
 }
 @media (min-width: 600px) {
   h3 {
-    font-size: 20px;
+    font-size: 1.25rem;
   }
 }
 
@@ -627,6 +623,7 @@ h3 {
   padding: 50px;
   padding-top: 70px;
   background: white;
+  border-radius: 5px;
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
   /* to stop flickering of text in safari */
@@ -661,6 +658,10 @@ h3 {
     font-weight: bold;
   }
 }
+body {
+  background-color: #F9F1EC;
+}
+
 .liste-livres__tri-option {
   list-style: none;
   display: inline;
@@ -717,10 +718,6 @@ h3 {
   border: 3px double #681c0f;
   color: #681c0f;
 }
-
-
-
-.btn.active,
 .btn.actif {
   background-color: #c64532;
   color: white;
@@ -1283,6 +1280,71 @@ body {
   .conteneur {
     margin: 0 10% 0 10%;
   }
+}
+
+.actualites h2,
+.lancement h2,
+.evenements h2 {
+  height: 75px;
+}
+.actualites .underline,
+.lancement .underline,
+.evenements .underline {
+  display: block;
+  height: 5px;
+  background-color: #1f6f78;
+  margin-bottom: 30px;
+}
+.actualites .bloc,
+.lancement .bloc,
+.evenements .bloc {
+  margin-bottom: 50px;
+}
+.actualites .bloc h3,
+.actualites .bloc .date,
+.lancement .bloc h3,
+.lancement .bloc .date,
+.evenements .bloc h3,
+.evenements .bloc .date {
+  margin: 5px 0;
+}
+.actualites .bloc .consulter,
+.lancement .bloc .consulter,
+.evenements .bloc .consulter {
+  float: right;
+}
+.actualites .bloc .content,
+.lancement .bloc .content,
+.evenements .bloc .content {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 800px) {
+  .actualites .bloc .content,
+  .lancement .bloc .content,
+  .evenements .bloc .content {
+    flex-direction: row;
+  }
+}
+.actualites .bloc .content p,
+.lancement .bloc .content p,
+.evenements .bloc .content p {
+  margin: 0 0 0 20px;
+}
+
+.actualites h2 {
+  margin-top: 60px;
+}
+.actualites .underline {
+  width: 370px;
+}
+
+.lancement .underline {
+  width: 390px;
+}
+
+.evenements .underline {
+  width: 400px;
 }
 
 /*# sourceMappingURL=styles.css.map */

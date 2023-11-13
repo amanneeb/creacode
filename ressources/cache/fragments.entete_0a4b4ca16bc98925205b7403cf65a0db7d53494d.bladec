@@ -1,6 +1,8 @@
 <div class="conteneur">
  <div class="navTop__table">
+ <a href="index.php">
 <img class="menu__logo" src="liaisons/images/logo.svg" alt="" width="200px">
+ </a>
 <h1 hidden>La pastèque</h1>
  <div class="barRecherche">
  <label for="recherche">Rechercher un livre</label>
