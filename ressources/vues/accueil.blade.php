@@ -25,7 +25,9 @@
             <h2 class="h2Accueil">Nouveautés</h2>
             <span class="underline"></span>
             <a href="*" class="voirTout" >Voir tout ></a>
+            <div class="livres">
             @foreach($nouveautes as $nouveaute)
+                <div class="vignetteLivre">
             <span class="contour"></span>
             <span class="idNouv" hidden></span>
             <img class="imgLivre" src="liaisons/images/livres/1/978897770105_w135.jpg" alt="*">
@@ -38,7 +40,9 @@
                     <p class="texte">{{$nouveaute->getCategorieAssociee()->getNom()}}</p>
                 <p class="texte">{{$nouveaute->getPrix_can()}}</p>
             </div>
+                </div>
                 @endforeach
+            </div>
         </section>
 
 {{--        DATE PLUS LOIN QUE DATE AUJOURD'HUI--}}
@@ -46,7 +50,9 @@
             <h2 class="h2Accueil">À paraitre</h2>
             <span class="underline"></span>
             <a href="*" class="voirTout" >Voir tout ></a>
+            <div class="livres">
             @foreach($aParaitres as $aParaitre)
+                    <div class="vignetteLivre">
             <span class="contour"></span>
             <span class="idAP" hidden></span>
                 <img class="imgLivre" src="liaisons/images/livres/1/978897770105_w135.jpg" alt="*">
@@ -58,7 +64,9 @@
                 <p class="texte">{{$aParaitre->getCategorieAssociee()->getNom()}}</p>
                 <p class="texte">{{$aParaitre->getPrix_can()}}</p>
             </div>
+                    </div>
                 @endforeach
+            </div>
         </section>
 
         <section class="lancement">

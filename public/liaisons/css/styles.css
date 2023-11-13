@@ -1285,6 +1285,7 @@ body {
 .actualites h2,
 .lancement h2,
 .evenements h2 {
+  margin-top: 60px;
   height: 75px;
 }
 .actualites .underline,
@@ -1332,9 +1333,6 @@ body {
   margin: 0 0 0 20px;
 }
 
-.actualites h2 {
-  margin-top: 60px;
-}
 .actualites .underline {
   width: 370px;
 }
@@ -1345,6 +1343,47 @@ body {
 
 .evenements .underline {
   width: 400px;
+}
+
+.AParaitre h2,
+.nouveautes h2 {
+  margin-top: 60px;
+  height: 75px;
+}
+.AParaitre .underline,
+.nouveautes .underline {
+  display: block;
+  height: 5px;
+  background-color: #1f6f78;
+}
+.AParaitre .voirTout,
+.nouveautes .voirTout {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-bottom: 30px;
+}
+.AParaitre .livres,
+.nouveautes .livres {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.AParaitre .livres .vignetteLivre,
+.nouveautes .livres .vignetteLivre {
+  max-width: 300px;
+}
+.AParaitre .livres .imgLivre,
+.nouveautes .livres .imgLivre {
+  margin: auto;
+  width: 300px;
+}
+
+.AParaitre .underline {
+  width: 350px;
+}
+
+.nouveautes .underline {
+  width: 410px;
 }
 
 /*# sourceMappingURL=styles.css.map */

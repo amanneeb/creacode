@@ -22,14 +22,34 @@ class   App
         $this->routerRequete();
     }
 
+    public static function getServeur(): string
+    {
+        // Vérifier la nature du serveur (local VS production)
+        $env = 'null';
+        if ((substr($_SERVER['HTTP_HOST'], 0, 9) == 'localhost') ||
+            (substr($_SERVER['HTTP_HOST'], 0, 7) == '199.202')){
+            $env = 'serveur-local';
+        } else {
+            $env = 'serveur-production';
+        }
+        return $env;
+    }
+
     public static function getPDO(): PDO
     {
         if (App::$refPdo === null) {
-            $serveur = 'localhost';
-            $utilisateur = 'root';
-            $motDePasse = 'root';
-            $nomBd = '23_rpni3_creacode';
-            $chaineDSN = 'mysql:dbname=' . $nomBd . ';host=' . $serveur;
+            if(App::getServeur() === 'serveur-local'){
+                $serveur = 'localhost';
+                $utilisateur = 'root';
+                $motDePasse = 'root';
+                $nomBd = '23_rpni3_creacode';
+            }elseif (App::getServeur() === 'serveur-production'){
+                $serveur = 'localhost';
+                $utilisateur = '23_rpni3_creacode';
+                $motDePasse = '.gqgDSLnef9vo5)9';
+                $nomBd = '23_rpni3_creacode';
+            }
+            $chaineDSN = "mysql:dbname=$nomBd;host=$serveur";
 
             App::$refPdo = new PDO($chaineDSN, $utilisateur, $motDePasse);
 
