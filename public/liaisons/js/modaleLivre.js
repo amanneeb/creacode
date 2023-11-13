@@ -42,22 +42,31 @@ function afficherImagesSelectionnee() {
  */
 function avancerImage() {
     strLienImgPrincipale = document.querySelector(".ctnModale__img").src;
-    intNoExtrait = parseInt(strLienImgPrincipale.substr(-5, 1));
-    if(intNoExtrait < 3){
-        document.querySelector(".ctnModale__img").src = "./liaisons/images/operatique_00"+(intNoExtrait+1)+".png";
-        strLienImgPrincipale = document.querySelector(".ctnModale__img").src;
-        afficherBordure(strLienImgPrincipale)
+    noExtrait = parseInt(strLienImgPrincipale.substr(-10, 1));
+    debutSource = strLienImgPrincipale.substr(0, strLienImgPrincipale.length-10);
+    finSource = strLienImgPrincipale.substr(strLienImgPrincipale.length-9)
+    document.querySelector(".ctnModale__img").src = debutSource+(noExtrait+1)+finSource;
+    if(noExtrait < 3 && noExtrait!=0){
+        noExtrait = parseInt(strLienImgPrincipale.substr(-10, 1));
+        debutSource = strLienImgPrincipale.substr(0, strLienImgPrincipale.length-10);
+        finSource = strLienImgPrincipale.substr(strLienImgPrincipale.length-9)
+        document.querySelector(".ctnModale__img").src = debutSource+(noExtrait+1)+finSource;
+        afficherBordure(document.querySelector(".ctnModale__img").src);
     }else{
-        if(intNoExtrait===3){
-            document.querySelector(".ctnModale__img").src = "./liaisons/images/operatique_couv.jpg";
-            strLienImgPrincipale = document.querySelector(".ctnModale__img").src;
-            afficherBordure(strLienImgPrincipale)
+        if(noExtrait===3){
+            debutSource = strLienImgPrincipale.substr(0, strLienImgPrincipale.length-13);
+            finSource = strLienImgPrincipale.substr(strLienImgPrincipale.length-9, 5);
+            debutSourceCouverture = debutSource.replace("extraits/", "");
+            document.querySelector(".ctnModale__img").src = debutSourceCouverture+finSource+".jpg";
+            afficherBordure(document.querySelector(".ctnModale__img").src);
         }else{
-            document.querySelector(".ctnModale__img").src = "./liaisons/images/operatique_001.png";
-            strLienImgPrincipale = document.querySelector(".ctnModale__img").src;
-            afficherBordure(strLienImgPrincipale)
+            debutSource = strLienImgPrincipale.substr(0, strLienImgPrincipale.length-9);
+            debutSourceCouverture = debutSource.replace("images/livres/", "images/livres/extraits/");
+            finSource = strLienImgPrincipale.substr(strLienImgPrincipale.length-9, 5)
+            sourceImgRecherchee = debutSourceCouverture.concat("_001",finSource,".png")
+            document.querySelector(".ctnModale__img").src = sourceImgRecherchee;
+            afficherBordure(document.querySelector(".ctnModale__img").src);
         }
-
     }
 }
 
@@ -66,28 +75,37 @@ function avancerImage() {
  */
 function reculerImage() {
     strLienImgPrincipale = document.querySelector(".ctnModale__img").src;
-    intNoExtrait = parseInt(strLienImgPrincipale.substr(-5, 1))
-
-    if(intNoExtrait > 1){
-        document.querySelector(".ctnModale__img").src = "./liaisons/images/operatique_00"+(intNoExtrait-1)+".png";
-        strLienImgPrincipale = document.querySelector(".ctnModale__img").src;
-        afficherBordure(strLienImgPrincipale)
+    noExtrait = parseInt(strLienImgPrincipale.substr(-10, 1));
+    debutSource = strLienImgPrincipale.substr(0, strLienImgPrincipale.length-10);
+    finSource = strLienImgPrincipale.substr(strLienImgPrincipale.length-9)
+    document.querySelector(".ctnModale__img").src = debutSource+(noExtrait-1)+finSource;
+    if(noExtrait > 1 && noExtrait!=0){
+        noExtrait = parseInt(strLienImgPrincipale.substr(-10, 1));
+        debutSource = strLienImgPrincipale.substr(0, strLienImgPrincipale.length-10);
+        finSource = strLienImgPrincipale.substr(strLienImgPrincipale.length-9)
+        document.querySelector(".ctnModale__img").src = debutSource+(noExtrait-1)+finSource;
+        afficherBordure(document.querySelector(".ctnModale__img").src);
     }else{
-        if (intNoExtrait===1){
-            document.querySelector(".ctnModale__img").src = "./liaisons/images/operatique_couv.jpg";
-            strLienImgPrincipale = document.querySelector(".ctnModale__img").src;
-            afficherBordure(strLienImgPrincipale)
+        if(noExtrait===1){
+            debutSource = strLienImgPrincipale.substr(0, strLienImgPrincipale.length-13);
+            finSource = strLienImgPrincipale.substr(strLienImgPrincipale.length-9, 5);
+            debutSourceCouverture = debutSource.replace("extraits/", "");
+            document.querySelector(".ctnModale__img").src = debutSourceCouverture+finSource+".jpg";
+            afficherBordure(document.querySelector(".ctnModale__img").src);
         }else{
-            document.querySelector(".ctnModale__img").src = "./liaisons/images/operatique_003.png";
-            strLienImgPrincipale = document.querySelector(".ctnModale__img").src;
-            afficherBordure(strLienImgPrincipale)
+            debutSource = strLienImgPrincipale.substr(0, strLienImgPrincipale.length-10);
+            debutSourceCouverture = debutSource.replace("images/livres/", "images/livres/extraits/");
+            finSource = strLienImgPrincipale.substr(strLienImgPrincipale.length-9, 5)
+            sourceImgRecherchee = debutSourceCouverture.concat("_001",finSource,".png")
+            document.querySelector(".ctnModale__img").src = sourceImgRecherchee;
+            afficherBordure(document.querySelector(".ctnModale__img").src);
         }
-
     }
 }
 
 /**
  * Afficher la bordure sur l'image sélectionnée dans la visionneuse
+ * @param  imgLien {string}
  */
 function afficherBordure(imgLien) {
     console.log(imgLien)
