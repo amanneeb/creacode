@@ -1,13 +1,13 @@
+.liste-livres__tri {
+  background-color: white;
+  border: 2px solid $orange;
+  border-radius: 5px;
+  color: $rouge;
+  width: auto;
+  padding: 10px 20px;
+  font-family: $fontePrimaire;
+  font-size: 16px;
+  margin-top: 1.5%;
+}
 
-  .liste-livres__tri {
-    background-color: white;
-    border: 2px solid $orange;
-    border-radius: 5px;
-    color: $rouge;
-    width: auto;
-    padding: 10px 20px;
-    .liste-livres__tri-option{
-      font-size: 16px;
-    }
-  }
 

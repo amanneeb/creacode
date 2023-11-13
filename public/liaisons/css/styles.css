@@ -665,14 +665,14 @@ body {
 .liste-livres__tri-option {
   list-style: none;
   display: inline;
-  margin: 10px;
+  margin: 0.5em 1em 0 0;
   padding: 10px 20px;
   background-color: white;
   color: #c64532;
   border: 2px solid #c64532;
   border-radius: 5px;
   width: auto;
-  margin-left: 0;
+  text-decoration: none;
 }
 .liste-livres__tri-option:hover {
   border: 3px solid #681c0f;
@@ -687,14 +687,26 @@ body {
   color: #681c0f;
 }
 
+.liste-livres__tri-option.selected {
+  background-color: #c64532;
+  color: white;
+}
+
 .liste-livres__filtre {
-  margin: 10px 0 10px 0;
+  margin: 1% 0 2% 0;
   padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.conteneur-filtre {
+  margin: 2% 0 2% 0;
 }
 
 .boutons-switch {
   display: flex;
   justify-content: flex-end;
+  margin: 1em 0 1em 0;
 }
 
 .btn {
@@ -808,9 +820,9 @@ body {
   color: #681c0f;
   width: auto;
   padding: 10px 20px;
-}
-.liste-livres__tri .liste-livres__tri-option {
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
+  margin-top: 1.5%;
 }
 
 .onglets {
@@ -1278,7 +1290,7 @@ body {
 }
 @media (min-width: 600px) {
   .conteneur {
-    margin: 0 10% 0 10%;
+    margin: 3% 10% 3% 10%;
   }
 }
 
