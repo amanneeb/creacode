@@ -1,0 +1,45 @@
+.AParaitre,
+.nouveautes{
+  h2{
+    margin-top: 60px;
+    height: 75px;
+  }
+  .underline{
+    display: block;
+    height: 5px;
+    background-color: $vert;
+  }
+
+  .voirTout{
+display: flex;
+    flex-direction: row-reverse;
+    margin-bottom: 30px;
+  }
+
+  .livres{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .vignetteLivre{
+      max-width: 300px;
+    }
+
+    .imgLivre{
+      margin: auto;
+      width: 300px;
+    }
+  }
+}
+
+.AParaitre{
+  .underline{
+    width:350px ;
+  }
+}
+
+.nouveautes{
+  .underline{
+    width: 410px ;
+  }
+}
