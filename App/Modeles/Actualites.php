@@ -14,7 +14,7 @@ class Actualites
 
     public static function trouverTout():array{
         // Définir la chaine SQL
-        $chaineSQL = 'SELECT * FROM actualites';
+        $chaineSQL = 'SELECT * FROM actualites ORDER BY date DESC LIMIT 3 ';
         // Préparer la requête (optimisation)
         $requetePreparee = App::getPDO()->prepare($chaineSQL);
         // Définir le mode de récupération

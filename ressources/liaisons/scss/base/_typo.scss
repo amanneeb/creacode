@@ -12,20 +12,13 @@
 
   html{
     font-family: $fontePrimaire;
-    @include fontSize(16px);
+    @include fontSize(10px);
     line-height: 1.375;
     &--desktop {
       line-height: 1.5;
     }
   }
 
-
-body {
-  font-size: 16px; /* 16px pour toutes les largeurs d'écran */
-  line-height: 1.375; /* facteur multiplicateur de la taille de la police 1.375x16=22 */
-  @media (min-width: 601px) {
-  }
-}
 
 a {
   font-family: $fontePrimaire;
@@ -67,23 +60,26 @@ h1 {
 }
 
 h2 {
-  @include fontSize(40px);
+  @include fontSize(37.5px);
   font-weight: bold;
   color:$rouge;
   font-family: $fonteSecondaire;
   text-transform: uppercase;
   margin: 0;
   @media (min-width: 600px) {
-    font-size: 64px;
+    @include fontSize(75px);
   }
+}
+.h2Accueil{
+  @include fontSize(40px);
 }
 
 h3 {
   font-weight: bold;
-  @include fontSize(18px);
+  @include fontSize(11.25px);
   font-family: $fontePrimaire;
   @media (min-width: 600px) {
-    font-size: 20px;
+    @include fontSize(12.5px);
   }
 }
 

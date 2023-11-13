@@ -5,25 +5,30 @@
 
     <main class="main conteneur">
         <section class="actualites">
-            <h2 class="h2">Actualités</h2>
+            <h2 class="h2Accueil">Actualités</h2>
             <span class="underline"></span>
             @foreach($actualites as $actualite)
+                <div class="bloc">
             <h3 class="h3">{{$actualite->getTitre()}}</h3>
-            <h4 class="h4">{{$actualite->getDate()}}</h4>
-            <p class="texte">{{$actualite->getActualite()}}</p>
+            <p class="date">{{$actualite->getDate()}}</p>
+            <div class="content">
+                <img class="imgEv" src="liaisons/images/livres/1/978897770105_w135.jpg" alt="*">
+                <p class="texte">{{$actualite->getActualite()}}</p>
+            </div>
             <a href="*" class="consulter">Consulter ></a>
+                </div>
             @endforeach
         </section>
 
 {{--       DATE AUJOURD'HUI MOINS 14 JOURS--}}
         <section class="nouveautes">
-            <h2 class="h2">Nouveautés</h2>
+            <h2 class="h2Accueil">Nouveautés</h2>
             <span class="underline"></span>
             <a href="*" class="voirTout" >Voir tout ></a>
             @foreach($nouveautes as $nouveaute)
             <span class="contour"></span>
             <span class="idNouv" hidden></span>
-            <img class="imgLivre" src="liaisons/images/logo.svg" alt="*">
+            <img class="imgLivre" src="liaisons/images/livres/1/978897770105_w135.jpg" alt="*">
             <div class="contenuTexte">
                 <h3 class="h3">{{$nouveaute->getTitre()}}</h3>
                 @foreach($nouveaute->getLivresAuteursAssocies() as $livreAuteur)
@@ -38,13 +43,13 @@
 
 {{--        DATE PLUS LOIN QUE DATE AUJOURD'HUI--}}
         <section class="AParaitre">
-            <h2 class="h2">À paraitre</h2>
+            <h2 class="h2Accueil">À paraitre</h2>
             <span class="underline"></span>
             <a href="*" class="voirTout" >Voir tout ></a>
             @foreach($aParaitres as $aParaitre)
             <span class="contour"></span>
             <span class="idAP" hidden></span>
-                <img class="imgLivre" src="liaisons/images/logo.svg" alt="*">
+                <img class="imgLivre" src="liaisons/images/livres/1/978897770105_w135.jpg" alt="*">
             <div class="contenuTexte">
                 <h3 class="h3">{{$aParaitre->getTitre()}}</h3>
                 @foreach($aParaitre->getLivresAuteursAssocies() as $livreAuteur)
@@ -57,27 +62,36 @@
         </section>
 
         <section class="lancement">
-            <h2 class="h2">Lancements</h2>
+            <h2 class="h2Accueil">Lancements</h2>
             <span class="underline"></span>
             @foreach($lancements as $lancement)
+                <div class="bloc">
             <h3 class="h3">{{$lancement->getTitre()}}</h3>
             <p class="date">{{$lancement->getDate()}}</p>
-            <p class="texte">{{$lancement->getTexte()}}</p>
+                <div class="content">
+                <img class="imgEv" src="liaisons/images/livres/1/978897770105_w135.jpg" alt="*">
+                <p class="texte">{{$lancement->getTexte()}}</p>
+                </div>
                 <a href="*" class="consulter">Consulter ></a>
+                </div>
             <span class="separator"></span>
                 @endforeach
         </section>
 
         <section class="evenements">
-            <h2 class="h2">Événements</h2>
+            <h2 class="h2Accueil">Événements</h2>
             <span class="underline"></span>
 
             @foreach($evenements as $evenement)
+                <div class="bloc">
             <h3 class="h3">{{$evenement->getTitre()}}</h3>
             <p class="date">{{$evenement->getDate()}}</p>
-            <img class="imgEv" src="liaisons/images/logo.svg" alt="*">
+                <div class="content">
+            <img class="imgEv" src="liaisons/images/livres/1/978897770105_w135.jpg" alt="*">
             <p class="texte">{{$evenement->getTexte()}}</p>
+                </div>
             <a href="*" class="consulter">Consulter ></a>
+                </div>
                 @endforeach
         </section>
 

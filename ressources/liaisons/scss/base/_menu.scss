@@ -121,7 +121,7 @@
    * at the top left of the screen
    */
   #menu {
-    position: fixed;
+    position: absolute;
     width: 240px;
     margin: -50px 0 0 -30px;
     padding: 50px;
@@ -131,6 +131,7 @@
     }
 
     background: white;
+    border-radius: 5px;
     list-style-type: none;
     -webkit-font-smoothing: antialiased;
     /* to stop flickering of text in safari */
