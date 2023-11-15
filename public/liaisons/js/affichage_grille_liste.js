@@ -1,7 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
     let boutonListe = document.getElementById("bouton-liste");
     let boutonGrille = document.getElementById("bouton-grille");
-    let imageItems = document.querySelectorAll(".item-img");
+    let imageItems = document.querySelectorAll(".ctnImg__img");
+    let pictureItems = document.querySelectorAll(".ctnImg__picture");
+    let divItems = document.querySelectorAll(".ctnImg");
     let listeItems = document.querySelector(".liste__items");
 
     boutonGrille.addEventListener("click", function () {
@@ -12,6 +14,13 @@ document.addEventListener("DOMContentLoaded", function () {
         imageItems.forEach(function (imageItem) {
             imageItem.hidden = false;
         });
+
+        pictureItems.forEach(function (pictureItem) {
+            pictureItem.hidden = false;
+        });
+        divItems.forEach(function (divItems) {
+            divItems.hidden = false;
+        });
     });
 
     boutonListe.addEventListener("click", function () {
@@ -21,6 +30,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
         imageItems.forEach(function (imageItem) {
             imageItem.hidden = true;
+        });
+
+        pictureItems.forEach(function (pictureItem) {
+            pictureItem.hidden = true;
+        });
+        divItems.forEach(function (divItems) {
+            divItems.hidden = true;
         });
     });
 });
