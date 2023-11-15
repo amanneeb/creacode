@@ -10,29 +10,29 @@
         <section class="infoPrincipal">
             <div class="images">
                 <div class="ctnImg">
-                    <!--<img class="ctnImg__img" src="./liaisons/images/operatique_couv.jpg" alt="couverture Operatique" width="400px">-->
                     <img class="ctnImg__img" src="./liaisons/images/livres/{{$lesLivres->getCategorie_id()}}/{{$lesLivres->getIsbn_papier()}}_w980.jpg" alt="couverture {{$lesLivres->getTitre()}}" width="400px">
                 </div>
                 <div class="ctnVisioExtraits">
-                    @if(file_exists("./liaisons/images/livres/extraits/{$lesLivres->getIsbn_papier()}_001_w135.png") || file_exists("./liaisons/images//livres/extraits/{$lesLivres->getIsbn_papier()}_001_w135.jpg"))
+                    @if(file_exists("./liaisons/images/livres/extraits/{$lesLivres->getCategorie_id()}/{$lesLivres->getIsbn_papier()}_001_w135.png") || file_exists("./liaisons/images/livres/extraits/{$lesLivres->getCategorie_id()}/{$lesLivres->getIsbn_papier()}_001_w135.jpg"))
                         @for($cpt = 1; $cpt<=3; $cpt++)
-                            <img class="ctnVisioExtraits__img " src="./liaisons/images/livres/extraits/{{$lesLivres->getIsbn_papier()}}_00{{$cpt}}_w980.png" alt="couverture {{$lesLivres->getTitre()}}">
+                            <img class="ctnVisioExtraits__img " src="./liaisons/images/livres/extraits/{{$lesLivres->getCategorie_id()}}/{{$lesLivres->getIsbn_papier()}}_00{{$cpt}}_w980.png" alt="couverture {{$lesLivres->getTitre()}}">
                         @endfor
                     @endif
                     <section class="ctnModale cache">
                         <button class="ctnModale__btn" height="20px"><img src="./liaisons/images/fermer.svg" width="20px"></button>
-                        <img class="ctnModale__img" src="./liaisons/images/livres/{{$lesLivres->getCategorie_id()}}/{{$lesLivres->getIsbn_papier()}}_w980.jpg" alt="couverture {{$lesLivres->getTitre()}}" width="300px">
+
+                        <img class="ctnModale__img" src="./liaisons/images/livres/{{$lesLivres->getCategorie_id()}}/{{$lesLivres->getIsbn_papier()}}_w980.png" alt="couverture {{$lesLivres->getTitre()}}" width="300px">
                         <section class="ctnVisionneuse">
-                            <button class="ctnVisionneuse__precedent"><img src="./liaisons/images/precedent.svg"></button>
+                            <button type="button" class="ctnVisionneuse__precedent"><img src="./liaisons/images/precedent.svg"></button>
                             <ul class="ctnVisionneuse__liste" >
-                                <li class="ctnVisionneuse__item"><img class="ctnVisionneuse__img" src="./liaisons/images/livres/{{$lesLivres->getCategorie_id()}}/{{$lesLivres->getIsbn_papier()}}_w980.jpg"></li>
+                                <li class="ctnVisionneuse__item"><img class="ctnVisionneuse__img" src="./liaisons/images/livres/{{$lesLivres->getCategorie_id()}}/{{$lesLivres->getIsbn_papier()}}_w980.jpg" alt="couverture {{$lesLivres->getTitre()}}"></li>
                                 @for($cpt = 1; $cpt<=3; $cpt++)
                                     <li class="ctnVisionneuse__item" id="{{$cpt}}">
-                                        <img class="ctnVisionneuse__img " src="./liaisons/images/extraits/{{$lesLivres->getIsbn_papier()}}_00{{$cpt}}_w980.png" alt="couverture {{$lesLivres->getTitre()}}">
+                                        <img class="ctnVisionneuse__img " src="./liaisons/images/livres/extraits/{{$lesLivres->getCategorie_id()}}/{{$lesLivres->getIsbn_papier()}}_00{{$cpt}}_w980.png" alt="couverture {{$lesLivres->getTitre()}}">
                                     </li>
                                 @endfor
                             </ul>
-                            <button class="ctnVisionneuse__suivant" ><img src="./liaisons/images/suivant.svg"></button>
+                            <button type="button" class="ctnVisionneuse__suivant"><img src="./liaisons/images/suivant.svg"></button>
                         </section>
 
                     </section>
