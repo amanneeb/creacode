@@ -22,12 +22,24 @@ display: flex;
     justify-content: space-between;
 
     .vignetteLivre{
-      max-width: 300px;
+      max-width: 150px;
+      @media (min-width: 800px) {
+        max-width: 200px;
+      }
+      @media (min-width: 1200px) {
+        max-width: 300px;
+      }
     }
 
     .imgLivre{
       margin: auto;
-      width: 300px;
+      width: 150px;
+      @media (min-width: 800px) {
+        width: 200px;
+      }
+      @media (min-width: 1200px) {
+        width: 300px;
+      }
     }
   }
 }
