@@ -106,3 +106,15 @@
     </main>
 @endsection
 
+
+
+<!--
+* Border around books
+* Images
+* links for "see all" and books
+*
+
+
+
+->
+
