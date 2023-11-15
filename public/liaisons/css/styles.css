@@ -567,12 +567,7 @@ h3 {
   user-select: none;
 }
 .navMobile #menuToggle a {
-  text-decoration: none;
-  color: #681c0f;
   transition: color 0.3s ease;
-}
-.navMobile #menuToggle a:hover {
-  color: #c64532;
 }
 .navMobile #menuToggle input {
   display: block;
@@ -653,8 +648,6 @@ h3 {
     padding: 0 40px;
   }
   .menu_list li a {
-    color: #681c0f;
-    text-decoration: none;
     font-weight: bold;
   }
 }
@@ -1382,12 +1375,36 @@ body {
 }
 .AParaitre .livres .vignetteLivre,
 .nouveautes .livres .vignetteLivre {
-  max-width: 300px;
+  max-width: 150px;
+}
+@media (min-width: 800px) {
+  .AParaitre .livres .vignetteLivre,
+  .nouveautes .livres .vignetteLivre {
+    max-width: 200px;
+  }
+}
+@media (min-width: 1200px) {
+  .AParaitre .livres .vignetteLivre,
+  .nouveautes .livres .vignetteLivre {
+    max-width: 300px;
+  }
 }
 .AParaitre .livres .imgLivre,
 .nouveautes .livres .imgLivre {
   margin: auto;
-  width: 300px;
+  width: 150px;
+}
+@media (min-width: 800px) {
+  .AParaitre .livres .imgLivre,
+  .nouveautes .livres .imgLivre {
+    width: 200px;
+  }
+}
+@media (min-width: 1200px) {
+  .AParaitre .livres .imgLivre,
+  .nouveautes .livres .imgLivre {
+    width: 300px;
+  }
 }
 
 .AParaitre .underline {
