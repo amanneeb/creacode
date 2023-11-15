@@ -9,6 +9,7 @@
             <script defer src="liaisons/js/tri.js"></script>
             <script defer src="liaisons/js/affichage_grille_liste.js"></script>
             <script defer src="liaisons/js/controler_affichage.js"></script>
+            <script defer src="liaisons/js/ajoutClasseSelectedGenre.js"></script>
         @elseif($_GET['controleur']==='artiste' && $_GET['action']==='index' )
             <script defer src="liaisons/js/affichage_grille_liste.js"></script>
         @elseif($_GET['controleur']==='livre' && $_GET['action']==='fiche' )
@@ -17,6 +18,7 @@
             <script defer src="liaisons/js/modaleLivre.js"></script>
         @endif
     @endif
+    <script src="https://kit.fontawesome.com/5482d63b2f.js" crossorigin="anonymous"></script>
     <script defer src="liaisons/js/menu.js"></script>
     <link rel="stylesheet" href="liaisons/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
