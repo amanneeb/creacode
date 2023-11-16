@@ -384,7 +384,7 @@ a:hover {
 a:focus {
   color: #c64532;
   text-decoration: underline;
-  border: 1px solid #681c0f;
+  border: 2px solid #c64532;
 }
 a:active {
   color: #c64532;
@@ -442,6 +442,10 @@ h3 {
   h3 {
     font-size: 1.25rem;
   }
+}
+
+*:focus {
+  outline: 2px solid #c64532; /* Ajoute une bordure bleue autour de tous les éléments au focus */
 }
 
 /**
@@ -823,6 +827,15 @@ body {
   font-family: "Poppins", sans-serif;
   font-size: 16px;
   margin-top: 1.5%;
+}
+
+.aller-au-contenu {
+  /* Ajoutez ici les styles spécifiques pour le lien "Aller au contenu" */
+  display: block;
+  padding: 10px; /* Ajoutez un espacement pour la visibilité et l'accessibilité */
+  background-color: white;
+  text-align: center;
+  text-decoration: none;
 }
 
 .onglets {
