@@ -5,15 +5,18 @@
     height: 75px;
   }
   .underline{
+    margin-bottom: 45px;
     display: block;
     height: 5px;
     background-color: $vert;
   }
 
   .voirTout{
-display: flex;
-    flex-direction: row-reverse;
-    margin-bottom: 30px;
+    float: right;
+    margin-top:-36px;
+//display: flex;
+//    flex-direction: row-reverse;
+//    margin-bottom: 30px;
   }
 
   .livres{

@@ -335,9 +335,6 @@ header {
 }
 .barRecherche input {
   width: 300px;
-  height: 36px;
-  border: solid #c64532 3px;
-  border-radius: 5px;
 }
 @media (min-width: 800px) {
   .barRecherche input {
@@ -657,6 +654,20 @@ h3 {
 }
 body {
   background-color: #F9F1EC;
+}
+
+input {
+  border: solid #681c0f 3px;
+  background-color: white;
+  width: 350px;
+  height: 36px;
+  border-radius: 5px;
+}
+input:hover {
+  border: solid #c64532 3px;
+}
+input:focus {
+  border: solid #c64532 1px;
 }
 
 .liste-livres__tri-option {
@@ -1370,15 +1381,15 @@ body {
 }
 .AParaitre .underline,
 .nouveautes .underline {
+  margin-bottom: 45px;
   display: block;
   height: 5px;
   background-color: #1f6f78;
 }
 .AParaitre .voirTout,
 .nouveautes .voirTout {
-  display: flex;
-  flex-direction: row-reverse;
-  margin-bottom: 30px;
+  float: right;
+  margin-top: -36px;
 }
 .AParaitre .livres,
 .nouveautes .livres {
