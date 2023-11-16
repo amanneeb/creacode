@@ -1,7 +1,7 @@
 @extends('gabarit')
 
 @section('contenu')
-    <div class="conteneur">
+    <div class="conteneur" id="contenu">
         @include('fragments.filariane')
         <h2>Auteurs</h2>
         <div class="conteneur__boutons">

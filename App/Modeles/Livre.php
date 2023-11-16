@@ -224,20 +224,22 @@ class Livre
     public static function paginerParCategorie(int $unNoDePage, int $unNbrParPage, int $categorieRecherchee, $tri): array
     {
         $index = $unNbrParPage * $unNoDePage;
-        $chaineSQL = 'SELECT * FROM livres WHERE categorie_id = :idCategorie';
+        $chaineSQL = '';
         switch ($tri) {
             case 'prixcroissant':
-                $chaineSQL .= ' ORDER BY prix_can ASC';
+                $chaineSQL .= ' SELECT * FROM livres WHERE categorie_id =:idCategorie ORDER BY prix_can ASC LIMIT :index, :limit';
                 break;
             case 'prixdecroissant':
-                $chaineSQL .= ' ORDER BY prix_can DESC';
+                $chaineSQL .= ' SELECT * FROM livres WHERE categorie_id =:idCategorie ORDER BY prix_can DESC LIMIT :index, :limit';
+                break;
+            case 'aparaitre':
+                $chaineSQL .= ' SELECT * FROM livres WHERE categorie_id =:idCategorie ORDER BY date_parution_quebec DESC LIMIT :index, :limit';
                 break;
             default:
-                $chaineSQL .= ' ORDER BY date_parution_quebec DESC';
+                $chaineSQL .= ' SELECT * FROM livres WHERE categorie_id =:idCategorie AND date_parution_quebec <= CURDATE() ORDER BY date_parution_quebec DESC LIMIT :index, :limit';
                 break;
         }
-
-        $chaineSQL .= ' LIMIT :index, :limit';
+        echo $chaineSQL;
 
         // Préparer la requête (optimisation)
         $requetePreparee = App::getPDO()->prepare($chaineSQL);

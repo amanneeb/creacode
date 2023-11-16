@@ -1,7 +1,7 @@
 @extends('gabarit')
 
 @section('contenu')
-    <div class="conteneur">
+    <div class="conteneur" id="contenu">
         @include('fragments.filariane')
         <h2>livres</h2>
         <section class="liste-livres">
@@ -9,6 +9,7 @@
                 <label class="liste-livres__titre"><i class="fa-solid fa-filter fa-xl"></i>Trier par:</label><br>
                 <select name="tri" id="triSelect" class="liste-livres__tri">
                     <option value="nouveautes" class="liste-livres__tri-option">Nouveautés</option>
+                    <option value="aparaitre" class="liste-livres__tri-option">À paraitre</option>
                     <option value="prixcroissant" class="liste-livres__tri-option">Prix croissant</option>
                     <option value="prixdecroissant" class="liste-livres__tri-option">Prix décroissant</option>
                 </select>

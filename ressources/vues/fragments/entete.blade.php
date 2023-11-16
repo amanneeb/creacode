@@ -1,3 +1,4 @@
+<a href="#contenu" class="visuallyhidden focusable aller-au-contenu">Allez au contenu</a>
 <div class="conteneur">
     <div class="navTop__table">
         <a href="index.php">
@@ -24,7 +25,7 @@
     </svg></button>
 </div>
     </div>
-<nav id="navigation" class="nav navMobile navTable">
+<nav id="navigation" class="nav navMobile navTable" aria-label="Navigation principale">
     <div id="menuToggle">
         <input type="checkbox" id="checkboxMenu" />
 
