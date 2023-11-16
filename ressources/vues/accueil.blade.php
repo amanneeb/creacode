@@ -3,7 +3,7 @@
 @section('contenu')
 
 
-    <main class="main conteneur">
+    <div class="main conteneur">
         <section class="actualites">
             <h2 class="h2Accueil">Actualités</h2>
             <span class="underline"></span>
@@ -159,7 +159,7 @@
             @endforeach
         </section>
 
-    </main>
+    </div>
 @endsection
 
 
