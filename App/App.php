@@ -6,6 +6,7 @@ namespace App;
 use App\Controleurs\ControleurLivres;
 use App\Controleurs\ControleurAccueil;
 use App\Controleurs\ControleurArtistes;
+use App\Controleurs\ControleurCompte;
 use PDO\PDOStatement;
 use PDO;
 use eftec\bladeone\BladeOne;
@@ -124,6 +125,21 @@ class   App
                 default:
                     echo 'Erreur 404 - Page introuvable.';
             }
+
+        }else if ($nomControleur === 'compte') {
+            $objControleur = new ControleurCompte();
+            switch ($nomAction) {
+                case 'connexion':
+                    $objControleur->connexion();
+                    break;
+                case 'creation':
+                    $objControleur->creation();
+                    break;
+                default:
+                    echo 'Erreur 404 - Page introuvable.';
+            }
+
         }
+
     }
 }
