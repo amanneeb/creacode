@@ -71,7 +71,6 @@ class ControleurLivres
         $laCategorieDuLivre = Livre::trouverParId($idLivre)->getCategorieAssociee()->getId();
         $reconnaissance = Reconnaissance::trouverParLivre($idLivre);
         $livreIsbn = $livres->getIsbn_papier();
-        var_dump($livreIsbn);
 
         //PAGINATION
         $totalLivres = Livre::compterParCategorie($laCategorieDuLivre);

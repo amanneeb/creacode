@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>La Pastèque</title>
+ <?php if(isset($_GET['controleur'])&& isset($_GET['action'])): ?>
+ <?php if($_GET['controleur']==='livre' && $_GET['action']==='index' ): ?>
+ <script defer src="liaisons/js/tri.js"></script>
+ <script defer src="liaisons/js/affichage_grille_liste.js"></script>
+ <script defer src="liaisons/js/controler_affichage.js"></script>
+ <?php elseif($_GET['controleur']==='artiste' && $_GET['action']==='index' ): ?>
+ <script defer src="liaisons/js/affichage_grille_liste.js"></script>
+ <?php elseif($_GET['controleur']==='livre' && $_GET['action']==='fiche' ): ?>
+ <title>La Pastèque | Livres | <?php echo \htmlentities($lesLivres->getTitre()??'', ENT_QUOTES, 'UTF-8', false); ?></title>
+ <meta name="description" content="Description du livre <?php echo \htmlentities($lesLivres->getTitre()??'', ENT_QUOTES, 'UTF-8', false); ?> écrit par <?php $__currentLoopData = $lesLivres->getLivresAuteursAssocies(); $this->addLoop($__currentLoopData);$this->getFirstLoop();
+ foreach($__currentLoopData as $auteurs): $loop = $this->incrementLoopIndices();  ?><?php echo \htmlentities($auteurs->getAuteurAssocie()->getPrenom()." ". $auteurs->getAuteurAssocie()->getNom()." "??'', ENT_QUOTES, 'UTF-8', false); ?><?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>">
+ <meta name="keywords" content="livre, fiche, librairie, La Pastèque, <?php echo \htmlentities($lesLivres->getTitre()??'', ENT_QUOTES, 'UTF-8', false); ?>,
+ <?php $__currentLoopData = $lesLivres->getLivresAuteursAssocies(); $this->addLoop($__currentLoopData);$this->getFirstLoop();
+ foreach($__currentLoopData as $auteurs): $loop = $this->incrementLoopIndices();  ?>
+ <?php echo \htmlentities($auteurs->getAuteurAssocie()->getPrenom()." ". $auteurs->getAuteurAssocie()->getNom().", "??'', ENT_QUOTES, 'UTF-8', false); ?>
+
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>">
+ <script defer src="liaisons/js/onglets.js"></script>
+ <script defer src="liaisons/js/ajoutPanier.js"></script>
+ <script defer src="liaisons/js/modaleLivre.js"></script>
+ <?php elseif($_GET['controleur']==='artiste' && $_GET['action']==='fiche' ): ?>
+ <title>La Pastèque | Auteurs | <?php echo \htmlentities($auteurs->getPrenom()??'', ENT_QUOTES, 'UTF-8', false); ?> <?php echo \htmlentities($auteurs->getNom()??'', ENT_QUOTES, 'UTF-8', false); ?></title>
+ <meta name="description" content="Fiche auteur de <?php echo \htmlentities($auteurs->getPrenom()??'', ENT_QUOTES, 'UTF-8', false); ?> <?php echo \htmlentities($auteurs->getNom()??'', ENT_QUOTES, 'UTF-8', false); ?>">
+ <meta name="keywords" content="auteur, librairie, La Pastèque, <?php echo \htmlentities($auteurs->getPrenom()??'', ENT_QUOTES, 'UTF-8', false); ?> <?php echo \htmlentities($auteurs->getNom()??'', ENT_QUOTES, 'UTF-8', false); ?>">
+ <?php endif; ?>
+ <?php endif; ?>
+ <script defer src="liaisons/js/menu.js"></script>
+ <link rel="stylesheet" href="liaisons/css/styles.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+</head>
+<body>
+<header>
+ <?php echo $this->runChild('fragments.entete'); ?>
+</header>
+
+<main>
+ <?php echo $this->yieldContent('contenu'); ?>
+</main>
+
+<footer>
+ <?php echo $this->runChild('fragments.pieddepage'); ?>
+</footer>
+</body>
+</html>
+
+
+
+

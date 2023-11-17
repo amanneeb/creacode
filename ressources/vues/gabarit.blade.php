@@ -12,9 +12,19 @@
         @elseif($_GET['controleur']==='artiste' && $_GET['action']==='index' )
             <script defer src="liaisons/js/affichage_grille_liste.js"></script>
         @elseif($_GET['controleur']==='livre' && $_GET['action']==='fiche' )
+            <title>La Pastèque | Livres | {{$lesLivres->getTitre()}}</title>
+            <meta name="description" content="Description du livre {{$lesLivres->getTitre()}} écrit par @foreach($lesLivres->getLivresAuteursAssocies() as $auteurs){{$auteurs->getAuteurAssocie()->getPrenom()." ". $auteurs->getAuteurAssocie()->getNom()." "}}@endforeach">
+            <meta name="keywords" content="livre, fiche, librairie, La Pastèque, {{$lesLivres->getTitre()}},
+            @foreach($lesLivres->getLivresAuteursAssocies() as $auteurs)
+            {{$auteurs->getAuteurAssocie()->getPrenom()." ". $auteurs->getAuteurAssocie()->getNom().", "}}
+            @endforeach">
             <script defer src="liaisons/js/onglets.js"></script>
             <script defer src="liaisons/js/ajoutPanier.js"></script>
             <script defer src="liaisons/js/modaleLivre.js"></script>
+        @elseif($_GET['controleur']==='artiste' && $_GET['action']==='fiche' )
+            <title>La Pastèque | Auteurs | {{$auteurs->getPrenom()}} {{$auteurs->getNom()}}</title>
+            <meta name="description" content="Fiche auteur de {{$auteurs->getPrenom()}} {{$auteurs->getNom()}}">
+            <meta name="keywords" content="auteur, librairie, La Pastèque, {{$auteurs->getPrenom()}} {{$auteurs->getNom()}}">
         @endif
     @endif
     <script defer src="liaisons/js/menu.js"></script>

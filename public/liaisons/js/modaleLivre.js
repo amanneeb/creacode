@@ -32,7 +32,7 @@ function fermerModale() {
 /**
  * Récupérer la source de l'image
  */
-function afficherImagesSelectionnee() {
+function afficherImageSelectionnee() {
     let sourceImgPrincipale = document.querySelector(".ctnModale__img").src;
     afficherBordure(sourceImgPrincipale)
 }
@@ -41,66 +41,48 @@ function afficherImagesSelectionnee() {
  * Faire avancer les images
  */
 function avancerImage() {
+    arrLiImages = document.querySelectorAll(".ctnVisionneuse__item .ctnVisionneuse__img");
     strLienImgPrincipale = document.querySelector(".ctnModale__img").src;
-    noExtrait = parseInt(strLienImgPrincipale.substr(-10, 1));
-    debutSource = strLienImgPrincipale.substr(0, strLienImgPrincipale.length-10);
-    finSource = strLienImgPrincipale.substr(strLienImgPrincipale.length-9)
-    document.querySelector(".ctnModale__img").src = debutSource+(noExtrait+1)+finSource;
-    if(noExtrait < 3 && noExtrait!=0){
-        noExtrait = parseInt(strLienImgPrincipale.substr(-10, 1));
-        debutSource = strLienImgPrincipale.substr(0, strLienImgPrincipale.length-10);
-        finSource = strLienImgPrincipale.substr(strLienImgPrincipale.length-9)
-        document.querySelector(".ctnModale__img").src = debutSource+(noExtrait+1)+finSource;
-        afficherBordure(document.querySelector(".ctnModale__img").src);
-    }else{
-        if(noExtrait===3){
-            debutSource = strLienImgPrincipale.substr(0, strLienImgPrincipale.length-13);
-            finSource = strLienImgPrincipale.substr(strLienImgPrincipale.length-9, 5);
-            debutSourceCouverture = debutSource.replace("extraits/", "");
-            document.querySelector(".ctnModale__img").src = debutSourceCouverture+finSource+".jpg";
-            afficherBordure(document.querySelector(".ctnModale__img").src);
-        }else{
-            debutSource = strLienImgPrincipale.substr(0, strLienImgPrincipale.length-9);
-            debutSourceCouverture = debutSource.replace("images/livres/", "images/livres/extraits/");
-            finSource = strLienImgPrincipale.substr(strLienImgPrincipale.length-9, 5)
-            sourceImgRecherchee = debutSourceCouverture.concat("_001",finSource,".png")
-            document.querySelector(".ctnModale__img").src = sourceImgRecherchee;
-            afficherBordure(document.querySelector(".ctnModale__img").src);
+
+    arrLiImages.forEach(
+        element=>{
+            if(element.src===strLienImgPrincipale){
+                if(element.id==3){
+                    document.querySelector(".ctnModale__img").src = document.getElementById("0").src;
+                    afficherBordure(document.getElementById("0").src);
+                }else{
+                    id = parseInt(element.id)+1;
+                    document.querySelector(".ctnModale__img").src = document.getElementById(id).src;
+                    afficherBordure(document.getElementById(id).src);
+
+                }
+            }
         }
-    }
+    )
 }
 
 /**
  * Faire reculer les images
  */
 function reculerImage() {
+
+    arrLiImages = document.querySelectorAll(".ctnVisionneuse__item .ctnVisionneuse__img");
     strLienImgPrincipale = document.querySelector(".ctnModale__img").src;
-    noExtrait = parseInt(strLienImgPrincipale.substr(-10, 1));
-    debutSource = strLienImgPrincipale.substr(0, strLienImgPrincipale.length-10);
-    finSource = strLienImgPrincipale.substr(strLienImgPrincipale.length-9)
-    document.querySelector(".ctnModale__img").src = debutSource+(noExtrait-1)+finSource;
-    if(noExtrait > 1 && noExtrait!=0){
-        noExtrait = parseInt(strLienImgPrincipale.substr(-10, 1));
-        debutSource = strLienImgPrincipale.substr(0, strLienImgPrincipale.length-10);
-        finSource = strLienImgPrincipale.substr(strLienImgPrincipale.length-9)
-        document.querySelector(".ctnModale__img").src = debutSource+(noExtrait-1)+finSource;
-        afficherBordure(document.querySelector(".ctnModale__img").src);
-    }else{
-        if(noExtrait===1){
-            debutSource = strLienImgPrincipale.substr(0, strLienImgPrincipale.length-13);
-            finSource = strLienImgPrincipale.substr(strLienImgPrincipale.length-9, 5);
-            debutSourceCouverture = debutSource.replace("extraits/", "");
-            document.querySelector(".ctnModale__img").src = debutSourceCouverture+finSource+".jpg";
-            afficherBordure(document.querySelector(".ctnModale__img").src);
-        }else{
-            debutSource = strLienImgPrincipale.substr(0, strLienImgPrincipale.length-10);
-            debutSourceCouverture = debutSource.replace("images/livres/", "images/livres/extraits/");
-            finSource = strLienImgPrincipale.substr(strLienImgPrincipale.length-9, 5)
-            sourceImgRecherchee = debutSourceCouverture.concat("_001",finSource,".png")
-            document.querySelector(".ctnModale__img").src = sourceImgRecherchee;
-            afficherBordure(document.querySelector(".ctnModale__img").src);
+
+    arrLiImages.forEach(
+        element=>{
+            if(element.src===strLienImgPrincipale){
+                if(element.id==0){
+                    document.querySelector(".ctnModale__img").src = document.getElementById("3").src;
+                    afficherBordure(document.getElementById("3").src);
+                }else{
+                    id = element.id-1;
+                    document.querySelector(".ctnModale__img").src = document.getElementById(id).src;
+                    afficherBordure(document.getElementById(id).src);
+                }
+            }
         }
-    }
+    )
 }
 
 /**
@@ -108,7 +90,6 @@ function reculerImage() {
  * @param  imgLien {string}
  */
 function afficherBordure(imgLien) {
-    console.log(imgLien)
     const arrImgModales = document.querySelectorAll(".ctnVisionneuse__img");
     arrImgModales.forEach( element=>{
         if(imgLien === element.src){
@@ -120,11 +101,11 @@ function afficherBordure(imgLien) {
 }
 
 document.querySelector(".ctnVisioExtraits__img:nth-child(1)").addEventListener("click", afficherModale);
-document.querySelector(".ctnVisioExtraits__img:nth-child(1)").addEventListener("click", afficherImagesSelectionnee);
+document.querySelector(".ctnVisioExtraits__img:nth-child(1)").addEventListener("click", afficherImageSelectionnee);
 document.querySelector(".ctnVisioExtraits__img:nth-child(2)").addEventListener("click", afficherModale);
-document.querySelector(".ctnVisioExtraits__img:nth-child(2)").addEventListener("click", afficherImagesSelectionnee);
+document.querySelector(".ctnVisioExtraits__img:nth-child(2)").addEventListener("click", afficherImageSelectionnee);
 document.querySelector(".ctnVisioExtraits__img:nth-child(3)").addEventListener("click", afficherModale);
-document.querySelector(".ctnVisioExtraits__img:nth-child(3)").addEventListener("click", afficherImagesSelectionnee);
+document.querySelector(".ctnVisioExtraits__img:nth-child(3)").addEventListener("click", afficherImageSelectionnee);
 document.querySelector(".ctnModale__btn").addEventListener("click", fermerModale);
 document.querySelector(".ctnVisionneuse__suivant").addEventListener("click", avancerImage);
 document.querySelector(".ctnVisionneuse__precedent").addEventListener("click", reculerImage);
