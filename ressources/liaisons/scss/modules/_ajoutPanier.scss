@@ -1,0 +1,106 @@
+.panierTitre{
+  text-align: right;
+}
+.mainPanier{
+  display: unset;
+  @media (min-width: 1000px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .sectionPanier{
+    margin: 1em 1em;
+    background-color: #fff;
+    border: black solid 1px;
+    @media (min-width: 600px) {
+      padding-right: 3em;
+      padding-left: 3em;
+    }
+    //Article dans le panier
+    .livreAjoute{
+      display: unset;
+      padding: 1.5em .8em;
+      margin-top: .7em;
+      margin-bottom: .7em;
+      border-bottom: $rouge 1.5px solid;
+      @media(min-width: 600px){
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+        flex-wrap: wrap;
+      }
+      & .modificationArticle{
+        @media(min-width: 600px){
+          flex: 1 0 100%;
+        }
+      }
+    }
+
+  }
+  //Partie Montant (Panier)
+  .resumePanier{
+    border: solid black 1px;
+    width: fit-content;
+    padding: 1em .5em;
+    background: #fff;
+    margin: 1em 1em;
+    @media (min-width: 800px) {
+      margin-right: 1em;
+    }
+    & fieldset{
+      border: none;
+      & input{
+        border: none;
+        background: transparent;
+        font-size: 1rem;
+        &:focus{
+          border: none;
+        }
+      }
+    }
+    &__titre{
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: bold;
+      padding: 1.5em 0;
+      border-bottom: #000 solid 1.5px;
+      margin-bottom: 2em;
+    }
+    .total__label,
+    .total__input{
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 2em;
+    }
+    .livraison__details{
+      font-size: .7em;
+    }
+  }
+}
+
+// Zone de changement de nombre de livre et ajout au panier (Fiche live et Panier)
+.ajoutPanier{
+  &__nbLivre{
+    display: inline-block;
+    height: 44px;
+    width: 44px;
+    text-align: center;
+    border: black 1.5px solid;
+    border-radius: 5px;
+    line-height: 2.7em;
+    background: white;
+  }
+  &__moins,
+  &__plus,
+  &__btnPanier,
+  &__btnSouhait{
+    margin: .5em 0;
+  }
+}
+
+.borderSelection{
+  border: $orange solid 1.3px;
+  border-radius: 5px;
+}

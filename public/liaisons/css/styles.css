@@ -775,6 +775,113 @@ input:focus {
   animation-direction: normal;
 }
 
+.panierTitre {
+  text-align: right;
+}
+
+.mainPanier {
+  display: unset;
+}
+@media (min-width: 1000px) {
+  .mainPanier {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}
+.mainPanier .sectionPanier {
+  margin: 1em 1em;
+  background-color: #fff;
+  border: black solid 1px;
+}
+@media (min-width: 600px) {
+  .mainPanier .sectionPanier {
+    padding-right: 3em;
+    padding-left: 3em;
+  }
+}
+.mainPanier .sectionPanier .livreAjoute {
+  display: unset;
+  padding: 1.5em 0.8em;
+  margin-top: 0.7em;
+  margin-bottom: 0.7em;
+  border-bottom: #681c0f 1.5px solid;
+}
+@media (min-width: 600px) {
+  .mainPanier .sectionPanier .livreAjoute {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+  }
+}
+@media (min-width: 600px) {
+  .mainPanier .sectionPanier .livreAjoute .modificationArticle {
+    flex: 1 0 100%;
+  }
+}
+.mainPanier .resumePanier {
+  border: solid black 1px;
+  width: fit-content;
+  padding: 1em 0.5em;
+  background: #fff;
+  margin: 1em 1em;
+}
+@media (min-width: 800px) {
+  .mainPanier .resumePanier {
+    margin-right: 1em;
+  }
+}
+.mainPanier .resumePanier fieldset {
+  border: none;
+}
+.mainPanier .resumePanier fieldset input {
+  border: none;
+  background: transparent;
+  font-size: 1rem;
+}
+.mainPanier .resumePanier fieldset input:focus {
+  border: none;
+}
+.mainPanier .resumePanier__titre {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 1.5em 0;
+  border-bottom: #000 solid 1.5px;
+  margin-bottom: 2em;
+}
+.mainPanier .resumePanier .total__label,
+.mainPanier .resumePanier .total__input {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 2em;
+}
+.mainPanier .resumePanier .livraison__details {
+  font-size: 0.7em;
+}
+
+.ajoutPanier__nbLivre {
+  display: inline-block;
+  height: 44px;
+  width: 44px;
+  text-align: center;
+  border: black 1.5px solid;
+  border-radius: 5px;
+  line-height: 2.7em;
+  background: white;
+}
+.ajoutPanier__moins, .ajoutPanier__plus, .ajoutPanier__btnPanier, .ajoutPanier__btnSouhait {
+  margin: 0.5em 0;
+}
+
+.borderSelection {
+  border: #c64532 solid 1.3px;
+  border-radius: 5px;
+}
+
 .livresSimilaires {
   list-style-type: none;
 }
@@ -1013,6 +1120,24 @@ main {
   align-items: flex-start;
   flex-wrap: wrap;
   width: 100%;
+  /*.ajoutPanier{
+    &__nbLivre{
+      display: inline-block;
+      height: 44px;
+      width: 44px;
+      text-align: center;
+      border: black 1.5px solid;
+      border-radius: 5px;
+      line-height: 2.7em;
+      background: white;
+    }
+    &__moins,
+    &__plus,
+    &__btnPanier,
+    &__btnSouhait{
+      margin: .5em 0;
+    }
+  }*/
 }
 @media (min-width: 700px) {
   .ctnPage .infoPrincipal .ctnInfoPanier {
@@ -1056,19 +1181,6 @@ main {
   .ctnPage .infoPrincipal .ctnInfoPanier .livrePanier__theme {
     margin-top: 0;
   }
-}
-.ctnPage .infoPrincipal .ctnInfoPanier .ajoutPanier__nbLivre {
-  display: inline-block;
-  height: 44px;
-  width: 44px;
-  text-align: center;
-  border: black 1.5px solid;
-  border-radius: 5px;
-  line-height: 2.7em;
-  background: white;
-}
-.ctnPage .infoPrincipal .ctnInfoPanier .ajoutPanier__moins, .ctnPage .infoPrincipal .ctnInfoPanier .ajoutPanier__plus, .ctnPage .infoPrincipal .ctnInfoPanier .ajoutPanier__btnPanier, .ctnPage .infoPrincipal .ctnInfoPanier .ajoutPanier__btnSouhait {
-  margin: 0.5em 0;
 }
 .ctnPage .ctnVisioExtraits {
   margin-top: 1em;
