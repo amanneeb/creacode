@@ -50,25 +50,25 @@ class ControleurArtistes
     public function fiche()
     {
         $filAriane=FilAriane::majFilArianne();
-        $idArtiste = (int)$_GET['idArtiste'];
-        $idSuivant = $idArtiste + 1;
-        $idPrecedent = $idArtiste - 1;
-        $artistes = Auteur::trouverParId($idArtiste);
-        $livresAuteurs = Auteur::trouverParId($idArtiste)->getLivresAuteursAssocies();
+        $idAuteur = (int)$_GET['idAuteur'];
+        $idSuivant = $idAuteur + 1;
+        $idPrecedent = $idAuteur - 1;
+        $auteurs = Auteur::trouverParId($idAuteur);
+        $livresAuteurs = Auteur::trouverParId($idAuteur)->getLivresAuteursAssocies();
 
 
         //PAGINATION
-        $totalLivres = Auteur::compterParLivre($idArtiste);
+        $totalLivres = Auteur::compterParLivre($idAuteur);
         $nbPage = $totalLivres/5;
         $nombreTotalPages = ceil($nbPage);
-        $urlPagination='index.php?controleur=artiste&action=fiche&idArtiste='.$_GET['idArtiste'];
+        $urlPagination='index.php?controleur=artiste&action=fiche&idAuteur='.$_GET['idAuteur'];
         if(isset($_GET['page']) === false){
             $numeroPage = 0;
         }else{
             $numeroPage = (int) $_GET['page'];
         }
-        $livresPagination = Auteur::trouverParId($idArtiste)->getLivresAuteursAssocies();
-        $livres = Auteur::paginerParLivre($numeroPage, 3, (int) $_GET['idArtiste']);
+        $livresPagination = Auteur::trouverParId($idAuteur)->getLivresAuteursAssocies();
+        $livres = Auteur::paginerParLivre($numeroPage, 3, (int) $_GET['idAuteur']);
         //FIN PAGINATION
 
 
@@ -79,10 +79,10 @@ class ControleurArtistes
             array_push($arrReconnaissance, $reconnaissance);
         }
 
-        $tDonnees = array('artistes' => $artistes,
+        $tDonnees = array('auteurs' => $auteurs,
                             'reconnaissances' => $reconnaissance,
                             'livresAuteurs' => $livresAuteurs,
-                            'idArtiste' => $idArtiste,
+                            'idAuteur' => $idAuteur,
                             'idSuivant' => $idSuivant,
                             'idPrecedent' => $idPrecedent,
                             "livresPagination"=>$livresPagination,

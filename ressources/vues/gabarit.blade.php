@@ -19,15 +19,19 @@
             <script defer src="liaisons/js/affichage_grille_liste.js"></script>
         @elseif($_GET['controleur']==='livre' && $_GET['action']==='fiche' )
             <title> {{$lesLivres->getTitre()}} | Livres | La Pastèque </title>
-            <meta name="description"
-                  content="Découvrez le livre {{$lesLivres->getTitre()}} chez La Pastèque. Plongez dans cette œuvre captivante, mêlant intrigue et émotion.  Disponible dès maintenant pour enrichir votre bibliothèque. Achetez votre exemplaire sur La Pastèque.">
+            <meta name="description" content="Description du livre {{$lesLivres->getTitre()}} écrit par @foreach($lesLivres->getLivresAuteursAssocies() as $auteurs){{$auteurs->getAuteurAssocie()->getPrenom()." ". $auteurs->getAuteurAssocie()->getNom()." "}}@endforeach">
+            <meta name="keywords" content="livre, fiche, librairie, La Pastèque, {{$lesLivres->getTitre()}},
+            @foreach($lesLivres->getLivresAuteursAssocies() as $auteurs)
+            {{$auteurs->getAuteurAssocie()->getPrenom()." ". $auteurs->getAuteurAssocie()->getNom().", "}}
+            @endforeach">
             <script defer src="liaisons/js/onglets.js"></script>
             <script defer src="liaisons/js/ajoutPanier.js"></script>
             <script defer src="liaisons/js/modaleLivre.js"></script>
         @elseif($_GET['controleur']==='artiste' && $_GET['action']==='fiche' )
-            <meta name="description"
-            content="Découvrez l'auteur {{$artistes->getPrenomNom()}}  chez La Pastèque. Explorez sa carrière littéraire, ses œuvres marquantes, et plongez dans l'univers captivant de sa plume. Des débuts prometteurs aux chef-d'œuvres incontournables, chaque page dévoile une histoire unique. Ajoutez l'essence de {{$artistes->getPrenomNom()}} à votre collection littéraire. ">
             <title> {{$artistes->getPrenomNom()}} | Artistes | La Pastèque </title>
+            <meta name="description"
+                  content="Découvrez l'auteur {{$artistes->getPrenomNom()}}  chez La Pastèque. Explorez sa carrière littéraire, ses œuvres marquantes, et plongez dans l'univers captivant de sa plume. Des débuts prometteurs aux chef-d'œuvres incontournables, chaque page dévoile une histoire unique. Ajoutez l'essence de {{$artistes->getPrenomNom()}} à votre collection littéraire. ">
+            <meta name="keywords" content="auteur, librairie, La Pastèque, {{$auteurs->getPrenom()}} {{$auteurs->getNom()}}">
         @endif
     @else
         <title>La Pastèque | Techniques d’intégration multimédia – Cégep de Sainte-Foy</title>
