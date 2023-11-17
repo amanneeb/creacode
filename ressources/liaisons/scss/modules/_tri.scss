@@ -1,29 +1,45 @@
 .liste-livres__tri-option {
   list-style: none;
   display: inline;
-  margin: 10px;
+  margin: 0.5em 1em 0 0 ;
   padding: 10px 20px;
   background-color: white;
   color: $orange;
   border: 2px solid $orange;
   border-radius: 5px;
   width: auto;
-  margin-left: 0;
+  text-decoration: none;
+  font-weight: bold;
+
   &:hover {
     border: 3px solid $rouge;
     color: $rouge;
   }
+
   &:active,
   &.active {
     background-color: $orange;
     color: white;
   }
+
   &:focus {
     border: 3px double $rouge;
     color: $rouge;
   }
 }
-.liste-livres__filtre{
-  margin:10px 0 10px 0;
+
+.liste-livres__tri-option.selected {
+  background-color: $orange;
+  color: white;
+}
+
+.liste-livres__filtre {
+  margin: 1% 0 2% 0;
   padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.conteneur-filtre {
+  margin: 2% 0 2% 0;
 }

@@ -1,13 +1,13 @@
 @extends('gabarit')
 
 @section('contenu')
-    <div class="conteneur">
+    <div class="conteneur" id="contenu">
         @include('fragments.filariane')
         <h2>Auteurs</h2>
         <div class="conteneur__boutons">
             <div class="boutons-switch">
-                <button id="bouton-grille" class="btn actif">Grille</button>
-                <button id="bouton-liste" class="btn">Liste</button>
+                <button id="bouton-grille" class="btn actif"><i class="fa-solid fa-grip fa-xl"></i></button>
+                <button id="bouton-liste" class="btn"><i class="fa-solid fa-list fa-xl"></i></button>
             </div>
         </div>
         <ul class="liste-auteurs__items liste__items">
@@ -37,7 +37,6 @@
                                 <img class="ctnImg__img" src="./liaisons/images/placeholder.svg" alt="portrait de {{ $auteur->getPrenomNom() }}" width="245px" height="auto">
                             @endif
                         </div>
-                        <p>{{ $cheminImage }}</p>
                         <h3 class="auteur__nom">{{ $auteur->getPrenomNom() }}</h3>
                     </a>
                 </li>

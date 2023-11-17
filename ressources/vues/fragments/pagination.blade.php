@@ -10,9 +10,9 @@
 &nbsp;|&nbsp;
 
 @if ($numeroPage > 0)
-    <a href="{{ $urlPagination . "&page=" . ($numeroPage - 1) }}">Précédent</a>
+    <a href="{{ $urlPagination . "&page=" . ($numeroPage - 1) }}"><i class="fa-solid fa-circle-chevron-left fa-xl"></i></a>
 @else
-    <span>Précédent</span><!-- Bouton précédent inactif -->
+    <span><i class="fa-solid fa-circle-chevron-left fa-xl"></i></span><!-- Bouton précédent inactif -->
 @endif
 
 &nbsp;|&nbsp;
@@ -24,9 +24,9 @@
 
 <!-- Si on est pas sur la dernière page et s'il y a plus d'une page -->
 @if ($numeroPage+1 < $nombreTotalPages)
-    <a href="{{ $urlPagination . "&page=" . ($numeroPage + 1)  }}">Suivant</a>
+    <a href="{{ $urlPagination . "&page=" . ($numeroPage + 1)  }}"><i class="fa-solid fa-circle-chevron-right fa-xl"></i></a>
 @else
-    <span>Suivant</span><!-- Bouton suivant inactif -->
+    <span><i class="fa-solid fa-circle-chevron-right fa-xl"></i></span><!-- Bouton suivant inactif -->
 @endif
 
 &nbsp;|&nbsp;

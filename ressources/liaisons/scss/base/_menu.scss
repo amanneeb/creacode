@@ -33,14 +33,15 @@
   }
 
   #menuToggle a {
-    text-decoration: none;
-    color: $rouge;
+    //text-decoration: none;
+    //color: $rouge;
+
 
     transition: color 0.3s ease;
   }
 
   #menuToggle a:hover {
-    color: $orange;
+    //color: $orange;
   }
 
 
@@ -163,8 +164,8 @@
     justify-content: space-between;
     padding: 0 40px;
     li a{
-      color: $rouge;
-      text-decoration: none;
+      //color: $rouge;
+      //text-decoration: none;
       font-weight: bold;
     }
 

@@ -1,0 +1,60 @@
+.AParaitre,
+.nouveautes{
+  h2{
+    margin-top: 60px;
+    height: 75px;
+  }
+  .underline{
+    margin-bottom: 45px;
+    display: block;
+    height: 5px;
+    background-color: $vert;
+  }
+
+  .voirTout{
+    float: right;
+    margin-top:-36px;
+//display: flex;
+//    flex-direction: row-reverse;
+//    margin-bottom: 30px;
+  }
+
+  .livres{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .vignetteLivre{
+      max-width: 150px;
+      @media (min-width: 800px) {
+        max-width: 200px;
+      }
+      @media (min-width: 1200px) {
+        max-width: 300px;
+      }
+    }
+
+    .imgLivre{
+      margin: auto;
+      width: 150px;
+      @media (min-width: 800px) {
+        width: 200px;
+      }
+      @media (min-width: 1200px) {
+        width: 300px;
+      }
+    }
+  }
+}
+
+.AParaitre{
+  .underline{
+    width:350px ;
+  }
+}
+
+.nouveautes{
+  .underline{
+    width: 410px ;
+  }
+}

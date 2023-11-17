@@ -1,0 +1,15 @@
+input{
+  border:solid $rouge 3px;
+  background-color: white;
+  width:350px;
+  height: 36px;
+  border-radius: 5px;
+
+  &:hover{
+    border:solid $orange 3px;
+  }
+  &:focus{
+    border:solid $orange 1px
+  }
+
+}

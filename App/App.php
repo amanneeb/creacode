@@ -6,6 +6,7 @@ namespace App;
 use App\Controleurs\ControleurLivres;
 use App\Controleurs\ControleurAccueil;
 use App\Controleurs\ControleurArtistes;
+use App\Controleurs\ControleurCompte;
 use PDO\PDOStatement;
 use PDO;
 use eftec\bladeone\BladeOne;
@@ -22,14 +23,34 @@ class   App
         $this->routerRequete();
     }
 
+    public static function getServeur(): string
+    {
+        // Vérifier la nature du serveur (local VS production)
+        $env = 'null';
+        if ((substr($_SERVER['HTTP_HOST'], 0, 9) == 'localhost') ||
+            (substr($_SERVER['HTTP_HOST'], 0, 7) == '199.202')){
+            $env = 'serveur-local';
+        } else {
+            $env = 'serveur-production';
+        }
+        return $env;
+    }
+
     public static function getPDO(): PDO
     {
         if (App::$refPdo === null) {
-            $serveur = 'localhost';
-            $utilisateur = 'root';
-            $motDePasse = 'root';
-            $nomBd = '23_rpni3_creacode';
-            $chaineDSN = 'mysql:dbname=' . $nomBd . ';host=' . $serveur;
+            if(App::getServeur() === 'serveur-local'){
+                $serveur = 'localhost';
+                $utilisateur = 'root';
+                $motDePasse = 'root';
+                $nomBd = '23_rpni3_creacode';
+            }elseif (App::getServeur() === 'serveur-production'){
+                $serveur = 'localhost';
+                $utilisateur = '23_rpni3_creacode';
+                $motDePasse = '.gqgDSLnef9vo5)9';
+                $nomBd = '23_rpni3_creacode';
+            }
+            $chaineDSN = "mysql:dbname=$nomBd;host=$serveur";
 
             App::$refPdo = new PDO($chaineDSN, $utilisateur, $motDePasse);
 
@@ -104,6 +125,21 @@ class   App
                 default:
                     echo 'Erreur 404 - Page introuvable.';
             }
+
+        }else if ($nomControleur === 'compte') {
+            $objControleur = new ControleurCompte();
+            switch ($nomAction) {
+                case 'connexion':
+                    $objControleur->connexion();
+                    break;
+                case 'creation':
+                    $objControleur->creation();
+                    break;
+                default:
+                    echo 'Erreur 404 - Page introuvable.';
+            }
+
         }
+
     }
 }

@@ -1,3 +1,4 @@
+<a href="#contenu" class="visuallyhidden focusable aller-au-contenu">Allez au contenu</a>
 <div class="conteneur">
     <div class="navTop__table">
         <a href="index.php">
@@ -24,7 +25,7 @@
     </svg></button>
 </div>
     </div>
-<nav id="navigation" class="nav navMobile navTable">
+<nav id="navigation" class="nav navMobile navTable" aria-label="Navigation principale">
     <div id="menuToggle">
         <input type="checkbox" id="checkboxMenu" />
 
@@ -34,7 +35,7 @@
 <ul id="menu" class="menu_list">
 {{--    <li><a href="index.php?controleur=site&action=accueil">Accueil</a></li>--}}
     <li><a href="index.php?controleur=livre&action=index">Livres</a></li>
-    <li><a href="index.php?controleur=artiste&action=index">Artistes</a></li>
+    <li><a href="index.php?controleur=artiste&action=index">Auteurs</a></li>
     <li><a href="">Galerie/Boutique</a></li>
     <li><a href="">Production la pastèque</a></li>
 </ul>

@@ -33,7 +33,7 @@ a {
   }
   &:focus {
     @include styleLien(underline, $orange);
-    border: 1px solid $rouge;
+    border: 2px solid $orange;
   }
   &:active {
     @include styleLien(underline, $orange);
@@ -73,6 +73,13 @@ h2 {
 .h2Accueil{
   @include fontSize(40px);
 }
+.h2Compte{
+  font-family: $fontePrimaire;
+  @include fontSize(24px);
+  @media (min-width: 800px) {
+    @include fontSize(30px);
+  }
+}
 
 h3 {
   font-weight: bold;
@@ -82,6 +89,11 @@ h3 {
     @include fontSize(12.5px);
   }
 }
+
+*:focus {
+  outline: 2px solid $orange; /* Ajoute une bordure bleue autour de tous les éléments au focus */
+}
+
 
 
 
