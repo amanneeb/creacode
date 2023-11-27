@@ -6,7 +6,7 @@
 const refNbLivre = document.querySelector(".ajoutPanier__nbLivre");
 const refBtnPlus = document.querySelector(".ajoutPanier__plus");
 const refBtnMoins = document.querySelector(".ajoutPanier__moins");
-const refResumeTotal = document.querySelector(".ctnInfoLivre__total");
+//const refResumeTotal = document.querySelector(".ctnInfoLivre__total");
 
 
 /**
@@ -14,7 +14,7 @@ const refResumeTotal = document.querySelector(".ctnInfoLivre__total");
  * @param e {event}
  */
 function modifierNbLivres(e) {
-    intNbLivre = parseInt(refNbLivre.innerText);
+    intNbLivre = parseInt(refNbLivre.value);
     if(e.target.id==="plus"){
         if(intNbLivre < 6){
             intNbLivre++;
@@ -24,40 +24,40 @@ function modifierNbLivres(e) {
             intNbLivre--;
         }
     }
-    refNbLivre.innerHTML=intNbLivre;
+    refNbLivre.value=intNbLivre;
     afficherBoutonMoins();
     afficherBoutonPlus();
 }
 
 
 /**
- * Faire apparaitre et disparaitre le bouton moins
+ * Insérer ou retirer l'attribut disabled du bouton moins
  */
 function afficherBoutonMoins(){
-    if(refNbLivre.innerHTML==1){
-        refBtnMoins.setAttribute("hidden", "hidden");
-        changerTotal();
-        afficherTotal();
+    if(parseInt(refNbLivre.value)===1){
+        refBtnMoins.setAttribute("disabled", "");
+        //changerTotal();
+        //afficherTotal();
     }else{
-        refBtnMoins.removeAttribute("hidden");
-        changerTotal();
-        afficherTotal();
+        refBtnMoins.removeAttribute("disabled");
+        //changerTotal();
+        //afficherTotal();
     }
 }
 
 
 /**
- * Faire apparaitre et disparaitre le bouton plus
+ * Insérer ou retirer l'attribut disabled du bouton plus
  */
 function afficherBoutonPlus(){
-    if(refNbLivre.innerHTML==6){
-        refBtnPlus.setAttribute("hidden", "hidden");
-        changerTotal();
-        afficherTotal();
+    if(parseInt(refNbLivre.value)===6){
+        refBtnPlus.setAttribute("disabled", "");
+        //changerTotal();
+        //afficherTotal();
     }else{
-        refBtnPlus.removeAttribute("hidden");
-        changerTotal();
-        afficherTotal();
+        refBtnPlus.removeAttribute("disabled");
+        //changerTotal();
+        //afficherTotal();
     }
 }
 
@@ -65,28 +65,28 @@ function afficherBoutonPlus(){
 /**
  * Faire apparaitre la partie affichant le total en fonction du nombre de livre sélectionné
  */
-function afficherTotal() {
-    if(refNbLivre.innerHTML==1){
+/*function afficherTotal() {
+    if(refNbLivre.value==1){
         refResumeTotal.setAttribute("hidden", "hidden");
     }else{
         refResumeTotal.removeAttribute("hidden");
     }
-}
+}*/
 
 
 /**
  * Changer le total avant taxes pour un article
  */
-function changerTotal() {
-    intPrixUnitaire = parseInt(document.querySelector(".ctnInfoLivre__prixSpan").textContent);
-    intNbDeLivres  = parseInt(document.querySelector(".ajoutPanier__nbLivre").textContent);
+/*function changerTotal() {
+    intPrixUnitaire = parseInt(document.querySelector(".ctnInfoLivre__SpanPrixCan").textContent);
+    intNbDeLivres  = parseInt(document.querySelector(".ajoutPanier__nbLivre").value);
     document.querySelector(".ctnInfoLivre__totalSpan").textContent = intPrixUnitaire * intNbDeLivres;
-}
+}*/
 
 
 refBtnPlus.addEventListener('click', modifierNbLivres);
 refBtnMoins.addEventListener('click', modifierNbLivres);
 window.addEventListener("load", afficherBoutonMoins);
 window.addEventListener("load", afficherBoutonPlus);
-window.addEventListener("load", afficherTotal);
+//window.addEventListener("load", afficherTotal);
 

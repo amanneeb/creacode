@@ -63,13 +63,14 @@
                     <p class="livrePanier__prixCan"><span class="livrePanier__SpanPrixCan">{{$lesLivres->getPrix_can()}}</span>$</p>
                     <p class="livrePanier__prixFr"><span class="livrePanier__SpanPrixFr">{{$lesLivres->getPrix_euro()}}</span>€</p>
                 </div>
-                <div class="ajoutPanier">
-                    <input class="ajoutPanier__moins btnPrimaire" type="button" name="nbLivres" id="moins" value="-">
-                    <span class="ajoutPanier__nbLivre">1</span>
-                    <input class="ajoutPanier__plus btnPrimaire" type="button" name="nbLivres" id="plus" value="+"><br>
-                    <button class="ajoutPanier__btnPanier btnPrimaire" type="button" name="ajoutPanier" id="ajoutPanier"><!--<span><img class="ctnImg__img" src="./liaisons/images/cart.svg" alt="" width="30px"></span>-->Ajouter au panier</button><br>
-                    <button class="ajoutPanier__btnSouhait btnSecondaire" type="button" name="ajoutSouhait" id="ajoutSouhait"><!--<span><img class="ctnImg__img" src="./liaisons/images/coeur_vide.svg" alt="" width="30px"></span>-->Ajouter à ma liste</button>
-                </div>
+                <form class="ajoutPanier" method="POST" action="index.php?controleur=article&action=enregistrer">
+                    <input name="livre_id" value="{{$lesLivres->getId()}}" hidden>
+                    <input class="ajoutPanier__moins btnPrimaire" type="button" id="moins" value="-">
+                    <input class="ajoutPanier__nbLivre" name="quantite" value="1">
+                    <input class="ajoutPanier__plus btnPrimaire" type="button" id="plus" value="+"><br>
+                    <button class="ajoutPanier__btnPanier btnPrimaire" type="submit" id="ajoutPanier">Ajouter au panier</button><br>
+                    <button class="ajoutPanier__btnSouhait btnSecondaire" type="submit" name="ajoutSouhait" id="ajoutSouhait">Ajouter à ma liste</button>
+                </form>
             </div>
         </section>
         <section class="infoSupplementaires">

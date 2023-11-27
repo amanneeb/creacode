@@ -7,6 +7,9 @@ use App\Controleurs\ControleurLivres;
 use App\Controleurs\ControleurAccueil;
 use App\Controleurs\ControleurArtistes;
 use App\Controleurs\ControleurCompte;
+use App\Controleurs\ControleurPanier;
+use App\Controleurs\ControleurArticle;
+use App\Modeles\Panier;
 use PDO\PDOStatement;
 use PDO;
 use eftec\bladeone\BladeOne;
@@ -20,7 +23,28 @@ class   App
     {
         error_reporting(E_ALL | E_STRICT);
         date_default_timezone_set('America/Montreal');
+        $this->demarrerSession();
         $this->routerRequete();
+    }
+
+    public function demarrerSession(){
+        session_start();
+        $idSession = session_id();
+        $date = time();
+        echo "id_session: ".$idSession." <br> date (unix): ".$date;
+        $panier = Panier::trouverParIdSession($idSession);
+
+        if($panier == false){
+            var_dump("creer");
+            $nouveauPanier = new Panier();
+            $nouveauPanier->setDate($date);
+            $nouveauPanier->setIdSession($idSession);
+            $nouveauPanier->inserer();
+        }else{
+            var_dump("modifier");
+            $panier->setDate($date);
+            $panier->majPanier();
+        }
     }
 
     public static function getServeur(): string
@@ -90,7 +114,19 @@ class   App
             $nomAction = $_GET['action'];
         }
 
-        // Instantier le bon controleur et executer la bonne action
+        if (isset($_GET['id'])){
+            $id = (int) $_GET['id'];
+        }
+
+        if (isset($_GET['panier'])){
+            $idPanier = (int) $_GET['panier'];
+        }
+
+        if (isset($_GET['livre_id'])){
+            $id = (int) $_GET['livre_id'];
+        }
+
+        // Instancier le bon controleur et executer la bonne action
         if ($nomControleur === 'site') {
             $objControleur = new ControleurAccueil();
             switch ($nomAction) {
@@ -138,7 +174,33 @@ class   App
                 default:
                     echo 'Erreur 404 - Page introuvable.';
             }
-
+        }else if($nomControleur === 'panier'){
+            $objControleur = new ControleurPanier();
+            switch ($nomAction) {
+                case 'fiche':
+                    $objControleur->fiche($id);
+                    break;
+                default:
+                    echo 'Erreur 404 - Page introuvable.';
+            }
+        }else if($nomControleur === 'article'){
+            $objControleur = new ControleurArticle();
+            switch ($nomAction) {
+                case 'enregistrer':
+                    $objControleur->choisirAction($_COOKIE["PHPSESSID"]);
+                    break;
+                case 'creer':
+                    $objControleur->inserer($_COOKIE["PHPSESSID"]);
+                    break;
+                case 'mettreAJour':
+                    $objControleur->modifier($id, $_COOKIE["PHPSESSID"]);
+                    break;
+                case 'supprimer':
+                    $objControleur->supprimer($id, $idPanier);
+                    break;
+                default:
+                    echo 'Erreur 404 - Page introuvable.';
+            }
         }
 
     }
