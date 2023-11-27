@@ -17,6 +17,17 @@
       padding-right: 3em;
       padding-left: 3em;
     }
+    &__titre{
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: bold;
+      padding: 1.5em 0;
+      border-bottom: #000 solid 1.5px;
+      margin-bottom: 2em;
+    }
+    &__msgArticle{
+      text-align: center;
+    }
     //Article dans le panier
     .livreAjoute{
       display: unset;
@@ -32,12 +43,28 @@
         flex-wrap: wrap;
       }
       & .modificationArticle{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin-top: 1em;
         @media(min-width: 600px){
           flex: 1 0 100%;
         }
+        &__btnSouhait{
+          margin-top: 0;
+        }
+        & form{
+          margin-left: 1em;
+          & .supprimer{
+            margin-bottom: 0;
+          }
+        }
+        & .modifier{
+          margin-left: 1em;
+        }
       }
     }
-
   }
   //Partie Montant (Panier)
   .resumePanier{
@@ -103,4 +130,36 @@
 .borderSelection{
   border: $orange solid 1.3px;
   border-radius: 5px;
+}
+
+.ajoutMargin{
+  margin-left: 52px;
+}
+
+.modificationArticle__btnSouhait,
+.modificationArticle__btnSuppr,
+.modificationArticle__btnModif{
+  position: relative;
+
+  & .modaleLabel{
+    display: none;
+  }
+  &:hover .modaleLabel,
+  &:focus .modaleLabel{
+    display: unset;
+    position: absolute;
+    top: -2.5em;
+    left: 0;
+    background: $rouge;
+    color: #fff;
+    width: fit-content;
+    padding: 7px 7px;
+    border-radius: 5px;
+  }
+}
+.modificationArticle__btnSouhait{
+  &:hover .modaleLabel{
+    width: 10em;
+    z-index: 2;
+  }
 }

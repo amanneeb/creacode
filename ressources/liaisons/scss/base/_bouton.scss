@@ -20,6 +20,9 @@
     outline: $orange solid 2px;
     outline-offset: 2px;
   }
+  &:disabled{
+    background: rgba(198, 69, 50, 0.2);
+  }
 }
 
 .btnSecondaire {
@@ -41,6 +44,7 @@
     border: $rouge solid 5px;
     color: $rouge;
   }
+
 }
 
 .ajoutPanier__moins,
