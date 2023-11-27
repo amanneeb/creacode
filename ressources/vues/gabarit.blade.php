@@ -14,8 +14,8 @@
             <script defer src="liaisons/js/ajoutClasseSelectedGenre.js"></script>
         @elseif($_GET['controleur']==='artiste' && $_GET['action']==='index' )
             <title>Auteurs | La Pastèque </title>
-        <meta name="description"
-        content="Découvrez nos auteurs chez La Pastèque. Plongez dans des histoires variées, des plumes émergentes aux maîtres confirmés. Explorez la richesse littéraire de chaque écrivain. Votre prochaine lecture vous attend parmi nos pages d'auteurs. La Pastèque, votre destination littéraire incontournable. ">
+            <meta name="description"
+            content="Découvrez nos auteurs chez La Pastèque. Plongez dans des histoires variées, des plumes émergentes aux maîtres confirmés. Explorez la richesse littéraire de chaque écrivain. Votre prochaine lecture vous attend parmi nos pages d'auteurs. La Pastèque, votre destination littéraire incontournable. ">
             <script defer src="liaisons/js/affichage_grille_liste.js"></script>
         @elseif($_GET['controleur']==='livre' && $_GET['action']==='fiche' )
             <title> {{$lesLivres->getTitre()}} | Livres | La Pastèque </title>
@@ -32,6 +32,11 @@
             <meta name="description"
             content="Découvrez l'auteur {{$artistes->getPrenomNom()}}  chez La Pastèque. Explorez sa carrière littéraire, ses œuvres marquantes, et plongez dans l'univers captivant de sa plume. Des débuts prometteurs aux chef-d'œuvres incontournables, chaque page dévoile une histoire unique. Ajoutez l'essence de {{$artistes->getPrenomNom()}} à votre collection littéraire. ">
             <meta name="keywords" content="auteur, librairie, La Pastèque, {{$auteurs->getPrenom()}} {{$auteurs->getNom()}}">
+        @elseif($_GET['controleur']==='panier' && $_GET['action']==='fiche' )
+            <title> Votre panier | La Pastèque </title>
+            <meta name="description" content=" ">
+            <meta name="keywords" content="panier, librairie, La Pastèque">
+            <script defer src="liaisons/js/gestion_panier.js"></script>
         @endif
     @else
         <title>La Pastèque | Techniques d’intégration multimédia – Cégep de Sainte-Foy</title>
