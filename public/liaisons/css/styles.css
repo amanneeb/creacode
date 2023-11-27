@@ -268,18 +268,26 @@ header {
   flex-direction: row;
   justify-content: flex-end;
 }
-.buttons button {
+.buttons a {
   display: flex;
   flex-direction: row;
   border: solid #C64532 2px;
   border-radius: 5px;
   align-items: center;
 }
+.buttons a:hover {
+  text-decoration: none;
+}
 .buttons .compte {
+  transition: 0.4s;
   background-color: white;
   padding: 10px;
   margin-right: 10px;
   margin-left: 8px;
+}
+.buttons .compte:hover {
+  transition: 0.4s;
+  background-color: #fee3dd;
 }
 .buttons .compte .texteBtn {
   display: none;
@@ -287,15 +295,22 @@ header {
 @media (min-width: 800px) {
   .buttons .compte .texteBtn {
     display: flex;
+
     color: #C64532;
     font-weight: bold;
     margin-right: 4px;
+    font-weight: bold;
   }
 }
 .buttons .panier {
   background-color: #C64532;
+  transition: 0.4s;
   padding: 10px;
   margin-left: 10px;
+}
+.buttons .panier:hover {
+  transition: 0.4s;
+  background-color: #681c0f;
 }
 .buttons .panier .texteBtn {
   display: none;
