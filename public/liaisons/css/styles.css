@@ -248,7 +248,7 @@ header {
 .menu__logo {
   display: flex;
   margin: 40px auto 0 auto;
-  width: 400px;
+  width: 280px;
 }
 @media (min-width: 800px) {
   .menu__logo {
@@ -295,16 +295,14 @@ header {
 @media (min-width: 800px) {
   .buttons .compte .texteBtn {
     display: flex;
-
     color: #C64532;
-    font-weight: bold;
     margin-right: 4px;
     font-weight: bold;
   }
 }
 .buttons .panier {
-  background-color: #C64532;
   transition: 0.4s;
+  background-color: #C64532;
   padding: 10px;
   margin-left: 10px;
 }
@@ -329,7 +327,7 @@ header {
   width: 300px;
   left: 50%;
   margin-left: -150px;
-  top: 220px;
+  top: 250px;
 }
 @media (min-width: 800px) {
   .barRecherche {
@@ -442,7 +440,12 @@ h2 {
 }
 
 .h2Accueil {
-  font-size: 4rem;
+  font-size: 3rem;
+}
+@media (min-width: 600px) {
+  .h2Accueil {
+    font-size: 4rem;
+  }
 }
 
 .h2Compte {
@@ -1570,15 +1573,30 @@ body {
 }
 
 .actualites .underline {
-  width: 370px;
+  width: 280px;
+}
+@media (min-width: 600px) {
+  .actualites .underline {
+    width: 370px;
+  }
 }
 
 .lancement .underline {
-  width: 390px;
+  width: 395px;
+}
+@media (min-width: 600px) {
+  .lancement .underline {
+    width: 390px;
+  }
 }
 
 .evenements .underline {
-  width: 400px;
+  width: 305px;
+}
+@media (min-width: 600px) {
+  .evenements .underline {
+    width: 400px;
+  }
 }
 
 .AParaitre h2,
@@ -1639,11 +1657,21 @@ body {
 }
 
 .AParaitre .underline {
-  width: 350px;
+  width: 265px;
+}
+@media (min-width: 600px) {
+  .AParaitre .underline {
+    width: 350px;
+  }
 }
 
 .nouveautes .underline {
-  width: 410px;
+  width: 305px;
+}
+@media (min-width: 600px) {
+  .nouveautes .underline {
+    width: 410px;
+  }
 }
 
 .conteneur_formulaire {
@@ -1669,6 +1697,24 @@ body {
 .conteneur_formulaire button,
 .conteneur_formulaire p {
   margin-bottom: 1rem;
+}
+
+.form_creation {
+  margin-top: 40px;
+}
+.form_creation h2 {
+  margin: 20px auto;
+}
+.form_creation form {
+  margin: auto;
+}
+.form_creation form .btnPrimaire {
+  display: flex;
+  align-items: center;
+  margin: 12px auto 30px auto;
+}
+.form_creation .lien_creation {
+  margin: auto;
 }
 
 /*# sourceMappingURL=styles.css.map */

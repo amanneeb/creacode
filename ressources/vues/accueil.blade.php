@@ -167,7 +167,9 @@
 <!--
 * Border around books DONE
 * Images
-* links for "see all" and books
+* links for "see all" and books DONE
+* thumbnail books
+* css account
 *
 
 

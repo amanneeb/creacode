@@ -35,13 +35,13 @@ class   App
         $panier = Panier::trouverParIdSession($idSession);
 
         if($panier == false){
-            var_dump("creer");
+//            var_dump("creer");
             $nouveauPanier = new Panier();
             $nouveauPanier->setDate($date);
             $nouveauPanier->setIdSession($idSession);
             $nouveauPanier->inserer();
         }else{
-            var_dump("modifier");
+//            var_dump("modifier");
             $panier->setDate($date);
             $panier->majPanier();
         }

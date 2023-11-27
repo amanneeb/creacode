@@ -1,0 +1,18 @@
+.form_creation{
+  margin-top: 40px;
+  h2{
+    margin:20px auto
+  }
+  form {
+    margin: auto;
+    .btnPrimaire{
+      display: flex;
+      align-items: center;
+      margin:12px auto 30px auto;
+    }
+  }
+
+  .lien_creation{
+    margin:auto;
+  }
+}
