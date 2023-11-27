@@ -169,10 +169,10 @@
 .typeInfos__input + label {
   display: block;
   background: #fff;
-  color: #c64532;
+  color: #C64532;
   font-weight: bold;
   padding: 1em 2em;
-  border: #c64532 solid 2px;
+  border: #C64532 solid 2px;
   border-bottom: none;
   align-self: stretch;
 }
@@ -184,7 +184,7 @@
   border-right: #681c0f solid 2px;
 }
 .typeInfos__input + label:active {
-  outline: #c64532 solid 2px;
+  outline: #C64532 solid 2px;
 }
 @media (min-width: 450px) {
   .typeInfos__input + label {
@@ -206,14 +206,14 @@
   }
 }
 .typeInfos__input:checked + label {
-  background: #c64532;
+  background: #C64532;
   color: #fff;
 }
 
 .visioInfo {
   margin-top: 0;
   background: white;
-  border: #c64532 solid 2px;
+  border: #C64532 solid 2px;
   padding-left: 0.8em;
   padding-right: 0.4em;
 }
@@ -268,18 +268,26 @@ header {
   flex-direction: row;
   justify-content: flex-end;
 }
-.buttons button {
+.buttons a {
   display: flex;
   flex-direction: row;
-  border: solid #c64532 2px;
+  border: solid #C64532 2px;
   border-radius: 5px;
   align-items: center;
 }
+.buttons a:hover {
+  text-decoration: none;
+}
 .buttons .compte {
+  transition: 0.4s;
   background-color: white;
   padding: 10px;
   margin-right: 10px;
   margin-left: 8px;
+}
+.buttons .compte:hover {
+  transition: 0.4s;
+  background-color: #fee3dd;
 }
 .buttons .compte .texteBtn {
   display: none;
@@ -287,15 +295,22 @@ header {
 @media (min-width: 800px) {
   .buttons .compte .texteBtn {
     display: flex;
-    color: #c64532;
+
+    color: #C64532;
     font-weight: bold;
     margin-right: 4px;
+    font-weight: bold;
   }
 }
 .buttons .panier {
-  background-color: #c64532;
+  background-color: #C64532;
+  transition: 0.4s;
   padding: 10px;
   margin-left: 10px;
+}
+.buttons .panier:hover {
+  transition: 0.4s;
+  background-color: #681c0f;
 }
 .buttons .panier .texteBtn {
   display: none;
@@ -371,20 +386,20 @@ a:link {
   text-decoration: none;
 }
 a:visited {
-  color: #c64532;
+  color: #C64532;
   text-decoration: none;
 }
 a:hover {
-  color: #c64532;
+  color: #C64532;
   text-decoration: underline;
 }
 a:focus {
-  color: #c64532;
+  color: #C64532;
   text-decoration: underline;
-  border: 2px solid #c64532;
+  border: 2px solid #C64532;
 }
 a:active {
-  color: #c64532;
+  color: #C64532;
   text-decoration: underline;
 }
 
@@ -430,6 +445,16 @@ h2 {
   font-size: 4rem;
 }
 
+.h2Compte {
+  font-family: "Poppins", sans-serif;
+  font-size: 2.4rem;
+}
+@media (min-width: 800px) {
+  .h2Compte {
+    font-size: 3rem;
+  }
+}
+
 h3 {
   font-weight: bold;
   font-size: 1.125rem;
@@ -442,7 +467,7 @@ h3 {
 }
 
 *:focus {
-  outline: 2px solid #c64532; /* Ajoute une bordure bleue autour de tous les éléments au focus */
+  outline: 2px solid #C64532; /* Ajoute une bordure bleue autour de tous les éléments au focus */
 }
 
 /**
@@ -450,10 +475,10 @@ h3 {
 * @todo Compléter selon l'énoncé de l'exercice
 */
 .hyperlien {
-  color: #c64532;
+  color: #C64532;
 }
 .hyperlien:visited {
-  color: #c64532;
+  color: #C64532;
 }
 .hyperlien:hover {
   color: #681c0f;
@@ -474,7 +499,7 @@ h3 {
 * @todo Compléter selon l'énoncé de l'exercice
 */
 .btnPrimaire {
-  background: #c64532;
+  background: #C64532;
   color: #fff;
   font-weight: bold;
   border: none;
@@ -487,16 +512,19 @@ h3 {
 }
 .btnPrimaire:focus {
   background: #681c0f;
-  outline: #c64532 solid 2px;
+  outline: #C64532 solid 2px;
   outline-offset: 2px;
+}
+.btnPrimaire:disabled {
+  background: rgba(198, 69, 50, 0.2);
 }
 
 .btnSecondaire {
   background: #fff;
-  color: #c64532;
+  color: #C64532;
   font-weight: bold;
   border-radius: 5px;
-  border: #c64532 solid 3px;
+  border: #C64532 solid 3px;
   padding: 10px 20px;
   height: 44px;
 }
@@ -505,7 +533,7 @@ h3 {
   color: #681c0f;
 }
 .btnSecondaire:focus {
-  outline: #c64532 solid 5px;
+  outline: #C64532 solid 5px;
   outline-offset: 3px;
   border: #681c0f solid 5px;
   color: #681c0f;
@@ -603,7 +631,7 @@ h3 {
 .navMobile #menuToggle input:checked ~ span {
   opacity: 1;
   transform: rotate(45deg) translate(-2px, -1px);
-  background: #c64532;
+  background: #C64532;
 }
 .navMobile #menuToggle input:checked ~ span:nth-last-child(3) {
   opacity: 0;
@@ -664,10 +692,10 @@ input {
   border-radius: 5px;
 }
 input:hover {
-  border: solid #c64532 3px;
+  border: solid #C64532 3px;
 }
 input:focus {
-  border: solid #c64532 1px;
+  border: solid #C64532 1px;
 }
 
 .liste-livres__tri-option {
@@ -676,8 +704,8 @@ input:focus {
   margin: 0.5em 1em 0 0;
   padding: 10px 20px;
   background-color: white;
-  color: #c64532;
-  border: 2px solid #c64532;
+  color: #C64532;
+  border: 2px solid #C64532;
   border-radius: 5px;
   width: auto;
   text-decoration: none;
@@ -688,7 +716,7 @@ input:focus {
   color: #681c0f;
 }
 .liste-livres__tri-option:active, .liste-livres__tri-option.active {
-  background-color: #c64532;
+  background-color: #C64532;
   color: white;
 }
 .liste-livres__tri-option:focus {
@@ -697,7 +725,7 @@ input:focus {
 }
 
 .liste-livres__tri-option.selected {
-  background-color: #c64532;
+  background-color: #C64532;
   color: white;
 }
 
@@ -722,8 +750,8 @@ input:focus {
   margin: 5px;
   padding: 10px 20px;
   background-color: white;
-  color: #c64532;
-  border: 2px solid #c64532;
+  color: #C64532;
+  border: 2px solid #C64532;
   border-radius: 5px;
   width: auto;
 }
@@ -732,7 +760,7 @@ input:focus {
   color: #681c0f;
 }
 .btn:active, .btn.active {
-  background-color: #c64532;
+  background-color: #C64532;
   color: white;
 }
 .btn:focus {
@@ -740,7 +768,7 @@ input:focus {
   color: #681c0f;
 }
 .btn.actif {
-  background-color: #c64532;
+  background-color: #C64532;
   color: white;
 }
 
@@ -763,6 +791,178 @@ input:focus {
   animation: ease-in;
   animation-duration: 1s;
   animation-direction: normal;
+}
+
+.panierTitre {
+  text-align: right;
+}
+
+.mainPanier {
+  display: unset;
+}
+@media (min-width: 1000px) {
+  .mainPanier {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}
+.mainPanier .sectionPanier {
+  margin: 1em 1em;
+  background-color: #fff;
+  border: black solid 1px;
+}
+@media (min-width: 600px) {
+  .mainPanier .sectionPanier {
+    padding-right: 3em;
+    padding-left: 3em;
+  }
+}
+.mainPanier .sectionPanier__titre {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 1.5em 0;
+  border-bottom: #000 solid 1.5px;
+  margin-bottom: 2em;
+}
+.mainPanier .sectionPanier__msgArticle {
+  text-align: center;
+}
+.mainPanier .sectionPanier .livreAjoute {
+  display: unset;
+  padding: 1.5em 0.8em;
+  margin-top: 0.7em;
+  margin-bottom: 0.7em;
+  border-bottom: #681c0f 1.5px solid;
+}
+@media (min-width: 600px) {
+  .mainPanier .sectionPanier .livreAjoute {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+  }
+}
+.mainPanier .sectionPanier .livreAjoute .modificationArticle {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 1em;
+}
+@media (min-width: 600px) {
+  .mainPanier .sectionPanier .livreAjoute .modificationArticle {
+    flex: 1 0 100%;
+  }
+}
+.mainPanier .sectionPanier .livreAjoute .modificationArticle__btnSouhait {
+  margin-top: 0;
+}
+.mainPanier .sectionPanier .livreAjoute .modificationArticle form {
+  margin-left: 1em;
+}
+.mainPanier .sectionPanier .livreAjoute .modificationArticle form .supprimer {
+  margin-bottom: 0;
+}
+.mainPanier .sectionPanier .livreAjoute .modificationArticle .modifier {
+  margin-left: 1em;
+}
+.mainPanier .resumePanier {
+  border: solid black 1px;
+  width: fit-content;
+  padding: 1em 0.5em;
+  background: #fff;
+  margin: 1em 1em;
+}
+@media (min-width: 800px) {
+  .mainPanier .resumePanier {
+    margin-right: 1em;
+  }
+}
+.mainPanier .resumePanier fieldset {
+  border: none;
+}
+.mainPanier .resumePanier fieldset input {
+  border: none;
+  background: transparent;
+  font-size: 1rem;
+}
+.mainPanier .resumePanier fieldset input:focus {
+  border: none;
+}
+.mainPanier .resumePanier__titre {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 1.5em 0;
+  border-bottom: #000 solid 1.5px;
+  margin-bottom: 2em;
+}
+.mainPanier .resumePanier .total__label,
+.mainPanier .resumePanier .total__input {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 2em;
+}
+.mainPanier .resumePanier .livraison__details {
+  font-size: 0.7em;
+}
+
+.ajoutPanier__nbLivre {
+  display: inline-block;
+  height: 44px;
+  width: 44px;
+  text-align: center;
+  border: black 1.5px solid;
+  border-radius: 5px;
+  line-height: 2.7em;
+  background: white;
+}
+.ajoutPanier__moins, .ajoutPanier__plus, .ajoutPanier__btnPanier, .ajoutPanier__btnSouhait {
+  margin: 0.5em 0;
+}
+
+.borderSelection {
+  border: #C64532 solid 1.3px;
+  border-radius: 5px;
+}
+
+.ajoutMargin {
+  margin-left: 52px;
+}
+
+.modificationArticle__btnSouhait,
+.modificationArticle__btnSuppr,
+.modificationArticle__btnModif {
+  position: relative;
+}
+.modificationArticle__btnSouhait .modaleLabel,
+.modificationArticle__btnSuppr .modaleLabel,
+.modificationArticle__btnModif .modaleLabel {
+  display: none;
+}
+.modificationArticle__btnSouhait:hover .modaleLabel, .modificationArticle__btnSouhait:focus .modaleLabel,
+.modificationArticle__btnSuppr:hover .modaleLabel,
+.modificationArticle__btnSuppr:focus .modaleLabel,
+.modificationArticle__btnModif:hover .modaleLabel,
+.modificationArticle__btnModif:focus .modaleLabel {
+  display: unset;
+  position: absolute;
+  top: -2.5em;
+  left: 0;
+  background: #681c0f;
+  color: #fff;
+  width: fit-content;
+  padding: 7px 7px;
+  border-radius: 5px;
+}
+
+.modificationArticle__btnSouhait:hover .modaleLabel {
+  width: 10em;
+  z-index: 2;
 }
 
 .livresSimilaires {
@@ -824,7 +1024,7 @@ input:focus {
 
 .liste-livres__tri {
   background-color: white;
-  border: 2px solid #c64532;
+  border: 2px solid #C64532;
   border-radius: 5px;
   color: #681c0f;
   width: auto;
@@ -1129,10 +1329,10 @@ html {
 .typeInfos__input + label {
   display: block;
   background: #fff;
-  color: #c64532;
+  color: #C64532;
   font-weight: bold;
   padding: 1em 2em;
-  border: #c64532 solid 2px;
+  border: #C64532 solid 2px;
   border-bottom: none;
   align-self: stretch;
 }
@@ -1144,7 +1344,7 @@ html {
   border-right: #681c0f solid 2px;
 }
 .typeInfos__input + label:active {
-  outline: #c64532 solid 2px;
+  outline: #C64532 solid 2px;
 }
 @media (min-width: 450px) {
   .typeInfos__input + label {
@@ -1166,14 +1366,14 @@ html {
   }
 }
 .typeInfos__input:checked + label {
-  background: #c64532;
+  background: #C64532;
   color: #fff;
 }
 
 .visioInfo {
   margin-top: 0;
   background: white;
-  border: #c64532 solid 2px;
+  border: #C64532 solid 2px;
   padding-left: 0.8em;
   padding-right: 0.4em;
 }
@@ -1242,6 +1442,24 @@ main {
   align-items: flex-start;
   flex-wrap: wrap;
   width: 100%;
+  /*.ajoutPanier{
+    &__nbLivre{
+      display: inline-block;
+      height: 44px;
+      width: 44px;
+      text-align: center;
+      border: black 1.5px solid;
+      border-radius: 5px;
+      line-height: 2.7em;
+      background: white;
+    }
+    &__moins,
+    &__plus,
+    &__btnPanier,
+    &__btnSouhait{
+      margin: .5em 0;
+    }
+  }*/
 }
 @media (min-width: 700px) {
   .ctnPage .infoPrincipal .ctnInfoPanier {
@@ -1268,14 +1486,14 @@ main {
 }
 .ctnPage .infoPrincipal .ctnInfoPanier .livrePanier__auteurLien:hover {
   text-decoration: underline;
-  color: #c64532;
+  color: #C64532;
 }
 .ctnPage .infoPrincipal .ctnInfoPanier .livrePanier__prixCan {
   font-size: 1.3em;
   font-weight: bold;
 }
 .ctnPage .infoPrincipal .ctnInfoPanier .livrePanier__theme {
-  background: #c64532;
+  background: #C64532;
   color: #f8f1d7;
   text-transform: uppercase;
   font-weight: bold;
@@ -1285,19 +1503,6 @@ main {
   .ctnPage .infoPrincipal .ctnInfoPanier .livrePanier__theme {
     margin-top: 0;
   }
-}
-.ctnPage .infoPrincipal .ctnInfoPanier .ajoutPanier__nbLivre {
-  display: inline-block;
-  height: 44px;
-  width: 44px;
-  text-align: center;
-  border: black 1.5px solid;
-  border-radius: 5px;
-  line-height: 2.7em;
-  background: white;
-}
-.ctnPage .infoPrincipal .ctnInfoPanier .ajoutPanier__moins, .ctnPage .infoPrincipal .ctnInfoPanier .ajoutPanier__plus, .ctnPage .infoPrincipal .ctnInfoPanier .ajoutPanier__btnPanier, .ctnPage .infoPrincipal .ctnInfoPanier .ajoutPanier__btnSouhait {
-  margin: 0.5em 0;
 }
 .ctnPage .ctnVisioExtraits {
   margin-top: 1em;
@@ -1419,7 +1624,7 @@ main .ctnPage .ctnAuteur .ctnImgLien .ctnImg__img {
 }
 main .ctnPage .ctnAuteur .ctnAuteurBio {
   background: white;
-  border: #c64532 solid 2px;
+  border: #C64532 solid 2px;
   border-radius: 5px;
   max-width: 700px;
   padding-left: 0.8em;

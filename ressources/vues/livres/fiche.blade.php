@@ -13,26 +13,26 @@
                     <img class="ctnImg__img" src="./liaisons/images/livres/{{$lesLivres->getCategorie_id()}}/{{$lesLivres->getIsbn_papier()}}_w980.jpg" alt="couverture {{$lesLivres->getTitre()}}" width="400px">
                 </div>
                 <div class="ctnVisioExtraits">
-                    @if(file_exists("./liaisons/images/livres/extraits/{$lesLivres->getCategorie_id()}/{$lesLivres->getIsbn_papier()}_001_w135.png") || file_exists("./liaisons/images/livres/extraits/{$lesLivres->getCategorie_id()}/{$lesLivres->getIsbn_papier()}_001_w135.jpg"))
+                    @if(file_exists("./liaisons/images/livres/{$lesLivres->getCategorie_id()}/{$lesLivres->getIsbn_papier()}_001_w135.png") || file_exists("./liaisons/images/livres/{$lesLivres->getCategorie_id()}/{$lesLivres->getIsbn_papier()}_001_w135.jpg"))
                         @for($cpt = 1; $cpt<=3; $cpt++)
-                            <img class="ctnVisioExtraits__img " src="./liaisons/images/livres/extraits/{{$lesLivres->getCategorie_id()}}/{{$lesLivres->getIsbn_papier()}}_00{{$cpt}}_w980.png" alt="couverture {{$lesLivres->getTitre()}}">
+                            <img class="ctnVisioExtraits__img " src="./liaisons/images/livres/{{$lesLivres->getCategorie_id()}}/{{$lesLivres->getIsbn_papier()}}_00{{$cpt}}_w980.png" alt="couverture {{$lesLivres->getTitre()}}">
                         @endfor
                     @endif
                     <section class="ctnModale cache">
-                        <button class="ctnModale__btn" height="20px"><img src="./liaisons/images/fermer.svg" width="20px"></button>
+                        <button class="ctnModale__btn btnPrimaire" height="20px"><img src="./liaisons/images/fermer.svg" width="20px"></button>
 
                         <img class="ctnModale__img" src="./liaisons/images/livres/{{$lesLivres->getCategorie_id()}}/{{$lesLivres->getIsbn_papier()}}_w980.png" alt="couverture {{$lesLivres->getTitre()}}" width="300px">
                         <section class="ctnVisionneuse">
-                            <button type="button" class="ctnVisionneuse__precedent"><img src="./liaisons/images/precedent.svg"></button>
+                            <button type="button" class="ctnVisionneuse__precedent btnPrimaire"><img src="./liaisons/images/precedent.svg"></button>
                             <ul class="ctnVisionneuse__liste" >
-                                <li class="ctnVisionneuse__item"><img class="ctnVisionneuse__img" src="./liaisons/images/livres/{{$lesLivres->getCategorie_id()}}/{{$lesLivres->getIsbn_papier()}}_w980.jpg" alt="couverture {{$lesLivres->getTitre()}}"></li>
+                                <li class="ctnVisionneuse__item"><img id="0" class="ctnVisionneuse__img" src="./liaisons/images/livres/{{$lesLivres->getCategorie_id()}}/{{$lesLivres->getIsbn_papier()}}_w980.jpg" alt="couverture {{$lesLivres->getTitre()}}"></li>
                                 @for($cpt = 1; $cpt<=3; $cpt++)
-                                    <li class="ctnVisionneuse__item" id="{{$cpt}}">
-                                        <img class="ctnVisionneuse__img " src="./liaisons/images/livres/extraits/{{$lesLivres->getCategorie_id()}}/{{$lesLivres->getIsbn_papier()}}_00{{$cpt}}_w980.png" alt="couverture {{$lesLivres->getTitre()}}">
+                                    <li class="ctnVisionneuse__item" >
+                                        <img id="{{$cpt}}" class="ctnVisionneuse__img" src="./liaisons/images/livres/{{$lesLivres->getCategorie_id()}}/{{$lesLivres->getIsbn_papier()}}_00{{$cpt}}_w980.png" alt="couverture {{$lesLivres->getTitre()}}">
                                     </li>
                                 @endfor
                             </ul>
-                            <button type="button" class="ctnVisionneuse__suivant"><img src="./liaisons/images/suivant.svg"></button>
+                            <button type="button" class="ctnVisionneuse__suivant btnPrimaire"><img src="./liaisons/images/suivant.svg"></button>
                         </section>
 
                     </section>
@@ -47,7 +47,7 @@
                     <p class="livrePanier__theme">{{$lesLivres->getCategorieAssociee()->getNom()}}</p>
                     <h3 class="livrePanier__auteur">
                         @foreach($lesLivres->getLivresAuteursAssocies() as $auteurs)
-                            <a class="livrePanier__auteurLien" href="index.php?controleur=artiste&action=fiche&idArtiste={{$auteurs->getAuteurAssocie()->getId()}}">{{$auteurs->getAuteurAssocie()->getPrenom()." ". $auteurs->getAuteurAssocie()->getNom()}}</a><br>
+                            <a class="livrePanier__auteurLien" href="index.php?controleur=artiste&action=fiche&idAuteur={{$auteurs->getAuteurAssocie()->getId()}}">{{$auteurs->getAuteurAssocie()->getPrenom()." ". $auteurs->getAuteurAssocie()->getNom()}}</a><br>
                         @endforeach
                     </h3>
                     <p class="livrePanier__audio">ISBN: <span class="livrePanier__isbnSpan">{{$lesLivres->getIsbn_papier()}}</span></p>
@@ -63,13 +63,14 @@
                     <p class="livrePanier__prixCan"><span class="livrePanier__SpanPrixCan">{{$lesLivres->getPrix_can()}}</span>$</p>
                     <p class="livrePanier__prixFr"><span class="livrePanier__SpanPrixFr">{{$lesLivres->getPrix_euro()}}</span>€</p>
                 </div>
-                <div class="ajoutPanier">
-                    <input class="ajoutPanier__moins btnPrimaire" type="button" name="nbLivres" id="moins" value="-">
-                    <span class="ajoutPanier__nbLivre">1</span>
-                    <input class="ajoutPanier__plus btnPrimaire" type="button" name="nbLivres" id="plus" value="+"><br>
-                    <button class="ajoutPanier__btnPanier btnPrimaire" type="button" name="ajoutPanier" id="ajoutPanier"><i class="fa-solid fa-cart-shopping fa-lg" style="color: #ffffff;"></i> Ajouter au panier</button><br>
-                    <button class="ajoutPanier__btnSouhait btnSecondaire" type="button" name="ajoutSouhait" id="ajoutSouhait"><i class="fa-solid fa-heart fa-lg" style="color: #c64542;"></i> Ajouter à ma liste</button>
-                </div>
+                <form class="ajoutPanier" method="POST" action="index.php?controleur=article&action=enregistrer">
+                    <input name="livre_id" value="{{$lesLivres->getId()}}" hidden>
+                    <input class="ajoutPanier__moins btnPrimaire" type="button" id="moins" value="-">
+                    <input class="ajoutPanier__nbLivre" name="quantite" value="1">
+                    <input class="ajoutPanier__plus btnPrimaire" type="button" id="plus" value="+"><br>
+                    <button class="ajoutPanier__btnPanier btnPrimaire" type="submit" id="ajoutPanier"><i class="fa-solid fa-cart-shopping fa-lg" style="color: #ffffff;"></i>Ajouter au panier</button><br>
+                    <button class="ajoutPanier__btnSouhait btnSecondaire" type="submit" name="ajoutSouhait" id="ajoutSouhait"><i class="fa-solid fa-heart fa-lg" style="color: #c64542;"></i>Ajouter à ma liste</button>
+                </form>
             </div>
         </section>
         <section class="infoSupplementaires">

@@ -37,26 +37,35 @@ header{
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  button{
+  a{
     display: flex;
     flex-direction: row;
     border: solid $orange 2px;
     border-radius: 5px;
    align-items: center;
+    &:hover{
+      text-decoration: none;
+    }
+
     }
   .compte {
+    transition: 0.4s;
     background-color: white;
     padding:10px;
     margin-right: 10px;
     margin-left: 8px;
+    &:hover{
+      transition: 0.4s;
+      background-color: #fee3dd;
+    }
     .texteBtn{
       display:none;
       @media (min-width: 800px) {
         display:flex;
         color: $orange;
-        font-weight: bold;
         margin-right:4px;
         //font-size: 1.2rem;
+        font-weight: bold;
       }
       //@media (min-width: 1000px) {
       //  font-size: 1.6rem;
@@ -64,9 +73,14 @@ header{
     }
   }
   .panier{
+    transition: 0.4s;
     background-color: $orange;
     padding:10px;
     margin-left: 10px;
+    &:hover{
+      transition: 0.4s;
+      background-color: $rouge;
+    }
     .texteBtn{
       display:none;
       @media (min-width: 800px) {
