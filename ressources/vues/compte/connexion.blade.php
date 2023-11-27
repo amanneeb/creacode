@@ -1,6 +1,7 @@
 @extends('gabarit')
 
 @section('contenu')
+
     <div class="conteneur conteneur_formulaire form_creation" id="contenu">
         <h2 class="h2Compte">Connexion</h2>
         <form action="index.php" method="post">
