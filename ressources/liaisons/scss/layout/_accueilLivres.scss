@@ -9,6 +9,7 @@
     display: block;
     height: 5px;
     background-color: $vert;
+
   }
 
   .voirTout{
@@ -49,12 +50,18 @@
 
 .AParaitre{
   .underline{
-    width:350px ;
+    width:265px ;
+    @media (min-width: 600px) {
+      width: 350px;
+    }
   }
 }
 
 .nouveautes{
   .underline{
-    width: 410px ;
+    width: 305px ;
+    @media (min-width: 600px) {
+      width: 410px;
+    }
   }
 }
