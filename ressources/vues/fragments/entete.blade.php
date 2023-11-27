@@ -33,7 +33,6 @@
         <span class="span_menuHamburger"></span>
         <span class="span_menuHamburger"></span>
 <ul id="menu" class="menu_list">
-{{--    <li><a href="index.php?controleur=site&action=accueil">Accueil</a></li>--}}
     <li><a href="index.php?controleur=livre&action=index">Livres</a></li>
     <li><a href="index.php?controleur=artiste&action=index">Auteurs</a></li>
     <li><a href="">Galerie/Boutique</a></li>

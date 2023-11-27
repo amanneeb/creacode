@@ -50,7 +50,7 @@ class ControleurArtistes
     public function fiche()
     {
         $filAriane=FilAriane::majFilArianne();
-        $idArtiste = (int)$_GET['idArtiste'];
+        $idArtiste = (int)$_GET['idAuteur'];
         $idSuivant = $idArtiste + 1;
         $idPrecedent = $idArtiste - 1;
         $artistes = Auteur::trouverParId($idArtiste);

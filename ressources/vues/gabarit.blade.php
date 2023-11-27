@@ -24,6 +24,7 @@
             <script defer src="liaisons/js/onglets.js"></script>
             <script defer src="liaisons/js/ajoutPanier.js"></script>
             <script defer src="liaisons/js/modaleLivre.js"></script>
+            <script defer src="liaisons/js/animPanier.js"></script>
         @elseif($_GET['controleur']==='artiste' && $_GET['action']==='fiche' )
             <meta name="description"
             content="Découvrez l'auteur {{$artistes->getPrenomNom()}}  chez La Pastèque. Explorez sa carrière littéraire, ses œuvres marquantes, et plongez dans l'univers captivant de sa plume. Des débuts prometteurs aux chef-d'œuvres incontournables, chaque page dévoile une histoire unique. Ajoutez l'essence de {{$artistes->getPrenomNom()}} à votre collection littéraire. ">

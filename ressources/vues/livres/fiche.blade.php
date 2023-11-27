@@ -67,8 +67,8 @@
                     <input class="ajoutPanier__moins btnPrimaire" type="button" name="nbLivres" id="moins" value="-">
                     <span class="ajoutPanier__nbLivre">1</span>
                     <input class="ajoutPanier__plus btnPrimaire" type="button" name="nbLivres" id="plus" value="+"><br>
-                    <button class="ajoutPanier__btnPanier btnPrimaire" type="button" name="ajoutPanier" id="ajoutPanier"><!--<span><img class="ctnImg__img" src="./liaisons/images/cart.svg" alt="" width="30px"></span>-->Ajouter au panier</button><br>
-                    <button class="ajoutPanier__btnSouhait btnSecondaire" type="button" name="ajoutSouhait" id="ajoutSouhait"><!--<span><img class="ctnImg__img" src="./liaisons/images/coeur_vide.svg" alt="" width="30px"></span>-->Ajouter à ma liste</button>
+                    <button class="ajoutPanier__btnPanier btnPrimaire" type="button" name="ajoutPanier" id="ajoutPanier"><i class="fa-solid fa-cart-shopping fa-lg" style="color: #ffffff;"></i> Ajouter au panier</button><br>
+                    <button class="ajoutPanier__btnSouhait btnSecondaire" type="button" name="ajoutSouhait" id="ajoutSouhait"><i class="fa-solid fa-heart fa-lg" style="color: #c64542;"></i> Ajouter à ma liste</button>
                 </div>
             </div>
         </section>

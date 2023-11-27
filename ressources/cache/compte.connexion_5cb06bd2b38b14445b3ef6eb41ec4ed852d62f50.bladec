@@ -2,7 +2,7 @@
 
 <?php $this->startSection('contenu'); ?>
  <div class="conteneur conteneur_formulaire" id="contenu">
- <h2 class="h2reduit">Connexion</h2>
+ <h2 class="h2compte">Connexion</h2>
  <form action="index.php" method="post">
  <label for="email">Adresse E-Mail:</label>
  <input type="email" id="email" name="email" required><br>
