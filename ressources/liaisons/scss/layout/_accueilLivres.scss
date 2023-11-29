@@ -37,7 +37,10 @@
 
     .imgLivre{
       margin: auto;
-      width: 150px;
+      width: 80px;
+      @media (min-width: 450px) {
+        width: 150px;
+      }
       @media (min-width: 800px) {
         width: 200px;
       }

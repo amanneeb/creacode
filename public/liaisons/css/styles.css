@@ -1,20 +1,22 @@
-@charset "UTF-8";
-/**
-* @author Prenom Nom courriel
-* @todo Importer la fonte Futura
-* @todo Personnaliser les variables selon les spécifications du guide visuel
-*       Certaines variables devront être définies par une fonction de coloration
-* @todo Compléter selon l'énoncé de l'exercice
-* @todo Utiliser le sélecteur & pour les sélecteurs des différentes couleurs
-*/
-/** Polices de caractères **/
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;1,400;1,700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;1,400;1,700&display=swap");
-@font-face {
-  font-family: "WonderSeason";
-  src: url(../police/wonderseason.ttf) format("truetype");
+/* Error: expected "}".
+ *     ,
+ * 425 | }
+ *     |  ^
+ *     '
+ *   ressources\liaisons\scss\modules\_ajoutPanier.scss 425:2  @import
+ *   ressources\liaisons\scss\styles.scss 24:9                 root stylesheet */
+
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: 'Error: expected "}".\a     \2577 \a 425 \2502  }\d\a     \2502   ^\a     \2575 \a   ressources\\liaisons\\scss\\modules\\_ajoutPanier.scss 425:2  @import\a   ressources\\liaisons\\scss\\styles.scss 24:9                 root stylesheet';
 }
+
 /** Palette de couleurs **/
 /* Couleurs de base */
 /** Points de rupture **/
