@@ -38,6 +38,8 @@
             <meta name="description" content=" ">
             <meta name="keywords" content="panier, librairie, La Pastèque">
             <script defer src="liaisons/js/gestion_panier.js"></script>
+        @elseif($_GET['controleur']==='panier' && $_GET['action']==='transaction' )
+            <script defer src="liaisons/js/formulaireTransaction.js"></script>
         @endif
     @else
         <title>La Pastèque | Techniques d’intégration multimédia – Cégep de Sainte-Foy</title>
@@ -47,7 +49,7 @@
     <script defer src="liaisons/js/menu.js"></script>
     <link rel="stylesheet" href="liaisons/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-
+    <link rel="icon" type="image/png" href="liaisons/images/favicon-32x32.png">
 </head>
 <body>
 <header role="banner">

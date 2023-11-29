@@ -273,7 +273,7 @@ class Livre
         //Bind
         $requetePreparee = App::getPDO()->prepare($chaineSQL);
         $requetePreparee->bindParam(":idCategorie", $intId, PDO::PARAM_INT);
-        $requetePreparee->setFetchMode(PDO::FETCH_CLASS, "App\Modeles\Categories");
+        $requetePreparee->setFetchMode(PDO::FETCH_CLASS, "App\Modeles\Livre");
         $requetePreparee->execute();
         $categorie = $requetePreparee->fetchAll();
 
