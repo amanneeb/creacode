@@ -1,8 +1,7 @@
 @extends('gabarit')
 @section('contenu')
-        <h2 class="panierTitre">Panier</h2>
-    <div class="mainPanier">
-
+        <h2 class="h2Compte">Panier</h2>
+    <div class="mainPanier conteneur" id="contenu">
         <section class="sectionPanier conteneur_formulaire">
             <h3 class="sectionPanier__titre">Votre panier</h3>
             <p class="sectionPanier__msgArticle"></p>
@@ -52,7 +51,7 @@
                 </section>
         @endforeach
         </section>
-        <form class="resumePanier conteneur_formulaire" action="" method="GET">
+        <form class="resumePanier conteneur_formulaire" action="index.php?controleur=panier&action=transaction" method="GET">
             <h3 class="resumePanier__titre">Résumé de la commande</h3>
             <fieldset class="sous-total">
                 <label class="sous-total__label" for="sous-total">Sous-total: </label>
@@ -79,7 +78,7 @@
                 <label class="total__label" for="total">Total: </label>
                 <input class="total__input" type="text" name="total" id="total" value="" readonly><br>
             </fieldset>
-            <button class="resumePanier__btnSubmit btnPrimaire" type="button">Passer à la caisse</button>
+            <button class="resumePanier__btnSubmit btnPrimaire" type="submit" >Passer à la caisse</button>
         </form>
     </div>
 

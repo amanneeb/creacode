@@ -31,7 +31,7 @@ class   App
         session_start();
         $idSession = session_id();
         $date = time();
-        echo "id_session: ".$idSession." <br> date (unix): ".$date;
+//        echo "id_session: ".$idSession." <br> date (unix): ".$date;
         $panier = Panier::trouverParIdSession($idSession);
 
         if($panier == false){
@@ -179,6 +179,9 @@ class   App
             switch ($nomAction) {
                 case 'fiche':
                     $objControleur->fiche($id);
+                    break;
+                case 'transaction':
+                    $objControleur->transaction();
                     break;
                 default:
                     echo 'Erreur 404 - Page introuvable.';
