@@ -6,15 +6,15 @@
                 <li class="path__list--item path1">
                     <p> <i class="fa-solid fa-user fa-lg" style="color: #c64532;"></i> Informations personelles</p>
                 </li>
-                <li class="path__list--item inactive path2">
+                <li class="path__list--item pathStatus path2">
                     <p> <i class="fa-solid fa-credit-card fa-lg" style="color: #c64532;"></i> Paiement</p>
                 </li>
-                <li class="path__list--item inactive path3">
+                <li class="path__list--item pathStatus path3">
                     <p><i class="fa-solid fa-check fa-lg" style="color: #c64532;"></i> Confirmation</p>
                 </li>
             </ol>
         </section>
-        <form action="" class="form" method="get">
+        <form action="" class="form" method="POST">
             <fieldset class="sec1 step1 etatEtape active">
                 <h2 class="h2Compte">Informations personelles</h2>
                 <div class="underline"></div>
@@ -398,8 +398,8 @@
 
             <div class="boutons">
                 <button id="btnSuiv" type="button" class="btnPrimaire suivant">Suivant</button>
-                <button id="btnConf" type="submit" class="btnPrimaire confirmation btn--cache" >Confirmer le paiement</button>
-                <button id="btnPrec" type="button" class="btnSecondaire precedent btn--cache">Précédent</button>
+                <button id="btnConf" type="submit" class="btnPrimaire confirmation inactive" >Confirmer le paiement</button>
+                <button id="btnPrec" type="button" class="btnSecondaire precedent inactive">Précédent</button>
 
 
             </div>
