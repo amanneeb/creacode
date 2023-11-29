@@ -460,8 +460,13 @@ h2 {
 
 h3 {
   font-weight: bold;
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-family: "Poppins", sans-serif;
+}
+@media (min-width: 450px) {
+  h3 {
+    font-size: 1.125rem;
+  }
 }
 @media (min-width: 600px) {
   h3 {
@@ -1862,10 +1867,27 @@ body {
     flex-direction: row;
   }
 }
+.actualites .bloc .content .imgEv,
+.lancement .bloc .content .imgEv,
+.evenements .bloc .content .imgEv {
+  max-width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 .actualites .bloc .content p,
 .lancement .bloc .content p,
 .evenements .bloc .content p {
-  margin: 0 0 0 20px;
+  max-width: 100%;
+  margin: 20px 0 0 20px;
+}
+@media (min-width: 800px) {
+  .actualites .bloc .content p,
+  .lancement .bloc .content p,
+  .evenements .bloc .content p {
+    margin: 0 0 0 20px;
+    width: 600px;
+  }
 }
 
 .actualites .underline {
@@ -1937,7 +1959,13 @@ body {
 .AParaitre .livres .imgLivre,
 .nouveautes .livres .imgLivre {
   margin: auto;
-  width: 150px;
+  width: 80px;
+}
+@media (min-width: 450px) {
+  .AParaitre .livres .imgLivre,
+  .nouveautes .livres .imgLivre {
+    width: 150px;
+  }
 }
 @media (min-width: 800px) {
   .AParaitre .livres .imgLivre,

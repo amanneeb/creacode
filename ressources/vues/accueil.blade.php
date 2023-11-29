@@ -12,7 +12,30 @@
                     <h3 class="h3">{{$actualite->getTitre()}}</h3>
                     <p class="date">{{$actualite->getDate()}}</p>
                     <div class="content">
-                        <img class="imgEv" src="liaisons/images/livres/1/978897770105_w135.jpg" alt="*">
+                        @php
+                            $nomSection = 'actu';
+                            $cheminImageDebut = null;
+                            $cheminImageFin = null;
+
+                            if (file_exists("liaisons/images/accueil/w300/{$nomSection}_{$actualite->getId()}.jpg")) {
+                                $cheminImageDebut = "liaisons/images/accueil/";
+                                $cheminImageFin = "/{$nomSection}_{$actualite->getId()}.jpg";
+                            }
+                        @endphp
+                        <span class="idAP" hidden></span>
+                        @if ($cheminImageDebut)
+                            <picture class="ctnImg__picture">
+                                <source media="(max-width: 600px)"
+                                        srcset="{{ $cheminImageDebut }}w185{{ $cheminImageFin }} 1x, {{ $cheminImageDebut }}w370{{ $cheminImageFin }} 2x">
+                                <source media="(min-width: 601px)"
+                                        srcset="{{ $cheminImageDebut }}w300{{ $cheminImageFin }} 1x, {{ $cheminImageDebut }}w600{{ $cheminImageFin }} 2x">
+                                <img class="imgEv" src="{{ $cheminImageDebut }}w300{{ $cheminImageFin }}"
+                                     alt="{{ $actualite->getTitre() }}">
+                            </picture>
+                        @else
+                            <img class="imgEv" src="liaisons/images/placeholder.svg"
+                                 alt="livre {{ $actualite->getTitre() }}" width="245px" height="auto">
+                        @endif
                         <p class="texte">{{$actualite->getActualite()}}</p>
                     </div>
                     <a href="*" class="consulter">Consulter ></a>
@@ -133,7 +156,30 @@
                     <h3 class="h3">{{$lancement->getTitre()}}</h3>
                     <p class="date">{{$lancement->getDate()}}</p>
                     <div class="content">
-                        <img class="imgEv" src="liaisons/images/livres/1/978897770105_w135.jpg" alt="*">
+                            @php
+                                $nomSection = 'lan';
+                                $cheminImageDebut = null;
+                                $cheminImageFin = null;
+
+                                if (file_exists("liaisons/images/accueil/w300/{$nomSection}_{$lancement->getId()}.jpg")) {
+                                    $cheminImageDebut = "liaisons/images/accueil/";
+                                    $cheminImageFin = "/{$nomSection}_{$lancement->getId()}.jpg";
+                                }
+                            @endphp
+                            <span class="idAP" hidden></span>
+                                @if ($cheminImageDebut)
+                                    <picture class="ctnImg__picture">
+                                        <source media="(max-width: 600px)"
+                                                srcset="{{ $cheminImageDebut }}w185{{ $cheminImageFin }} 1x, {{ $cheminImageDebut }}w370{{ $cheminImageFin }} 2x">
+                                        <source media="(min-width: 601px)"
+                                                srcset="{{ $cheminImageDebut }}w300{{ $cheminImageFin }} 1x, {{ $cheminImageDebut }}w600{{ $cheminImageFin }} 2x">
+                                        <img class="imgEv" src="{{ $cheminImageDebut }}w300{{ $cheminImageFin }}"
+                                             alt="{{ $lancement->getTitre() }}">
+                                    </picture>
+                                @else
+                                    <img class="imgEv" src="liaisons/images/placeholder.svg"
+                                         alt="livre {{ $lancement->getTitre() }}" width="245px" height="auto">
+                                @endif
                         <p class="texte">{{$lancement->getTexte()}}</p>
                     </div>
                     <a href="*" class="consulter">Consulter ></a>
@@ -151,7 +197,30 @@
                     <h3 class="h3">{{$evenement->getTitre()}}</h3>
                     <p class="date">{{$evenement->getDate()}}</p>
                     <div class="content">
-                        <img class="imgEv" src="liaisons/images/livres/1/978897770105_w135.jpg" alt="*">
+                        @php
+                            $nomSection = 'ev';
+                            $cheminImageDebut = null;
+                            $cheminImageFin = null;
+
+                            if (file_exists("liaisons/images/accueil/w300/{$nomSection}_{$evenement->getId()}.jpg")) {
+                                $cheminImageDebut = "liaisons/images/accueil/";
+                                $cheminImageFin = "/{$nomSection}_{$evenement->getId()}.jpg";
+                            }
+                        @endphp
+                        <span class="idAP" hidden></span>
+                        @if ($cheminImageDebut)
+                            <picture class="ctnImg__picture">
+                                <source media="(max-width: 600px)"
+                                        srcset="{{ $cheminImageDebut }}w185{{ $cheminImageFin }} 1x, {{ $cheminImageDebut }}w370{{ $cheminImageFin }} 2x">
+                                <source media="(min-width: 601px)"
+                                        srcset="{{ $cheminImageDebut }}w300{{ $cheminImageFin }} 1x, {{ $cheminImageDebut }}w600{{ $cheminImageFin }} 2x">
+                                <img class="imgEv" src="{{ $cheminImageDebut }}w300{{ $cheminImageFin }}"
+                                     alt="{{ $evenement->getTitre() }}">
+                            </picture>
+                        @else
+                            <img class="imgEv" src="liaisons/images/placeholder.svg"
+                                 alt="livre {{ $evenement->getTitre() }}" width="245px" height="auto">
+                        @endif
                         <p class="texte">{{$evenement->getTexte()}}</p>
                     </div>
                     <a href="*" class="consulter">Consulter ></a>
@@ -166,10 +235,10 @@
 
 <!--
 * Border around books DONE
-* Images
+* Images DONE
 * links for "see all" and books DONE
 * thumbnail books
-* css account
+* css account DONE
 *
 
 
