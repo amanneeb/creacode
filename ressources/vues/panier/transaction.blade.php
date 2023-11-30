@@ -72,9 +72,9 @@
 
 
                         <label for="pays" class="form__label" >Pays<span class="form__obligatoire">*</span> </label></br>
-                        <select name="pays">
-                            <option value="Canada" selected="selected">Canada </option>
-
+                        <select name="pays" id="pays">
+                            <option value="select">Sélectionner un pays</option>
+                            <option value="Canada" >Canada </option>
                             <option value="Afghanistan">Afghanistan </option>
                             <option value="Afrique_Centrale">Afrique_Centrale </option>
                             <option value="Afrique_du_sud">Afrique_du_Sud </option>

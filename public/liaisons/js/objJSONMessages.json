@@ -1,0 +1,48 @@
+{
+    "prenom": {
+        "vide": "Vous devez entrer votre prénom.",
+        "pattern": "Pour le prénom, les accents français, les espaces, les tirets et les apostrophes sont permis."
+    },
+    "nom": {
+        "vide": "Vous devez entrer votre nom de famille.",
+        "pattern": "Pour le nom de famille, les accents français, les espaces, les tirets et les apostrophes sont permis."
+    },
+    "mail": {
+        "vide": "Vous devez entrer votre adresse courriel.",
+        "pattern": "Assurez-vous d'entrer une adresse courriel valide."
+    },
+    "adresse": {
+        "vide": "Vous devez entrer une adresse",
+        "pattern": "Entrez une adresse valide."
+    },
+
+    "ville": {
+        "vide": "Vous devez entrer une ville.",
+        "pattern": "Entrez une ville valide."
+    },
+    "codePost": {
+        "vide": "Vous devez entrer un code postal.",
+        "pattern": "Entrez un code postal valide (Ex: A1B 2C3)."
+    },
+    "pays": {
+        "vide": "Vous devez sélectionner un pays.",
+        "pattern": "Entrez une sujet valide."
+    },
+    "province": {
+        "vide": "Vous devez sélectionner une province.",
+        "pattern": "Entrez une sujet valide."
+    },
+    "numCarte": {
+        "vide": "Vous devez entrer un numéro de carte.",
+        "pattern": "Entrez un numéro de carte valide (Ex: xxxx xxxx xxxx xxxx)."
+    },
+    "expCarte": {
+        "vide": "Vous devez entrer une date d'expiration de carte.",
+        "pattern": "Entrez une date d'expiration valide (Ex:01/23)."
+    },"cvv": {
+    "vide": "Vous devez entrer un code de vérification de valeur (cvv).",
+    "pattern": "Entrez un code de vérification de valeur valide (Ex:123)."
+}
+
+
+}

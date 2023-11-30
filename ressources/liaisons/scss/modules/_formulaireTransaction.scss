@@ -10,3 +10,11 @@ fieldset{
 .inactive{
   display:none;
 }
+
+.formulaire__erreur{
+  color:darkred;
+}
+
+.input__erreur > input{
+  border-color: darkred;
+}

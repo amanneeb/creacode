@@ -39,7 +39,9 @@
             <meta name="keywords" content="panier, librairie, La Pastèque">
             <script defer src="liaisons/js/gestion_panier.js"></script>
         @elseif($_GET['controleur']==='panier' && $_GET['action']==='transaction' )
-            <script defer src="liaisons/js/formulaireTransaction.js"></script>
+            <script defer src="liaisons/js/formulaireTransaction.js">
+                stepLeft.chargeJSON("liaisons/js/objJSONMessages.json");
+            </script>
         @endif
     @else
         <title>La Pastèque | Techniques d’intégration multimédia – Cégep de Sainte-Foy</title>
