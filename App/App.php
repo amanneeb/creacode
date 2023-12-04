@@ -171,6 +171,10 @@ class   App
                 case 'creation':
                     $objControleur->creation();
                     break;
+                case 'inserer':
+                    $objControleur->inserer();
+                    header('Location:index.php');
+                    break;
                 default:
                     echo 'Erreur 404 - Page introuvable.';
             }
