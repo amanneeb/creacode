@@ -1348,11 +1348,6 @@ fieldset {
   border: 2px solid lightgray;
 }
 
-
-.conteneur_filArianne span, .conteneur_filArianne a {
-  font-size: 1.1rem;
-  word-spacing: 1rem;
-
 .pathStatus {
   opacity: 40%;
 }
@@ -1367,7 +1362,11 @@ fieldset {
 
 .input__erreur > input {
   border-color: darkred;
+}
 
+.conteneur_filArianne span, .conteneur_filArianne a {
+  font-size: 1.1rem;
+  word-spacing: 1rem;
 }
 
 .onglets {
