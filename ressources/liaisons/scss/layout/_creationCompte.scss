@@ -15,4 +15,8 @@
   .lien_creation{
     margin:auto;
   }
+
+  .error{
+     @include styleErreur;
+  }
 }
