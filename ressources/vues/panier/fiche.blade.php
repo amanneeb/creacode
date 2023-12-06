@@ -51,7 +51,7 @@
                 </section>
         @endforeach
         </section>
-        <form class="resumePanier conteneur_formulaire" action="index.php?controleur=panier&action=transaction" method="GET">
+        <form class="resumePanier conteneur_formulaire" action="index.php?controleur=panier&action=transaction" method="POST">
             <h3 class="resumePanier__titre">Résumé de la commande</h3>
             <fieldset class="sous-total">
                 <label class="sous-total__label" for="sous-total">Sous-total: </label>

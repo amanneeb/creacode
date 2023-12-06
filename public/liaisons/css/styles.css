@@ -1348,9 +1348,26 @@ fieldset {
   border: 2px solid lightgray;
 }
 
+
 .conteneur_filArianne span, .conteneur_filArianne a {
   font-size: 1.1rem;
   word-spacing: 1rem;
+
+.pathStatus {
+  opacity: 40%;
+}
+
+.inactive {
+  display: none;
+}
+
+.formulaire__erreur {
+  color: darkred;
+}
+
+.input__erreur > input {
+  border-color: darkred;
+
 }
 
 .onglets {

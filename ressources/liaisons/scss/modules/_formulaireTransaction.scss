@@ -3,3 +3,18 @@ fieldset{
   border: 2px solid lightgray
 
 }
+.pathStatus{
+  opacity: 40%;
+}
+
+.inactive{
+  display:none;
+}
+
+.formulaire__erreur{
+  color:darkred;
+}
+
+.input__erreur > input{
+  border-color: darkred;
+}
