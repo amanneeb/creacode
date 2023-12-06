@@ -173,7 +173,6 @@ class   App
                     break;
                 case 'inserer':
                     $objControleur->inserer();
-                    header('Location:index.php');
                     break;
                 default:
                     echo 'Erreur 404 - Page introuvable.';
