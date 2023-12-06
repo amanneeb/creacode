@@ -36,17 +36,17 @@
  <ul class="list">
  <li class="list__item">
  <a href="facebook" class="list__link">
- <i class="fa-brands list__logo fa-facebook fa-2xl" alt="logo Facebook" style="color: #F8F1D7;"></i>
+ <i class="fa-brands list__logo fa-facebook fa-2xl" title="logo Facebook" style="color: #F8F1D7;"></i>
  </a>
  </li>
  <li class="list__item">
  <a href="instagram" class="list__link">
- <i class="fa-brands list__logo fa-instagram fa-2xl" alt="logo Instagram" style="color: #F8F1D7;"></i>
+ <i class="fa-brands list__logo fa-instagram fa-2xl" title="logo Instagram" style="color: #F8F1D7;"></i>
  </a>
  </li>
  <li class="list__item">
  <a href="twitter" class="list__link">
- <i class="fa-brands list__logo fa-x-twitter fa-2xl" alt="logo Twitter" style="color: #F8F1D7;"></i>
+ <i class="fa-brands list__logo fa-x-twitter fa-2xl" title="logo Twitter" style="color: #F8F1D7;"></i>
  </a>
  </li>
  </ul>

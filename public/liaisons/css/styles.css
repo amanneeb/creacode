@@ -725,17 +725,17 @@ body {
   background-color: #F9F1EC;
 }
 
-input, select {
+input {
   border: solid #681c0f 3px;
   background-color: white;
   width: 350px;
   height: 36px;
   border-radius: 5px;
 }
-input:hover, select:hover {
+input:hover {
   border: solid #C64532 3px;
 }
-input:focus, select:focus {
+input:focus {
   border: solid #C64532 1px;
 }
 
@@ -1346,6 +1346,11 @@ input:focus, select:focus {
 fieldset {
   border-radius: 10px;
   border: 2px solid lightgray;
+}
+
+.conteneur_filArianne span, .conteneur_filArianne a {
+  font-size: 1.1rem;
+  word-spacing: 1rem;
 }
 
 .onglets {

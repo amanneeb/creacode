@@ -48,11 +48,11 @@
     <script src="https://kit.fontawesome.com/5482d63b2f.js" crossorigin="anonymous"></script>
     <script defer src="liaisons/js/menu.js"></script>
     <link rel="stylesheet" href="liaisons/css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="icon" type="image/png" href="liaisons/images/favicon-32x32.png">
 </head>
 <body>
-<header role="banner">
+<header>
     @include('fragments.entete')
 </header>
 
