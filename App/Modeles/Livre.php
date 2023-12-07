@@ -16,7 +16,7 @@ class Livre
     private string $isbn_papier = '';
     private string $isbn_pdf = '';
     private string $isbn_epub = '';
-    private string $url_audio = '';
+    private /*string*/ $url_audio = '';
     private string $titre = '';
     private string $le_livre = '';
     private string $arguments_commerciaux = '';
@@ -59,7 +59,7 @@ class Livre
         return $this->isbn_epub;
     }
 
-    public function getUrl_audio(): string
+    public function getUrl_audio(): ?string
     {
         return $this->url_audio;
     }

@@ -20,34 +20,31 @@
                         <p class="ctnInfoLivre__prix">Prix unitaire: <span class="ctnInfoLivre__prixSpan">{{$article->getLivreAssocie()->getPrix_can()}}</span>$</p>
                         <p class="ctnInfoLivre__total" >Total: <span class="ctnInfoLivre__totalSpan"></span>$</p>
                     </div>
-                    <div class="ajoutPanier">
+                    <section class="ajoutPanier">
                         <form method="POST" action="index.php?controleur=article&action=mettreAJour&id={{$article->getId()}}">
                             <input type="text" name="livre_id" value="{{$article->getLivreAssocie()->getId()}}" hidden>
                             <input class="ajoutPanier__moins btnPrimaire" type="button" name="nbLivres" id="moins" value="-" >
                             <input class="ajoutPanier__nbLivre" type="text" name="quantite" value="{{$article->getQuantite()}}" readonly>
                             <input class="ajoutPanier__plus btnPrimaire" type="button" name="nbLivres" id="plus" value="+"><br>
-                            <button class="confirmer btnSecondaire" type="submit" hidden>
-                                <span class="fas fa-check fa-2x" aria-label="Confirmer" aria-hidden="true"></span>
-                                <span class="visually-hidden">Confirmer la modification</span>
+                            <button class="modificationArticle__btnModif modifier btnSecondaire" type="submit">
+                                <span class="far fa-pen-to-square fa-2x" aria-label="Modifier" aria-hidden="true"></span>
+                                <span class="label visually-hidden">Modifier</span>
                             </button>
                         </form>
-                    </div>
-                    <div class="modificationArticle">
-                        <button class="modificationArticle__btnSouhait btnSecondaire" type="button" name="ajoutSouhait" id="ajoutSouhait">
-                            <span class="far fa-heart fa-2x" aria-label="ajouter" aria-hidden="true"></span>
-                            <span class="label visually-hidden">Ajouter à ma liste</span>
-                        </button>
                         <form method="POST" action="index.php?controleur=article&action=supprimer&id={{$article->getId()}}&panier={{$panier->getId()}}">
                             <button class="modificationArticle__btnSuppr supprimer btnSecondaire" type="submit">
                                 <span class="far fa-trash-alt fa-2x" aria-label="Supprimer" aria-hidden="true"></span>
                                 <span class="label visually-hidden">Supprimer</span>
                             </button>
                         </form>
-                        <button class="modificationArticle__btnModif modifier btnSecondaire" type="submit">
-                            <span class="far fa-pen-to-square fa-2x" aria-label="Modifier" aria-hidden="true"></span>
-                            <span class="label visually-hidden">Modifier</span>
-                        </button>
-                    </div>
+                        <div class="modificationArticle">
+                            <button class="modificationArticle__btnSouhait btnSecondaire" type="button" name="ajoutSouhait" id="ajoutSouhait">
+                                <span class="fa-regular fa-heart fa-2x" aria-label="ajouter" aria-hidden="true"></span>
+                                <span class="labelSouhait visually-hidden">Ajouter à ma liste</span>
+                            </button>
+                        </div>
+                    </section>
+
                 </section>
         @endforeach
         </section>

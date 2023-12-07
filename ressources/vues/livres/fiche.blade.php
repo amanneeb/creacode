@@ -6,9 +6,22 @@
         <h1 class="titreLivre">{{$lesLivres->getTitre()}}</h1>
     </div>
 
-    <div class="ctnPage texte">
+    <section class="ctnPage texte">
+        <div class="modaleAjoutPanier visuallyhidden">
+            <img src="./liaisons/images/livres/{{$lesLivres->getCategorie_id()}}/{{$lesLivres->getIsbn_papier()}}_w980.jpg" alt="couverture {{$lesLivres->getTitre()}}" width="150">
+            <p>{{$lesLivres->getTitre()}}</p>
+            <p><span class="nbLivreChoisi"></span> x {{$lesLivres->getPrix_can()}}$</p>
+            <form action="./index.php?controleur=panier&action=fiche&id={{$panier->getId()}}" onsubmit="cacherLaModale()" method="POST">
+              <!--  <button type="submit" class="btnPanier">Voir mon panier</button> -->
+                <input class="btnPanier btnPrimaire" type="submit" value="Voir mon panier">
+            </form>
+            <form action="./index.php?controleur=livre&action=fiche&idLivre={{$lesLivres->getId()}}" method="POST" onsubmit="cacherLaModale()">
+                <button type="submit" class="btnLivre btnSecondaire">Retourner aux livres</button>
+            </form>
+            <p><span><i class="fa-solid fa-circle-check fa-2x"></i></span> Le livre a été ajouté au panier.</p>
+        </div>
         <section class="infoPrincipal">
-            <div class="images">
+            <section class="images">
                 <div class="ctnImg">
                     <img class="ctnImg__img" src="./liaisons/images/livres/{{$lesLivres->getCategorie_id()}}/{{$lesLivres->getIsbn_papier()}}_w980.jpg" alt="couverture {{$lesLivres->getTitre()}}" width="400px">
                 </div>
@@ -41,8 +54,8 @@
                     <a class="defilement__lienPrecedent hyperlien" href="index.php?controleur=livre&action=fiche&idLivre={{$lesLivres->getId() - 1}}">&#9664; Livre précédent</a>
                     <a class="defilement__lienSuivant hyperlien" href="index.php?controleur=livre&action=fiche&idLivre={{$lesLivres->getId() + 1}}">Livre suivant &#9654;</a>
                 </div>
-            </div>
-            <div class="ctnInfoPanier">
+            </section>
+            <section class="ctnInfoPanier">
                 <div class="livrePanier">
                     <p class="livrePanier__theme">{{$lesLivres->getCategorieAssociee()->getNom()}}</p>
                     <h3 class="livrePanier__auteur">
@@ -64,14 +77,21 @@
                     <p class="livrePanier__prixFr"><span class="livrePanier__SpanPrixFr">{{$lesLivres->getPrix_euro()}}</span>€</p>
                 </div>
                 <form class="ajoutPanier" method="POST" action="index.php?controleur=article&action=enregistrer">
-                    <input name="livre_id" value="{{$lesLivres->getId()}}" hidden>
+                    <input class="ajoutPanier__livreId" name="livre_id" value="{{$lesLivres->getId()}}" hidden>
                     <input class="ajoutPanier__moins btnPrimaire" type="button" id="moins" value="-">
-                    <input class="ajoutPanier__nbLivre" name="quantite" value="1">
+                    @if($articles)
+                        <input class="ajoutPanier__nbLivre" name="quantite" value="{{$articles->getQuantite()}}">
+                    @else
+                        <input class="ajoutPanier__nbLivre" name="quantite" value="1">
+                    @endif
+
                     <input class="ajoutPanier__plus btnPrimaire" type="button" id="plus" value="+"><br>
+
                     <button class="ajoutPanier__btnPanier btnPrimaire" type="submit" id="ajoutPanier"><i class="fa-solid fa-cart-shopping fa-lg" style="color: #ffffff;"></i>Ajouter au panier</button><br>
                     <button class="ajoutPanier__btnSouhait btnSecondaire" type="submit" name="ajoutSouhait" id="ajoutSouhait"><i class="fa-solid fa-heart fa-lg" style="color: #c64542;"></i>Ajouter à ma liste</button>
+
                 </form>
-            </div>
+            </section>
         </section>
         <section class="infoSupplementaires">
             <section class="typeInfos">
@@ -113,8 +133,7 @@
 
         <section class="autresLivres">
             <h4 class="autresLivres__titre" id="similaires">Livres de la même catégorie</h4>
-        </section>
-        <ul class="livresSimilaires">
+            <ul class="livresSimilaires">
             @foreach($livresPagination as $livresPag)
                 <li class="livresSimilaires__item">
                     <a class="livresSimilaires__lien" href='index.php?controleur=livre&action=fiche&idLivre={{$livresPag['id']}}'>
@@ -130,10 +149,10 @@
                         </figure>
                     </a>
                 </li>
-
             @endforeach
         </ul>
+        </section>
         @include('fragments.paginationFiche')
-    </div>
+    </section>
 
 @endsection

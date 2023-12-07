@@ -29,7 +29,7 @@
             <script defer src="liaisons/js/modaleLivre.js"></script>
             <script defer src="liaisons/js/animPanier.js"></script>
         @elseif($_GET['controleur']==='artiste' && $_GET['action']==='fiche' )
-            <title> {{$auteurs->getPrenomNom()}} | Auteurs | La Pastèque </title>
+            <title> {{$auteurs->getPrenomNom()}} | Artistes | La Pastèque </title>
             <meta name="description"
             content="Découvrez l'auteur {{$auteurs->getPrenomNom()}}  chez La Pastèque. Explorez sa carrière littéraire, ses œuvres marquantes, et plongez dans l'univers captivant de sa plume. Des débuts prometteurs aux chef-d'œuvres incontournables, chaque page dévoile une histoire unique. Ajoutez l'essence de {{$auteurs->getPrenomNom()}} à votre collection littéraire. ">
             <meta name="keywords" content="auteur, librairie, La Pastèque, {{$auteurs->getPrenom()}} {{$auteurs->getNom()}}">
