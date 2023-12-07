@@ -1,3 +1,9 @@
+/**
+ * @file La Pastèque - Changer l'affichage en grille ou liste
+ * @author Giselle Hessen
+ * @version 0.0.1
+ */
+
 document.addEventListener("DOMContentLoaded", function () {
     let boutonListe = document.getElementById("bouton-liste");
     let boutonGrille = document.getElementById("bouton-grille");
