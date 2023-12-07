@@ -11,7 +11,7 @@
                @endif required><br>
         @if($tValidation !== null)
             @if($tValidation['prenom']['valide'] === 'false')
-                <span class="error">{{$tValidation['prenom']['message']}}</span>
+                <span class="error"><i class="fa-solid fa-circle-xmark" style="color: #8b0000;"></i>{{$tValidation['prenom']['message']}}</span>
             @endif
         @endif
         </div>
@@ -24,7 +24,7 @@
                @endif required><br>
         @if($tValidation !== null)
             @if($tValidation['nom']['valide'] === 'false')
-        <span class="error">{{$tValidation['nom']['message']}}</span>
+        <span class="error"><i class="fa-solid fa-circle-xmark" style="color: #8b0000;"></i>{{$tValidation['nom']['message']}}</span>
             @endif
         @endif
         </div>
@@ -37,7 +37,7 @@
                @endif required><br>
         @if($tValidation !== null)
             @if($tValidation['courriel']['valide'] === 'false')
-                <span class="error">{{$tValidation['courriel']['message']}}</span>
+                <span class="error"><i class="fa-solid fa-circle-xmark" style="color: #8b0000;"></i>{{$tValidation['courriel']['message']}}</span>
             @endif
         @endif
         </div>
@@ -50,7 +50,7 @@
                @endif required><br>
         @if($tValidation !== null)
             @if($tValidation['password']['valide'] === 'false')
-                <span class="error">{{$tValidation['password']['message']}} @php var_dump($tValidation) @endphp  </span>
+                <span class="error"><i class="fa-solid fa-circle-xmark" style="color: #8b0000;"></i>{{$tValidation['password']['message']}}   </span>
             @endif
         @endif
         </div>
@@ -63,7 +63,7 @@
                @endif required><br>
         @if($tValidation !== null)
             @if($tValidation['passwordConf']['valide'] === 'false')
-                <span class="error">{{$tValidation['passwordConf']['message']}}</span>
+                <span class="error"><i class="fa-solid fa-circle-xmark" style="color: #8b0000;"></i>{{$tValidation['passwordConf']['message']}}</span>
             @endif
         @endif
         </div>
