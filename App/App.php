@@ -9,6 +9,7 @@ use App\Controleurs\ControleurArtistes;
 use App\Controleurs\ControleurCompte;
 use App\Controleurs\ControleurPanier;
 use App\Controleurs\ControleurArticle;
+use App\Modeles\Article;
 use App\Modeles\Panier;
 use PDO\PDOStatement;
 use PDO;
@@ -31,17 +32,15 @@ class   App
         session_start();
         $idSession = session_id();
         $date = time();
-//        echo "id_session: ".$idSession." <br> date (unix): ".$date;
         $panier = Panier::trouverParIdSession($idSession);
+        $nbArticle = 0;
 
         if($panier == false){
-//            var_dump("creer");
             $nouveauPanier = new Panier();
             $nouveauPanier->setDate($date);
             $nouveauPanier->setIdSession($idSession);
             $nouveauPanier->inserer();
         }else{
-//            var_dump("modifier");
             $panier->setDate($date);
             $panier->majPanier();
         }
@@ -99,6 +98,7 @@ class   App
 
     public function routerRequete(): void
     {
+
         // Variables locales
         $nomControleur = 'site'; // Nom du controleur par défaut
         $nomAction = 'accueil'; // Nom de l'action par défaut
@@ -131,7 +131,11 @@ class   App
             $objControleur = new ControleurAccueil();
             switch ($nomAction) {
                 case 'accueil':
-                    $objControleur->accueil();
+                    if(is_null($_COOKIE["PHPSESSID"]) ){
+                        $objControleur->accueil(session_id());
+                    }else{
+                        $objControleur->accueil($_COOKIE["PHPSESSID"]);
+                    }
                     break;
                 default:
                     echo 'Erreur 404 - Page introuvable.';
@@ -141,10 +145,10 @@ class   App
             $objControleur = new ControleurLivres();
             switch ($nomAction) {
                 case 'index':
-                    $objControleur->index();
+                    $objControleur->index($_COOKIE["PHPSESSID"]);
                     break;
                 case 'fiche':
-                    $objControleur->fiche();
+                    $objControleur->fiche($_COOKIE["PHPSESSID"]);
                     break;
                 default:
                     echo 'Erreur 404 - Page introuvable.';
@@ -153,10 +157,10 @@ class   App
             $objControleur = new ControleurArtistes();
             switch ($nomAction) {
                 case 'index':
-                    $objControleur->index();
+                    $objControleur->index($_COOKIE["PHPSESSID"]);
                     break;
                 case 'fiche':
-                    $objControleur->fiche();
+                    $objControleur->fiche($_COOKIE["PHPSESSID"]);
                     break;
                 default:
                     echo 'Erreur 404 - Page introuvable.';
@@ -173,7 +177,6 @@ class   App
                     break;
                 case 'inserer':
                     $objControleur->inserer();
-                    header('Location:index.php');
                     break;
                 default:
                     echo 'Erreur 404 - Page introuvable.';

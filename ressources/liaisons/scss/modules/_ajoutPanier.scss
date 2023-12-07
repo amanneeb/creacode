@@ -44,23 +44,17 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        align-items: flex-end;
+        align-items: flex-start;
         flex-wrap: wrap;
       }
       & .modificationArticle{
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        align-items: flex-start;
-        margin-top: 1em;
         @media(min-width: 600px){
           flex: 1 0 100%;
         }
         &__btnSouhait{
           margin-top: 0;
         }
-        & form{
-          margin-left: 1em;
+        & form{;
           & .supprimer{
             margin-bottom: 0;
           }
@@ -118,6 +112,18 @@
     }
     }
 
+    & .total__label,
+    & .total__input{
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 2em;
+    }
+    & .livraison__details{
+      font-size: .9em;
+    }
+    &__btnSubmit{
+      font-size: 1rem;
+
     // Zone de changement de nombre de livre et ajout au panier (Fiche live et Panier)
     .ajoutPanier {
       &__nbLivre {
@@ -142,6 +148,7 @@
     .borderSelection {
       border: $orange solid 1.3px;
       border-radius: 5px;
+
     }
 
     .ajoutMargin {
@@ -181,6 +188,18 @@
   position: relative;
 }
 
+// Zone de changement de nombre de livre et ajout au panier (Fiche livre et Panier)
+.ajoutPanier{
+  &__nbLivre{
+    display: inline-block;
+    height: 44px;
+    width: 44px;
+    text-align: center;
+    border: black 1.5px solid;
+    border-radius: 5px;
+    line-height: 2.7em;
+    background: white;
+
 .ajoutPanier__btnPanier:hover i {
   animation: jump 0.5s ease infinite;
 }
@@ -191,6 +210,7 @@
   }
   40% {
     transform: translateY(-10px);
+
   }
   60% {
     transform: translateY(-5px);
@@ -204,6 +224,16 @@
 .ajoutPanier__btnSouhait:hover i {
   animation: heartbeat 0.8s ease infinite;
 }
+
+
+// Gérer où apparait le texte du bouton (dans ou en dehors)
+.modificationArticle__btnSouhait,
+.modificationArticle__btnSuppr,
+.modificationArticle__btnModif{
+  position: relative;
+
+  & .modaleLabel{
+    display: none;
 
 @keyframes heartbeat {
   0%, 100% {

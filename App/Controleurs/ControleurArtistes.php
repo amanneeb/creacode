@@ -4,8 +4,10 @@ declare(strict_types=1);
 namespace App\Controleurs;
 
 // Importation des classes nécessaires
+use App\Modeles\Article;
 use App\Modeles\Auteur;
 use App\Modeles\Livre;
+use App\Modeles\Panier;
 use \PDO;
 use App\App;
 use App\Modeles\LivreAuteur;
@@ -14,10 +16,15 @@ use App\Modeles\FilAriane;
 
 class ControleurArtistes
 {
+
     // Méthode pour afficher la liste des artistes
-    public function index()
+
+    public function index($idSession)
     {
-        // Mise à jour du fil d'Ariane
+        //Nombre d'article dans le panier
+        $panier = Panier::trouverParIdSession($idSession);
+        $nbArticle = sizeof(Article::trouverParPanier($panier->getId()));
+
         $filAriane = FilAriane::majFilArianne();
 
         // Gestion de la pagination
@@ -46,18 +53,23 @@ class ControleurArtistes
             "numeroPage" => $pageCourante,
             "nombreTotalPages" => $nbTotalPages,
             "urlPagination" => $urlPagination,
-            "filAriane" => $filAriane
+            "filAriane" => $filAriane,
+            'panier' => $panier,
+            "nbArticle" => $nbArticle
         );
 
         // Affichage de la vue avec Blade
         echo App::getBlade()->run("artistes.liste", $tDonnees);
     }
 
-    // Méthode pour afficher la fiche détaillée d'un artiste
-    public function fiche()
+
+    public function fiche($idSession)
     {
+        //Nombre d'article dans le panier
+        $panier = Panier::trouverParIdSession($idSession);
+        $nbArticle = sizeof(Article::trouverParPanier($panier->getId()));
         // Mise à jour du fil d'Ariane
-        $filAriane = FilAriane::majFilArianne();
+        $filAriane=FilAriane::majFilArianne();
 
         // Récupération de l'ID de l'auteur depuis les paramètres GET
         $idAuteur = (int)$_GET['idAuteur'];
@@ -96,20 +108,22 @@ class ControleurArtistes
         }
 
         // Données à passer à la vue
-        $tDonnees = array(
-            'auteurs' => $auteurs,
-            'reconnaissances' => $reconnaissance,
-            'livresAuteurs' => $livresAuteurs,
-            'idAuteur' => $idAuteur,
-            'idSuivant' => $idSuivant,
-            'idPrecedent' => $idPrecedent,
-            "livresPagination" => $livresPagination,
-            "nombreTotalPages" => $nombreTotalPages,
-            "numeroPage" => $numeroPage,
-            'livres' => $livres,
-            "urlPagination" => $urlPagination,
-            'filAriane' => $filAriane
-        );
+
+        $tDonnees = array('auteurs' => $auteurs,
+                          //  'reconnaissances' => $reconnaissance,
+                            'livresAuteurs' => $livresAuteurs,
+                            'idAuteur' => $idAuteur,
+                            'idSuivant' => $idSuivant,
+                            'idPrecedent' => $idPrecedent,
+                            "livresPagination"=>$livresPagination,
+                            "nombreTotalPages"=>$nombreTotalPages,
+                            "numeroPage"=>$numeroPage,
+                            'livres' => $livres,
+                            "urlPagination"=>$urlPagination,
+                            'filAriane' => $filAriane,
+                            'panier' => $panier,
+                            "nbArticle" => $nbArticle);
+
 
         // Affichage de la vue avec Blade
         echo App::getBlade()->run('artistes.fiche', $tDonnees);

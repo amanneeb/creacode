@@ -4,8 +4,10 @@ namespace App\Controleurs;
 use App\Modeles\Actualites;
 
 use App\App;
+use App\Modeles\Article;
 use App\Modeles\Evenements;
 use App\Modeles\Livre;
+use App\Modeles\Panier;
 
 class ControleurAccueil
 {
@@ -14,8 +16,12 @@ class ControleurAccueil
     {
     }
 
-    public function accueil(): void
+    public function accueil($idSession): void
     {
+        //Nombre d'article dans le panier
+        $panier = Panier::trouverParIdSession($idSession);
+        $nbArticle = sizeof(Article::trouverParPanier($panier->getId()));
+
         $actualites = Actualites::trouverTout();
         $lancements = Evenements::trouverLancements();
         $evenements = Evenements::trouverEvenements();
@@ -24,7 +30,7 @@ class ControleurAccueil
 
         $tDonnees = array('actualites'=>$actualites, 'lancements'=>$lancements, 'evenements'=>$evenements, 'nouveautes'=>$nouveautes, 'aParaitres'=>$aParaitres);
         echo App::getBlade()->run("accueil",$tDonnees);
-    }
+
 
 
 

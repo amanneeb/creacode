@@ -92,24 +92,6 @@ main {
           }
         }
       }
-      /*.ajoutPanier{
-        &__nbLivre{
-          display: inline-block;
-          height: 44px;
-          width: 44px;
-          text-align: center;
-          border: black 1.5px solid;
-          border-radius: 5px;
-          line-height: 2.7em;
-          background: white;
-        }
-        &__moins,
-        &__plus,
-        &__btnPanier,
-        &__btnSouhait{
-          margin: .5em 0;
-        }
-      }*/
     }
   }
 
@@ -203,8 +185,69 @@ main {
       align-items: center;
     }
   }
-
 }
+
+//Indication du nombre d'article au panier
+.menu_btn{
+  position: relative;
+  display: block;
+  .menu__nbArticle{
+    background: green;
+    color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    padding: .5em;
+    position: absolute;
+    top: -1em;
+    right: -.5em;
+    text-align: center;
+  }
+}
+
+.modaleAjoutPanier{
+  z-index: 3;
+  width: 100vw;
+  height: 100vh;
+  background: #F2E0D4;
+  border: black solid 1px;
+  border-right: none;
+  color: black;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  @media (min-width: 600px) {
+    width: 50vw;
+    height: fit-content;
+    top: 0;
+    right: 0;
+    padding: .4em .4em;
+  }
+  button,
+  input{
+    margin-bottom: .7em;
+  }
+  input{
+    width: fit-content;
+  }
+  p:last-child>span{
+    width: 30px;
+    height: 30px;
+    padding: .5em .5em;
+    border-radius: 50%;
+    color: #16a116;
+  }
+  .animate__heartBeat{
+    animation-delay: 2s;
+    animation-duration: 2s;
+    animation-iteration-count: 3;
+  }
+}
+
 
 
 

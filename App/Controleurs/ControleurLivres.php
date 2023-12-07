@@ -5,7 +5,8 @@ namespace App\Controleurs;
 use App\Modeles\Livre;
 use App\Modeles\Categories;
 use App\App;
-use App\Modeles\Participant;
+use App\Modeles\Panier;
+use App\Modeles\Article;
 use App\Modeles\Reconnaissance;
 use App\Modeles\FilAriane;
 
@@ -15,9 +16,13 @@ class ControleurLivres
     {
     }
 
-    // Affichage de la liste des livres
-    public function index()
+    public function index($idSession)
     {
+        //Nombre d'article dans le panier
+        $panier = Panier::trouverParIdSession($idSession);
+        $nbArticle = sizeof(Article::trouverParPanier($panier->getId()));
+
+
         // Mise à jour du fil d'Ariane
         $filAriane = FilAriane::majFilArianne();
 
@@ -74,16 +79,23 @@ class ControleurLivres
             "urlPagination" => $urlPagination,
             "urlTri" => $urlTri,
             "filAriane" => $filAriane,
-            "nomCategorieRecherchee" => $nomCategorieRecherchee
+            "nomCategorieRecherchee" => $nomCategorieRecherchee,
+            "panier" => $panier,
+            "nbArticle" => $nbArticle
         );
 
         // Affichage de la vue avec Blade
         echo App::getBlade()->run("livres.liste", $tDonnees);
     }
 
+
     // Affichage de la fiche détaillée d'un livre
-    public function fiche()
+    public function fiche($idSession)
     {
+        //Nombre d'article dans le panier
+        $panier = Panier::trouverParIdSession($idSession);
+        $nbArticle = sizeof(Article::trouverParPanier($panier->getId()));
+
         // Mise à jour du fil d'Ariane
         $filAriane = FilAriane::majFilArianne();
 
@@ -96,6 +108,8 @@ class ControleurLivres
         $laCategorieDuLivre = $livres->getCategorieAssociee()->getId();
         $reconnaissance = Reconnaissance::trouverParLivre($idLivre);
         $livreIsbn = $livres->getIsbn_papier();
+        $articles = Article::trouverParLivreEtPanier($panier->getId(), $idLivre);
+
 
         // Pagination des livres associés à la catégorie du livre
         $totalLivres = Livre::compterParCategorie($laCategorieDuLivre);
@@ -110,19 +124,20 @@ class ControleurLivres
             $numeroPage = (int)$_GET['page'];
         }
 
-        // Récupération des livres pour la page courante
         $livresPagination = Livre::paginerAutre($numeroPage, 3, $laCategorieDuLivre);
+        //fin PAGINATION
 
-        // Données à passer à la vue
-        $tDonnees = array(
-            'lesLivres' => $livres,
+        $tDonnees = array('lesLivres' => $livres,
             'reconnaissances' => $reconnaissance,
             'categories' => $laCategorieDuLivre,
             "livresPagination" => $livresPagination,
             "nombreTotalPages" => $nombreTotalPages,
             "numeroPage" => $numeroPage,
             "urlPagination" => $urlPagination,
-            "filAriane" => $filAriane
+            "filAriane" => $filAriane,
+            "panier" => $panier,
+            "nbArticle" => $nbArticle,
+            "articles" => $articles
         );
 
         // Affichage de la vue avec Blade

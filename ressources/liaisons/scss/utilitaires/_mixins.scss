@@ -86,3 +86,9 @@
     font-size: calculateRem($size);
 }
 //Pour utiliser la fonction : @include fontSize(15px);
+
+@mixin styleErreur{
+margin-bottom: 10px;
+    color:darkred;
+    font-weight: bold;
+}

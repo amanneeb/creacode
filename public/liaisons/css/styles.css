@@ -327,7 +327,7 @@ header {
   width: 300px;
   left: 50%;
   margin-left: -150px;
-  top: 250px;
+  top: 200px;
 }
 @media (min-width: 800px) {
   .barRecherche {
@@ -468,6 +468,13 @@ h3 {
   }
 }
 
+h4 {
+  font-family: "WonderSeason", serif;
+  text-transform: uppercase;
+  color: #681c0f;
+  font-size: 1.5rem;
+}
+
 *:focus {
   outline: 2px solid #C64532; /* Ajoute une bordure bleue autour de tous les éléments au focus */
 }
@@ -586,6 +593,7 @@ h3 {
    */
 }
 .navMobile #menuToggle {
+  width: 100px;
   display: block;
   position: relative;
   top: -30px;
@@ -718,9 +726,19 @@ body {
 input {
   border: solid #681c0f 3px;
   background-color: white;
-  width: 350px;
+  width: 215px;
   height: 36px;
   border-radius: 5px;
+}
+@media (min-width: 400px) {
+  input {
+    width: 280px;
+  }
+}
+@media (min-width: 600px) {
+  input {
+    width: 350px;
+  }
 }
 input:hover {
   border: solid #C64532 3px;
@@ -878,16 +896,9 @@ input:focus {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: flex-start;
     flex-wrap: wrap;
   }
-}
-.mainPanier .sectionPanier .livreAjoute .modificationArticle {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
-  margin-top: 1em;
 }
 @media (min-width: 600px) {
   .mainPanier .sectionPanier .livreAjoute .modificationArticle {
@@ -896,9 +907,6 @@ input:focus {
 }
 .mainPanier .sectionPanier .livreAjoute .modificationArticle__btnSouhait {
   margin-top: 0;
-}
-.mainPanier .sectionPanier .livreAjoute .modificationArticle form {
-  margin-left: 1em;
 }
 .mainPanier .sectionPanier .livreAjoute .modificationArticle form .supprimer {
   margin-bottom: 0;
@@ -937,14 +945,16 @@ input:focus {
   border-bottom: #000 solid 1.5px;
   margin-bottom: 2em;
 }
-.mainPanier .resumePanier .total__label,
-.mainPanier .resumePanier .total__input {
+.mainPanier .resumePanier .total__label, .mainPanier .resumePanier .total__input {
   text-transform: uppercase;
   font-weight: bold;
   font-size: 2em;
 }
 .mainPanier .resumePanier .livraison__details {
-  font-size: 0.7em;
+  font-size: 0.9em;
+}
+.mainPanier .resumePanier__btnSubmit {
+  font-size: 1rem;
 }
 
 .ajoutPanier__nbLivre {
@@ -1660,6 +1670,68 @@ main {
   align-items: center;
 }
 
+.menu_btn {
+  position: relative;
+  display: block;
+}
+.menu_btn .menu__nbArticle {
+  background: green;
+  color: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  padding: 0.5em;
+  position: absolute;
+  top: -1em;
+  right: -0.5em;
+  text-align: center;
+}
+
+.modaleAjoutPanier {
+  z-index: 3;
+  width: 100vw;
+  height: 100vh;
+  background: #F2E0D4;
+  border: black solid 1px;
+  border-right: none;
+  color: black;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+@media (min-width: 600px) {
+  .modaleAjoutPanier {
+    width: 50vw;
+    height: fit-content;
+    top: 0;
+    right: 0;
+    padding: 0.4em 0.4em;
+  }
+}
+.modaleAjoutPanier button,
+.modaleAjoutPanier input {
+  margin-bottom: 0.7em;
+}
+.modaleAjoutPanier input {
+  width: fit-content;
+}
+.modaleAjoutPanier p:last-child > span {
+  width: 30px;
+  height: 30px;
+  padding: 0.5em 0.5em;
+  border-radius: 50%;
+  color: #16a116;
+}
+.modaleAjoutPanier .animate__heartBeat {
+  animation-delay: 2s;
+  animation-duration: 2s;
+  animation-iteration-count: 3;
+}
+
 main {
   background: #F9F1EC;
 }
@@ -2027,7 +2099,6 @@ body {
 }
 
 .conteneur_formulaire label,
-.conteneur_formulaire input,
 .conteneur_formulaire button,
 .conteneur_formulaire p {
   margin-bottom: 1rem;
@@ -2047,8 +2118,16 @@ body {
   align-items: center;
   margin: 12px auto 30px auto;
 }
+.form_creation form .divFrom {
+  max-width: 350px;
+}
 .form_creation .lien_creation {
   margin: auto;
+}
+.form_creation .error {
+  margin-bottom: 10px;
+  color: darkred;
+  font-weight: bold;
 }
 
 /*# sourceMappingURL=styles.css.map */
