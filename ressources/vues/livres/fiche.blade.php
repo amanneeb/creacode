@@ -8,17 +8,20 @@
 
     <section class="ctnPage texte">
         <div class="modaleAjoutPanier visuallyhidden">
-            <img src="./liaisons/images/livres/{{$lesLivres->getCategorie_id()}}/{{$lesLivres->getIsbn_papier()}}_w980.jpg" alt="couverture {{$lesLivres->getTitre()}}" width="150">
-            <p>{{$lesLivres->getTitre()}}</p>
-            <p><span class="nbLivreChoisi"></span> x {{$lesLivres->getPrix_can()}}$</p>
-            <form action="./index.php?controleur=panier&action=fiche&id={{$panier->getId()}}" onsubmit="cacherLaModale()" method="POST">
-              <!--  <button type="submit" class="btnPanier">Voir mon panier</button> -->
-                <input class="btnPanier btnPrimaire" type="submit" value="Voir mon panier">
-            </form>
-            <form action="./index.php?controleur=livre&action=fiche&idLivre={{$lesLivres->getId()}}" method="POST" onsubmit="cacherLaModale()">
-                <button type="submit" class="btnLivre btnSecondaire">Retourner aux livres</button>
-            </form>
-            <p><span><i class="fa-solid fa-circle-check fa-2x"></i></span> Le livre a été ajouté au panier.</p>
+            <div class="ctnContenu">
+                <img src="./liaisons/images/livres/{{$lesLivres->getCategorie_id()}}/{{$lesLivres->getIsbn_papier()}}_w980.jpg" alt="couverture {{$lesLivres->getTitre()}}" width="150">
+                <p>{{$lesLivres->getTitre()}}</p>
+                <p><span class="nbLivreChoisi"></span> x {{$lesLivres->getPrix_can()}}$</p>
+                <form action="./index.php?controleur=panier&action=fiche&id={{$panier->getId()}}" onsubmit="cacherLaModale()" method="POST">
+                    <!--  <button type="submit" class="btnPanier">Voir mon panier</button> -->
+                    <input class="btnPanier btnPrimaire" type="submit" value="Voir mon panier">
+                </form>
+                <form action="./index.php?controleur=livre&action=fiche&idLivre={{$lesLivres->getId()}}" method="POST" onsubmit="cacherLaModale()">
+                    <button type="submit" class="btnLivre btnSecondaire">Retourner aux livres</button>
+                </form>
+                <p><span><i class="fa-solid fa-circle-check fa-2x"></i></span> Le livre a été ajouté au panier.</p>
+            </div>
+
         </div>
         <section class="infoPrincipal">
             <section class="images">
@@ -88,7 +91,7 @@
                     <input class="ajoutPanier__plus btnPrimaire" type="button" id="plus" value="+"><br>
 
                     <button class="ajoutPanier__btnPanier btnPrimaire" type="submit" id="ajoutPanier"><i class="fa-solid fa-cart-shopping fa-lg" style="color: #ffffff;"></i>Ajouter au panier</button><br>
-                    <button class="ajoutPanier__btnSouhait btnSecondaire" type="submit" name="ajoutSouhait" id="ajoutSouhait"><i class="fa-solid fa-heart fa-lg" style="color: #c64542;"></i>Ajouter à ma liste</button>
+                    <button class="ajoutPanier__btnSouhait btnSecondaire" type="button" name="ajoutSouhait" id="ajoutSouhait"><i class="fa-solid fa-heart fa-lg" style="color: #c64542;"></i>Ajouter à ma liste</button>
 
                 </form>
             </section>

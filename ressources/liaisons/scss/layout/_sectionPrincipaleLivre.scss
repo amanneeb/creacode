@@ -63,7 +63,7 @@ main {
         margin-bottom: 0;
       }
       .livrePanier{
-        @media (min-width: 700px) {
+        @media (min-width: 800px) {
           margin-bottom: 20vw;
         }
         @media (min-width: 850px) {
@@ -209,10 +209,11 @@ main {
   z-index: 3;
   width: 100vw;
   height: 100vh;
-  background: #F2E0D4;
-  border: black solid 1px;
-  border-right: none;
-  color: black;
+  //background: #F2E0D4;
+  background: #000;
+  //border: black solid 1px;
+  //border-right: none;
+  //color: black;
   position: absolute;
   top: 0;
   right: 0;
@@ -226,6 +227,9 @@ main {
     top: 0;
     right: 0;
     padding: .4em .4em;
+  }
+  .ctnContenu{
+    background: #fff;
   }
   button,
   input{

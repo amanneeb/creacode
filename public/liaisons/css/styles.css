@@ -842,6 +842,7 @@ input:focus {
   animation-direction: normal;
 }
 
+
 .h2Compte {
   margin: 20px auto;
   text-align: center;
@@ -1593,7 +1594,7 @@ main {
     margin-bottom: 0;
   }
 }
-@media (min-width: 700px) {
+@media (min-width: 800px) {
   .ctnPage .infoPrincipal .ctnInfoPanier .livrePanier {
     margin-bottom: 20vw;
   }
@@ -1729,10 +1730,7 @@ main {
   z-index: 3;
   width: 100vw;
   height: 100vh;
-  background: #F2E0D4;
-  border: black solid 1px;
-  border-right: none;
-  color: black;
+  background: #000;
   position: absolute;
   top: 0;
   right: 0;
@@ -1749,6 +1747,9 @@ main {
     right: 0;
     padding: 0.4em 0.4em;
   }
+}
+.modaleAjoutPanier .ctnContenu {
+  background: #fff;
 }
 .modaleAjoutPanier button,
 .modaleAjoutPanier input {
