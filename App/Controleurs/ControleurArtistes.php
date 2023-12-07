@@ -5,8 +5,10 @@ namespace App\Controleurs;
 
 
 //Cas d'importation
+use App\Modeles\Article;
 use App\Modeles\Auteur;
 use App\Modeles\Livre;
+use App\Modeles\Panier;
 use \PDO;
 use App\App;
 use App\Modeles\LivreAuteur;
@@ -16,8 +18,12 @@ use App\Modeles\FilAriane;
 class ControleurArtistes
 {
 
-    public function index()
+    public function index($idSession)
     {
+        //Nombre d'article dans le panier
+        $panier = Panier::trouverParIdSession($idSession);
+        $nbArticle = sizeof(Article::trouverParPanier($panier->getId()));
+
         $filAriane = FilAriane::majFilArianne();
 
         if (isset($_GET['page'])) {
@@ -40,15 +46,21 @@ class ControleurArtistes
             "numeroPage" => $pageCourante,
             "nombreTotalPages" => $nbTotalPages,
             "urlPagination" => $urlPagination,
-            "filAriane" => $filAriane
+            "filAriane" => $filAriane,
+            'panier' => $panier,
+            "nbArticle" => $nbArticle
         );
 
         echo App::getBlade()->run("artistes.liste", $tDonnees);
     }
 
 
-    public function fiche()
+    public function fiche($idSession)
     {
+        //Nombre d'article dans le panier
+        $panier = Panier::trouverParIdSession($idSession);
+        $nbArticle = sizeof(Article::trouverParPanier($panier->getId()));
+
         $filAriane=FilAriane::majFilArianne();
         $idAuteur = (int)$_GET['idAuteur'];
         $idSuivant = $idAuteur + 1;
@@ -80,7 +92,7 @@ class ControleurArtistes
         }
 
         $tDonnees = array('auteurs' => $auteurs,
-                            'reconnaissances' => $reconnaissance,
+                          //  'reconnaissances' => $reconnaissance,
                             'livresAuteurs' => $livresAuteurs,
                             'idAuteur' => $idAuteur,
                             'idSuivant' => $idSuivant,
@@ -90,7 +102,9 @@ class ControleurArtistes
                             "numeroPage"=>$numeroPage,
                             'livres' => $livres,
                             "urlPagination"=>$urlPagination,
-                            'filAriane' => $filAriane);
+                            'filAriane' => $filAriane,
+                            'panier' => $panier,
+                            "nbArticle" => $nbArticle);
 
         echo App::getBlade()->run('artistes.fiche', $tDonnees);
 

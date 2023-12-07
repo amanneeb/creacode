@@ -90,6 +90,13 @@ h3 {
   }
 }
 
+h4{
+  font-family: $fonteSecondaire;
+  text-transform: uppercase;
+  color: $rouge;
+  font-size: 1.5rem;
+}
+
 *:focus {
   outline: 2px solid $orange; /* Ajoute une bordure bleue autour de tous les éléments au focus */
 }

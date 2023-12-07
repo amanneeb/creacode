@@ -39,23 +39,17 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        align-items: flex-end;
+        align-items: flex-start;
         flex-wrap: wrap;
       }
       & .modificationArticle{
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        align-items: flex-start;
-        margin-top: 1em;
         @media(min-width: 600px){
           flex: 1 0 100%;
         }
         &__btnSouhait{
           margin-top: 0;
         }
-        & form{
-          margin-left: 1em;
+        & form{;
           & .supprimer{
             margin-bottom: 0;
           }
@@ -95,19 +89,22 @@
       border-bottom: #000 solid 1.5px;
       margin-bottom: 2em;
     }
-    .total__label,
-    .total__input{
+    & .total__label,
+    & .total__input{
       text-transform: uppercase;
       font-weight: bold;
       font-size: 2em;
     }
-    .livraison__details{
-      font-size: .7em;
+    & .livraison__details{
+      font-size: .9em;
+    }
+    &__btnSubmit{
+      font-size: 1rem;
     }
   }
 }
 
-// Zone de changement de nombre de livre et ajout au panier (Fiche live et Panier)
+// Zone de changement de nombre de livre et ajout au panier (Fiche livre et Panier)
 .ajoutPanier{
   &__nbLivre{
     display: inline-block;
@@ -136,6 +133,7 @@
   margin-left: 52px;
 }
 
+// Gérer où apparait le texte du bouton (dans ou en dehors)
 .modificationArticle__btnSouhait,
 .modificationArticle__btnSuppr,
 .modificationArticle__btnModif{

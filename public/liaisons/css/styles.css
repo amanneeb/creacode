@@ -295,16 +295,14 @@ header {
 @media (min-width: 800px) {
   .buttons .compte .texteBtn {
     display: flex;
-
     color: #C64532;
-    font-weight: bold;
     margin-right: 4px;
     font-weight: bold;
   }
 }
 .buttons .panier {
-  background-color: #C64532;
   transition: 0.4s;
+  background-color: #C64532;
   padding: 10px;
   margin-left: 10px;
 }
@@ -464,6 +462,13 @@ h3 {
   h3 {
     font-size: 1.25rem;
   }
+}
+
+h4 {
+  font-family: "WonderSeason", serif;
+  text-transform: uppercase;
+  color: #681c0f;
+  font-size: 1.5rem;
 }
 
 *:focus {
@@ -842,16 +847,9 @@ input:focus {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: flex-start;
     flex-wrap: wrap;
   }
-}
-.mainPanier .sectionPanier .livreAjoute .modificationArticle {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
-  margin-top: 1em;
 }
 @media (min-width: 600px) {
   .mainPanier .sectionPanier .livreAjoute .modificationArticle {
@@ -860,9 +858,6 @@ input:focus {
 }
 .mainPanier .sectionPanier .livreAjoute .modificationArticle__btnSouhait {
   margin-top: 0;
-}
-.mainPanier .sectionPanier .livreAjoute .modificationArticle form {
-  margin-left: 1em;
 }
 .mainPanier .sectionPanier .livreAjoute .modificationArticle form .supprimer {
   margin-bottom: 0;
@@ -901,14 +896,16 @@ input:focus {
   border-bottom: #000 solid 1.5px;
   margin-bottom: 2em;
 }
-.mainPanier .resumePanier .total__label,
-.mainPanier .resumePanier .total__input {
+.mainPanier .resumePanier .total__label, .mainPanier .resumePanier .total__input {
   text-transform: uppercase;
   font-weight: bold;
   font-size: 2em;
 }
 .mainPanier .resumePanier .livraison__details {
-  font-size: 0.7em;
+  font-size: 0.9em;
+}
+.mainPanier .resumePanier__btnSubmit {
+  font-size: 1rem;
 }
 
 .ajoutPanier__nbLivre {
@@ -1344,6 +1341,68 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.menu_btn {
+  position: relative;
+  display: block;
+}
+.menu_btn .menu__nbArticle {
+  background: green;
+  color: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  padding: 0.5em;
+  position: absolute;
+  top: -1em;
+  right: -0.5em;
+  text-align: center;
+}
+
+.modaleAjoutPanier {
+  z-index: 3;
+  width: 100vw;
+  height: 100vh;
+  background: #F2E0D4;
+  border: black solid 1px;
+  border-right: none;
+  color: black;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+@media (min-width: 600px) {
+  .modaleAjoutPanier {
+    width: 50vw;
+    height: fit-content;
+    top: 0;
+    right: 0;
+    padding: 0.4em 0.4em;
+  }
+}
+.modaleAjoutPanier button,
+.modaleAjoutPanier input {
+  margin-bottom: 0.7em;
+}
+.modaleAjoutPanier input {
+  width: fit-content;
+}
+.modaleAjoutPanier p:last-child > span {
+  width: 30px;
+  height: 30px;
+  padding: 0.5em 0.5em;
+  border-radius: 50%;
+  color: #16a116;
+}
+.modaleAjoutPanier .animate__heartBeat {
+  animation-delay: 2s;
+  animation-duration: 2s;
+  animation-iteration-count: 3;
 }
 
 main {

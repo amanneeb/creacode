@@ -5,7 +5,8 @@ namespace App\Controleurs;
 use App\Modeles\Livre;
 use App\Modeles\Categories;
 use App\App;
-use App\Modeles\Participant;
+use App\Modeles\Panier;
+use App\Modeles\Article;
 use App\Modeles\Reconnaissance;
 use App\Modeles\FilAriane;
 
@@ -16,8 +17,12 @@ class ControleurLivres
     {
     }
 
-    public function index()
+    public function index($idSession)
     {
+        //Nombre d'article dans le panier
+        $panier = Panier::trouverParIdSession($idSession);
+        $nbArticle = sizeof(Article::trouverParPanier($panier->getId()));
+
 
         $filAriane = FilAriane::majFilArianne();
 
@@ -67,13 +72,19 @@ class ControleurLivres
             "urlPagination" => $urlPagination,
             "urlTri" => $urlTri,
             "filAriane" => $filAriane,
-          "nomCategorieRecherchee" => $nomCategorieRecherchee
+          "nomCategorieRecherchee" => $nomCategorieRecherchee,
+            "panier" => $panier,
+            "nbArticle" => $nbArticle
         );
         echo App::getBlade()->run("livres.liste", $tDonnees);
     }
 
-    public function fiche()
+    public function fiche($idSession)
     {
+        //Nombre d'article dans le panier
+        $panier = Panier::trouverParIdSession($idSession);
+        $nbArticle = sizeof(Article::trouverParPanier($panier->getId()));
+
         $filAriane = FilAriane::majFilArianne();
         $idLivre = (int)$_GET['idLivre'];
         $livres = Livre::trouverParId($idLivre);
@@ -81,6 +92,8 @@ class ControleurLivres
         $laCategorieDuLivre = Livre::trouverParId($idLivre)->getCategorieAssociee()->getId();
         $reconnaissance = Reconnaissance::trouverParLivre($idLivre);
         $livreIsbn = $livres->getIsbn_papier();
+        $articles = Article::trouverParLivreEtPanier($panier->getId(), $idLivre);
+
 
         //PAGINATION
         $totalLivres = Livre::compterParCategorie($laCategorieDuLivre);
@@ -95,8 +108,6 @@ class ControleurLivres
         $livresPagination = Livre::paginerAutre($numeroPage, 3, $laCategorieDuLivre);
         //fin PAGINATION
 
-
-
         $tDonnees = array('lesLivres' => $livres,
             'reconnaissances' => $reconnaissance,
             'categories' => $laCategorieDuLivre,
@@ -104,8 +115,10 @@ class ControleurLivres
             "nombreTotalPages" => $nombreTotalPages,
             "numeroPage" => $numeroPage,
             "urlPagination" => $urlPagination,
-            "filAriane" => $filAriane
-
+            "filAriane" => $filAriane,
+            "panier" => $panier,
+            "nbArticle" => $nbArticle,
+            "articles" => $articles
         );
 
         echo App::getBlade()->run('livres.fiche', $tDonnees);
