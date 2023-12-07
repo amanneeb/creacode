@@ -1,9 +1,15 @@
 input{
   border:solid $rouge 3px;
   background-color: white;
-  width:350px;
+  width:215px;
   height: 36px;
   border-radius: 5px;
+  @media (min-width: 400px) {
+    width: 280px;
+  }
+  @media (min-width: 600px) {
+    width: 350px;
+  }
 
   &:hover{
     border:solid $orange 3px;

@@ -1,10 +1,10 @@
-/* Error: expected "{".
+/* Error: expected "}".
  *     ,
- * 225 | >>>>>>> 6136fc3d09faf3c86967723c27b3ff1b908c79c3
- *     |                                                 ^
+ * 248 | }
+ *     |  ^
  *     '
- *   ressources/liaisons/scss/modules/_ajoutPanier.scss 225:49  @import
- *   ressources/liaisons/scss/styles.scss 24:9                  root stylesheet */
+ *   ressources/liaisons/scss/modules/_ajoutPanier.scss 248:2  @import
+ *   ressources/liaisons/scss/styles.scss 24:9                 root stylesheet */
 
 body::before {
   font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
@@ -14,5 +14,5 @@ body::before {
   padding: 1em;
   margin-bottom: 1em;
   border-bottom: 2px solid black;
-  content: 'Error: expected "{".\a     \2577 \a 225 \2502  >>>>>>> 6136fc3d09faf3c86967723c27b3ff1b908c79c3\a     \2502                                                  ^\a     \2575 \a   ressources/liaisons/scss/modules/_ajoutPanier.scss 225:49  @import\a   ressources/liaisons/scss/styles.scss 24:9                  root stylesheet';
+  content: 'Error: expected "}".\a     \2577 \a 248 \2502  }\a     \2502   ^\a     \2575 \a   ressources/liaisons/scss/modules/_ajoutPanier.scss 248:2  @import\a   ressources/liaisons/scss/styles.scss 24:9                 root stylesheet';
 }

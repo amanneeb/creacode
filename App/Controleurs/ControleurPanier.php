@@ -12,9 +12,15 @@ class ControleurPanier
     public function fiche($idPanier){
         $panier = Panier::trouverParId($idPanier);
         $articlesAssocies = Panier::trouverParId($idPanier)->getArticlesAssocies();
-        var_export($articlesAssocies);
-        $tDonnees = array("panier"=>$panier, "articles"=>$articlesAssocies);
+        $nbArticle = sizeof(Article::trouverParPanier($panier->getId()));
+        //var_export($articlesAssocies);
+        $tDonnees = array("panier"=>$panier,
+                            "articles"=>$articlesAssocies,
+                            "nbArticle" => $nbArticle);
         echo App::getBlade()->run("panier.fiche", $tDonnees);
+    }
+    public function transaction(){
+        echo App::getBlade()->run("panier.transaction");
     }
 
 

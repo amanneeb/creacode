@@ -1,5 +1,5 @@
 /**
- * @file La Pastèque - Choix nombre de livre
+ * @file La Pastèque - Gestion du panier
  * @author Anaïs Mannée-Batschy
  * @version 0.0.1
  */
@@ -19,25 +19,13 @@ const refLivraison = document.querySelector(".livraison__input");
  * Afficher un message au sujet du nombre d'articles dans le panier
  */
 function afficherMessagePanierVide() {
-    const refSectionPanier = document.querySelector(".sectionPanier");
     const arrSectionArticle = document.querySelectorAll(".livreAjoute");
     const refRetroArticle = document.querySelector(".sectionPanier__msgArticle");
 
     if(arrSectionArticle.length === 0){
-        /*pMessage = document.createElement("p")
-        pMessage.innerText = "Votre panier est vide.";
-        refSectionPanier.appendChild(pMessage);*/
         refRetroArticle.innerText = "Votre panier est vide.";
         refLivraison.value = "0";
     }else{
-        /*pMessage = document.createElement("p")
-        if(arrSectionArticle.length === 1){
-            pMessage.innerText = "Votre panier contient "+arrSectionArticle.length+" article.";
-        }else{
-            pMessage.innerText = "Votre panier contient "+arrSectionArticle.length+" articles.";
-        }
-        refSectionPanier.prepend(pMessage);*/
-
         if(arrSectionArticle.length === 1){
             refRetroArticle.innerText = "Votre panier contient "+arrSectionArticle.length+" article.";
         }else{
@@ -53,10 +41,10 @@ function afficherMessagePanierVide() {
  * Gérer affichage des boutons plus et moins au chargement de la page
  */
 function afficherBoutonsPlusMoins(){
-    const arrBtnMoins = document.querySelectorAll(".ajoutPanier__moins");
-    const arrBtnPlus = document.querySelectorAll(".ajoutPanier__plus");
+    const arrBoutonsMoins = document.querySelectorAll(".ajoutPanier__moins");
+    const arrBoutonsPlus = document.querySelectorAll(".ajoutPanier__plus");
 
-    arrBtnMoins.forEach(
+    arrBoutonsMoins.forEach(
         boutonMoins => {
             let strNbDeLivre = parseInt(boutonMoins.closest("form").children[2].value);
             if(strNbDeLivre === 1){
@@ -66,7 +54,7 @@ function afficherBoutonsPlusMoins(){
             }
         }
     );
-    arrBtnPlus.forEach(
+    arrBoutonsPlus.forEach(
         boutonPlus => {
             let strNbDeLivre = parseInt(boutonPlus.closest("form").children[2].value);
             if(strNbDeLivre === 6){
@@ -84,8 +72,6 @@ function afficherBoutonsPlusMoins(){
  * Faire apparaitre et disparaitre le bouton moins en fonction du nombre de livres
  */
 function afficherBoutonMoins(){
-    const refNbLivre = document.querySelector(".borderSelection .ajoutPanier__nbLivre");
-    const refBtnMoins = document.querySelector(".borderSelection .ajoutPanier__moins");
     if(refNbLivre.value==1){
         refBtnMoins.setAttribute("disabled", "");
         changerTotal();
@@ -100,8 +86,6 @@ function afficherBoutonMoins(){
  * Faire apparaitre et disparaitre le bouton plus en fonction du nombre de livres dans la section à modifier
  */
 function afficherBoutonPlus(){
-    const refNbLivre = document.querySelector(".borderSelection .ajoutPanier__nbLivre");
-    const refBtnPlus = document.querySelector(".borderSelection .ajoutPanier__plus");
     if(refNbLivre.value==6){
         refBtnPlus.setAttribute("disabled", "");
         changerTotal();
@@ -142,18 +126,19 @@ function activerModification(e) {
  * @param e {event}
  */
 function modifierNbLivres(e) {
-    refNbLivreChoisi = document.querySelector(".borderSelection .ajoutPanier__nbLivre");
-    intNbLivre = parseInt(refNbLivreChoisi.value);
-    if(e.target.id==="plus" && e.target.parentNode.parentNode.parentNode.classList[2]==="borderSelection"){
-        if(intNbLivre < 6){
-            intNbLivre++;
-        }
-    }else if(e.target.id==="moins" && e.target.parentNode.parentNode.parentNode.classList[2]==="borderSelection"){
-        if(intNbLivre > 1){
-            intNbLivre--;
-        }
+    let nbLivre
+    //refConteneur = e.target.closest(".ajoutPanier__nbLivre")
+    if(e.target.id==="plus"){
+        nbLivre = e.target.previousElementSibling.value;
+        intNbLivre = parseInt(nbLivre)
+        intNbLivre++;
+        e.target.previousElementSibling.value = intNbLivre
+    }else if(e.target.id==="moins"){
+        nbLivre = e.target.nextElementSibling.value;
+        intNbLivre = parseInt(nbLivre)
+        intNbLivre--
+        e.target.nextElementSibling.value = intNbLivre
     }
-    refNbLivreChoisi.value=intNbLivre;
     afficherBoutonMoins();
     afficherBoutonPlus();
 }
@@ -178,11 +163,41 @@ function changerTotal() {
 
 //********** AFFICHAGE DU TEXTE POUR LES BOUTONS FAVORIS, SUPPRIMER ET MODIFIER ************//
 
-function changerBtnFavori() {
-    const refBtnFav = document.querySelector(".modificationArticle__btnSouhait span");
-    /*console.log(refBtnFavori.classList);
-    intCpt = 0;
-    refBtnFav.classList.forEach(
+function changerBtnFavori(e) {
+
+    if(e.target.classList[0] === "modificationArticle__btnSouhait" || e.target.classList[0] === "far" || e.target.classList[0] === "labelSouhait"){
+        console.log("hello world")
+        switch (e.target.classList[0]) {
+            case "modificationArticle__btnSouhait":
+                if(e.target.children[0].classList[1] === "fa-heart"){
+                    if(e.target.children[0].classList[0] === "fa-regular"){
+                        e.target.children[0].classList.remove("fa-regular");
+                        e.target.children[0].classList.add("fa-solid");
+                    }else if(e.target.children[0].classList[0] === "fa-solid"){
+                        e.target.children[0].classList.remove("fa-solid");
+                        e.target.children[0].classList.add("fa-regular");
+                    }
+                }
+            break;
+
+        }
+
+    }
+    /*const BtnFav = document.querySelectorAll(".modificationArticle__btnSouhait");
+    console.log(arrBtnFavori);
+
+    if(e.target.classList[1] === "fa-heart"){
+        if(e.target.classList[0] === "fa-regular"){
+            e.target.classList.remove("fa-regular");
+            e.target.classList.add("fa-solid");
+        }else if(e.target.classList[0] === "fa-solid"){
+            e.target.classList.remove("fa-solid");
+            e.target.classList.add("fa-regular");
+        }
+    }*/
+
+    //intCpt = 0;
+    /*refBtnFav.classList.forEach(
         element =>{
             if(element === "far"){
                 refBtnFav.classList.remove(element)
@@ -191,7 +206,7 @@ function changerBtnFavori() {
                 refBtnFav.classList.remove(element)
                 refBtnFav.classList.add("far")
             }
-            intCpt++;
+            //intCpt++;
         }
     )*/
 }
@@ -309,5 +324,7 @@ window.addEventListener("load", afficherMessagePanierVide);
 window.addEventListener("load", placerLabelBoutons);
 window.addEventListener("resize", placerLabelBoutons);
 window.addEventListener("click", activerModification);
+window.addEventListener("click", modifierNbLivres);
+//window.addEventListener("click", changerBtnFavori);
 document.querySelector(".modificationArticle__btnSouhait").addEventListener("click", changerBtnFavori)
 

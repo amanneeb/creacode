@@ -21,6 +21,7 @@
 .navMobile {
 
   #menuToggle {
+    width: 100px;
     display: block;
     position: relative;
     top: -30px;
@@ -171,8 +172,44 @@
 
   }
 }
+@media (min-width: 800px) {
+  .menu_list {
+    list-style: none;
+    padding: 0;
+    display: flex;
 
+    li {
+      margin: 0 20px;
+      position: relative;
 
+      a {
+        text-decoration: none;
+        color: #333; // Couleur du texte normal
+
+        &:hover {
+          color: #c64542; // Couleur du texte au survol
+        }
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: #c64542; // Couleur de la ligne
+        visibility: hidden;
+        transition: all 0.3s ease-in-out;
+      }
+
+      &:hover::before {
+        width: 100%;
+        visibility: visible;
+      }
+    }
+  }
+}
 
 
 
