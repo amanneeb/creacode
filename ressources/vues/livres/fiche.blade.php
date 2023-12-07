@@ -86,8 +86,10 @@
                     @endif
 
                     <input class="ajoutPanier__plus btnPrimaire" type="button" id="plus" value="+"><br>
-                    <button class="ajoutPanier__btnPanier btnPrimaire" type="submit" id="ajoutPanier">Ajouter au panier</button><br>
-                    <button class="ajoutPanier__btnSouhait btnSecondaire" type="button" name="ajoutSouhait" id="ajoutSouhait">Ajouter à ma liste</button>
+
+                    <button class="ajoutPanier__btnPanier btnPrimaire" type="submit" id="ajoutPanier"><i class="fa-solid fa-cart-shopping fa-lg" style="color: #ffffff;"></i>Ajouter au panier</button><br>
+                    <button class="ajoutPanier__btnSouhait btnSecondaire" type="submit" name="ajoutSouhait" id="ajoutSouhait"><i class="fa-solid fa-heart fa-lg" style="color: #c64542;"></i>Ajouter à ma liste</button>
+
                 </form>
             </section>
         </section>

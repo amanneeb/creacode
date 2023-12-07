@@ -239,7 +239,6 @@ class Livre
                 $chaineSQL .= ' SELECT * FROM livres WHERE categorie_id =:idCategorie AND date_parution_quebec <= CURDATE() ORDER BY date_parution_quebec DESC LIMIT :index, :limit';
                 break;
         }
-        echo $chaineSQL;
 
         // Préparer la requête (optimisation)
         $requetePreparee = App::getPDO()->prepare($chaineSQL);

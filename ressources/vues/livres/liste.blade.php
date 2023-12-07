@@ -17,14 +17,14 @@
             <div class="conteneur-filtre">
                 <label class="liste-livres__titre">Genres</label>
                 <!-- Liste de filtrage par genre -->
-                <ul class="liste-livres__filtre" id="categorieList">
+                <div class="liste-livres__filtre" id="categorieList">
                     <a class="liste-livres__tri-option" href="{{ $urlTri }}&idCategorie=1">Bandes dessinées</a>
                     <a class="liste-livres__tri-option" href="{{ $urlTri }}&idCategorie=2">BD jeunesse</a>
                     <a class="liste-livres__tri-option" href="{{ $urlTri }}&idCategorie=3">Livres illustrés</a>
                     <a class="liste-livres__tri-option" href="{{ $urlTri }}&idCategorie=4">Albums jeunesse</a>
                     <a class="liste-livres__tri-option" href="{{ $urlTri }}&idCategorie=5">Documentaires</a>
                     <a class="liste-livres__tri-option" href="{{ $urlTri }}&idCategorie=6">Divers</a>
-                </ul>
+                </div>
             </div>
             <h3>{{$nomCategorieRecherchee}}</h3>
         </section>
@@ -77,9 +77,9 @@
                     </a>
                     <ul>
                         @foreach($livre->getLivresAuteursAssocies() as $livreAuteur)
-                            <a href="index.php?controleur=artiste&action=fiche&idArtiste={{ $livreAuteur->getAuteurAssocie()->getId() }}">
-                                <li>{{ $livreAuteur->getAuteurAssocie()->getPrenomNom() }}</li>
-                            </a>
+                           <li><a href="index.php?controleur=artiste&action=fiche&idArtiste={{ $livreAuteur->getAuteurAssocie()->getId() }}">
+                                {{ $livreAuteur->getAuteurAssocie()->getPrenomNom() }}
+                               </a></li>
                         @endforeach
                     </ul>
                     <p class="livre__prix">{{ $livre->getPrix_can() }}$</p>

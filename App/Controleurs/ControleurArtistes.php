@@ -62,6 +62,7 @@ class ControleurArtistes
         $nbArticle = sizeof(Article::trouverParPanier($panier->getId()));
 
         $filAriane=FilAriane::majFilArianne();
+
         $idAuteur = (int)$_GET['idAuteur'];
         $idSuivant = $idAuteur + 1;
         $idPrecedent = $idAuteur - 1;

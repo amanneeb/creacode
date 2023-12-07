@@ -9,6 +9,7 @@
     display: block;
     height: 5px;
     background-color: $vert;
+
   }
 
   .voirTout{
@@ -36,7 +37,10 @@
 
     .imgLivre{
       margin: auto;
-      width: 150px;
+      width: 80px;
+      @media (min-width: 450px) {
+        width: 150px;
+      }
       @media (min-width: 800px) {
         width: 200px;
       }
@@ -49,12 +53,18 @@
 
 .AParaitre{
   .underline{
-    width:350px ;
+    width:265px ;
+    @media (min-width: 600px) {
+      width: 350px;
+    }
   }
 }
 
 .nouveautes{
   .underline{
-    width: 410px ;
+    width: 305px ;
+    @media (min-width: 600px) {
+      width: 410px;
+    }
   }
 }

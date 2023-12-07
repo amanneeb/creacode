@@ -8,6 +8,9 @@ class Actualites
     private string $titre = '';
     private string $l_actualite = '';
     private string $date = '';
+    private string $lien_facebook = '';
+    private string $lien_instagram = '';
+
     public function __construct()
     {
     }

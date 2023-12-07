@@ -19,6 +19,9 @@ class ControleurPanier
                             "nbArticle" => $nbArticle);
         echo App::getBlade()->run("panier.fiche", $tDonnees);
     }
+    public function transaction(){
+        echo App::getBlade()->run("panier.transaction");
+    }
 
 
 }

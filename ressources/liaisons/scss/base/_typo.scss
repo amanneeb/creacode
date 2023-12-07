@@ -71,7 +71,10 @@ h2 {
   }
 }
 .h2Accueil{
-  @include fontSize(40px);
+  @include fontSize(30px);
+  @media (min-width: 600px) {
+    @include fontSize(40px);
+  }
 }
 .h2Compte{
   font-family: $fontePrimaire;
@@ -83,8 +86,11 @@ h2 {
 
 h3 {
   font-weight: bold;
-  @include fontSize(11.25px);
+  @include fontSize(10px);
   font-family: $fontePrimaire;
+  @media (min-width: 450px) {
+    @include fontSize(11.25px);
+  }
   @media (min-width: 600px) {
     @include fontSize(12.5px);
   }

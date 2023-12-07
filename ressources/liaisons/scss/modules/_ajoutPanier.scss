@@ -1,6 +1,11 @@
+.h2Compte {
+  margin: 20px auto;
+  text-align: center;
+}
 .panierTitre{
   text-align: right;
 }
+
 .mainPanier{
   display: unset;
   @media (min-width: 1000px) {
@@ -60,35 +65,53 @@
       }
     }
   }
-  //Partie Montant (Panier)
-  .resumePanier{
-    border: solid black 1px;
-    width: fit-content;
-    padding: 1em .5em;
-    background: #fff;
-    margin: 1em 1em;
-    @media (min-width: 800px) {
-      margin-right: 1em;
-    }
-    & fieldset{
-      border: none;
-      & input{
+      //Partie Montant (Panier)
+    .resumePanier {
+      border: solid black 1px;
+      width: fit-content;
+      padding: 1em .5em;
+      background: #fff;
+      margin: 1em 1em;
+      @media (min-width: 800px) {
+        margin-right: 1em;
+      }
+
+      & fieldset {
         border: none;
-        background: transparent;
-        font-size: 1rem;
-        &:focus{
+
+        & input {
           border: none;
+          background: transparent;
+          font-size: 1rem;
+
+          &:focus {
+            border: none;
+          }
         }
       }
+
+      &__titre {
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: bold;
+        padding: 1.5em 0;
+        border-bottom: #000 solid 1.5px;
+        margin-bottom: 2em;
+      }
+
+      .total__label,
+      .total__input {
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 2em;
+      }
+
+      .livraison__details {
+        font-size: .7em;
+      }
     }
-    &__titre{
-      text-align: center;
-      text-transform: uppercase;
-      font-weight: bold;
-      padding: 1.5em 0;
-      border-bottom: #000 solid 1.5px;
-      margin-bottom: 2em;
     }
+
     & .total__label,
     & .total__input{
       text-transform: uppercase;
@@ -100,8 +123,69 @@
     }
     &__btnSubmit{
       font-size: 1rem;
+
+    // Zone de changement de nombre de livre et ajout au panier (Fiche live et Panier)
+    .ajoutPanier {
+      &__nbLivre {
+        display: inline-block;
+        height: 44px;
+        width: 44px;
+        text-align: center;
+        border: black 1.5px solid;
+        border-radius: 5px;
+        line-height: 2.7em;
+        background: white;
+      }
+
+      &__moins,
+      &__plus,
+      &__btnPanier,
+      &__btnSouhait {
+        margin: .5em 0;
+      }
     }
-  }
+
+    .borderSelection {
+      border: $orange solid 1.3px;
+      border-radius: 5px;
+
+    }
+
+    .ajoutMargin {
+      margin-left: 52px;
+    }
+
+    .modificationArticle__btnSouhait,
+    .modificationArticle__btnSuppr,
+    .modificationArticle__btnModif {
+      position: relative;
+
+      & .modaleLabel {
+        display: none;
+      }
+
+      &:hover .modaleLabel,
+      &:focus .modaleLabel {
+        display: unset;
+        position: absolute;
+        top: -2.5em;
+        left: 0;
+        background: $rouge;
+        color: #fff;
+        width: fit-content;
+        padding: 7px 7px;
+        border-radius: 5px;
+      }
+    }
+
+    .modificationArticle__btnSouhait {
+      &:hover .modaleLabel {
+        width: 10em;
+        z-index: 2;
+      }
+    }
+.ajoutPanier__btnPanier {
+  position: relative;
 }
 
 // Zone de changement de nombre de livre et ajout au panier (Fiche livre et Panier)
@@ -115,23 +199,32 @@
     border-radius: 5px;
     line-height: 2.7em;
     background: white;
+
+.ajoutPanier__btnPanier:hover i {
+  animation: jump 0.5s ease infinite;
+}
+//animation du panier qui saute
+@keyframes jump {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
   }
-  &__moins,
-  &__plus,
-  &__btnPanier,
-  &__btnSouhait{
-    margin: .5em 0;
+  40% {
+    transform: translateY(-10px);
+
   }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+//animation du coeur qui bat
+.ajoutPanier__btnSouhait {
+  position: relative;
 }
 
-.borderSelection{
-  border: $orange solid 1.3px;
-  border-radius: 5px;
+.ajoutPanier__btnSouhait:hover i {
+  animation: heartbeat 0.8s ease infinite;
 }
 
-.ajoutMargin{
-  margin-left: 52px;
-}
 
 // Gérer où apparait le texte du bouton (dans ou en dehors)
 .modificationArticle__btnSouhait,
@@ -141,23 +234,22 @@
 
   & .modaleLabel{
     display: none;
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
   }
-  &:hover .modaleLabel,
-  &:focus .modaleLabel{
-    display: unset;
-    position: absolute;
-    top: -2.5em;
-    left: 0;
-    background: $rouge;
-    color: #fff;
-    width: fit-content;
-    padding: 7px 7px;
-    border-radius: 5px;
+  10%, 30%, 50%, 70%, 90% {
+    transform: scale(1.1);
+  }
+  20%, 40%, 60%, 80% {
+    transform: scale(1);
   }
 }
-.modificationArticle__btnSouhait{
-  &:hover .modaleLabel{
-    width: 10em;
-    z-index: 2;
-  }
-}
+
+
+
+
+
+
+

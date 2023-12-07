@@ -175,6 +175,9 @@ class   App
                 case 'creation':
                     $objControleur->creation();
                     break;
+                case 'inserer':
+                    $objControleur->inserer();
+                    break;
                 default:
                     echo 'Erreur 404 - Page introuvable.';
             }
@@ -183,6 +186,9 @@ class   App
             switch ($nomAction) {
                 case 'fiche':
                     $objControleur->fiche($id);
+                    break;
+                case 'transaction':
+                    $objControleur->transaction();
                     break;
                 default:
                     echo 'Erreur 404 - Page introuvable.';

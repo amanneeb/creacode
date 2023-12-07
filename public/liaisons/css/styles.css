@@ -248,7 +248,7 @@ header {
 .menu__logo {
   display: flex;
   margin: 40px auto 0 auto;
-  width: 400px;
+  width: 280px;
 }
 @media (min-width: 800px) {
   .menu__logo {
@@ -327,7 +327,7 @@ header {
   width: 300px;
   left: 50%;
   margin-left: -150px;
-  top: 220px;
+  top: 250px;
 }
 @media (min-width: 800px) {
   .barRecherche {
@@ -440,7 +440,12 @@ h2 {
 }
 
 .h2Accueil {
-  font-size: 4rem;
+  font-size: 3rem;
+}
+@media (min-width: 600px) {
+  .h2Accueil {
+    font-size: 4rem;
+  }
 }
 
 .h2Compte {
@@ -455,8 +460,13 @@ h2 {
 
 h3 {
   font-weight: bold;
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-family: "Poppins", sans-serif;
+}
+@media (min-width: 450px) {
+  h3 {
+    font-size: 1.125rem;
+  }
 }
 @media (min-width: 600px) {
   h3 {
@@ -685,6 +695,39 @@ h4 {
     font-weight: bold;
   }
 }
+@media (min-width: 800px) {
+  .menu_list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+  }
+  .menu_list li {
+    margin: 0 20px;
+    position: relative;
+  }
+  .menu_list li a {
+    text-decoration: none;
+    color: #333;
+  }
+  .menu_list li a:hover {
+    color: #c64542;
+  }
+  .menu_list li::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #c64542;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+  }
+  .menu_list li:hover::before {
+    width: 100%;
+    visibility: visible;
+  }
+}
 body {
   background-color: #F9F1EC;
 }
@@ -796,6 +839,11 @@ input:focus {
   animation: ease-in;
   animation-duration: 1s;
   animation-direction: normal;
+}
+
+.h2Compte {
+  margin: 20px auto;
+  text-align: center;
 }
 
 .panierTitre {
@@ -962,6 +1010,44 @@ input:focus {
   z-index: 2;
 }
 
+.ajoutPanier__btnPanier {
+  position: relative;
+}
+
+.ajoutPanier__btnPanier:hover i {
+  animation: jump 0.5s ease infinite;
+}
+
+@keyframes jump {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+.ajoutPanier__btnSouhait {
+  position: relative;
+}
+
+.ajoutPanier__btnSouhait:hover i {
+  animation: heartbeat 0.8s ease infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: scale(1.1);
+  }
+  20%, 40%, 60%, 80% {
+    transform: scale(1);
+  }
+}
 .livresSimilaires {
   list-style-type: none;
 }
@@ -1039,6 +1125,247 @@ input:focus {
   background-color: white;
   text-align: center;
   text-decoration: none;
+}
+
+.h2Compte {
+  margin: 20px auto;
+  text-align: center;
+}
+
+.panierTitre {
+  text-align: right;
+}
+
+.mainPanier {
+  display: unset;
+}
+@media (min-width: 1000px) {
+  .mainPanier {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}
+.mainPanier .sectionPanier {
+  margin: 1em 1em;
+  background-color: #fff;
+  border: black solid 1px;
+}
+@media (min-width: 600px) {
+  .mainPanier .sectionPanier {
+    padding-right: 3em;
+    padding-left: 3em;
+  }
+}
+.mainPanier .sectionPanier__titre {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 1.5em 0;
+  border-bottom: #000 solid 1.5px;
+  margin-bottom: 2em;
+}
+.mainPanier .sectionPanier__msgArticle {
+  text-align: center;
+}
+.mainPanier .sectionPanier .livreAjoute {
+  display: unset;
+  padding: 1.5em 0.8em;
+  margin-top: 0.7em;
+  margin-bottom: 0.7em;
+  border-bottom: #681c0f 1.5px solid;
+}
+@media (min-width: 600px) {
+  .mainPanier .sectionPanier .livreAjoute {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+  }
+}
+.mainPanier .sectionPanier .livreAjoute .modificationArticle {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 1em;
+}
+@media (min-width: 600px) {
+  .mainPanier .sectionPanier .livreAjoute .modificationArticle {
+    flex: 1 0 100%;
+  }
+}
+.mainPanier .sectionPanier .livreAjoute .modificationArticle__btnSouhait {
+  margin-top: 0;
+}
+.mainPanier .sectionPanier .livreAjoute .modificationArticle form {
+  margin-left: 1em;
+}
+.mainPanier .sectionPanier .livreAjoute .modificationArticle form .supprimer {
+  margin-bottom: 0;
+}
+.mainPanier .sectionPanier .livreAjoute .modificationArticle .modifier {
+  margin-left: 1em;
+}
+.mainPanier .resumePanier {
+  border: solid black 1px;
+  width: fit-content;
+  padding: 1em 0.5em;
+  background: #fff;
+  margin: 1em 1em;
+}
+@media (min-width: 800px) {
+  .mainPanier .resumePanier {
+    margin-right: 1em;
+  }
+}
+.mainPanier .resumePanier fieldset {
+  border: none;
+}
+.mainPanier .resumePanier fieldset input {
+  border: none;
+  background: transparent;
+  font-size: 1rem;
+}
+.mainPanier .resumePanier fieldset input:focus {
+  border: none;
+}
+.mainPanier .resumePanier__titre {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 1.5em 0;
+  border-bottom: #000 solid 1.5px;
+  margin-bottom: 2em;
+}
+.mainPanier .resumePanier .total__label,
+.mainPanier .resumePanier .total__input {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 2em;
+}
+.mainPanier .resumePanier .livraison__details {
+  font-size: 0.7em;
+}
+
+.ajoutPanier__nbLivre {
+  display: inline-block;
+  height: 44px;
+  width: 44px;
+  text-align: center;
+  border: black 1.5px solid;
+  border-radius: 5px;
+  line-height: 2.7em;
+  background: white;
+}
+.ajoutPanier__moins, .ajoutPanier__plus, .ajoutPanier__btnPanier, .ajoutPanier__btnSouhait {
+  margin: 0.5em 0;
+}
+
+.borderSelection {
+  border: #C64532 solid 1.3px;
+  border-radius: 5px;
+}
+
+.ajoutMargin {
+  margin-left: 52px;
+}
+
+.modificationArticle__btnSouhait,
+.modificationArticle__btnSuppr,
+.modificationArticle__btnModif {
+  position: relative;
+}
+.modificationArticle__btnSouhait .modaleLabel,
+.modificationArticle__btnSuppr .modaleLabel,
+.modificationArticle__btnModif .modaleLabel {
+  display: none;
+}
+.modificationArticle__btnSouhait:hover .modaleLabel, .modificationArticle__btnSouhait:focus .modaleLabel,
+.modificationArticle__btnSuppr:hover .modaleLabel,
+.modificationArticle__btnSuppr:focus .modaleLabel,
+.modificationArticle__btnModif:hover .modaleLabel,
+.modificationArticle__btnModif:focus .modaleLabel {
+  display: unset;
+  position: absolute;
+  top: -2.5em;
+  left: 0;
+  background: #681c0f;
+  color: #fff;
+  width: fit-content;
+  padding: 7px 7px;
+  border-radius: 5px;
+}
+
+.modificationArticle__btnSouhait:hover .modaleLabel {
+  width: 10em;
+  z-index: 2;
+}
+
+.ajoutPanier__btnPanier {
+  position: relative;
+}
+
+.ajoutPanier__btnPanier:hover i {
+  animation: jump 0.5s ease infinite;
+}
+
+@keyframes jump {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+.ajoutPanier__btnSouhait {
+  position: relative;
+}
+
+.ajoutPanier__btnSouhait:hover i {
+  animation: heartbeat 0.8s ease infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: scale(1.1);
+  }
+  20%, 40%, 60%, 80% {
+    transform: scale(1);
+  }
+}
+fieldset {
+  border-radius: 10px;
+  border: 2px solid lightgray;
+}
+
+.pathStatus {
+  opacity: 40%;
+}
+
+.inactive {
+  display: none;
+}
+
+.formulaire__erreur {
+  color: darkred;
+}
+
+.input__erreur > input {
+  border-color: darkred;
+}
+
+.conteneur_filArianne span, .conteneur_filArianne a {
+  font-size: 1.1rem;
+  word-spacing: 1rem;
 }
 
 .onglets {
@@ -1622,22 +1949,54 @@ body {
     flex-direction: row;
   }
 }
+.actualites .bloc .content .imgEv,
+.lancement .bloc .content .imgEv,
+.evenements .bloc .content .imgEv {
+  max-width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 .actualites .bloc .content p,
 .lancement .bloc .content p,
 .evenements .bloc .content p {
-  margin: 0 0 0 20px;
+  max-width: 100%;
+  margin: 20px 0 0 20px;
+}
+@media (min-width: 800px) {
+  .actualites .bloc .content p,
+  .lancement .bloc .content p,
+  .evenements .bloc .content p {
+    margin: 0 0 0 20px;
+    width: 600px;
+  }
 }
 
 .actualites .underline {
-  width: 370px;
+  width: 280px;
+}
+@media (min-width: 600px) {
+  .actualites .underline {
+    width: 370px;
+  }
 }
 
 .lancement .underline {
-  width: 390px;
+  width: 395px;
+}
+@media (min-width: 600px) {
+  .lancement .underline {
+    width: 390px;
+  }
 }
 
 .evenements .underline {
-  width: 400px;
+  width: 305px;
+}
+@media (min-width: 600px) {
+  .evenements .underline {
+    width: 400px;
+  }
 }
 
 .AParaitre h2,
@@ -1682,7 +2041,13 @@ body {
 .AParaitre .livres .imgLivre,
 .nouveautes .livres .imgLivre {
   margin: auto;
-  width: 150px;
+  width: 80px;
+}
+@media (min-width: 450px) {
+  .AParaitre .livres .imgLivre,
+  .nouveautes .livres .imgLivre {
+    width: 150px;
+  }
 }
 @media (min-width: 800px) {
   .AParaitre .livres .imgLivre,
@@ -1698,11 +2063,21 @@ body {
 }
 
 .AParaitre .underline {
-  width: 350px;
+  width: 265px;
+}
+@media (min-width: 600px) {
+  .AParaitre .underline {
+    width: 350px;
+  }
 }
 
 .nouveautes .underline {
-  width: 410px;
+  width: 305px;
+}
+@media (min-width: 600px) {
+  .nouveautes .underline {
+    width: 410px;
+  }
 }
 
 .conteneur_formulaire {
@@ -1724,10 +2099,32 @@ body {
 }
 
 .conteneur_formulaire label,
-.conteneur_formulaire input,
 .conteneur_formulaire button,
 .conteneur_formulaire p {
   margin-bottom: 1rem;
+}
+
+.form_creation {
+  margin-top: 40px;
+}
+.form_creation h2 {
+  margin: 20px auto;
+}
+.form_creation form {
+  margin: auto;
+}
+.form_creation form .btnPrimaire {
+  display: flex;
+  align-items: center;
+  margin: 12px auto 30px auto;
+}
+.form_creation .lien_creation {
+  margin: auto;
+}
+.form_creation .error {
+  margin-bottom: 10px;
+  color: darkred;
+  font-weight: bold;
 }
 
 /*# sourceMappingURL=styles.css.map */

@@ -22,7 +22,7 @@ header{
 .menu__logo{
   display:flex;
   margin:40px auto 0 auto;
-  width: 400px;
+  width: 280px;
   @media (min-width: 800px) {
     margin: 50px 0;
     width: 200px;
@@ -102,7 +102,7 @@ header{
   width: 300px;
   left:50%;
   margin-left: -150px;
-  top:220px;
+  top:250px;
   @media (min-width: 800px) {
     position: static;
    left:0;

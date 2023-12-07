@@ -27,8 +27,20 @@ margin-bottom: 50px;
       @media (min-width: 800px) {
         flex-direction: row;
       }
+      .imgEv{
+        max-width: 100%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
       p{
-        margin: 0 0 0 20px;
+        max-width: 100%;
+        margin: 20px 0 0 20px;
+
+        @media (min-width: 800px) {
+          margin: 0 0 0 20px;
+          width: 600px;
+        }
       }
     }
   }
@@ -36,18 +48,27 @@ margin-bottom: 50px;
 
 .actualites{
   .underline{
-    width: 370px;
+    width: 280px;
+    @media (min-width: 600px) {
+      width: 370px;
+    }
   }
 }
 
 .lancement{
   .underline{
-    width: 390px;
+    width: 395px;
+    @media (min-width: 600px) {
+      width: 390px;
+    }
   }
 }
 
 .evenements{
   .underline{
-    width: 400px;
+    width: 305px;
+    @media (min-width: 600px) {
+      width: 400px;
+    }
   }
 }

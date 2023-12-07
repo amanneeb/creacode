@@ -11,6 +11,9 @@ class Evenements
     private string $titre = '';
     private string $l_evenement = '';
     private string $date = '';
+    private int $galerie_boutique = 0;
+    private string $lien_facebook = '';
+    private string $lien_instagram = '';
 
     public function __construct()
     {
