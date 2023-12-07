@@ -23,7 +23,7 @@ class ControleurAccueil
         $aParaitres = Livre::trouverAParaitre();
 
         $tDonnees = array('actualites'=>$actualites, 'lancements'=>$lancements, 'evenements'=>$evenements, 'nouveautes'=>$nouveautes, 'aParaitres'=>$aParaitres);
-        echo App::getBlade()->run("accueil",$tDonnees); // /ressource/vues/accueil.blade.php doit exister...
+        echo App::getBlade()->run("accueil",$tDonnees);
     }
 
 

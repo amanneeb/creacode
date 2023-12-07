@@ -360,12 +360,6 @@ header {
   }
 }
 
-/**
-* @author Prenom Nom courriel
-* @todo Préciser l’interlignage sur le body pour l’écran large
-* @todo Utiliser le mixin fontSize pour définir les tailles de polices
-* @todo Utiliser une variable pour la media query de la règle body
-*/
 /**** Typographie responsive ****/
 html {
   font-family: "Poppins", sans-serif;
@@ -502,10 +496,6 @@ h3 {
   text-decoration: underline;
 }
 
-/**
-* @author Prenom Nom courriel
-* @todo Compléter selon l'énoncé de l'exercice
-*/
 .btnPrimaire {
   background: #C64532;
   color: #fff;
@@ -1120,9 +1110,8 @@ input:focus {
 }
 
 .aller-au-contenu {
-  /* Ajoutez ici les styles spécifiques pour le lien "Aller au contenu" */
   display: block;
-  padding: 10px; /* Ajoutez un espacement pour la visibilité et l'accessibilité */
+  padding: 10px;
   background-color: white;
   text-align: center;
   text-decoration: none;
