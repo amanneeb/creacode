@@ -54,7 +54,7 @@
         &__btnSouhait{
           margin-top: 0;
         }
-        & form{;
+        & form{
           & .supprimer{
             margin-bottom: 0;
           }
@@ -109,10 +109,23 @@
       .livraison__details {
         font-size: .7em;
       }
-    }
+
+      & .total__label,
+      & .total__input{
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 2em;
+      }
+      & .livraison__details{
+        font-size: .9em;
+      }
+      &__btnSubmit {
+        font-size: 1rem;
+      }
     }
 
-    & .total__label,
+
+ /*   & .total__label,
     & .total__input{
       text-transform: uppercase;
       font-weight: bold;
@@ -121,8 +134,9 @@
     & .livraison__details{
       font-size: .9em;
     }
-    &__btnSubmit{
+    &__btnSubmit {
       font-size: 1rem;
+    } */
 
     // Zone de changement de nombre de livre et ajout au panier (Fiche live et Panier)
     .ajoutPanier {
@@ -136,7 +150,6 @@
         line-height: 2.7em;
         background: white;
       }
-
       &__moins,
       &__plus,
       &__btnPanier,
@@ -148,7 +161,6 @@
     .borderSelection {
       border: $orange solid 1.3px;
       border-radius: 5px;
-
     }
 
     .ajoutMargin {
@@ -184,13 +196,13 @@
         z-index: 2;
       }
     }
-.ajoutPanier__btnPanier {
+    .ajoutPanier__btnPanier {
   position: relative;
 }
 
 // Zone de changement de nombre de livre et ajout au panier (Fiche livre et Panier)
 .ajoutPanier{
-  &__nbLivre{
+  &__nbLivre {
     display: inline-block;
     height: 44px;
     width: 44px;
@@ -199,6 +211,8 @@
     border-radius: 5px;
     line-height: 2.7em;
     background: white;
+  }
+}
 
 .ajoutPanier__btnPanier:hover i {
   animation: jump 0.5s ease infinite;
@@ -226,14 +240,6 @@
 }
 
 
-// Gérer où apparait le texte du bouton (dans ou en dehors)
-.modificationArticle__btnSouhait,
-.modificationArticle__btnSuppr,
-.modificationArticle__btnModif{
-  position: relative;
-
-  & .modaleLabel{
-    display: none;
 
 @keyframes heartbeat {
   0%, 100% {
@@ -244,6 +250,18 @@
   }
   20%, 40%, 60%, 80% {
     transform: scale(1);
+  }
+}
+
+  // Gérer où apparait le texte du bouton (dans ou en dehors)
+  .modificationArticle__btnSouhait,
+  .modificationArticle__btnSuppr,
+  .modificationArticle__btnModif{
+    position: relative;
+
+    & .modaleLabel {
+      display: none;
+    }
   }
 }
 
