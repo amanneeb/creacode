@@ -28,9 +28,9 @@ class ControleurAccueil
         $nouveautes = Livre::trouverNouveautes();
         $aParaitres = Livre::trouverAParaitre();
 
-        $tDonnees = array('actualites'=>$actualites, 'lancements'=>$lancements, 'evenements'=>$evenements, 'nouveautes'=>$nouveautes, 'aParaitres'=>$aParaitres, 'panier' => $panier,"nbArticle" => $nbArticle);
-        echo App::getBlade()->run("accueil",$tDonnees); // /ressource/vues/accueil.blade.php doit exister...
-    }
+        $tDonnees = array('actualites'=>$actualites, 'lancements'=>$lancements, 'evenements'=>$evenements, 'nouveautes'=>$nouveautes, 'aParaitres'=>$aParaitres);
+        echo App::getBlade()->run("accueil",$tDonnees);
+
 
 
 
