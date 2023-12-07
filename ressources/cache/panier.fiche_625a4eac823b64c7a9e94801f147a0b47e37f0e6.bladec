@@ -1,8 +1,7 @@
 <?php $_shouldextend[1]=1; ?>
 <?php $this->startSection('contenu'); ?>
- <h2 class="panierTitre">Panier</h2>
- <div class="mainPanier">
-
+ <h2 class="h2Compte">Panier</h2>
+ <div class="mainPanier conteneur" id="contenu">
  <section class="sectionPanier conteneur_formulaire">
  <h3 class="sectionPanier__titre">Votre panier</h3>
  <p class="sectionPanier__msgArticle"></p>
@@ -50,34 +49,34 @@
  </section>
  <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
  </section>
- <form class="resumePanier conteneur_formulaire" action="" method="GET">
+ <form class="resumePanier conteneur_formulaire" action="index.php?controleur=panier&action=transaction" method="POST">
  <h3 class="resumePanier__titre">Résumé de la commande</h3>
  <fieldset class="sous-total">
  <label class="sous-total__label" for="sous-total">Sous-total: </label>
- <input class="sous-total__input" type="text" name="sous-total" id="sous-total" value="0" readonly>
+ <input class="sous-total__input" type="text" name="sous-total" id="sous-total" value="0" readonly disabled>
  </fieldset>
  <fieldset class="tps">
  <label class="tps__label" for="tps">Montant TPS (5%): </label>
- <input class="tps__input" type="text" name="tps" id="tps" value="" readonly>
+ <input class="tps__input" type="text" name="tps" id="tps" value="" readonly disabled>
  </fieldset>
  <fieldset class="tvq">
  <label class="tvq__label" for="tvq">Montant TVQ (9.975%): </label>
- <input class="tvq__input" type="text" name="tvq" id="tvq" value="4" readonly>
+ <input class="tvq__input" type="text" name="tvq" id="tvq" value="4" readonly disabled>
  </fieldset>
  <fieldset class="taxes">
  <label class="taxes__label" for="taxes">Taxes: </label>
- <input class="taxes__input" type="text" name="taxes" id="taxes" value="6" readonly><br>
+ <input class="taxes__input" type="text" name="taxes" id="taxes" value="6" readonly disabled><br>
  </fieldset>
  <fieldset class="livraison">
  <label class="livraison__label" for="livraison">Livraison: </label>
- <input class="livraison__input" type="text" name="livraison" id="livraison" value="" readonly><br>
+ <input class="livraison__input" type="text" name="livraison" id="livraison" value="" readonly disabled><br>
  <i class="livraison__details">* Le délai de livraison est de 10 jours</i>
  </fieldset>
  <fieldset class="total">
  <label class="total__label" for="total">Total: </label>
- <input class="total__input" type="text" name="total" id="total" value="" readonly><br>
+ <input class="total__input" type="text" name="total" id="total" value="" readonly disabled><br>
  </fieldset>
- <button class="resumePanier__btnSubmit btnPrimaire" type="button">Passer à la caisse</button>
+ <button class="resumePanier__btnSubmit btnPrimaire" type="submit" >Passer à la caisse</button>
  </form>
  </div>
 
