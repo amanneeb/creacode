@@ -15,7 +15,8 @@
                         </picture>
                     </div>
                     <div class="ctnInfoLivre">
-                        <p class="ctnInfoLivre__titre"><a class="" href="index.php?controleur=livre&action=fiche&idLivre={{$article->getLivreAssocie()->getId()}}">{{$article->getLivreAssocie()->getTitre()}}</a></p>
+                        <!--<p class="ctnInfoLivre__titre"><a class="" href="index.php?controleur=livre&action=fiche&idLivre={{$article->getLivreAssocie()->getId()}}">{{$article->getLivreAssocie()->getTitre()}}</a></p>-->
+                        <p class="ctnInfoLivre__titre">{{$article->getLivreAssocie()->getTitre()}}</p>
                         <p class="ctnInfoLivre__isbn">ISBN: <span class="ctnInfoLivre__isbnSpan">{{$article->getLivreAssocie()->getIsbn_papier()}}</span></p>
                         <p class="ctnInfoLivre__prix">Prix unitaire: <span class="ctnInfoLivre__prixSpan">{{$article->getLivreAssocie()->getPrix_can()}}</span>$</p>
                         <p class="ctnInfoLivre__total" >Total: <span class="ctnInfoLivre__totalSpan"></span>$</p>
