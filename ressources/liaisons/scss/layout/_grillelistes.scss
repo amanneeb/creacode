@@ -1,3 +1,4 @@
+//grille des livres
 .liste__items {
   list-style: none;
   padding: 0;
@@ -15,7 +16,7 @@
     gap: 13px 100px;
   }
 }
-
+//enlever les points de la liste de livres
 .livre{
   ul{
     list-style: none;

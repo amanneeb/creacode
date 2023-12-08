@@ -1,4 +1,8 @@
-console.log("fichier bien lié");
+/**
+ * @file La Pastèque - Laisse affichée la valeur qui a été sélectionée dans la liste déroulante après le chargement de page
+ * @author Giselle Hessen
+ * @version 0.0.1
+ */
 
 
 const triSelect = document.getElementById("triSelect");

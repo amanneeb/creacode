@@ -7,31 +7,40 @@ use App\Utilitaires\Validation;
 
 class ControleurCompte
 {
+//    private $tMessagesJson =null;
     public function __construct()
     {
+//        $contenuBruteFichierJson = file_get_contents("../ressources/messagesInscriptionValidation.json");
+//        // Convertir en tableau associatif
+//        $this->tMessagesJson = json_decode($contenuBruteFichierJson, true);
+
     }
     public function connexion(){
-        $tValidation = $_SESSION['valider'];
-        $tDonnees = ["tValidation" => $tValidation];
-        echo App::getBlade()->run("compte.connexion", $tDonnees);
+//        $tValidation = $_SESSION['valider'];
+//        $tDonnees = ["tValidation" => $tValidation];
+        echo App::getBlade()->run("compte.connexion");
     }
     public function creation(){
+//        var_dump($this->tMessagesJson);
         $tValidation = $_SESSION['valider'];
+//        $contenuBruteFichierJson = file_get_contents("../ressources/messagesInscriptionValidation.json");
+//        // Convertir en tableau associatif
+//        $tMessagesJson = json_decode($contenuBruteFichierJson, true);
 
-        $tValide = [];
-        foreach ($tValidation as $k => $v) {
-
-            array_push($tValide,$v['valide'] );
-
-                if (in_array('false', $tValide, true)) {
-                    echo 'non';
-
-                } else {
-                    echo 'ok';
-
-                }
-
-        }
+//        $tValide = [];
+//        foreach ($tValidation as $k => $v) {
+//
+//            array_push($tValide,$v['valide'] );
+//
+//                if (in_array('false', $tValide, true)) {
+//                    echo 'non';
+//
+//                } else {
+//                    echo 'ok';
+//
+//                }
+//
+//        }
 
 
 
