@@ -85,11 +85,6 @@
 }
 @media (min-width: 600px) {
   .livresSimilaires {
-    /*display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-start;
-    flex-wrap: nowrap;*/
     padding-left: 0;
   }
 }
@@ -842,256 +837,11 @@ input:focus {
   animation-direction: normal;
 }
 
-
-.h2Compte {
-  margin: 20px auto;
-  text-align: center;
-}
-
-.panierTitre {
-  text-align: right;
-}
-
-.mainPanier {
-  display: unset;
-  /*   & .total__label,
-     & .total__input{
-       text-transform: uppercase;
-       font-weight: bold;
-       font-size: 2em;
-     }
-     & .livraison__details{
-       font-size: .9em;
-     }
-     &__btnSubmit {
-       font-size: 1rem;
-     } */
-}
-@media (min-width: 1000px) {
-  .mainPanier {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
-}
-.mainPanier .sectionPanier {
-  margin: 1em 1em;
-  background-color: #fff;
-  border: black solid 1px;
-}
-@media (min-width: 600px) {
-  .mainPanier .sectionPanier {
-    padding-right: 3em;
-    padding-left: 3em;
-  }
-}
-.mainPanier .sectionPanier__titre {
-  text-align: center;
-  text-transform: uppercase;
-  font-weight: bold;
-  padding: 1.5em 0;
-  border-bottom: #000 solid 1.5px;
-  margin-bottom: 2em;
-}
-.mainPanier .sectionPanier__msgArticle {
-  text-align: center;
-}
-.mainPanier .sectionPanier .livreAjoute {
-  display: unset;
-  padding: 1.5em 0.8em;
-  margin-top: 0.7em;
-  margin-bottom: 0.7em;
-  border-bottom: #681c0f 1.5px solid;
-}
-@media (min-width: 600px) {
-  .mainPanier .sectionPanier .livreAjoute {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-@media (min-width: 600px) {
-  .mainPanier .sectionPanier .livreAjoute .modificationArticle {
-    flex: 1 0 100%;
-  }
-}
-.mainPanier .sectionPanier .livreAjoute .modificationArticle__btnSouhait {
-  margin-top: 0;
-}
-.mainPanier .sectionPanier .livreAjoute .modificationArticle form .supprimer {
-  margin-bottom: 0;
-}
-.mainPanier .sectionPanier .livreAjoute .modificationArticle .modifier {
-  margin-left: 1em;
-}
-.mainPanier .resumePanier {
-  border: solid black 1px;
-  width: fit-content;
-  padding: 1em 0.5em;
-  background: #fff;
-  margin: 1em 1em;
-}
-@media (min-width: 800px) {
-  .mainPanier .resumePanier {
-    margin-right: 1em;
-  }
-}
-.mainPanier .resumePanier fieldset {
-  border: none;
-}
-.mainPanier .resumePanier fieldset input {
-  border: none;
-  background: transparent;
-  font-size: 1rem;
-}
-.mainPanier .resumePanier fieldset input:focus {
-  border: none;
-}
-.mainPanier .resumePanier__titre {
-  text-align: center;
-  text-transform: uppercase;
-  font-weight: bold;
-  padding: 1.5em 0;
-  border-bottom: #000 solid 1.5px;
-  margin-bottom: 2em;
-}
-.mainPanier .resumePanier .total__label,
-.mainPanier .resumePanier .total__input {
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: 2em;
-}
-.mainPanier .resumePanier .livraison__details {
-  font-size: 0.7em;
-}
-.mainPanier .resumePanier .total__label, .mainPanier .resumePanier .total__input {
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: 2em;
-}
-.mainPanier .resumePanier .livraison__details {
-  font-size: 0.9em;
-}
-.mainPanier .resumePanier__btnSubmit {
-  font-size: 1rem;
-}
-.mainPanier .ajoutPanier__nbLivre {
-  display: inline-block;
-  height: 44px;
-  width: 44px;
-  text-align: center;
-  border: black 1.5px solid;
-  border-radius: 5px;
-  line-height: 2.7em;
-  background: white;
-}
-.mainPanier .ajoutPanier__moins, .mainPanier .ajoutPanier__plus, .mainPanier .ajoutPanier__btnPanier, .mainPanier .ajoutPanier__btnSouhait {
-  margin: 0.5em 0;
-}
-.mainPanier .borderSelection {
-  border: #C64532 solid 1.3px;
-  border-radius: 5px;
-}
-.mainPanier .ajoutMargin {
-  margin-left: 52px;
-}
-.mainPanier .modificationArticle__btnSouhait,
-.mainPanier .modificationArticle__btnSuppr,
-.mainPanier .modificationArticle__btnModif {
-  position: relative;
-}
-.mainPanier .modificationArticle__btnSouhait .modaleLabel,
-.mainPanier .modificationArticle__btnSuppr .modaleLabel,
-.mainPanier .modificationArticle__btnModif .modaleLabel {
-  display: none;
-}
-.mainPanier .modificationArticle__btnSouhait:hover .modaleLabel, .mainPanier .modificationArticle__btnSouhait:focus .modaleLabel,
-.mainPanier .modificationArticle__btnSuppr:hover .modaleLabel,
-.mainPanier .modificationArticle__btnSuppr:focus .modaleLabel,
-.mainPanier .modificationArticle__btnModif:hover .modaleLabel,
-.mainPanier .modificationArticle__btnModif:focus .modaleLabel {
-  display: unset;
-  position: absolute;
-  top: -2.5em;
-  left: 0;
-  background: #681c0f;
-  color: #fff;
-  width: fit-content;
-  padding: 7px 7px;
-  border-radius: 5px;
-}
-.mainPanier .modificationArticle__btnSouhait:hover .modaleLabel {
-  width: 10em;
-  z-index: 2;
-}
-.mainPanier .ajoutPanier__btnPanier {
-  position: relative;
-}
-.mainPanier .ajoutPanier__nbLivre {
-  display: inline-block;
-  height: 44px;
-  width: 44px;
-  text-align: center;
-  border: black 1.5px solid;
-  border-radius: 5px;
-  line-height: 2.7em;
-  background: white;
-}
-.mainPanier .ajoutPanier__btnPanier:hover i {
-  animation: jump 0.5s ease infinite;
-}
-@keyframes jump {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-10px);
-  }
-  60% {
-    transform: translateY(-5px);
-  }
-}
-.mainPanier .ajoutPanier__btnSouhait {
-  position: relative;
-}
-.mainPanier .ajoutPanier__btnSouhait:hover i {
-  animation: heartbeat 0.8s ease infinite;
-}
-@keyframes heartbeat {
-  0%, 100% {
-    transform: scale(1);
-  }
-  10%, 30%, 50%, 70%, 90% {
-    transform: scale(1.1);
-  }
-  20%, 40%, 60%, 80% {
-    transform: scale(1);
-  }
-}
-.mainPanier .modificationArticle__btnSouhait,
-.mainPanier .modificationArticle__btnSuppr,
-.mainPanier .modificationArticle__btnModif {
-  position: relative;
-}
-.mainPanier .modificationArticle__btnSouhait .modaleLabel,
-.mainPanier .modificationArticle__btnSuppr .modaleLabel,
-.mainPanier .modificationArticle__btnModif .modaleLabel {
-  display: none;
-}
-
 .livresSimilaires {
   list-style-type: none;
 }
 @media (min-width: 600px) {
   .livresSimilaires {
-    /*display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-start;
-    flex-wrap: nowrap;*/
     padding-left: 0;
   }
 }
@@ -1170,19 +920,10 @@ input:focus {
 }
 
 .mainPanier {
-  display: unset;
-  /*   & .total__label,
-     & .total__input{
-       text-transform: uppercase;
-       font-weight: bold;
-       font-size: 2em;
-     }
-     & .livraison__details{
-       font-size: .9em;
-     }
-     &__btnSubmit {
-       font-size: 1rem;
-     } */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 @media (min-width: 1000px) {
   .mainPanier {
@@ -1190,6 +931,7 @@ input:focus {
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
+    margin: 0 3%;
   }
 }
 .mainPanier .sectionPanier {
@@ -1201,6 +943,11 @@ input:focus {
   .mainPanier .sectionPanier {
     padding-right: 3em;
     padding-left: 3em;
+  }
+}
+@media (min-width: 1000px) {
+  .mainPanier .sectionPanier {
+    margin: 0 0;
   }
 }
 .mainPanier .sectionPanier__titre {
@@ -1225,9 +972,17 @@ input:focus {
   .mainPanier .sectionPanier .livreAjoute {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: flex-start;
     flex-wrap: wrap;
+  }
+}
+.mainPanier .sectionPanier .livreAjoute .ctnImg__img {
+  width: 100px;
+}
+@media (min-width: 600px) {
+  .mainPanier .sectionPanier .livreAjoute .ctnInfoLivre {
+    margin-left: 10vw;
   }
 }
 @media (min-width: 600px) {
@@ -1256,6 +1011,11 @@ input:focus {
     margin-right: 1em;
   }
 }
+@media (min-width: 1000px) {
+  .mainPanier .resumePanier {
+    margin-top: 0;
+  }
+}
 .mainPanier .resumePanier fieldset {
   border: none;
 }
@@ -1263,6 +1023,8 @@ input:focus {
   border: none;
   background: transparent;
   font-size: 1rem;
+  color: black;
+  width: fit-content;
 }
 .mainPanier .resumePanier fieldset input:focus {
   border: none;
@@ -1295,7 +1057,13 @@ input:focus {
 .mainPanier .resumePanier__btnSubmit {
   font-size: 1rem;
 }
-.mainPanier .ajoutPanier__nbLivre {
+
+@media (min-width: 600px) {
+  .ajoutPanier {
+    flex: 1 0 100%;
+  }
+}
+.ajoutPanier__nbLivre {
   display: inline-block;
   height: 44px;
   width: 44px;
@@ -1305,31 +1073,34 @@ input:focus {
   line-height: 2.7em;
   background: white;
 }
-.mainPanier .ajoutPanier__moins, .mainPanier .ajoutPanier__plus, .mainPanier .ajoutPanier__btnPanier, .mainPanier .ajoutPanier__btnSouhait {
+.ajoutPanier__moins, .ajoutPanier__plus, .ajoutPanier__btnPanier, .ajoutPanier__btnSouhait {
   margin: 0.5em 0;
 }
-.mainPanier .borderSelection {
+
+.borderSelection {
   border: #C64532 solid 1.3px;
   border-radius: 5px;
 }
-.mainPanier .ajoutMargin {
+
+.ajoutMargin {
   margin-left: 52px;
 }
-.mainPanier .modificationArticle__btnSouhait,
-.mainPanier .modificationArticle__btnSuppr,
-.mainPanier .modificationArticle__btnModif {
+
+.modificationArticle__btnSouhait,
+.modificationArticle__btnSuppr,
+.modificationArticle__btnModif {
   position: relative;
 }
-.mainPanier .modificationArticle__btnSouhait .modaleLabel,
-.mainPanier .modificationArticle__btnSuppr .modaleLabel,
-.mainPanier .modificationArticle__btnModif .modaleLabel {
+.modificationArticle__btnSouhait .modaleLabel,
+.modificationArticle__btnSuppr .modaleLabel,
+.modificationArticle__btnModif .modaleLabel {
   display: none;
 }
-.mainPanier .modificationArticle__btnSouhait:hover .modaleLabel, .mainPanier .modificationArticle__btnSouhait:focus .modaleLabel,
-.mainPanier .modificationArticle__btnSuppr:hover .modaleLabel,
-.mainPanier .modificationArticle__btnSuppr:focus .modaleLabel,
-.mainPanier .modificationArticle__btnModif:hover .modaleLabel,
-.mainPanier .modificationArticle__btnModif:focus .modaleLabel {
+.modificationArticle__btnSouhait:hover .modaleLabel, .modificationArticle__btnSouhait:focus .modaleLabel,
+.modificationArticle__btnSuppr:hover .modaleLabel,
+.modificationArticle__btnSuppr:focus .modaleLabel,
+.modificationArticle__btnModif:hover .modaleLabel,
+.modificationArticle__btnModif:focus .modaleLabel {
   display: unset;
   position: absolute;
   top: -2.5em;
@@ -1340,14 +1111,17 @@ input:focus {
   padding: 7px 7px;
   border-radius: 5px;
 }
-.mainPanier .modificationArticle__btnSouhait:hover .modaleLabel {
+
+.modificationArticle__btnSouhait:hover .modaleLabel {
   width: 10em;
   z-index: 2;
 }
-.mainPanier .ajoutPanier__btnPanier {
+
+.ajoutPanier__btnPanier {
   position: relative;
 }
-.mainPanier .ajoutPanier__nbLivre {
+
+.ajoutPanier__nbLivre {
   display: inline-block;
   height: 44px;
   width: 44px;
@@ -1357,9 +1131,11 @@ input:focus {
   line-height: 2.7em;
   background: white;
 }
-.mainPanier .ajoutPanier__btnPanier:hover i {
+
+.ajoutPanier__btnPanier:hover i {
   animation: jump 0.5s ease infinite;
 }
+
 @keyframes jump {
   0%, 20%, 50%, 80%, 100% {
     transform: translateY(0);
@@ -1371,12 +1147,14 @@ input:focus {
     transform: translateY(-5px);
   }
 }
-.mainPanier .ajoutPanier__btnSouhait {
+.ajoutPanier__btnSouhait {
   position: relative;
 }
-.mainPanier .ajoutPanier__btnSouhait:hover i {
+
+.ajoutPanier__btnSouhait:hover i {
   animation: heartbeat 0.8s ease infinite;
 }
+
 @keyframes heartbeat {
   0%, 100% {
     transform: scale(1);
@@ -1388,14 +1166,14 @@ input:focus {
     transform: scale(1);
   }
 }
-.mainPanier .modificationArticle__btnSouhait,
-.mainPanier .modificationArticle__btnSuppr,
-.mainPanier .modificationArticle__btnModif {
+.modificationArticle__btnSouhait,
+.modificationArticle__btnSuppr,
+.modificationArticle__btnModif {
   position: relative;
 }
-.mainPanier .modificationArticle__btnSouhait .modaleLabel,
-.mainPanier .modificationArticle__btnSuppr .modaleLabel,
-.mainPanier .modificationArticle__btnModif .modaleLabel {
+.modificationArticle__btnSouhait .modaleLabel,
+.modificationArticle__btnSuppr .modaleLabel,
+.modificationArticle__btnModif .modaleLabel {
   display: none;
 }
 
@@ -1575,7 +1353,7 @@ fieldset {
 }
 .ctnPage .infoPrincipal .ctnInfoPanier {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
   flex-wrap: wrap;
@@ -1640,6 +1418,9 @@ fieldset {
   .ctnPage .ctnVisioExtraits__img {
     width: 150px;
   }
+}
+.ctnPage .ctnVisioExtraits .ctnModale__btn {
+  height: 40px;
 }
 .ctnPage .ctnVisioExtraits .ctnModale__img {
   margin-top: 1em;
@@ -1771,13 +1552,19 @@ fieldset {
   max-height: 50%;
   margin-right: 2em;
 }
-@media (min-width: 600px) {
+@media (min-width: 800px) {
   .modaleAjoutPanier .ctnContenu__img {
     max-height: 80%;
+    margin-left: 1.5em;
   }
 }
 .modaleAjoutPanier .ctnContenu div {
   margin-left: 2em;
+}
+@media (min-width: 800px) {
+  .modaleAjoutPanier .ctnContenu div {
+    margin-right: 1em;
+  }
 }
 .modaleAjoutPanier button,
 .modaleAjoutPanier input {
@@ -1965,11 +1752,15 @@ body {
 }
 
 /* Conteneur principal pour le contenu de chaque page */
-.conteneur {
+.conteneur,
+.ctnFilAriane--livre,
+.ctnFilAriane--artiste {
   margin: 0 5% 0 5%;
 }
 @media (min-width: 600px) {
-  .conteneur {
+  .conteneur,
+  .ctnFilAriane--livre,
+  .ctnFilAriane--artiste {
     margin: 3% 10% 3% 10%;
   }
 }
@@ -2198,6 +1989,273 @@ body {
   margin-bottom: 10px;
   color: darkred;
   font-weight: bold;
+}
+
+.h2Compte {
+  margin: 20px auto;
+  text-align: center;
+}
+
+.panierTitre {
+  text-align: right;
+}
+
+.mainPanier {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+@media (min-width: 1000px) {
+  .mainPanier {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 0 3%;
+  }
+}
+.mainPanier .sectionPanier {
+  margin: 1em 1em;
+  background-color: #fff;
+  border: black solid 1px;
+}
+@media (min-width: 600px) {
+  .mainPanier .sectionPanier {
+    padding-right: 3em;
+    padding-left: 3em;
+  }
+}
+@media (min-width: 1000px) {
+  .mainPanier .sectionPanier {
+    margin: 0 0;
+  }
+}
+.mainPanier .sectionPanier__titre {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 1.5em 0;
+  border-bottom: #000 solid 1.5px;
+  margin-bottom: 2em;
+}
+.mainPanier .sectionPanier__msgArticle {
+  text-align: center;
+}
+.mainPanier .sectionPanier .livreAjoute {
+  display: unset;
+  padding: 1.5em 0.8em;
+  margin-top: 0.7em;
+  margin-bottom: 0.7em;
+  border-bottom: #681c0f 1.5px solid;
+}
+@media (min-width: 600px) {
+  .mainPanier .sectionPanier .livreAjoute {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+}
+.mainPanier .sectionPanier .livreAjoute .ctnImg__img {
+  width: 100px;
+}
+@media (min-width: 600px) {
+  .mainPanier .sectionPanier .livreAjoute .ctnInfoLivre {
+    margin-left: 10vw;
+  }
+}
+@media (min-width: 600px) {
+  .mainPanier .sectionPanier .livreAjoute .modificationArticle {
+    flex: 1 0 100%;
+  }
+}
+.mainPanier .sectionPanier .livreAjoute .modificationArticle__btnSouhait {
+  margin-top: 0;
+}
+.mainPanier .sectionPanier .livreAjoute .modificationArticle form .supprimer {
+  margin-bottom: 0;
+}
+.mainPanier .sectionPanier .livreAjoute .modificationArticle .modifier {
+  margin-left: 1em;
+}
+.mainPanier .resumePanier {
+  border: solid black 1px;
+  width: fit-content;
+  padding: 1em 0.5em;
+  background: #fff;
+  margin: 1em 1em;
+}
+@media (min-width: 800px) {
+  .mainPanier .resumePanier {
+    margin-right: 1em;
+  }
+}
+@media (min-width: 1000px) {
+  .mainPanier .resumePanier {
+    margin-top: 0;
+  }
+}
+.mainPanier .resumePanier fieldset {
+  border: none;
+}
+.mainPanier .resumePanier fieldset input {
+  border: none;
+  background: transparent;
+  font-size: 1rem;
+  color: black;
+  width: fit-content;
+}
+.mainPanier .resumePanier fieldset input:focus {
+  border: none;
+}
+.mainPanier .resumePanier__titre {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 1.5em 0;
+  border-bottom: #000 solid 1.5px;
+  margin-bottom: 2em;
+}
+.mainPanier .resumePanier .total__label,
+.mainPanier .resumePanier .total__input {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 2em;
+}
+.mainPanier .resumePanier .livraison__details {
+  font-size: 0.7em;
+}
+.mainPanier .resumePanier .total__label, .mainPanier .resumePanier .total__input {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 2em;
+}
+.mainPanier .resumePanier .livraison__details {
+  font-size: 0.9em;
+}
+.mainPanier .resumePanier__btnSubmit {
+  font-size: 1rem;
+}
+
+@media (min-width: 600px) {
+  .ajoutPanier {
+    flex: 1 0 100%;
+  }
+}
+.ajoutPanier__nbLivre {
+  display: inline-block;
+  height: 44px;
+  width: 44px;
+  text-align: center;
+  border: black 1.5px solid;
+  border-radius: 5px;
+  line-height: 2.7em;
+  background: white;
+}
+.ajoutPanier__moins, .ajoutPanier__plus, .ajoutPanier__btnPanier, .ajoutPanier__btnSouhait {
+  margin: 0.5em 0;
+}
+
+.borderSelection {
+  border: #C64532 solid 1.3px;
+  border-radius: 5px;
+}
+
+.ajoutMargin {
+  margin-left: 52px;
+}
+
+.modificationArticle__btnSouhait,
+.modificationArticle__btnSuppr,
+.modificationArticle__btnModif {
+  position: relative;
+}
+.modificationArticle__btnSouhait .modaleLabel,
+.modificationArticle__btnSuppr .modaleLabel,
+.modificationArticle__btnModif .modaleLabel {
+  display: none;
+}
+.modificationArticle__btnSouhait:hover .modaleLabel, .modificationArticle__btnSouhait:focus .modaleLabel,
+.modificationArticle__btnSuppr:hover .modaleLabel,
+.modificationArticle__btnSuppr:focus .modaleLabel,
+.modificationArticle__btnModif:hover .modaleLabel,
+.modificationArticle__btnModif:focus .modaleLabel {
+  display: unset;
+  position: absolute;
+  top: -2.5em;
+  left: 0;
+  background: #681c0f;
+  color: #fff;
+  width: fit-content;
+  padding: 7px 7px;
+  border-radius: 5px;
+}
+
+.modificationArticle__btnSouhait:hover .modaleLabel {
+  width: 10em;
+  z-index: 2;
+}
+
+.ajoutPanier__btnPanier {
+  position: relative;
+}
+
+.ajoutPanier__nbLivre {
+  display: inline-block;
+  height: 44px;
+  width: 44px;
+  text-align: center;
+  border: black 1.5px solid;
+  border-radius: 5px;
+  line-height: 2.7em;
+  background: white;
+}
+
+.ajoutPanier__btnPanier:hover i {
+  animation: jump 0.5s ease infinite;
+}
+
+@keyframes jump {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+.ajoutPanier__btnSouhait {
+  position: relative;
+}
+
+.ajoutPanier__btnSouhait:hover i {
+  animation: heartbeat 0.8s ease infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: scale(1.1);
+  }
+  20%, 40%, 60%, 80% {
+    transform: scale(1);
+  }
+}
+.modificationArticle__btnSouhait,
+.modificationArticle__btnSuppr,
+.modificationArticle__btnModif {
+  position: relative;
+}
+.modificationArticle__btnSouhait .modaleLabel,
+.modificationArticle__btnSuppr .modaleLabel,
+.modificationArticle__btnModif .modaleLabel {
+  display: none;
 }
 
 /*# sourceMappingURL=styles.css.map */

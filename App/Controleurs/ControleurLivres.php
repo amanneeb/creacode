@@ -106,7 +106,7 @@ class ControleurLivres
         $livres = Livre::trouverParId($idLivre);
         $categories = $livres->getCategorieAssociee()->getLivresAssocies();
         $laCategorieDuLivre = $livres->getCategorieAssociee()->getId();
-        $reconnaissance = Reconnaissance::trouverParLivre($idLivre);
+        $reconnaissances = Reconnaissance::trouverParLivre($idLivre);
         $livreIsbn = $livres->getIsbn_papier();
         $articles = Article::trouverParLivreEtPanier($panier->getId(), $idLivre);
 
@@ -128,7 +128,7 @@ class ControleurLivres
         //fin PAGINATION
 
         $tDonnees = array('lesLivres' => $livres,
-            'reconnaissances' => $reconnaissance,
+            'reconnaissances' => $reconnaissances,
             'categories' => $laCategorieDuLivre,
             "livresPagination" => $livresPagination,
             "nombreTotalPages" => $nombreTotalPages,

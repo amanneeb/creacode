@@ -50,7 +50,7 @@ main {
     }
     .ctnInfoPanier{
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       justify-content: flex-start;
       align-items: flex-start;
       flex-wrap: wrap;
@@ -111,7 +111,7 @@ main {
     }
     & .ctnModale{
       &__btn{
-
+        height:40px;
       }
       &__img{
         margin-top: 1em;
@@ -245,12 +245,16 @@ main {
       display: block;
       max-height: 50%;
       margin-right: 2em;
-      @media (min-width: 600px) {
+      @media (min-width: 800px) {
         max-height: 80%;
+        margin-left: 1.5em;
       }
     }
     div{
       margin-left: 2em;
+      @media (min-width: 800px) {
+        margin-right: 1em;
+      }
     }
   }
 

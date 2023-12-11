@@ -41,9 +41,9 @@ function afficherImageSelectionnee() {
  * Faire avancer les images
  */
 function avancerImage() {
+    console.log("hello visio")
     arrLiImages = document.querySelectorAll(".ctnVisionneuse__item .ctnVisionneuse__img");
     strLienImgPrincipale = document.querySelector(".ctnModale__img").src;
-
     arrLiImages.forEach(
         element=>{
             if(element.src===strLienImgPrincipale){
@@ -54,21 +54,19 @@ function avancerImage() {
                     id = parseInt(element.id)+1;
                     document.querySelector(".ctnModale__img").src = document.getElementById(id).src;
                     afficherBordure(document.getElementById(id).src);
-
                 }
             }
         }
     )
+    console.log("hello visio")
 }
 
 /**
  * Faire reculer les images
  */
 function reculerImage() {
-
     arrLiImages = document.querySelectorAll(".ctnVisionneuse__item .ctnVisionneuse__img");
     strLienImgPrincipale = document.querySelector(".ctnModale__img").src;
-
     arrLiImages.forEach(
         element=>{
             if(element.src===strLienImgPrincipale){

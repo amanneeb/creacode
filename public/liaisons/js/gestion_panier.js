@@ -127,7 +127,6 @@ function activerModification(e) {
  */
 function modifierNbLivres(e) {
     let nbLivre
-    //refConteneur = e.target.closest(".ajoutPanier__nbLivre")
     if(e.target.id==="plus"){
         nbLivre = e.target.previousElementSibling.value;
         intNbLivre = parseInt(nbLivre)
@@ -163,52 +162,29 @@ function changerTotal() {
 
 //********** AFFICHAGE DU TEXTE POUR LES BOUTONS FAVORIS, SUPPRIMER ET MODIFIER ************//
 
+/**
+ * Changer l'aspect du bouton favori au clic  dans le panier
+ * @param e {event}
+ */
 function changerBtnFavori(e) {
-
-    if(e.target.classList[0] === "modificationArticle__btnSouhait" || e.target.classList[0] === "far" || e.target.classList[0] === "labelSouhait"){
-        console.log("hello world")
-        switch (e.target.classList[0]) {
-            case "modificationArticle__btnSouhait":
-                if(e.target.children[0].classList[1] === "fa-heart"){
-                    if(e.target.children[0].classList[0] === "fa-regular"){
-                        e.target.children[0].classList.remove("fa-regular");
-                        e.target.children[0].classList.add("fa-solid");
-                    }else if(e.target.children[0].classList[0] === "fa-solid"){
-                        e.target.children[0].classList.remove("fa-solid");
-                        e.target.children[0].classList.add("fa-regular");
-                    }
+    if(e.currentTarget.classList[0] === "modificationArticle__btnSouhait" || e.currentTarget.classList[0] === "fa-heart" || e.currentTarget.classList[0] === "labelSouhait"){
+       let bouton = e.target.closest(".modificationArticle__btnSouhait");
+        let arrClasseCoeur = bouton.children[0].classList;
+        arrClasseCoeur.forEach(
+            classe =>{
+                switch (classe) {
+                    case "fa-regular":
+                        document.querySelector(".fa-heart").classList.remove("fa-regular");
+                        document.querySelector(".fa-heart").classList.add("fa-solid");
+                    break;
+                    case "fa-solid":
+                        document.querySelector(".fa-heart").classList.remove("fa-solid");
+                        document.querySelector(".fa-heart").classList.add("fa-regular");
+                    break;
                 }
-            break;
-
-        }
-
-    }
-    /*const BtnFav = document.querySelectorAll(".modificationArticle__btnSouhait");
-    console.log(arrBtnFavori);
-
-    if(e.target.classList[1] === "fa-heart"){
-        if(e.target.classList[0] === "fa-regular"){
-            e.target.classList.remove("fa-regular");
-            e.target.classList.add("fa-solid");
-        }else if(e.target.classList[0] === "fa-solid"){
-            e.target.classList.remove("fa-solid");
-            e.target.classList.add("fa-regular");
-        }
-    }*/
-
-    //intCpt = 0;
-    /*refBtnFav.classList.forEach(
-        element =>{
-            if(element === "far"){
-                refBtnFav.classList.remove(element)
-                refBtnFav.classList.add("fas")
-            }else if(element === "fas"){
-                refBtnFav.classList.remove(element)
-                refBtnFav.classList.add("far")
             }
-            //intCpt++;
-        }
-    )*/
+        )
+    }
 }
 
 /**
@@ -325,6 +301,6 @@ window.addEventListener("load", placerLabelBoutons);
 window.addEventListener("resize", placerLabelBoutons);
 window.addEventListener("click", activerModification);
 window.addEventListener("click", modifierNbLivres);
-//window.addEventListener("click", changerBtnFavori);
+window.addEventListener("click", changerBtnFavori);
 document.querySelector(".modificationArticle__btnSouhait").addEventListener("click", changerBtnFavori)
 
