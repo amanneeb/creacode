@@ -1,5 +1,5 @@
 main {
-  position: relative;
+  //position: relative;
 }
 .ctnPage{
   & .infoPrincipal,
@@ -50,7 +50,7 @@ main {
     }
     .ctnInfoPanier{
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       justify-content: flex-start;
       align-items: flex-start;
       flex-wrap: wrap;
@@ -63,7 +63,7 @@ main {
         margin-bottom: 0;
       }
       .livrePanier{
-        @media (min-width: 700px) {
+        @media (min-width: 800px) {
           margin-bottom: 20vw;
         }
         @media (min-width: 850px) {
@@ -111,7 +111,7 @@ main {
     }
     & .ctnModale{
       &__btn{
-
+        height:40px;
       }
       &__img{
         margin-top: 1em;
@@ -209,30 +209,64 @@ main {
   z-index: 3;
   width: 100vw;
   height: 100vh;
-  background: #F2E0D4;
-  border: black solid 1px;
-  border-right: none;
-  color: black;
+  background: rgba(0, 0, 0, 0.6);
   position: absolute;
   top: 0;
   right: 0;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   @media (min-width: 600px) {
-    width: 50vw;
-    height: fit-content;
+    width: 100vw;
+    height: 100vh;
     top: 0;
     right: 0;
     padding: .4em .4em;
   }
+  .ctnContenu{
+    background: #fff;
+    border-radius: 5px;
+    width: 70vw;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1em;
+    @media (min-width: 800px) {
+      height:50vh;
+      flex-direction: row;
+    }
+    @media (min-width: 1200px) {
+      width: 840px;
+    }
+    &__img{
+      display: block;
+      max-height: 50%;
+      margin-right: 2em;
+      @media (min-width: 800px) {
+        max-height: 80%;
+        margin-left: 1.5em;
+      }
+    }
+    div{
+      margin-left: 2em;
+      @media (min-width: 800px) {
+        margin-right: 1em;
+      }
+    }
+  }
+
   button,
   input{
     margin-bottom: .7em;
   }
   input{
     width: fit-content;
+  }
+  p:nth-child(1){
+    font-weight: bold;
   }
   p:last-child>span{
     width: 30px;

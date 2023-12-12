@@ -21,7 +21,6 @@
 @import "modules/tri";
 @import "modules/boutonswitch";
 @import "modules/images";
-@import "modules/ajoutPanier";
 @import "modules/livres_similaires";
 @import "modules/entete_fiche";
 @import "modules/select";
@@ -30,6 +29,8 @@
 @import "modules/formulaireTransaction";
 @import "modules/filArianne";
 @import "modules/imagesPageListe";
+
+
 //layout
 @import "layout/onglets";
 @import "layout/sectionPrincipaleLivre";
@@ -42,3 +43,4 @@
 @import "layout/conteneurFormulaire";
 @import "layout/creationCompte";
 
+@import "modules/ajoutPanier";

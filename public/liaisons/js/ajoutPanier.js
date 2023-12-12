@@ -142,7 +142,7 @@ form.addEventListener('submit', gererRechargementPage);
 window.addEventListener('load', gererNbLivre);
 refBtnAjoutPanier.addEventListener('click', gererNbLivre);
 refBtnAjoutPanier.addEventListener('click', afficherLaModale);
-document.querySelector(".btnLivre").addEventListener("click", cacherLaModale)
+document.querySelector(".btnLivre").addEventListener("click", cacherLaModale);
 
 
 
