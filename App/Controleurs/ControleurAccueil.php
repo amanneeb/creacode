@@ -28,7 +28,6 @@ class ControleurAccueil
         $nouveautes = Livre::trouverNouveautes();
         $aParaitres = Livre::trouverAParaitre();
 
-
         $tDonnees = array('actualites'=>$actualites, 'lancements'=>$lancements, 'evenements'=>$evenements, 'nouveautes'=>$nouveautes, 'aParaitres'=>$aParaitres);
         echo App::getBlade()->run("accueil",$tDonnees);
 
