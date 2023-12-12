@@ -1424,6 +1424,21 @@ fieldset {
   word-spacing: 1rem;
 }
 
+.liste .image-item {
+  height: auto;
+  width: 100px;
+}
+@media (min-width: 450px) {
+  .liste .image-item {
+    width: 150px;
+  }
+}
+@media (min-width: 800px) {
+  .liste .image-item {
+    width: 245px;
+  }
+}
+
 .onglets {
   border: 0;
   clip: rect(0 0 0 0);

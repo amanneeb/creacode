@@ -17,7 +17,7 @@
     <ul class="liste-auteurs__items liste__items">
         @foreach ($auteurs as $auteur)
             <!-- Affichage des détails de chaque auteur -->
-            <li class="auteur">
+            <li class="auteur liste">
                 <a href="index.php?controleur=artiste&action=fiche&idAuteur={{ $auteur->getId() }}">
                     <div class="ctnImg">
                         @php
@@ -39,11 +39,11 @@
                             <picture>
                                 <source media="(max-width: 600px)" srcset="{{ $cheminImage }}_w135.jpg 1x, {{ $cheminImage }}_w270.jpg 2x">
                                 <source media="(min-width: 601px)" srcset="{{ $cheminImage }}_w245.jpg 1x, {{ $cheminImage }}_w490.jpg 2x">
-                                <img class="ctnImg__img" src="{{ $cheminImage }}_w245.jpg" alt="portrait de {{ $auteur->getPrenomNom() }}">
+                                <img class="ctnImg__img image-item" src="{{ $cheminImage }}_w245.jpg" alt="portrait de {{ $auteur->getPrenomNom() }}">
                             </picture>
                         @else
                             <!-- Affichage d'une image de remplacement si l'image n'est pas disponible -->
-                            <img class="ctnImg__img" src="./liaisons/images/placeholder.svg" alt="portrait de {{ $auteur->getPrenomNom() }}" width="245px" height="auto">
+                            <img class="ctnImg__img image-item" src="./liaisons/images/placeholder.svg" alt="portrait de {{ $auteur->getPrenomNom() }}" width="245px" height="auto">
                         @endif
                     </div>
 
