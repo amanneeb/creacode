@@ -31,5 +31,6 @@ class ControleurAccueil
 
         $tDonnees = array('actualites'=>$actualites, 'lancements'=>$lancements, 'evenements'=>$evenements, 'nouveautes'=>$nouveautes, 'aParaitres'=>$aParaitres);
         echo App::getBlade()->run("accueil",$tDonnees);
+
     }
 }
