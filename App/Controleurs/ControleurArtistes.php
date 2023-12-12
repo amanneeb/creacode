@@ -69,7 +69,7 @@ class ControleurArtistes
         $panier = Panier::trouverParIdSession($idSession);
         $nbArticle = sizeof(Article::trouverParPanier($panier->getId()));
         // Mise à jour du fil d'Ariane
-        $filAriane=FilAriane::majFilArianne();
+        $filAriane = FilAriane::majFilArianne();
 
         // Récupération de l'ID de l'auteur depuis les paramètres GET
         $idAuteur = (int)$_GET['idAuteur'];
@@ -92,12 +92,12 @@ class ControleurArtistes
         if (isset($_GET['page']) === false) {
             $numeroPage = 0;
         } else {
-            $numeroPage = (int) $_GET['page'];
+            $numeroPage = (int)$_GET['page'];
         }
 
         // Récupération des livres pour la page courante
         $livresPagination = $auteurs->getLivresAuteursAssocies();
-        $livres = Auteur::paginerParLivre($numeroPage, 3, (int) $_GET['idAuteur']);
+        $livres = Auteur::paginerParLivre($numeroPage, 3, (int)$_GET['idAuteur']);
 
         // Récupération des reconnaissances pour chaque livre associé à l'auteur
         $arrReconnaissance = array();
@@ -108,21 +108,20 @@ class ControleurArtistes
         }
 
         // Données à passer à la vue
-
         $tDonnees = array('auteurs' => $auteurs,
-                          //  'reconnaissances' => $reconnaissance,
-                            'livresAuteurs' => $livresAuteurs,
-                            'idAuteur' => $idAuteur,
-                            'idSuivant' => $idSuivant,
-                            'idPrecedent' => $idPrecedent,
-                            "livresPagination"=>$livresPagination,
-                            "nombreTotalPages"=>$nombreTotalPages,
-                            "numeroPage"=>$numeroPage,
-                            'livres' => $livres,
-                            "urlPagination"=>$urlPagination,
-                            'filAriane' => $filAriane,
-                            'panier' => $panier,
-                            "nbArticle" => $nbArticle);
+            'reconnaissances' => $arrReconnaissance,
+            'livresAuteurs' => $livresAuteurs,
+            'idAuteur' => $idAuteur,
+            'idSuivant' => $idSuivant,
+            'idPrecedent' => $idPrecedent,
+            "livresPagination" => $livresPagination,
+            "nombreTotalPages" => $nombreTotalPages,
+            "numeroPage" => $numeroPage,
+            'livres' => $livres,
+            "urlPagination" => $urlPagination,
+            'filAriane' => $filAriane,
+            'panier' => $panier,
+            "nbArticle" => $nbArticle);
 
 
         // Affichage de la vue avec Blade
