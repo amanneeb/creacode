@@ -6,7 +6,7 @@
   border: $vert 2px solid;
   border-radius: 5px;
 
-  &__img{
+  &__picture{
     position: relative;
     top: -.5em;
     left: .5em;
@@ -17,6 +17,12 @@
       animation: ease-in;
       animation-duration: 1s;
       animation-direction: normal;
+      .vignetteNouv,
+      .vignetteAP{
+        top: 0;
+        left:0;
+        background-color: blue;
+      }
     }
   }
 }
