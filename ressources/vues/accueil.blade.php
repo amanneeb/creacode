@@ -71,6 +71,7 @@
                                                 srcset="{{ $cheminImage }}_w245.jpg 1x, {{ $cheminImage }}_w490.jpg 2x">
                                         <img class="ctnImg__img imgLivre" src="{{ $cheminImage }}_w245.jpg"
                                              alt="{{ $nouveaute->getTitre() }}">
+                                        <span class="vignetteNouv"></span>
                                     </picture>
                                 @else
                                     <img class="ctnImg__img imgLivre" src="liaisons/images/placeholder.svg"
@@ -124,6 +125,7 @@
                                                 srcset="{{ $cheminImage }}_w245.jpg 1x, {{ $cheminImage }}_w490.jpg 2x">
                                         <img class="ctnImg__img imgLivre" src="{{ $cheminImage }}_w245.jpg"
                                              alt="{{ $aParaitre->getTitre() }}">
+                                        <span class="vignetteAP"></span>
                                     </picture>
                                 @else
                                     <img class="ctnImg__img imgLivre" src="liaisons/images/placeholder.svg"
