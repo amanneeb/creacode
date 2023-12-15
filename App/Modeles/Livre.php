@@ -356,7 +356,7 @@ class Livre
 
     public static function trouverNouveautes(): array
     {
-        $subJours=strtotime('-4 years');
+        $subJours=strtotime('-4 year');
         $dateMoins14 = date('Y-m-d', $subJours);
         $dateNow = date('Y-m-d');
 
@@ -378,7 +378,7 @@ class Livre
 
     public static function trouverAParaitre(): array
     {
-        $subJours=strtotime('+2 years');
+        $subJours=strtotime('+6 months');
         $datePlus28 = date('Y-m-d', $subJours);
         $dateNow = date('Y-m-d');
 

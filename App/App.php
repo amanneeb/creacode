@@ -170,10 +170,10 @@ class   App
             $objControleur = new ControleurCompte();
             switch ($nomAction) {
                 case 'connexion':
-                    $objControleur->connexion();
+                    $objControleur->connexion(session_id());
                     break;
                 case 'creation':
-                    $objControleur->creation();
+                    $objControleur->creation(session_id());
                     break;
                 case 'inserer':
                     $objControleur->inserer();

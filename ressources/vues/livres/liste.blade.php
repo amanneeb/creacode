@@ -68,7 +68,8 @@
 
                         @if ($cheminImage)
                             <!-- Affichage de l'image du livre avec responsive images -->
-                            <picture class="ctnImg__picture">
+                            <div class="ctnImg__picture">
+                            <picture >
                                 <source media="(max-width: 600px)"
                                         srcset="{{ $cheminImage }}_w135.jpg 1x, {{ $cheminImage }}_w270.jpg 2x">
                                 <source media="(min-width: 601px)"
@@ -76,6 +77,12 @@
                                 <img class="ctnImg__img item-img image-item " src="{{ $cheminImage }}_w245.jpg"
                                      alt="{{ $livre->getTitre() }}">
                             </picture>
+                                @if($livre->getDate_parution_quebec() > date('Y-m-d'))
+                                    <span class="vignetteAP">À paraitre</span>
+                                @elseif($livre->getDate_parution_quebec() > date('Y-m-d', strtotime('-4 year')) && $livre->getDate_parution_quebec() <= date('Y-m-d') )
+                                    <span class="vignetteNouv">Nouveauté</span>
+                                @endif
+                            </div>
                         @else
                             <!-- Affichage d'une image de remplacement si l'image n'est pas disponible -->
                             <img class="ctnImg__img image-item" src="./liaisons/images/placeholder.svg"

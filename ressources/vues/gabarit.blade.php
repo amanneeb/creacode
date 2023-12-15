@@ -13,11 +13,12 @@
         @elseif($_GET['controleur']==='artiste' && $_GET['action']==='index' )
             <title>Auteurs | La Pastèque </title>
             <meta name="description"
-            content="Découvrez nos auteurs chez La Pastèque. Plongez dans des histoires variées, des plumes émergentes aux maîtres confirmés. Explorez la richesse littéraire de chaque écrivain. Votre prochaine lecture vous attend parmi nos pages d'auteurs. La Pastèque, votre destination littéraire incontournable. ">
+                  content="Découvrez nos auteurs chez La Pastèque. Plongez dans des histoires variées, des plumes émergentes aux maîtres confirmés. Explorez la richesse littéraire de chaque écrivain. Votre prochaine lecture vous attend parmi nos pages d'auteurs. La Pastèque, votre destination littéraire incontournable. ">
             <script defer src="liaisons/js/affichage_grille_liste.js"></script>
         @elseif($_GET['controleur']==='livre' && $_GET['action']==='fiche' )
             <title> {{$lesLivres->getTitre()}} | Livres | La Pastèque </title>
-            <meta name="description" content="Description du livre {{$lesLivres->getTitre()}} écrit par @foreach($lesLivres->getLivresAuteursAssocies() as $auteurs){{$auteurs->getAuteurAssocie()->getPrenom()." ". $auteurs->getAuteurAssocie()->getNom()." "}}@endforeach">
+            <meta name="description"
+                  content="Description du livre {{$lesLivres->getTitre()}} écrit par @foreach($lesLivres->getLivresAuteursAssocies() as $auteurs){{$auteurs->getAuteurAssocie()->getPrenom()." ". $auteurs->getAuteurAssocie()->getNom()." "}}@endforeach">
             <meta name="keywords" content="livre, fiche, librairie, La Pastèque, {{$lesLivres->getTitre()}},
             @foreach($lesLivres->getLivresAuteursAssocies() as $auteurs)
             {{$auteurs->getAuteurAssocie()->getPrenom()." ". $auteurs->getAuteurAssocie()->getNom().", "}}
@@ -29,12 +30,13 @@
         @elseif($_GET['controleur']==='artiste' && $_GET['action']==='fiche' )
             <title> {{$auteurs->getPrenomNom()}} | Artistes | La Pastèque </title>
             <meta name="description"
-            content="Découvrez l'auteur {{$auteurs->getPrenomNom()}}  chez La Pastèque. Explorez sa carrière littéraire, ses œuvres marquantes, et plongez dans l'univers captivant de sa plume. Des débuts prometteurs aux chef-d'œuvres incontournables, chaque page dévoile une histoire unique. Ajoutez l'essence de {{$auteurs->getPrenomNom()}} à votre collection littéraire. ">
-            <meta name="keywords" content="auteur, librairie, La Pastèque, {{$auteurs->getPrenom()}} {{$auteurs->getNom()}}">
+                  content="Découvrez l'auteur {{$auteurs->getPrenomNom()}}  chez La Pastèque. Explorez sa carrière littéraire, ses œuvres marquantes, et plongez dans l'univers captivant de sa plume. Des débuts prometteurs aux chef-d'œuvres incontournables, chaque page dévoile une histoire unique. Ajoutez l'essence de {{$auteurs->getPrenomNom()}} à votre collection littéraire. ">
+            <meta name="keywords"
+                  content="auteur, librairie, La Pastèque, {{$auteurs->getPrenom()}} {{$auteurs->getNom()}}">
         @elseif($_GET['controleur']==='compte' && $_GET['action']==='connexion' )
             <title> La Pastèque | Connexion au compte</title>
         @elseif($_GET['controleur']==='compte' && $_GET['action']==='creation' )
-            <title> La Pastèque | Création du  compte</title>
+            <title> La Pastèque | Création du compte</title>
         @elseif($_GET['controleur']==='panier' && $_GET['action']==='fiche' )
             <title> Votre panier | La Pastèque </title>
             <meta name="description" content=" ">
@@ -48,7 +50,8 @@
     @else
         <title>La Pastèque | Techniques d’intégration multimédia – Cégep de Sainte-Foy</title>
     @endif
-    <meta name="keywords" content="Livres à vendre en ligne, Littérature diversifiée, Auteurs renommés, Nouveautés littéraires, Librairie en ligne francophone">
+    <meta name="keywords"
+          content="Livres à vendre en ligne, Littérature diversifiée, Auteurs renommés, Nouveautés littéraires, Librairie en ligne francophone">
     <script src="https://kit.fontawesome.com/5482d63b2f.js" crossorigin="anonymous"></script>
     <script defer src="liaisons/js/menu.js"></script>
     <link rel="stylesheet" href="liaisons/css/styles.css">

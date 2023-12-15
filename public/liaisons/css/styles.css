@@ -83,7 +83,7 @@
 .ctnImg__picture:hover .vignetteAP {
   top: 0;
   left: 0;
-  background-color: blue;
+  background-color: #C64532;
 }
 
 .livresSimilaires {
@@ -553,14 +553,12 @@ h4 {
 }
 
 /*
+ * Adaptation du code
  * Made by Erik Terwan
  * 24th of November 2015
  * MIT License
  *
- *
- * If you are thinking of using this in
- * production code, beware of the browser
- * prefixes.
+ * Lien: https://codepen.io/erikterwan/pen/EVzeRP
  */
 .noDisplayMenu {
   display: none;
@@ -581,13 +579,6 @@ h4 {
    */
   /*
    * But let's hide the middle one.
-   */
-  /*
-   * Ohyeah and the last one should go the other direction
-   */
-  /*
-   * Make this absolute positioned
-   * at the top left of the screen
    */
   /*
    * And let's slide it in from the left
@@ -750,12 +741,14 @@ input:focus {
 
 .vignetteNouv,
 .vignetteAP {
-  background-color: red;
-  display: block;
-  height: 100px;
-  width: 100px;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  opacity: 90%;
+  background-color: #681c0f;
+  width: 125px;
   position: absolute;
-  opacity: 50%;
   top: 0;
   left: 0;
   border-radius: 5px;
@@ -859,7 +852,7 @@ input:focus {
 .ctnImg__picture:hover .vignetteAP {
   top: 0;
   left: 0;
-  background-color: blue;
+  background-color: #C64532;
 }
 
 .livresSimilaires {

@@ -1,25 +1,29 @@
-.form_creation{
+.form_creation {
   margin-top: 40px;
-  h2{
-    margin:20px auto
+
+  h2 {
+    margin: 20px auto
   }
+
   form {
     margin: auto;
-    .btnPrimaire{
+
+    .btnPrimaire {
       display: flex;
       align-items: center;
-      margin:12px auto 30px auto;
+      margin: 12px auto 30px auto;
     }
-    .divFrom{
+
+    .divFrom {
       max-width: 350px;
     }
   }
 
-  .lien_creation{
-    margin:auto;
+  .lien_creation {
+    margin: auto;
   }
 
-  .error{
-     @include styleErreur;
+  .error {
+    @include styleErreur;
   }
 }
