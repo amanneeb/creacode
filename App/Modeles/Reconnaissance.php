@@ -31,10 +31,7 @@ class Reconnaissance
     public static function trouverParLivre($idLivre): array
     {
         $chaineSQL = "SELECT * FROM reconnaissances
-                        INNER JOIN livres ON livres.id = reconnaissances.livre_id
-                        INNER JOIN livres_auteurs ON livres_auteurs.livre_id = livres.id
-                        INNER JOIN auteurs ON auteurs.id = livres_auteurs.livre_id
-                        WHERE livres.id=:idLivre";
+                        WHERE livre_id=:idLivre";
         $intId = (int)$idLivre;
         //Bind
         $requetePreparee = App::getPDO()->prepare($chaineSQL);
