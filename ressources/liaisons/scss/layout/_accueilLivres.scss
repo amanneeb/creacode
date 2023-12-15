@@ -1,10 +1,11 @@
 .AParaitre,
-.nouveautes{
-  h2{
+.nouveautes {
+  h2 {
     margin-top: 60px;
     height: 75px;
   }
-  .underline{
+
+  .underline {
     margin-bottom: 45px;
     display: block;
     height: 5px;
@@ -12,20 +13,17 @@
 
   }
 
-  .voirTout{
+  .voirTout {
     float: right;
-    margin-top:-36px;
-//display: flex;
-//    flex-direction: row-reverse;
-//    margin-bottom: 30px;
+    margin-top: -36px;
   }
 
-  .livres{
+  .livres {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 
-    .vignetteLivre{
+    .vignetteLivre {
       max-width: 150px;
       @media (min-width: 800px) {
         max-width: 200px;
@@ -35,7 +33,7 @@
       }
     }
 
-    .imgLivre{
+    .imgLivre {
       margin: auto;
       width: 80px;
       @media (min-width: 450px) {
@@ -51,18 +49,18 @@
   }
 }
 
-.AParaitre{
-  .underline{
-    width:265px ;
+.AParaitre {
+  .underline {
+    width: 265px;
     @media (min-width: 600px) {
       width: 350px;
     }
   }
 }
 
-.nouveautes{
-  .underline{
-    width: 305px ;
+.nouveautes {
+  .underline {
+    width: 305px;
     @media (min-width: 600px) {
       width: 410px;
     }

@@ -1,23 +1,27 @@
 .actualites,
 .lancement,
-.evenements{
-  h2{
-      margin-top: 60px;
+.evenements {
+  h2 {
+    margin-top: 60px;
     height: 75px;
   }
-  .underline{
+
+  .underline {
     display: block;
     height: 5px;
     background-color: $vert;
     margin-bottom: 30px;
   }
+
   .bloc {
-margin-bottom: 50px;
+    margin-bottom: 50px;
+
     h3,
-    .date{
+    .date {
       margin: 5px 0;
     }
-    .consulter{
+
+    .consulter {
       float: right;
     }
 
@@ -27,13 +31,15 @@ margin-bottom: 50px;
       @media (min-width: 800px) {
         flex-direction: row;
       }
-      .imgEv{
+
+      .imgEv {
         max-width: 100%;
         display: block;
         margin-left: auto;
         margin-right: auto;
       }
-      p{
+
+      p {
         max-width: 100%;
         margin: 20px 0 0 20px;
 
@@ -46,8 +52,8 @@ margin-bottom: 50px;
   }
 }
 
-.actualites{
-  .underline{
+.actualites {
+  .underline {
     width: 280px;
     @media (min-width: 600px) {
       width: 370px;
@@ -55,8 +61,8 @@ margin-bottom: 50px;
   }
 }
 
-.lancement{
-  .underline{
+.lancement {
+  .underline {
     width: 395px;
     @media (min-width: 600px) {
       width: 390px;
@@ -64,8 +70,8 @@ margin-bottom: 50px;
   }
 }
 
-.evenements{
-  .underline{
+.evenements {
+  .underline {
     width: 305px;
     @media (min-width: 600px) {
       width: 400px;

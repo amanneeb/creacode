@@ -1,9 +1,10 @@
 <?php
 declare(strict_types=1);
+
 namespace App\Controleurs;
-use App\Modeles\Actualites;
 
 use App\App;
+use App\Modeles\Actualites;
 use App\Modeles\Article;
 use App\Modeles\Evenements;
 use App\Modeles\Livre;
@@ -29,8 +30,8 @@ class ControleurAccueil
         $aParaitres = Livre::trouverAParaitre();
 
 
-        $tDonnees = array('actualites'=>$actualites, 'lancements'=>$lancements, 'evenements'=>$evenements, 'nouveautes'=>$nouveautes, 'aParaitres'=>$aParaitres);
-        echo App::getBlade()->run("accueil",$tDonnees);
+        $tDonnees = array('actualites' => $actualites, 'lancements' => $lancements, 'evenements' => $evenements, 'nouveautes' => $nouveautes, 'aParaitres' => $aParaitres, 'nbArticle' => $nbArticle);
+        echo App::getBlade()->run("accueil", $tDonnees);
 
     }
 }

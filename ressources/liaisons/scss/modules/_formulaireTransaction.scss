@@ -1,20 +1,21 @@
-fieldset{
+fieldset {
   border-radius: 10px;
   border: 2px solid lightgray
 
 }
-.pathStatus{
+
+.pathStatus {
   opacity: 40%;
 }
 
-.inactive{
-  display:none;
+.inactive {
+  display: none;
 }
 
-.formulaire__erreur{
-  color:darkred;
+.formulaire__erreur {
+  color: darkred;
 }
 
-.input__erreur > input{
+.input__erreur > input {
   border-color: darkred;
 }

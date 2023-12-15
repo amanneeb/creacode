@@ -35,7 +35,8 @@ class Evenements
     }
 
 
-    public static function trouverEvenements():array{
+    public static function trouverEvenements(): array
+    {
         // Définir la chaine SQL
         $chaineSQL = 'SELECT * FROM evenements WHERE evenements.id IN (1, 2, 3, 4, 5, 6) ORDER BY date DESC LIMIT 3 ';
         // Préparer la requête (optimisation)

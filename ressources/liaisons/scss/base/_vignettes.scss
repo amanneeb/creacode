@@ -1,11 +1,13 @@
 .vignetteNouv,
 .vignetteAP{
-  background-color: red;
-  display: block;
-  height: 100px;
-  width: 100px;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  opacity: 90%;
+  background-color: $rouge;
+  width: 125px;
   position: absolute;
-  opacity: 50%;
   top: 0;
   left:0;
   border-radius: 5px;
