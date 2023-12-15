@@ -963,6 +963,7 @@ input:focus {
   margin: 1em 1em;
   background-color: #fff;
   border: black solid 1px;
+  width: 80%;
 }
 @media (min-width: 600px) {
   .mainPanier .sectionPanier {
@@ -1026,10 +1027,11 @@ input:focus {
 }
 .mainPanier .resumePanier {
   border: solid black 1px;
-  width: fit-content;
+  max-width: 100%;
   padding: 1em 0.5em;
   background: #fff;
   margin: 1em 1em;
+  width: 80%;
 }
 @media (min-width: 800px) {
   .mainPanier .resumePanier {
@@ -2059,6 +2061,7 @@ body {
   margin: 1em 1em;
   background-color: #fff;
   border: black solid 1px;
+  width: 80%;
 }
 @media (min-width: 600px) {
   .mainPanier .sectionPanier {
@@ -2122,10 +2125,11 @@ body {
 }
 .mainPanier .resumePanier {
   border: solid black 1px;
-  width: fit-content;
+  max-width: 100%;
   padding: 1em 0.5em;
   background: #fff;
   margin: 1em 1em;
+  width: 80%;
 }
 @media (min-width: 800px) {
   .mainPanier .resumePanier {

@@ -7,7 +7,6 @@
 }
 
 .mainPanier {
-  //display: unset;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -24,10 +23,10 @@
     margin: 1em 1em;
     background-color: #fff;
     border: black solid 1px;
+    width: 80%;
     @media (min-width: 600px) {
       padding-right: 3em;
       padding-left: 3em;
-      //margin: 0 10%;
     }
     @media (min-width: 1000px) {
       margin: 0 0;
@@ -89,10 +88,11 @@
       //Partie Montant (Panier)
     .resumePanier {
       border: solid black 1px;
-      width: fit-content;
+      max-width: 100%;
       padding: 1em .5em;
       background: #fff;
       margin: 1em 1em;
+      width: 80%;
       @media (min-width: 800px) {
         margin-right: 1em;
       }
