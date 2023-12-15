@@ -1388,7 +1388,7 @@ fieldset {
 }
 .ctnPage .infoPrincipal .ctnInfoPanier {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   flex-wrap: wrap;
@@ -1396,9 +1396,7 @@ fieldset {
 }
 @media (min-width: 700px) {
   .ctnPage .infoPrincipal .ctnInfoPanier {
-    display: inline-flex;
     margin-left: 2em;
-    align-self: stretch;
     width: 50%;
     margin-bottom: 0;
   }
@@ -1564,7 +1562,6 @@ fieldset {
   background: #fff;
   border-radius: 5px;
   width: 70vw;
-  height: 70vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1585,7 +1582,6 @@ fieldset {
 .modaleAjoutPanier .ctnContenu__img {
   display: block;
   max-height: 50%;
-  margin-right: 2em;
 }
 @media (min-width: 800px) {
   .modaleAjoutPanier .ctnContenu__img {
