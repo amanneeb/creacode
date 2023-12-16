@@ -741,17 +741,26 @@ input:focus {
 
 .vignetteNouv,
 .vignetteAP {
+  font-size: 0.8rem;
   color: white;
-  padding: 10px;
+  padding: 3px;
   text-align: center;
   font-weight: bold;
   opacity: 90%;
   background-color: #681c0f;
-  width: 125px;
+  width: 70px;
   position: absolute;
   top: 0;
   left: 0;
   border-radius: 5px;
+}
+@media (min-width: 700px) {
+  .vignetteNouv,
+  .vignetteAP {
+    font-size: 1.2rem;
+    width: 125px;
+    padding: 10px;
+  }
 }
 
 .liste-livres__tri-option {
