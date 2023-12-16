@@ -24,8 +24,7 @@ class ControleurArticle
             $article->setLivreId($_POST["livre_id"]);
             $article->modifier();
         }
-        //header("Location: index.php?controleur=panier&action=fiche&id=".$idPanier);
-        header("Location: index.php?controleur=livre&action=fiche&idLivre=".$_POST["livre_id"]);
+        header("Location: index.php?controleur=livre&action=fiche&idLivre=".$_POST["livre_id"]."?modale");
         exit;
     }
 
