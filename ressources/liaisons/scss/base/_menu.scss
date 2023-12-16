@@ -1,17 +1,16 @@
 /*
- * Adaptation du code
  * Made by Erik Terwan
  * 24th of November 2015
  * MIT License
  *
- * Lien: https://codepen.io/erikterwan/pen/EVzeRP
+ * Lien:
  */
 
-.noDisplayMenu {
-  display: none;
+.noDisplayMenu{
+  display:none;
 }
 
-.opacityMenu {
+.opacityMenu{
   opacity: 0;
   transition: opacity 0.5s;
 }
@@ -19,10 +18,10 @@
 .navMobile {
 
   #menuToggle {
-    width: 100px;
     display: block;
     position: relative;
     top: -30px;
+    //left: -600px;
 
     z-index: 1;
 
@@ -100,11 +99,15 @@
     transform: rotate(0deg) scale(0.2, 0.2);
   }
 
+
   #menuToggle input:checked ~ span:nth-last-child(2) {
     transform: rotate(-45deg) translate(0, -1px);
   }
 
-
+  /*
+   * Make this absolute positioned
+   * at the top left of the screen
+   */
   #menu {
     position: absolute;
     width: 240px;
@@ -140,22 +143,19 @@
     transform: none;
   }
 }
-
 @media (min-width: 800px) {
-  .menu_list {
+  .menu_list{
     list-style: none;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     padding: 0 40px;
-
-    li a {
+    li a{
       font-weight: bold;
     }
 
   }
 }
-
 @media (min-width: 800px) {
   .menu_list {
     list-style: none;

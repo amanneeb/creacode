@@ -1,37 +1,6 @@
-/*
- * Fait par Marianne Anctil
- * 2163768@csfoy.ca
- */
-
-
-const nav = document.getElementById('navigation');
-const checkbox = document.getElementById('checkboxMenu');
-const spans = document.querySelectorAll('.span_menuHamburger');
-const width = window.matchMedia('(max-width:800px)');
-const menu = document.getElementById('menu');
-var intervalle = null;
-hideHamburger(width);
-
-width.addEventListener('change', hideHamburger);
-
 /**
- *
- * @param widthValue
- * afficher/faire disparaite le menu hamburger selon la largeur de la page web
+ * @file La Pastèque - activation et désactivation du menu hamburger
+ * @author Marianne Anctil
+ * @version 0.0.1
  */
-function hideHamburger(widthValue) {
-
-    if (widthValue.matches) {
-        nav.classList.add('navMobile');
-        nav.classList.remove('navTable');
-        checkbox.classList.remove('noDisplayMenu');
-        spans.forEach(spans => spans.classList.remove('noDisplayMenu'));
-
-    } else {
-        nav.classList.remove('navMobile');
-        nav.classList.add('navTable');
-        checkbox.classList.add('noDisplayMenu');
-        spans.forEach(spans => spans.classList.add('noDisplayMenu'));
-    }
-
-}
+const nav=document.getElementById("navigation"),checkbox=document.getElementById("checkboxMenu"),spans=document.querySelectorAll(".span_menuHamburger"),width=window.matchMedia("(max-width:800px)"),menu=document.getElementById("menu");var intervalle=null;function hideHamburger(e){e.matches?(nav.classList.add("navMobile"),nav.classList.remove("navTable"),checkbox.classList.remove("noDisplayMenu"),spans.forEach(e=>e.classList.remove("noDisplayMenu"))):(nav.classList.remove("navMobile"),nav.classList.add("navTable"),checkbox.classList.add("noDisplayMenu"),spans.forEach(e=>e.classList.add("noDisplayMenu")))}hideHamburger(width),width.addEventListener("change",hideHamburger);
