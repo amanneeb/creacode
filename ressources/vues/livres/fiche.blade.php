@@ -25,8 +25,7 @@
                               method="POST" onsubmit="cacherLaModale()">
                             <button type="submit" class="btnLivre btnSecondaire">Retourner aux livres</button>
                         </form>
-                        <p><span><i class="fa-solid fa-circle-check fa-xl"></i></span> Le livre a été ajouté au panier.
-                        </p>
+                        <p><span><i class="fa-solid fa-circle-check fa-xl"></i></span> Livre ajouté </p>
                     </div>
                 </div>
             </section>

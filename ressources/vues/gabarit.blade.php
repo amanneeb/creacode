@@ -26,7 +26,6 @@
             <script defer src="liaisons/js/onglets.js"></script>
             <script defer src="liaisons/js/ajoutPanier.js"></script>
             <script defer src="liaisons/js/modaleLivre.js"></script>
-            <script defer src="liaisons/js/animPanier.js"></script>
         @elseif($_GET['controleur']==='artiste' && $_GET['action']==='fiche' )
             <title> {{$auteurs->getPrenomNom()}} | Artistes | La Pastèque </title>
             <meta name="description"
