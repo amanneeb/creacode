@@ -11,40 +11,6 @@ const refBtnAjoutPanier = document.querySelector(".ajoutPanier__btnPanier");
 const btnPanierRetroLivre = document.querySelector(".menu__nbArticle");
 const form = document.querySelector(".ajoutPanier");
 
-/**
- * Ne pas recharger la page au moment de la soumission du formulaire
- */
-function gererRechargementPage() {
-
-    //** Code trouvé sur https://html.form.guide/php-form/submit-form-without-reloading-page-php/ **//
-    const form = document.querySelector('.ajoutPanier');
-
-    form.addEventListener('submit', (event) => {
-        event.preventDefault(); // Prevents the default form submission behavior
-
-        // Perform any form validation or data manipulation here
-        const formData = new FormData(form); // Create a FormData object with the form data
-
-        const myDiv = document.querySelector('.ajoutPanier');
-        fetch("index.php?controleur=livre&action=fiche&idLivre="+refLivre.value, {
-            method: 'POST',
-            body: formData
-        })
-            .then(response => {
-                if (response.ok) {
-                    console.log('Form submitted successfully!');
-
-                } else {
-                    console.log('There was an error submitting the form');
-                }
-            })
-            .catch(error => {
-                console.log('There was an error submitting the form:'+error);
-            });
-    });
-}
-
-
 //**************** MODALE ********************//
 
 /**
@@ -58,7 +24,7 @@ function gererNbLivre() {
     if(localStorage.getItem("nbLivre") !== btnPanierRetroLivre.innerText){
         btnPanierRetroLivre.classList.add("animate__heartBeat");
         enregistrerDansLocalStorage();
-        afficherLaModale();
+        modifierNbLivre();
     }
 }
 
@@ -72,11 +38,28 @@ function enregistrerDansLocalStorage() {
 }
 
 /**
+* Modifier nb livre
+*/
+function modifierNbLivre() {
+    document.querySelector(".nbLivreChoisi").innerText = refNbLivre.value;
+}
+
+/**
+ * Afficher la modale au chargement de la page seulement après l'ajout d'un livre
+ */
+function choisirAffichage() {
+    if(window.location.href.includes("modale")){
+        afficherLaModale()
+    }else{
+        cacherLaModale()
+    }
+}
+
+/**
  * Afficher la modale
  */
 function afficherLaModale() {
     document.querySelector(".modaleAjoutPanier").classList.remove("visuallyhidden");
-    document.querySelector(".nbLivreChoisi").innerText = refNbLivre.value;
 }
 
 /**
@@ -138,8 +121,8 @@ window.addEventListener("load", afficherBoutonMoins);
 window.addEventListener("load", afficherBoutonPlus);
 refBtnPlus.addEventListener('click', modifierNbLivres);
 refBtnMoins.addEventListener('click', modifierNbLivres);
-form.addEventListener('submit', gererRechargementPage);
 window.addEventListener('load', gererNbLivre);
+window.addEventListener('load', choisirAffichage);
 refBtnAjoutPanier.addEventListener('click', gererNbLivre);
 refBtnAjoutPanier.addEventListener('click', afficherLaModale);
 document.querySelector(".btnLivre").addEventListener("click", cacherLaModale);

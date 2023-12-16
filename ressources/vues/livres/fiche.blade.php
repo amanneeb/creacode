@@ -21,10 +21,11 @@
                               onsubmit="cacherLaModale()" method="POST">
                             <input class="btnPanier btnPrimaire" type="submit" value="Voir mon panier">
                         </form>
-                        <form action="./index.php?controleur=livre&action=fiche&idLivre={{$lesLivres->getId()}}"
+                        <a href="./index.php?controleur=livre&action=fiche&idLivre={{$lesLivres->getId()}}">Continuer mon magasinage</a>
+                    <!--    <form action="./index.php?controleur=livre&action=fiche&idLivre={{$lesLivres->getId()}}"
                               method="POST" onsubmit="cacherLaModale()">
                             <button type="submit" class="btnLivre btnSecondaire">Retourner aux livres</button>
-                        </form>
+                        </form> -->
                         <p><span><i class="fa-solid fa-circle-check fa-xl"></i></span> Livre ajouté </p>
                     </div>
                 </div>
@@ -123,12 +124,11 @@
                                     class="fa-solid fa-cart-shopping fa-lg" style="color: #ffffff;"></i>Ajouter au
                             panier
                         </button>
-                        <br>
-                        <button class="ajoutPanier__btnSouhait btnSecondaire" type="button" name="ajoutSouhait"
-                                id="ajoutSouhait"><i class="fa-solid fa-heart fa-lg" style="color: #c64542;"></i>Ajouter
-                            à ma liste
-                        </button>
                     </form>
+                    <button class="ajoutPanier__btnSouhait btnSecondaire" type="button" name="ajoutSouhait"
+                            id="ajoutSouhait"><i class="fa-solid fa-heart fa-lg" style="color: #c64542;"></i>Ajouter
+                        à ma liste
+                    </button>
                 </section>
             </section>
             <section class="infoSupplementaires">
