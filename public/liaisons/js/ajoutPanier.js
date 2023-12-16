@@ -3,6 +3,7 @@
  * @author Anaïs Mannée-Batschy
  * @version 0.0.1
  */
+
 const refLivre = document.querySelector(".ajoutPanier__livreId");
 const refNbLivre = document.querySelector(".ajoutPanier__nbLivre");
 const refBtnPlus = document.querySelector(".ajoutPanier__plus");
@@ -126,6 +127,4 @@ window.addEventListener('load', choisirAffichage);
 refBtnAjoutPanier.addEventListener('click', gererNbLivre);
 refBtnAjoutPanier.addEventListener('click', afficherLaModale);
 document.querySelector(".btnLivre").addEventListener("click", cacherLaModale);
-
-
 

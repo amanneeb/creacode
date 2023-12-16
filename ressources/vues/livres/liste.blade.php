@@ -52,7 +52,7 @@
 
         @foreach ($livres as $livre)
             <!-- Affichage des détails de chaque livre -->
-            <li class="livre item">
+            <li class="livre item liste">
                 <a href="index.php?controleur=livre&action=fiche&idLivre={{ $livre->getId() }}">
                     <div class="ctnImg">
                         @php
@@ -68,17 +68,24 @@
 
                         @if ($cheminImage)
                             <!-- Affichage de l'image du livre avec responsive images -->
-                            <picture class="ctnImg__picture">
+                            <div class="ctnImg__picture">
+                            <picture >
                                 <source media="(max-width: 600px)"
                                         srcset="{{ $cheminImage }}_w135.jpg 1x, {{ $cheminImage }}_w270.jpg 2x">
                                 <source media="(min-width: 601px)"
                                         srcset="{{ $cheminImage }}_w245.jpg 1x, {{ $cheminImage }}_w490.jpg 2x">
-                                <img class="ctnImg__img item-img " src="{{ $cheminImage }}_w245.jpg"
+                                <img class="ctnImg__img item-img image-item " src="{{ $cheminImage }}_w245.jpg"
                                      alt="{{ $livre->getTitre() }}">
                             </picture>
+                                @if($livre->getDate_parution_quebec() > date('Y-m-d'))
+                                    <span class="vignetteAP">À paraitre</span>
+                                @elseif($livre->getDate_parution_quebec() > date('Y-m-d', strtotime('-4 year')) && $livre->getDate_parution_quebec() <= date('Y-m-d') )
+                                    <span class="vignetteNouv">Nouveauté</span>
+                                @endif
+                            </div>
                         @else
                             <!-- Affichage d'une image de remplacement si l'image n'est pas disponible -->
-                            <img class="ctnImg__img" src="./liaisons/images/placeholder.svg"
+                            <img class="ctnImg__img image-item" src="./liaisons/images/placeholder.svg"
                                  alt="livre {{ $livre->getTitre() }}" width="245px" height="auto">
                         @endif
                     </div>

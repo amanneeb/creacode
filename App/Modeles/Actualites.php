@@ -1,7 +1,10 @@
 <?php
+
 namespace App\Modeles;
+
 use app\App;
 use PDO;
+
 class Actualites
 {
     private int $id = 0;
@@ -15,7 +18,8 @@ class Actualites
     {
     }
 
-    public static function trouverTout():array{
+    public static function trouverTout(): array
+    {
         // Définir la chaine SQL
         $chaineSQL = 'SELECT * FROM actualites ORDER BY date DESC LIMIT 3 ';
         // Préparer la requête (optimisation)
@@ -43,6 +47,7 @@ class Actualites
     {
         return $this->l_actualite;
     }
+
     public function getDate(): string
     {
         return $this->date;

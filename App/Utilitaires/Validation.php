@@ -4,7 +4,11 @@ namespace App\Utilitaires;
 
 class Validation
 {
+    public function __construct()
+    {
 
+    }
+    //validation champ texte
     public static function validerString($nom, $valeur, $message, $reg){
         $regString = '/'. $reg . '/';
         if(preg_match($regString, $valeur)) {
@@ -19,6 +23,7 @@ class Validation
         return $tString;
     }
 
+    //valider mot de passe identique
     public static function validerMDP($nomConf, $valeur, $message, $valeurPasswordInitial){
         if($valeur === $valeurPasswordInitial) {
             $tMdpConf = ['valeur' => $valeur, 'valide' => 'true', 'message' => 'null'];
@@ -32,9 +37,4 @@ class Validation
         return $tMdpConf;
     }
 
-
-    public function __construct()
-    {
-
-    }
 }

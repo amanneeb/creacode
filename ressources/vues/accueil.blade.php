@@ -24,7 +24,7 @@
                         @endphp
                         <span class="idAP" hidden></span>
                         @if ($cheminImageDebut)
-                            <picture class="ctnImg__picture">
+                            <picture class="pictureEv">
                                 <source media="(max-width: 600px)"
                                         srcset="{{ $cheminImageDebut }}w185{{ $cheminImageFin }} 1x, {{ $cheminImageDebut }}w370{{ $cheminImageFin }} 2x">
                                 <source media="(min-width: 601px)"
@@ -64,19 +64,21 @@
                             <span class="idNouv" hidden></span>
                             <a href="index.php?controleur=livre&action=fiche&idLivre={{ $nouveaute->getId() }}">
                                 @if ($cheminImage)
-                                    <picture class="ctnImg__picture">
-                                        <source media="(max-width: 600px)"
-                                                srcset="{{ $cheminImage }}_w135.jpg 1x, {{ $cheminImage }}_w270.jpg 2x">
-                                        <source media="(min-width: 601px)"
-                                                srcset="{{ $cheminImage }}_w245.jpg 1x, {{ $cheminImage }}_w490.jpg 2x">
-                                        <img class="ctnImg__img imgLivre" src="{{ $cheminImage }}_w245.jpg"
-                                             alt="{{ $nouveaute->getTitre() }}">
-                                    </picture>
+                                    <div class="ctnImg__picture">
+                                        <picture>
+                                            <source media="(max-width: 600px)"
+                                                    srcset="{{ $cheminImage }}_w135.jpg 1x, {{ $cheminImage }}_w270.jpg 2x">
+                                            <source media="(min-width: 601px)"
+                                                    srcset="{{ $cheminImage }}_w245.jpg 1x, {{ $cheminImage }}_w490.jpg 2x">
+                                            <img class="ctnImg__img imgLivre" src="{{ $cheminImage }}_w245.jpg"
+                                                 alt="{{ $nouveaute->getTitre() }}">
+                                        </picture>
+                                        <span class="vignetteNouv">Nouveauté</span>
+                                    </div>
                                 @else
                                     <img class="ctnImg__img imgLivre" src="liaisons/images/placeholder.svg"
                                          alt="livre {{ $nouveaute->getTitre() }}" width="245px" height="auto">
                                 @endif
-
                             </a></div>
                         <div class="contenuTexte">
                             <h3 class="h3"><a
@@ -117,14 +119,17 @@
                             <span class="idAP" hidden></span>
                             <a href="index.php?controleur=livre&action=fiche&idLivre={{ $aParaitre->getId() }}">
                                 @if ($cheminImage)
-                                    <picture class="ctnImg__picture">
-                                        <source media="(max-width: 600px)"
-                                                srcset="{{ $cheminImage }}_w135.jpg 1x, {{ $cheminImage }}_w270.jpg 2x">
-                                        <source media="(min-width: 601px)"
-                                                srcset="{{ $cheminImage }}_w245.jpg 1x, {{ $cheminImage }}_w490.jpg 2x">
-                                        <img class="ctnImg__img imgLivre" src="{{ $cheminImage }}_w245.jpg"
-                                             alt="{{ $aParaitre->getTitre() }}">
-                                    </picture>
+                                    <div class="ctnImg__picture">
+                                        <picture>
+                                            <source media="(max-width: 600px)"
+                                                    srcset="{{ $cheminImage }}_w135.jpg 1x, {{ $cheminImage }}_w270.jpg 2x">
+                                            <source media="(min-width: 601px)"
+                                                    srcset="{{ $cheminImage }}_w245.jpg 1x, {{ $cheminImage }}_w490.jpg 2x">
+                                            <img class="ctnImg__img imgLivre" src="{{ $cheminImage }}_w245.jpg"
+                                                 alt="{{ $aParaitre->getTitre() }}">
+                                        </picture>
+                                        <span class="vignetteAP">À paraitre</span>
+                                    </div>
                                 @else
                                     <img class="ctnImg__img imgLivre" src="liaisons/images/placeholder.svg"
                                          alt="livre {{ $aParaitre->getTitre() }}" width="245px" height="auto">
@@ -156,30 +161,30 @@
                     <h3 class="h3">{{$lancement->getTitre()}}</h3>
                     <p class="date">{{$lancement->getDate()}}</p>
                     <div class="content">
-                            @php
-                                $nomSection = 'lan';
-                                $cheminImageDebut = null;
-                                $cheminImageFin = null;
+                        @php
+                            $nomSection = 'lan';
+                            $cheminImageDebut = null;
+                            $cheminImageFin = null;
 
-                                if (file_exists("liaisons/images/accueil/w300/{$nomSection}_{$lancement->getId()}.jpg")) {
-                                    $cheminImageDebut = "liaisons/images/accueil/";
-                                    $cheminImageFin = "/{$nomSection}_{$lancement->getId()}.jpg";
-                                }
-                            @endphp
-                            <span class="idAP" hidden></span>
-                                @if ($cheminImageDebut)
-                                    <picture class="ctnImg__picture">
-                                        <source media="(max-width: 600px)"
-                                                srcset="{{ $cheminImageDebut }}w185{{ $cheminImageFin }} 1x, {{ $cheminImageDebut }}w370{{ $cheminImageFin }} 2x">
-                                        <source media="(min-width: 601px)"
-                                                srcset="{{ $cheminImageDebut }}w300{{ $cheminImageFin }} 1x, {{ $cheminImageDebut }}w600{{ $cheminImageFin }} 2x">
-                                        <img class="imgEv" src="{{ $cheminImageDebut }}w300{{ $cheminImageFin }}"
-                                             alt="{{ $lancement->getTitre() }}">
-                                    </picture>
-                                @else
-                                    <img class="imgEv" src="liaisons/images/placeholder.svg"
-                                         alt="livre {{ $lancement->getTitre() }}" width="245px" height="auto">
-                                @endif
+                            if (file_exists("liaisons/images/accueil/w300/{$nomSection}_{$lancement->getId()}.jpg")) {
+                                $cheminImageDebut = "liaisons/images/accueil/";
+                                $cheminImageFin = "/{$nomSection}_{$lancement->getId()}.jpg";
+                            }
+                        @endphp
+                        <span class="idAP" hidden></span>
+                        @if ($cheminImageDebut)
+                            <picture class="pictureEv">
+                                <source media="(max-width: 600px)"
+                                        srcset="{{ $cheminImageDebut }}w185{{ $cheminImageFin }} 1x, {{ $cheminImageDebut }}w370{{ $cheminImageFin }} 2x">
+                                <source media="(min-width: 601px)"
+                                        srcset="{{ $cheminImageDebut }}w300{{ $cheminImageFin }} 1x, {{ $cheminImageDebut }}w600{{ $cheminImageFin }} 2x">
+                                <img class="imgEv" src="{{ $cheminImageDebut }}w300{{ $cheminImageFin }}"
+                                     alt="{{ $lancement->getTitre() }}">
+                            </picture>
+                        @else
+                            <img class="imgEv" src="liaisons/images/placeholder.svg"
+                                 alt="livre {{ $lancement->getTitre() }}" width="245px" height="auto">
+                        @endif
                         <p class="texte">{{$lancement->getTexte()}}</p>
                     </div>
                     <a href="*" class="consulter">Consulter ></a>
@@ -209,7 +214,7 @@
                         @endphp
                         <span class="idAP" hidden></span>
                         @if ($cheminImageDebut)
-                            <picture class="ctnImg__picture">
+                            <picture class="pictureEv">
                                 <source media="(max-width: 600px)"
                                         srcset="{{ $cheminImageDebut }}w185{{ $cheminImageFin }} 1x, {{ $cheminImageDebut }}w370{{ $cheminImageFin }} 2x">
                                 <source media="(min-width: 601px)"
@@ -230,18 +235,4 @@
 
     </div>
 @endsection
-
-
-
-<!--
-* Border around books DONE
-* Images DONE
-* links for "see all" and books DONE
-* thumbnail books
-* css account DONE
-*
-
-
-
--->
 

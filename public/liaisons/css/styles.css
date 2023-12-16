@@ -66,6 +66,7 @@
     border: #1f6f78 2px solid;
     border-radius: 5px;
 }
+
 .ctnImg__img {
     position: relative;
     top: -0.5em;
@@ -78,6 +79,26 @@
     animation: ease-in;
     animation-duration: 1s;
     animation-direction: normal;
+}
+.ctnImg__picture {
+  position: relative;
+  top: -0.5em;
+  left: 0.5em;
+  display: block;
+  border-radius: 5px;
+}
+.ctnImg__picture:hover {
+  position: unset;
+  animation: ease-in;
+  animation-duration: 1s;
+  animation-direction: normal;
+
+}
+.ctnImg__picture:hover .vignetteNouv,
+.ctnImg__picture:hover .vignetteAP {
+  top: 0;
+  left: 0;
+  background-color: #C64532;
 }
 
 .livresSimilaires {
@@ -551,10 +572,7 @@ h4 {
  * 24th of November 2015
  * MIT License
  *
- *
- * If you are thinking of using this in
- * production code, beware of the browser
- * prefixes.
+ * Lien:
  */
 .noDisplayMenu {
     display: none;
@@ -595,6 +613,7 @@ h4 {
     z-index: 1;
     -webkit-user-select: none;
     user-select: none;
+
 }
 .navMobile #menuToggle a {
     transition: color 0.3s ease;
@@ -742,6 +761,30 @@ input:focus {
     border: solid #C64532 1px;
 }
 
+.vignetteNouv,
+.vignetteAP {
+  font-size: 0.8rem;
+  color: white;
+  padding: 3px;
+  text-align: center;
+  font-weight: bold;
+  opacity: 90%;
+  background-color: #681c0f;
+  width: 70px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 5px;
+}
+@media (min-width: 700px) {
+  .vignetteNouv,
+  .vignetteAP {
+    font-size: 1.2rem;
+    width: 125px;
+    padding: 10px;
+  }
+}
+
 .liste-livres__tri-option {
     list-style: none;
     display: inline;
@@ -823,6 +866,7 @@ input:focus {
     border: #1f6f78 2px solid;
     border-radius: 5px;
 }
+
 .ctnImg__img {
     position: relative;
     top: -0.5em;
@@ -835,6 +879,13 @@ input:focus {
     animation: ease-in;
     animation-duration: 1s;
     animation-direction: normal;
+
+}
+.ctnImg__picture:hover .vignetteNouv,
+.ctnImg__picture:hover .vignetteAP {
+  top: 0;
+  left: 0;
+  background-color: #C64532;
 }
 
 .livresSimilaires {
@@ -1203,6 +1254,21 @@ fieldset {
 .conteneur_filArianne span, .conteneur_filArianne a {
     font-size: 1.1rem;
     word-spacing: 1rem;
+}
+
+.liste .image-item {
+  height: auto;
+  width: 100px;
+}
+@media (min-width: 450px) {
+  .liste .image-item {
+    width: 150px;
+  }
+}
+@media (min-width: 800px) {
+  .liste .image-item {
+    width: 245px;
+  }
 }
 
 .onglets {
