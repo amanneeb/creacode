@@ -3,46 +3,4 @@
  * @author Giselle Hessen
  * @version 0.0.1
  */
-
-document.addEventListener("DOMContentLoaded", function () {
-    let boutonListe = document.getElementById("bouton-liste");
-    let boutonGrille = document.getElementById("bouton-grille");
-    let imageItems = document.querySelectorAll(".ctnImg__img");
-    let pictureItems = document.querySelectorAll(".ctnImg__picture");
-    let divItems = document.querySelectorAll(".ctnImg");
-    let listeItems = document.querySelector(".liste__items");
-
-    boutonGrille.addEventListener("click", function () {
-        boutonGrille.classList.add("actif");
-        boutonListe.classList.remove("actif");
-        listeItems.classList.add("liste__items");
-
-        imageItems.forEach(function (imageItem) {
-            imageItem.hidden = false;
-        });
-
-        pictureItems.forEach(function (pictureItem) {
-            pictureItem.hidden = false;
-        });
-        divItems.forEach(function (divItems) {
-            divItems.hidden = false;
-        });
-    });
-
-    boutonListe.addEventListener("click", function () {
-        boutonListe.classList.add("actif");
-        boutonGrille.classList.remove("actif");
-        listeItems.classList.remove("liste__items");
-
-        imageItems.forEach(function (imageItem) {
-            imageItem.hidden = true;
-        });
-
-        pictureItems.forEach(function (pictureItem) {
-            pictureItem.hidden = true;
-        });
-        divItems.forEach(function (divItems) {
-            divItems.hidden = true;
-        });
-    });
-});
+document.addEventListener("DOMContentLoaded",function(){let e=document.getElementById("bouton-liste"),t=document.getElementById("bouton-grille"),n=document.querySelectorAll(".ctnImg__img"),c=document.querySelectorAll(".ctnImg__picture"),i=document.querySelectorAll(".ctnImg"),d=document.querySelector(".liste__items");t.addEventListener("click",function(){t.classList.add("actif"),e.classList.remove("actif"),d.classList.add("liste__items"),n.forEach(function(e){e.hidden=!1}),c.forEach(function(e){e.hidden=!1}),i.forEach(function(e){e.hidden=!1})}),e.addEventListener("click",function(){e.classList.add("actif"),t.classList.remove("actif"),d.classList.remove("liste__items"),n.forEach(function(e){e.hidden=!0}),c.forEach(function(e){e.hidden=!0}),i.forEach(function(e){e.hidden=!0})})});
